@@ -6,15 +6,23 @@ export default function AuthCallbackPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Supabase 會自動處理 URL hash 中的 token
-    // 我們只需等待 session 就緒後跳轉
     const handleCallback = async () => {
       const { error } = await supabase.auth.getSession();
       if (error) {
         console.error('Auth callback error:', error);
       }
-      // 跳轉回首頁
-      navigate('/', { replace: true });
+
+      // 從 sessionStorage 讀取原始頁面路徑
+      let redirectTo = '/';
+      try {
+        const saved = sessionStorage.getItem('auth_redirect_to');
+        if (saved) {
+          redirectTo = saved;
+          sessionStorage.removeItem('auth_redirect_to');
+        }
+      } catch { /* sessionStorage 不可用時 fallback 到首頁 */ }
+
+      navigate(redirectTo, { replace: true });
     };
 
     handleCallback();

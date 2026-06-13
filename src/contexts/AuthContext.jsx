@@ -84,7 +84,12 @@ export function AuthProvider({ children }) {
   };
 
   // Google OAuth 登入
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async (returnTo = '/') => {
+    // 儲存觸發登入的來源頁面，供 callback 跳回
+    try {
+      sessionStorage.setItem('auth_redirect_to', returnTo);
+    } catch { /* sessionStorage 不可用時忽略 */ }
+
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
