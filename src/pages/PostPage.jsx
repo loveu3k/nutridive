@@ -6,51 +6,7 @@ import MarkdownRenderer from '../components/MarkdownRenderer';
 import ReferenceList from '../components/ReferenceList';
 import CommentSection from '../components/CommentSection';
 
-// 示範文章（Supabase 未連線時使用）
-const DEMO_POST = {
-  id: '1',
-  title: '維生素 D 完全指南：為什麼你可能正在缺乏？',
-  slug: 'vitamin-d-guide',
-  youtube_video_id: 'dQw4w9WgXcQ',
-  nutrients: ['維生素D', '鈣', '免疫力'],
-  content: `## 什麼是維生素 D？
-
-維生素 D 是一種脂溶性維生素，也被稱為「陽光維生素」，因為我們的身體可以在皮膚暴露於陽光（特別是 UVB 輻射）時自行合成。
-
-### 維生素 D 的主要功能
-
-- **骨骼健康**：幫助鈣和磷的吸收，維持骨骼密度
-- **免疫調節**：調節先天性和適應性免疫反應
-- **肌肉功能**：維持肌肉力量和協調性
-- **情緒調節**：與血清素的產生有關
-
-### 誰容易缺乏？
-
-1. 長時間待在室內的人
-2. 居住在高緯度地區的人
-3. 深膚色族群
-4. 老年人
-5. 肥胖者（BMI > 30）
-
-> **重要提醒**：補充維生素 D 前，建議先做血液檢測，了解自己的 25(OH)D 水平。
-
-### 建議攝取量
-
-| 年齡 | 每日建議量 (IU) |
-|------|----------------|
-| 0-12 個月 | 400 |
-| 1-70 歲 | 600 |
-| 70 歲以上 | 800 |
-
-*部分專家建議成人每日攝取 1000-2000 IU，特別是在冬季或日照不足的情況下。*
-`,
-  references: [
-    { title: 'Holick, M. F. (2007). Vitamin D deficiency. New England Journal of Medicine, 357(3), 266-281.', url: 'https://doi.org/10.1056/NEJMra070553' },
-    { title: 'Aranow, C. (2011). Vitamin D and the immune system. Journal of Investigative Medicine, 59(6), 881-886.', url: 'https://doi.org/10.2310/JIM.0b013e31821b8755' },
-    { title: 'Lips, P. (2006). Vitamin D physiology. Progress in Biophysics and Molecular Biology, 92(1), 4-8.', url: 'https://doi.org/10.1016/j.pbiomolbio.2006.02.016' },
-  ],
-  created_at: '2026-06-10T00:00:00Z',
-};
+import { DEMO_POSTS } from '../data/posts';
 
 export default function PostPage() {
   const { slug } = useParams();
@@ -67,13 +23,15 @@ export default function PostPage() {
           .single();
 
         if (error || !data) {
-          setPost(DEMO_POST);
+          const fallback = DEMO_POSTS.find(p => p.slug === slug) || DEMO_POSTS[0];
+          setPost(fallback);
         } else {
           setPost(data);
         }
       } catch {
         // Supabase 未連線，使用示範資料
-        setPost(DEMO_POST);
+        const fallback = DEMO_POSTS.find(p => p.slug === slug) || DEMO_POSTS[0];
+        setPost(fallback);
       }
       setLoading(false);
     };

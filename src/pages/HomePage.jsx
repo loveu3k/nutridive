@@ -2,57 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import PostCard from '../components/PostCard';
 
-// 示範資料（Supabase 未連線時使用）
-const DEMO_POSTS = [
-  {
-    id: '1',
-    title: '維生素 D 完全指南：為什麼你可能正在缺乏？',
-    slug: 'vitamin-d-guide',
-    youtube_video_id: 'dQw4w9WgXcQ',
-    nutrients: ['維生素D', '鈣', '免疫力'],
-    created_at: '2026-06-10T00:00:00Z',
-  },
-  {
-    id: '2',
-    title: 'Omega-3 脂肪酸：魚油真的有效嗎？最新研究解析',
-    slug: 'omega-3-fish-oil',
-    youtube_video_id: 'dQw4w9WgXcQ',
-    nutrients: ['Omega-3', 'DHA', 'EPA'],
-    created_at: '2026-06-08T00:00:00Z',
-  },
-  {
-    id: '3',
-    title: '腸道菌群與健康：益生菌的科學真相',
-    slug: 'gut-microbiome',
-    youtube_video_id: 'dQw4w9WgXcQ',
-    nutrients: ['益生菌', '腸道健康', '免疫力'],
-    created_at: '2026-06-06T00:00:00Z',
-  },
-  {
-    id: '4',
-    title: '間歇性斷食：科學支持的減重方法還是流行迷思？',
-    slug: 'intermittent-fasting',
-    youtube_video_id: 'dQw4w9WgXcQ',
-    nutrients: ['代謝', '體重管理', '胰島素'],
-    created_at: '2026-06-04T00:00:00Z',
-  },
-  {
-    id: '5',
-    title: '蛋白質攝取全攻略：你每天需要多少蛋白質？',
-    slug: 'protein-intake-guide',
-    youtube_video_id: 'dQw4w9WgXcQ',
-    nutrients: ['蛋白質', '肌肉', '運動營養'],
-    created_at: '2026-06-02T00:00:00Z',
-  },
-  {
-    id: '6',
-    title: '鎂元素：被忽略的重要礦物質',
-    slug: 'magnesium-guide',
-    youtube_video_id: 'dQw4w9WgXcQ',
-    nutrients: ['鎂', '睡眠', '神經系統'],
-    created_at: '2026-05-31T00:00:00Z',
-  },
-];
+import { DEMO_POSTS } from '../data/posts';
 
 export default function HomePage() {
   const [posts, setPosts] = useState([]);
