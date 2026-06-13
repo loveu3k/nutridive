@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from '../components/AuthModal';
 import { DRI_STANDARDS, NUTRIENT_COLORS } from '../data/driDatabase';
+import { isConfigured } from '../lib/supabase';
 import {
   lookupDRI,
   getIntakeStatus,
@@ -36,6 +37,7 @@ function loadDraft() {
 
 export default function NutritionToolPage() {
   const { user } = useAuth();
+  const showLock = isConfigured && !user;
   const cardRef = useRef(null);
 
   // ── 從 sessionStorage 恢復或使用預設值 ────────────
@@ -110,7 +112,7 @@ export default function NutritionToolPage() {
 
   // ── 下載圖片 ─────────────────────────────────────
   const handleDownloadImage = async (skipAuthCheck = false) => {
-    if (!skipAuthCheck && !user) {
+    if (isConfigured && !skipAuthCheck && !user) {
       triggerAuth('download_image');
       return;
     }
@@ -134,7 +136,7 @@ export default function NutritionToolPage() {
 
   // ── 下載 PDF ──────────────────────────────────────
   const handleDownloadPDF = async (skipAuthCheck = false) => {
-    if (!skipAuthCheck && !user) {
+    if (isConfigured && !skipAuthCheck && !user) {
       triggerAuth('download_pdf');
       return;
     }
@@ -545,7 +547,7 @@ export default function NutritionToolPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 下載圖片
-                {!user && <span className="text-xs opacity-70">🔒</span>}
+                {showLock && <span className="text-xs opacity-70">🔒</span>}
               </button>
               <button
                 onClick={() => handleDownloadPDF()}
@@ -556,12 +558,17 @@ export default function NutritionToolPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 下載 PDF
-                {!user && <span className="text-xs opacity-70">🔒</span>}
+                {showLock && <span className="text-xs opacity-70">🔒</span>}
               </button>
             </div>
-            {!user && (
+            {showLock && (
               <p className="text-center text-xs text-surface-400 mt-2">
                 🔒 下載功能需要登入
+              </p>
+            )}
+            {!isConfigured && (
+              <p className="text-center text-xs text-emerald-600 mt-2 font-medium">
+                💡 目前為資料庫離線測試模式，已為您自動解鎖下載功能！
               </p>
             )}
           </div>

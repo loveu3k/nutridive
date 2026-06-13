@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
+import { supabase, isConfigured } from '../lib/supabase';
 import YouTubeEmbed from '../components/YouTubeEmbed';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import ReferenceList from '../components/ReferenceList';
@@ -15,6 +15,12 @@ export default function PostPage() {
 
   useEffect(() => {
     const fetchPost = async () => {
+      if (!isConfigured) {
+        const fallback = DEMO_POSTS.find(p => p.slug === slug) || null;
+        setPost(fallback);
+        setLoading(false);
+        return;
+      }
       try {
         const { data, error } = await supabase
           .from('posts')

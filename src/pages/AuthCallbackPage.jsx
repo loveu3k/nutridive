@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
+import { supabase, isConfigured } from '../lib/supabase';
 
 export default function AuthCallbackPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleCallback = async () => {
+      if (!isConfigured) {
+        navigate('/', { replace: true });
+        return;
+      }
       const { error } = await supabase.auth.getSession();
       if (error) {
         console.error('Auth callback error:', error);

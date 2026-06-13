@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, isConfigured } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from './AuthModal';
 
@@ -16,6 +16,11 @@ export default function CommentSection({ postId }) {
   }, [postId]);
 
   const fetchComments = async () => {
+    if (!isConfigured) {
+      setComments([]);
+      setLoading(false);
+      return;
+    }
     try {
       const { data, error } = await supabase
         .from('comments')

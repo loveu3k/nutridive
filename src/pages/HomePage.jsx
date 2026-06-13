@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, isConfigured } from '../lib/supabase';
 import PostCard from '../components/PostCard';
 
 import { DEMO_POSTS } from '../data/posts';
@@ -10,6 +10,11 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      if (!isConfigured) {
+        setPosts(DEMO_POSTS);
+        setLoading(false);
+        return;
+      }
       try {
         const { data, error } = await supabase
           .from('posts')

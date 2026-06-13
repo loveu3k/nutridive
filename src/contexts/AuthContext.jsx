@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, isConfigured } from '../lib/supabase';
 
 const AuthContext = createContext(null);
 
@@ -30,6 +30,12 @@ export function AuthProvider({ children }) {
 
   // 監聽認證狀態變化
   useEffect(() => {
+    if (!isConfigured) {
+      setUser(null);
+      setProfile(null);
+      setLoading(false);
+      return;
+    }
     // 取得初始 session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
@@ -60,6 +66,9 @@ export function AuthProvider({ children }) {
 
   // Email 登入
   const signInWithEmail = async (email, password) => {
+    if (!isConfigured) {
+      throw new Error('請先在 .env 檔案中設定 Supabase 環境變數以啟用登入功能。');
+    }
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -70,6 +79,9 @@ export function AuthProvider({ children }) {
 
   // Email 註冊
   const signUpWithEmail = async (email, password, displayName) => {
+    if (!isConfigured) {
+      throw new Error('請先在 .env 檔案中設定 Supabase 環境變數以啟用註冊功能。');
+    }
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -85,6 +97,9 @@ export function AuthProvider({ children }) {
 
   // Google OAuth 登入
   const signInWithGoogle = async (returnTo = '/') => {
+    if (!isConfigured) {
+      throw new Error('請先在 .env 檔案中設定 Supabase 環境變數以啟用 Google 登入功能。');
+    }
     // 儲存觸發登入的來源頁面，供 callback 跳回
     try {
       sessionStorage.setItem('auth_redirect_to', returnTo);
@@ -102,6 +117,11 @@ export function AuthProvider({ children }) {
 
   // 登出
   const signOut = async () => {
+    if (!isConfigured) {
+      setUser(null);
+      setProfile(null);
+      return;
+    }
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
     setUser(null);
