@@ -13,7 +13,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-surface-500 leading-relaxed">
               用科學探索營養的深度。<br />
-              每 2 天更新一次，帶你深入了解健康營養學。
+              以最新科學文獻為基礎，帶你深入了解健康營養學。
             </p>
           </div>
 

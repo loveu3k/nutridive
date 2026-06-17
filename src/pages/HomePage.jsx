@@ -40,10 +40,6 @@ export default function HomePage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
       <section className="text-center mb-12 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
-          <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
-          每 2 天更新
-        </div>
         <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-surface-900 mb-4">
           用
           <span className="bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
