@@ -7,6 +7,7 @@ import { DEMO_POSTS } from '../data/posts';
 export default function HomePage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('全部');
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -36,10 +37,30 @@ export default function HomePage() {
     fetchPosts();
   }, []);
 
+  // Extract nutrients sorted by frequency
+  const nutrientCounts = {};
+  posts.forEach(post => {
+    if (post.nutrients && Array.isArray(post.nutrients)) {
+      post.nutrients.forEach(n => {
+        if (n) {
+          nutrientCounts[n] = (nutrientCounts[n] || 0) + 1;
+        }
+      });
+    }
+  });
+
+  const sortedNutrients = Object.entries(nutrientCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(entry => entry[0]);
+
+  const filteredPosts = selectedCategory === '全部'
+    ? posts
+    : posts.filter(post => post.nutrients && Array.isArray(post.nutrients) && post.nutrients.includes(selectedCategory));
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
-      <section className="text-center mb-12 animate-fade-in">
+      <section className="text-center mb-10 animate-fade-in">
         <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-surface-900 mb-4">
           用
           <span className="bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
@@ -52,6 +73,35 @@ export default function HomePage() {
           讓健康決策不再靠感覺。
         </p>
       </section>
+
+      {/* Category Tabs */}
+      {!loading && posts.length > 0 && (
+        <div className="flex flex-wrap justify-center gap-2 mb-8 animate-fade-in">
+          <button
+            onClick={() => setSelectedCategory('全部')}
+            className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+              selectedCategory === '全部'
+                ? 'bg-primary-500 text-white shadow-md'
+                : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
+            }`}
+          >
+            全部
+          </button>
+          {sortedNutrients.map((nutrient) => (
+            <button
+              key={nutrient}
+              onClick={() => setSelectedCategory(nutrient)}
+              className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+                selectedCategory === nutrient
+                  ? 'bg-primary-500 text-white shadow-md'
+                  : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
+              }`}
+            >
+              {nutrient}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Posts Grid */}
       {loading ? (
@@ -72,7 +122,7 @@ export default function HomePage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post, index) => (
+          {filteredPosts.map((post, index) => (
             <div key={post.id} className="animate-slide-up" style={{ animationDelay: `${index * 80}ms` }}>
               <PostCard post={post} index={index} />
             </div>
@@ -83,6 +133,12 @@ export default function HomePage() {
       {!loading && posts.length === 0 && (
         <div className="text-center py-20">
           <p className="text-surface-400 text-lg">目前還沒有文章，敬請期待！</p>
+        </div>
+      )}
+
+      {!loading && posts.length > 0 && filteredPosts.length === 0 && (
+        <div className="text-center py-20">
+          <p className="text-surface-400 text-lg">沒有找到含有該營養素的文章，敬請期待！</p>
         </div>
       )}
     </div>

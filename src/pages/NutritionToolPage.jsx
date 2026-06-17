@@ -47,7 +47,7 @@ const MOCK_RESOURCES = [
     is_interactive: true,
     interactive_id: 'daily-nutrition-card',
     requires_auth: false,
-    download_count: 128
+    download_count: 0
   },
   {
     id: 'a2b3c4d5-e6f7-8a9b-0c1d-2e3f4a5b6c7d',
@@ -59,7 +59,7 @@ const MOCK_RESOURCES = [
     is_interactive: true,
     interactive_id: 'neat-calculator',
     requires_auth: false,
-    download_count: 142
+    download_count: 0
   },
   {
     id: 'a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d',
@@ -71,7 +71,7 @@ const MOCK_RESOURCES = [
     is_interactive: true,
     interactive_id: 'plate-builder',
     requires_auth: false,
-    download_count: 198
+    download_count: 0
   },
   {
     id: 'b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e',
@@ -83,7 +83,7 @@ const MOCK_RESOURCES = [
     is_interactive: false,
     interactive_id: null,
     requires_auth: false,
-    download_count: 85
+    download_count: 0
   },
   {
     id: 'c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f',
@@ -95,7 +95,7 @@ const MOCK_RESOURCES = [
     is_interactive: false,
     interactive_id: null,
     requires_auth: true,
-    download_count: 42
+    download_count: 0
   },
   {
     id: 'd4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a',
@@ -107,7 +107,7 @@ const MOCK_RESOURCES = [
     is_interactive: false,
     interactive_id: null,
     requires_auth: false,
-    download_count: 156
+    download_count: 0
   },
   {
     id: 'e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b',
@@ -119,7 +119,7 @@ const MOCK_RESOURCES = [
     is_interactive: false,
     interactive_id: null,
     requires_auth: true,
-    download_count: 61
+    download_count: 0
   }
 ];
 
@@ -375,6 +375,24 @@ export default function NutritionToolPage() {
     } finally {
       setDownloadingResourceIds(prev => ({ ...prev, [resource.id]: false }));
     }
+  };
+
+  // ── 開始使用計算工具 ──────────────────────────────
+  const handleStartTool = async (resource) => {
+    setActiveToolId(resource.interactive_id);
+
+    if (isConfigured) {
+      try {
+        await supabase.rpc('increment_download_count', { resource_id: resource.id });
+      } catch (dbErr) {
+        console.warn('DB Increment download count fail:', dbErr);
+      }
+    }
+
+    // 更新本機計數狀態，讓 UI 立刻反應下載次數變化
+    setResources(prev =>
+      prev.map(r => r.id === resource.id ? { ...r, download_count: r.download_count + 1 } : r)
+    );
   };
 
   // ── 英文檔名轉換（避免 jsPDF CJK 編碼錯誤）─────────
@@ -988,33 +1006,34 @@ export default function NutritionToolPage() {
           </button>
 
           {/* 標題區 */}
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-sm font-medium mb-4 border border-blue-100">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-medium mb-3 border border-blue-100">
               <span>⚡</span>
               日常微活動熱能評估
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-surface-900 mb-3">
+            <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-surface-900 mb-2">
               隱形代謝潛能計算器 (NEAT)
             </h1>
-            <p className="text-surface-500 max-w-2xl mx-auto leading-relaxed">
-              科學研究指出，除了健身房運動，日常的微小動作（NEAT）才是燃脂的決定性關鍵。
-              填寫下方基本資料，量化你被隱藏的每日燃脂潛能！
+            <p className="text-xs text-surface-500 max-w-xl mx-auto leading-relaxed">
+              日常的微小動作（NEAT）才是燃脂的決定性關鍵。
+              填寫下方資料，量化你被隱藏的每日燃脂潛能！
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* 左側數據輸入 */}
-            <div className="lg:col-span-7 space-y-6">
+          {/* 緊湊佈局容器 */}
+          <div className="max-w-2xl mx-auto space-y-4">
+            {/* 身體基礎數據 + 微活動時間分配 */}
+            <div className="space-y-4">
               {/* 基本身體資料 */}
-              <div className="rounded-2xl border border-surface-200 bg-white p-6 space-y-4 shadow-sm">
-                <h3 className="flex items-center gap-2 text-sm font-bold text-surface-800">
-                  <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-xs">👤</span>
+              <div className="rounded-2xl border border-surface-200 bg-white p-4 space-y-3 shadow-sm">
+                <h3 className="flex items-center gap-2 text-xs font-bold text-surface-800 border-b border-surface-100 pb-2">
+                  <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-[10px]">👤</span>
                   1. 身體基礎數據
                 </h3>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-surface-500 mb-1.5">體重 (Weight)</label>
+                    <label className="block text-[10px] font-medium text-surface-500 mb-1">體重</label>
                     <div className="relative">
                       <input
                         type="number"
@@ -1022,13 +1041,13 @@ export default function NutritionToolPage() {
                         max="200"
                         value={weight}
                         onChange={(e) => setWeight(Math.max(30, Math.min(200, parseInt(e.target.value) || 60)))}
-                        className="w-full px-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm pr-10"
+                        className="w-full px-2 py-1.5 rounded-lg border border-surface-200 focus:border-primary-400 outline-none text-xs pr-6"
                       />
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-surface-400">kg</span>
+                      <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-surface-400">kg</span>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-surface-500 mb-1.5">身高 (Height)</label>
+                    <label className="block text-[10px] font-medium text-surface-500 mb-1">身高</label>
                     <div className="relative">
                       <input
                         type="number"
@@ -1036,16 +1055,13 @@ export default function NutritionToolPage() {
                         max="250"
                         value={height}
                         onChange={(e) => setHeight(Math.max(100, Math.min(250, parseInt(e.target.value) || 165)))}
-                        className="w-full px-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm pr-10"
+                        className="w-full px-2 py-1.5 rounded-lg border border-surface-200 focus:border-primary-400 outline-none text-xs pr-7"
                       />
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-surface-400">cm</span>
+                      <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-surface-400">cm</span>
                     </div>
                   </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-surface-500 mb-1.5">年齡 (Age)</label>
+                    <label className="block text-[10px] font-medium text-surface-500 mb-1">年齡</label>
                     <div className="relative">
                       <input
                         type="number"
@@ -1053,33 +1069,33 @@ export default function NutritionToolPage() {
                         max="120"
                         value={age}
                         onChange={(e) => setAge(Math.max(1, Math.min(120, parseInt(e.target.value) || 30)))}
-                        className="w-full px-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm pr-10"
+                        className="w-full px-2 py-1.5 rounded-lg border border-surface-200 focus:border-primary-400 outline-none text-xs pr-6"
                       />
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-surface-400">歲</span>
+                      <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-surface-400">歲</span>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-surface-500 mb-1.5">性別 (Gender)</label>
-                    <div className="flex gap-2">
+                    <label className="block text-[10px] font-medium text-surface-500 mb-1">性別</label>
+                    <div className="flex gap-1">
                       <button
                         onClick={() => setGender('male')}
-                        className={`flex-1 px-3 py-2.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${
+                        className={`flex-1 py-1.5 rounded-lg text-xs font-semibold cursor-pointer ${
                           gender === 'male'
-                            ? 'bg-blue-50 text-blue-700 ring-2 ring-blue-300 font-semibold'
-                            : 'bg-surface-50 text-surface-600 hover:bg-surface-100'
+                            ? 'bg-blue-500 text-white shadow-sm'
+                            : 'bg-surface-50 text-surface-600 border border-surface-200'
                         }`}
                       >
-                        ♂ 男
+                        男
                       </button>
                       <button
                         onClick={() => setGender('female')}
-                        className={`flex-1 px-3 py-2.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${
+                        className={`flex-1 py-1.5 rounded-lg text-xs font-semibold cursor-pointer ${
                           gender === 'female'
-                            ? 'bg-pink-50 text-pink-700 ring-2 ring-pink-300 font-semibold'
-                            : 'bg-surface-50 text-surface-600 hover:bg-surface-100'
+                            ? 'bg-pink-500 text-white shadow-sm'
+                            : 'bg-surface-50 text-surface-600 border border-surface-200'
                         }`}
                       >
-                        ♀ 女
+                        女
                       </button>
                     </div>
                   </div>
@@ -1087,169 +1103,167 @@ export default function NutritionToolPage() {
               </div>
 
               {/* 微活動時間滑動條 */}
-              <div className="rounded-2xl border border-surface-200 bg-white p-6 space-y-6 shadow-sm">
-                <h3 className="flex items-center gap-2 text-sm font-bold text-surface-800">
-                  <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center text-white text-xs">⏳</span>
+              <div className="rounded-2xl border border-surface-200 bg-white p-4 space-y-4 shadow-sm">
+                <h3 className="flex items-center gap-2 text-xs font-bold text-surface-800 border-b border-surface-100 pb-2">
+                  <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center text-white text-[10px]">⏳</span>
                   2. 日常微活動時間分配
                 </h3>
 
-                {/* 滑桿 1 */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-surface-700 flex items-center gap-1.5">
-                      🖥️ 靜坐輕微活動 <span className="text-[10px] text-surface-400">(整理案頭、工作伸展)</span>
-                    </span>
-                    <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">{neatFidget} 小時 / 天</span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* 滑桿 1 */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between items-center text-[10px]">
+                      <span className="font-semibold text-surface-700">🖥️ 靜坐輕微活動</span>
+                      <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">{neatFidget}h</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="12"
+                      step="0.5"
+                      value={neatFidget}
+                      onChange={(e) => setNeatFidget(parseFloat(e.target.value))}
+                      className="w-full h-1.5 bg-surface-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                    />
                   </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="12"
-                    step="0.5"
-                    value={neatFidget}
-                    onChange={(e) => setNeatFidget(parseFloat(e.target.value))}
-                    className="w-full h-2 bg-surface-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                  />
-                </div>
 
-                {/* 滑桿 2 */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-surface-700 flex items-center gap-1.5">
-                      🚶‍♂️ 輕鬆散步 <span className="text-[10px] text-surface-400">(時速3.2km、通勤買飯)</span>
-                    </span>
-                    <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">{neatWalk} 小時 / 天</span>
+                  {/* 滑桿 2 */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between items-center text-[10px]">
+                      <span className="font-semibold text-surface-700">🚶‍♂️ 輕鬆散步</span>
+                      <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">{neatWalk}h</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="6"
+                      step="0.5"
+                      value={neatWalk}
+                      onChange={(e) => setNeatWalk(parseFloat(e.target.value))}
+                      className="w-full h-1.5 bg-surface-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                    />
                   </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="6"
-                    step="0.5"
-                    value={neatWalk}
-                    onChange={(e) => setNeatWalk(parseFloat(e.target.value))}
-                    className="w-full h-2 bg-surface-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                  />
-                </div>
 
-                {/* 滑桿 3 */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-surface-700 flex items-center gap-1.5">
-                      🧹 做家務 <span className="text-[10px] text-surface-400">(吸塵、整理房間、拖地)</span>
-                    </span>
-                    <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">{neatChores} 小時 / 天</span>
+                  {/* 滑桿 3 */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between items-center text-[10px]">
+                      <span className="font-semibold text-surface-700">🧹 做家務</span>
+                      <span className="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">{neatChores}h</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="6"
+                      step="0.5"
+                      value={neatChores}
+                      onChange={(e) => setNeatChores(parseFloat(e.target.value))}
+                      className="w-full h-1.5 bg-surface-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                    />
                   </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="6"
-                    step="0.5"
-                    value={neatChores}
-                    onChange={(e) => setNeatChores(parseFloat(e.target.value))}
-                    className="w-full h-2 bg-surface-100 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                  />
                 </div>
 
                 {/* 時間警告與提醒 */}
                 {neatCalculation.totalHours > 16 && (
-                  <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center gap-2 animate-fade-in">
+                  <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-[10px] flex items-center gap-1.5 animate-fade-in">
                     <span>⚠️</span>
-                    <span>您的日常微活動累計已達 <strong>{neatCalculation.totalHours} 小時</strong>，建議確認是否符合扣除睡眠之外的清醒時間喔！</span>
+                    <span>活動總計達 <strong>{neatCalculation.totalHours}h</strong>，已超出一般清醒時間。</span>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* 右側結果看板 */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="sticky top-24 rounded-2xl bg-gradient-to-br from-indigo-900 via-indigo-950 to-slate-900 text-white p-6 shadow-xl border border-white/10">
-                <h3 className="text-white/70 text-xs font-bold uppercase tracking-wider mb-5">📋 代謝潛能分析結果</h3>
-                
-                {/* 核心數據 */}
-                <div className="space-y-6 mb-6">
-                  <div>
-                    <p className="text-white/60 text-[10px] mb-1">每日基礎靜息能量消耗 (REE / BMR)</p>
-                    <p className="text-2xl font-black text-white">{neatCalculation.ree} <span className="text-xs font-normal opacity-85">kcal / 天</span></p>
-                  </div>
-
-                  <div className="pt-4 border-t border-white/10">
-                    <p className="text-emerald-400 text-[10px] font-bold mb-1">💡 微活動額外額外燃燒 (NEAT)</p>
-                    <p className="text-3xl font-black text-emerald-400">+{neatCalculation.totalNeat} <span className="text-xs font-normal opacity-85 text-white">kcal / 天</span></p>
-                  </div>
+            {/* 下方結果看板 */}
+            <div className="rounded-2xl bg-gradient-to-br from-indigo-900 via-indigo-950 to-slate-900 text-white p-5 shadow-lg border border-white/10">
+              <h3 className="text-white/70 text-[10px] font-bold uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                <span>📋</span> 代謝潛能分析結果
+              </h3>
+              
+              {/* 核心數據 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
+                  <p className="text-white/60 text-[10px] mb-1">每日基礎靜息能量消耗 (REE / BMR)</p>
+                  <p className="text-xl font-black text-white">{neatCalculation.ree} <span className="text-xs font-normal opacity-85">kcal / 天</span></p>
                 </div>
 
-                {/* 微習慣消耗柱狀圖 */}
-                <div className="space-y-3 bg-black/20 p-4 rounded-xl mb-6">
-                  <p className="text-white/50 text-[10px] font-semibold">微習慣消耗分佈：</p>
-                  
+                <div className="bg-white/5 p-3 rounded-xl border border-emerald-500/10">
+                  <p className="text-emerald-400 text-[10px] font-bold mb-1">💡 微活動額外燃燒 (NEAT)</p>
+                  <p className="text-xl font-black text-emerald-400">+{neatCalculation.totalNeat} <span className="text-xs font-normal opacity-85 text-white">kcal / 天</span></p>
+                </div>
+              </div>
+
+              {/* 微習慣消耗分佈 */}
+              <div className="bg-white/5 p-3 rounded-xl mb-4 space-y-2.5 border border-white/5">
+                <p className="text-white/50 text-[10px] font-semibold">微習慣消耗分佈：</p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* Fidget */}
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] text-white/75">
-                      <span>🖥️ 靜坐輕微活動 ({neatFidget}h)</span>
+                    <div className="flex justify-between text-[9px] text-white/75">
+                      <span>🖥️ 靜坐 ({neatFidget}h)</span>
                       <span>{neatCalculation.calFidget} kcal</span>
                     </div>
-                    <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                    <div className="h-1 rounded-full bg-white/10 overflow-hidden">
                       <div className="h-full bg-indigo-400" style={{ width: `${Math.min((neatCalculation.calFidget / (neatCalculation.totalNeat || 1)) * 100, 100)}%` }} />
                     </div>
                   </div>
 
                   {/* Walk */}
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] text-white/75">
-                      <span>🚶‍♂️ 輕鬆散步 ({neatWalk}h)</span>
+                    <div className="flex justify-between text-[9px] text-white/75">
+                      <span>🚶‍♂️ 散步 ({neatWalk}h)</span>
                       <span>{neatCalculation.calWalk} kcal</span>
                     </div>
-                    <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                    <div className="h-1 rounded-full bg-white/10 overflow-hidden">
                       <div className="h-full bg-emerald-400" style={{ width: `${Math.min((neatCalculation.calWalk / (neatCalculation.totalNeat || 1)) * 100, 100)}%` }} />
                     </div>
                   </div>
 
                   {/* Chores */}
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] text-white/75">
-                      <span>🧹 做家務 ({neatChores}h)</span>
+                    <div className="flex justify-between text-[9px] text-white/75">
+                      <span>🧹 家務 ({neatChores}h)</span>
                       <span>{neatCalculation.calChores} kcal</span>
                     </div>
-                    <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                    <div className="h-1 rounded-full bg-white/10 overflow-hidden">
                       <div className="h-full bg-amber-400" style={{ width: `${Math.min((neatCalculation.calChores / (neatCalculation.totalNeat || 1)) * 100, 100)}%` }} />
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* 動態激勵文案 */}
-                <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 p-4 rounded-xl text-xs leading-relaxed text-emerald-300">
-                  🏃‍♂️ <strong>習慣燃脂大師！</strong>
-                  <p className="mt-1">
-                    您今天的日常微習慣額外消耗了 <strong className="text-white text-sm">{neatCalculation.totalNeat}</strong> 大卡！這相當於您在跑步機上慢跑了 <strong className="text-white text-sm">{neatCalculation.runMinutes}</strong> 分鐘！
-                  </p>
-                  <p className="mt-2 text-[10px] text-emerald-400/80">
-                    💡 這意味著您不需要刻意安排出汗運動，僅僅是增加平時的走動與站立，就能累積驚人的減脂潛能。
-                  </p>
-                </div>
+              {/* 動態激勵文案 */}
+              <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 p-3.5 rounded-xl text-[11px] leading-relaxed text-emerald-300">
+                🏃‍♂️ <strong>習慣燃脂大師！</strong>
+                <p className="mt-1">
+                  您今天的日常微習慣額外消耗了 <strong className="text-white text-xs">{neatCalculation.totalNeat}</strong> 大卡！這相當於您在跑步機上慢跑了 <strong className="text-white text-xs">{neatCalculation.runMinutes}</strong> 分鐘！
+                </p>
+                <p className="mt-1.5 text-[10px] text-emerald-400/80">
+                  💡 這意味著您不需要刻意安排出汗運動，僅僅是增加平時的走動與站立，就能累積驚人的減脂潛能。
+                </p>
               </div>
             </div>
           </div>
 
           {/* 🔬 科學文獻來源 (Collapsible) */}
-          <div className="mt-12 border-t border-surface-200 pt-6">
+          <div className="mt-8 border-t border-surface-200 pt-4 max-w-2xl mx-auto">
             <button
               onClick={() => setShowNeatSources(!showNeatSources)}
-              className="flex items-center gap-2 text-xs font-semibold text-surface-500 hover:text-primary-600 transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-[10px] font-semibold text-surface-500 hover:text-primary-600 transition-colors cursor-pointer"
             >
               <span>🔬</span>
               <span>檢視科學文獻來源 (Mifflin-St. Jeor & METs)</span>
-              <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${showNeatSources ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className={`w-3 h-3 transition-transform duration-200 ${showNeatSources ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
             {showNeatSources && (
-              <div className="mt-4 p-4 rounded-xl bg-surface-50 border border-surface-200 text-xs text-surface-500 space-y-2.5 animate-scale-in">
+              <div className="mt-3 p-3.5 rounded-xl bg-surface-50 border border-surface-200 text-[10px] text-surface-500 space-y-2 animate-scale-in">
                 <p>
                   [1] <strong>Mifflin-St. Jeor 公式來源</strong>：Mifflin MD, St Jeor ST, Hill LA, Lewis LA, Reading SA, Shearer MH. (1990). <em>A new predictive equation for resting energy expenditure in healthy individuals</em>. <strong>American Journal of Clinical Nutrition</strong>, 51(2): 241-247.
                 </p>
                 <p>
-                  [2] <strong>靜息能量消耗 (REE) 代謝基準</strong>：本工具使用 Mifflin-St. Jeor 公式，經美國臨床營養指南證實，在推算現代人、超重及久坐族的基礎能量消耗 (BMR) 上具有高度可信度。
+                  [2] <strong>靜息能量消耗 (REE) 代謝基準</strong>：本工具使用 Mifflin-St. Jeor 公式，經美國臨床營養指南證實，在推算 BMR 上具有高度可信度。
                 </p>
                 <p>
                   [3] <strong>代謝當量 (METs) 計算準則</strong>：計算公式為：<em>消耗卡路里 = METs × 體重(kg) × 經歷時間(小時)</em>。本工具在計算日常活動的「額外消耗」時，已扣除安靜躺著時的 1.0 MET 基準能耗。
@@ -1276,253 +1290,251 @@ export default function NutritionToolPage() {
           </button>
 
           {/* 標題區 */}
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-medium mb-4 border border-emerald-100">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-medium mb-3 border border-emerald-100">
               <span>🥗</span>
               DII 膳食發炎指數評估
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-surface-900 mb-3">
+            <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-surface-900 mb-2">
               久坐族抗發炎高飽足餐盤生成器
             </h1>
-            <p className="text-surface-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xs text-surface-500 max-w-xl mx-auto leading-relaxed">
               久坐不動容易引發慢性發炎，導致肥胖與疲勞。
-              點擊食材來擺滿您的餐盤，系統將評估您這餐的抗發炎分數與膳食纖維飽足指數！
+              選擇食材擺滿餐盤，評估餐食的抗發炎分數與膳食纖維飽足度！
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* 左側：食材抽屜 */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className="rounded-2xl border border-surface-200 bg-white p-6 shadow-sm">
-                <h3 className="text-sm font-bold text-surface-800 mb-4 flex items-center gap-2">
-                  <span>🛒</span> 食材挑選抽屜
-                </h3>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {/* 食材挑選抽屜 (橫向滾動標籤式設計) */}
+            <div className="rounded-2xl border border-surface-200 bg-white p-4 shadow-sm">
+              <h3 className="text-xs font-bold text-surface-800 mb-3 flex items-center gap-2">
+                <span>🛒</span> 食材挑選區 <span className="text-[10px] text-surface-400 font-normal">(左右滑動選擇)</span>
+              </h3>
 
-                <div className="space-y-5">
-                  {/* 分類：蔬菜水果 */}
-                  <div>
-                    <h4 className="text-xs font-bold text-surface-500 mb-2 border-l-2 border-emerald-500 pl-2">🥦 蔬菜與水果</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {INGREDIENTS.filter(i => i.category === 'veg').map(item => {
-                        const isSelected = selectedIngredients.includes(item.id);
-                        return (
-                          <button
-                            key={item.id}
-                            onClick={() => toggleIngredient(item.id)}
-                            className={`px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all cursor-pointer ${
-                              isSelected
-                                ? 'bg-emerald-50 border-emerald-300 text-emerald-800 ring-2 ring-emerald-100'
-                                : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
-                            }`}
-                          >
-                            <span>{item.emoji}</span>
-                            <span>{item.name}</span>
-                            <span className={`text-[10px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
+              <div className="space-y-3">
+                {/* 分類：蔬菜水果 */}
+                <div>
+                  <h4 className="text-[10px] font-bold text-surface-500 mb-1 border-l-2 border-emerald-500 pl-1.5">🥦 蔬菜與水果</h4>
+                  <div className="flex overflow-x-auto gap-2 pb-1 -mx-2 px-2 scrollbar-none">
+                    {INGREDIENTS.filter(i => i.category === 'veg').map(item => {
+                      const isSelected = selectedIngredients.includes(item.id);
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => toggleIngredient(item.id)}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 shrink-0 border transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-emerald-50 border-emerald-300 text-emerald-800 ring-2 ring-emerald-100'
+                              : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
+                          }`}
+                        >
+                          <span>{item.emoji}</span>
+                          <span>{item.name}</span>
+                          <span className={`text-[9px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
+                            {item.inflammatory === -1 ? '抗炎' : '促炎'}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 分類：蛋白質 */}
+                <div>
+                  <h4 className="text-[10px] font-bold text-surface-500 mb-1 border-l-2 border-orange-500 pl-1.5">🐟 優質蛋白質</h4>
+                  <div className="flex overflow-x-auto gap-2 pb-1 -mx-2 px-2 scrollbar-none">
+                    {INGREDIENTS.filter(i => i.category === 'protein').map(item => {
+                      const isSelected = selectedIngredients.includes(item.id);
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => toggleIngredient(item.id)}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 shrink-0 border transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-orange-50 border-orange-300 text-orange-800 ring-2 ring-orange-100'
+                              : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
+                          }`}
+                        >
+                          <span>{item.emoji}</span>
+                          <span>{item.name}</span>
+                          {item.inflammatory !== 0 && (
+                            <span className={`text-[9px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
                               {item.inflammatory === -1 ? '抗炎' : '促炎'}
                             </span>
-                          </button>
-                        );
-                      })}
-                    </div>
+                          )}
+                        </button>
+                      );
+                    })}
                   </div>
+                </div>
 
-                  {/* 分類：蛋白質 */}
-                  <div>
-                    <h4 className="text-xs font-bold text-surface-500 mb-2 border-l-2 border-orange-500 pl-2">🐟 優質蛋白質</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {INGREDIENTS.filter(i => i.category === 'protein').map(item => {
-                        const isSelected = selectedIngredients.includes(item.id);
-                        return (
-                          <button
-                            key={item.id}
-                            onClick={() => toggleIngredient(item.id)}
-                            className={`px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all cursor-pointer ${
-                              isSelected
-                                ? 'bg-orange-50 border-orange-300 text-orange-800 ring-2 ring-orange-100'
-                                : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
-                            }`}
-                          >
-                            <span>{item.emoji}</span>
-                            <span>{item.name}</span>
-                            {item.inflammatory !== 0 && (
-                              <span className={`text-[10px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
-                                {item.inflammatory === -1 ? '抗炎' : '促炎'}
-                              </span>
-                            )}
-                          </button>
-                        );
-                      })}
-                    </div>
+                {/* 分類：澱粉穀物 */}
+                <div>
+                  <h4 className="text-[10px] font-bold text-surface-500 mb-1 border-l-2 border-amber-500 pl-1.5">🌾 全穀與主食</h4>
+                  <div className="flex overflow-x-auto gap-2 pb-1 -mx-2 px-2 scrollbar-none">
+                    {INGREDIENTS.filter(i => i.category === 'grain').map(item => {
+                      const isSelected = selectedIngredients.includes(item.id);
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => toggleIngredient(item.id)}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 shrink-0 border transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-amber-50 border-amber-300 text-amber-800 ring-2 ring-amber-100'
+                              : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
+                          }`}
+                        >
+                          <span>{item.emoji}</span>
+                          <span>{item.name}</span>
+                          <span className={`text-[9px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
+                            {item.inflammatory === -1 ? '抗炎' : '促炎'}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
+                </div>
 
-                  {/* 分類：澱粉穀物 */}
-                  <div>
-                    <h4 className="text-xs font-bold text-surface-500 mb-2 border-l-2 border-amber-500 pl-2">🌾 全穀與主食</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {INGREDIENTS.filter(i => i.category === 'grain').map(item => {
-                        const isSelected = selectedIngredients.includes(item.id);
-                        return (
-                          <button
-                            key={item.id}
-                            onClick={() => toggleIngredient(item.id)}
-                            className={`px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all cursor-pointer ${
-                              isSelected
-                                ? 'bg-amber-50 border-amber-300 text-amber-800 ring-2 ring-amber-100'
-                                : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
-                            }`}
-                          >
-                            <span>{item.emoji}</span>
-                            <span>{item.name}</span>
-                            <span className={`text-[10px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
-                              {item.inflammatory === -1 ? '抗炎' : '促炎'}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* 分類：油脂與飲品 */}
-                  <div>
-                    <h4 className="text-xs font-bold text-surface-500 mb-2 border-l-2 border-blue-500 pl-2">🫗 油脂與健康飲品</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {INGREDIENTS.filter(i => i.category === 'oil-drink').map(item => {
-                        const isSelected = selectedIngredients.includes(item.id);
-                        return (
-                          <button
-                            key={item.id}
-                            onClick={() => toggleIngredient(item.id)}
-                            className={`px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all cursor-pointer ${
-                              isSelected
-                                ? 'bg-blue-50 border-blue-300 text-blue-800 ring-2 ring-blue-100'
-                                : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
-                            }`}
-                          >
-                            <span>{item.emoji}</span>
-                            <span>{item.name}</span>
-                            <span className={`text-[10px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
-                              {item.inflammatory === -1 ? '抗炎' : '促炎'}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
+                {/* 分類：油脂與飲品 */}
+                <div>
+                  <h4 className="text-[10px] font-bold text-surface-500 mb-1 border-l-2 border-blue-500 pl-1.5">🫗 油脂與健康飲品</h4>
+                  <div className="flex overflow-x-auto gap-2 pb-1 -mx-2 px-2 scrollbar-none">
+                    {INGREDIENTS.filter(i => i.category === 'oil-drink').map(item => {
+                      const isSelected = selectedIngredients.includes(item.id);
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => toggleIngredient(item.id)}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 shrink-0 border transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-blue-50 border-blue-300 text-blue-800 ring-2 ring-blue-100'
+                              : 'bg-surface-50 hover:bg-surface-100 border-surface-200 text-surface-700'
+                          }`}
+                        >
+                          <span>{item.emoji}</span>
+                          <span>{item.name}</span>
+                          <span className={`text-[9px] px-1 rounded ${item.inflammatory === -1 ? 'bg-emerald-100/50 text-emerald-600' : 'bg-red-100/50 text-red-500'}`}>
+                            {item.inflammatory === -1 ? '抗炎' : '促炎'}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 右側：視覺化餐盤與健康評估 */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="rounded-2xl border border-surface-200 bg-white p-6 shadow-sm">
-                <h3 className="text-sm font-bold text-surface-800 mb-6 flex items-center gap-2">
-                  <span>🍽️</span> 您的抗發炎餐盤
-                </h3>
+            {/* 視覺化餐盤與健康評估 (左右佈局) */}
+            <div className="rounded-2xl border border-surface-200 bg-white p-5 shadow-sm">
+              <h3 className="text-xs font-bold text-surface-800 mb-4 flex items-center gap-2 border-b border-surface-100 pb-2">
+                <span>🍽️</span> 您的抗發炎餐盤與評估
+              </h3>
 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {/* 圓形餐盤 */}
-                <div className="relative aspect-square max-w-[280px] mx-auto rounded-full border-8 border-surface-200 shadow-inner overflow-hidden mb-6 flex flex-col md:flex-row bg-surface-50">
-                  {/* 左半區 (1/2) 蔬菜水果 */}
-                  <div className="w-full md:w-1/2 h-1/2 md:h-full border-b md:border-b-0 md:border-r border-surface-300 bg-emerald-50/20 p-3 flex flex-col items-center justify-start overflow-y-auto">
-                    <span className="text-[10px] font-bold text-emerald-700/80 mb-2">🥗 蔬菜與水果 (1/2)</span>
+                <div className="flex flex-col items-center">
+                  <div className="relative aspect-square w-full max-w-[220px] mx-auto rounded-full border-8 border-surface-200 shadow-inner overflow-hidden flex flex-row bg-surface-50">
+                    {/* 左半區 (1/2) 蔬菜水果 */}
+                    <div className="w-1/2 h-full border-r border-surface-300 bg-emerald-50/20 p-2 flex flex-col items-center justify-start overflow-y-auto scrollbar-none">
+                      <span className="text-[9px] font-bold text-emerald-700/80 mb-1 text-center leading-tight">🥗 蔬果 (1/2)</span>
+                      <div className="flex flex-wrap justify-center gap-1">
+                        {plateCalculation.selectedList.filter(i => i.category === 'veg').map(item => (
+                          <span key={item.id} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-semibold border border-emerald-200">
+                            {item.emoji}
+                            <button onClick={() => toggleIngredient(item.id)} className="hover:text-red-500 font-bold ml-0.5 cursor-pointer">×</button>
+                          </span>
+                        ))}
+                        {plateCalculation.selectedList.filter(i => i.category === 'veg').length === 0 && (
+                          <span className="text-[9px] text-surface-400/80 mt-4 text-center">空</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* 右半區：劃分為上下各 1/4 */}
+                    <div className="w-1/2 h-full flex flex-col">
+                      {/* 右上區 (1/4) 蛋白質 */}
+                      <div className="h-1/2 border-b border-surface-300 bg-orange-50/20 p-1.5 flex flex-col items-center justify-start overflow-y-auto scrollbar-none">
+                        <span className="text-[9px] font-bold text-orange-700/80 mb-0.5 text-center leading-tight">🥩 蛋白 (1/4)</span>
+                        <div className="flex flex-wrap justify-center gap-1">
+                          {plateCalculation.selectedList.filter(i => i.category === 'protein').map(item => (
+                            <span key={item.id} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-orange-100 text-orange-800 text-[9px] font-semibold border border-orange-200">
+                              {item.emoji}
+                              <button onClick={() => toggleIngredient(item.id)} className="hover:text-red-500 font-bold ml-0.5 cursor-pointer">×</button>
+                            </span>
+                          ))}
+                          {plateCalculation.selectedList.filter(i => i.category === 'protein').length === 0 && (
+                            <span className="text-[9px] text-surface-400/80 mt-1 text-center">空</span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* 右下區 (1/4) 澱粉穀物 */}
+                      <div className="h-1/2 bg-amber-50/20 p-1.5 flex flex-col items-center justify-start overflow-y-auto scrollbar-none">
+                        <span className="text-[9px] font-bold text-amber-700/80 mb-0.5 text-center leading-tight">🌾 全穀 (1/4)</span>
+                        <div className="flex flex-wrap justify-center gap-1">
+                          {plateCalculation.selectedList.filter(i => i.category === 'grain').map(item => (
+                            <span key={item.id} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-semibold border border-amber-200">
+                              {item.emoji}
+                              <button onClick={() => toggleIngredient(item.id)} className="hover:text-red-500 font-bold ml-0.5 cursor-pointer">×</button>
+                            </span>
+                          ))}
+                          {plateCalculation.selectedList.filter(i => i.category === 'grain').length === 0 && (
+                            <span className="text-[9px] text-surface-400/80 mt-1 text-center">空</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 餐盤外補充 (油脂與飲品) */}
+                  <div className="bg-surface-50 p-2 rounded-xl mt-3 w-full max-w-[220px] flex flex-col items-center border border-surface-100">
+                    <span className="text-[9px] font-bold text-surface-500 mb-1">🍵 額外油脂與飲品</span>
                     <div className="flex flex-wrap justify-center gap-1">
-                      {plateCalculation.selectedList.filter(i => i.category === 'veg').map(item => (
-                        <span key={item.id} className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-semibold border border-emerald-200">
+                      {plateCalculation.selectedList.filter(i => i.category === 'oil-drink').map(item => (
+                        <span key={item.id} className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 text-[9px] font-semibold border border-blue-100">
                           {item.emoji} {item.name}
                           <button onClick={() => toggleIngredient(item.id)} className="hover:text-red-500 font-bold ml-0.5 cursor-pointer">×</button>
                         </span>
                       ))}
-                      {plateCalculation.selectedList.filter(i => i.category === 'veg').length === 0 && (
-                        <span className="text-[10px] text-surface-400/80 mt-4">（放入蔬菜/水果）</span>
+                      {plateCalculation.selectedList.filter(i => i.category === 'oil-drink').length === 0 && (
+                        <span className="text-[9px] text-surface-400 italic">尚未挑選油脂或飲品</span>
                       )}
                     </div>
-                  </div>
-
-                  {/* 右半區：劃分為上下各 1/4 */}
-                  <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col">
-                    {/* 右上區 (1/4) 蛋白質 */}
-                    <div className="h-1/2 border-b border-surface-300 bg-orange-50/20 p-2 flex flex-col items-center justify-start overflow-y-auto">
-                      <span className="text-[10px] font-bold text-orange-700/80 mb-1">🥩 優質蛋白質 (1/4)</span>
-                      <div className="flex flex-wrap justify-center gap-1">
-                        {plateCalculation.selectedList.filter(i => i.category === 'protein').map(item => (
-                          <span key={item.id} className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 text-[10px] font-semibold border border-orange-200">
-                            {item.emoji} {item.name}
-                            <button onClick={() => toggleIngredient(item.id)} className="hover:text-red-500 font-bold ml-0.5 cursor-pointer">×</button>
-                          </span>
-                        ))}
-                        {plateCalculation.selectedList.filter(i => i.category === 'protein').length === 0 && (
-                          <span className="text-[10px] text-surface-400/80 mt-2">（放入蛋白質）</span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* 右下區 (1/4) 澱粉穀物 */}
-                    <div className="h-1/2 bg-amber-50/20 p-2 flex flex-col items-center justify-start overflow-y-auto">
-                      <span className="text-[10px] font-bold text-amber-700/80 mb-1">🌾 全穀主食 (1/4)</span>
-                      <div className="flex flex-wrap justify-center gap-1">
-                        {plateCalculation.selectedList.filter(i => i.category === 'grain').map(item => (
-                          <span key={item.id} className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-semibold border border-amber-200">
-                            {item.emoji} {item.name}
-                            <button onClick={() => toggleIngredient(item.id)} className="hover:text-red-500 font-bold ml-0.5 cursor-pointer">×</button>
-                          </span>
-                        ))}
-                        {plateCalculation.selectedList.filter(i => i.category === 'grain').length === 0 && (
-                          <span className="text-[10px] text-surface-400/80 mt-2">（放入主食）</span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 餐盤外補充 (油脂與飲品) */}
-                <div className="bg-surface-50 p-3 rounded-xl mb-6 flex flex-col items-center">
-                  <span className="text-[10px] font-bold text-surface-500 mb-2">🍵 油脂與餐盤外搭配</span>
-                  <div className="flex flex-wrap justify-center gap-1.5">
-                    {plateCalculation.selectedList.filter(i => i.category === 'oil-drink').map(item => (
-                      <span key={item.id} className="inline-flex items-center gap-0.5 px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-800 text-[10px] font-semibold border border-blue-100">
-                        {item.emoji} {item.name}
-                        <button onClick={() => toggleIngredient(item.id)} className="hover:text-red-500 font-bold ml-0.5 cursor-pointer">×</button>
-                      </span>
-                    ))}
-                    {plateCalculation.selectedList.filter(i => i.category === 'oil-drink').length === 0 && (
-                      <span className="text-[10px] text-surface-400 italic">尚未挑選油脂或飲品</span>
-                    )}
-                  </div>
-                </div>
-
-                {/* 指數卡 */}
-                <div className="grid grid-cols-2 gap-4 mb-6 pt-4 border-t border-surface-100">
-                  {/* 發炎評分 */}
-                  <div className="text-center p-3 rounded-xl bg-surface-50">
-                    <span className="text-[10px] font-semibold text-surface-500 block mb-1">抗發炎健康分數</span>
-                    <span className={`text-2xl font-black ${
-                      plateCalculation.score > 70 ? 'text-emerald-600' : plateCalculation.score < 40 ? 'text-red-600' : 'text-amber-500'
-                    }`}>{plateCalculation.score} <span className="text-xs font-normal">/ 100</span></span>
-                    {/* 進度條 */}
-                    <div className="h-1.5 w-full bg-surface-200 rounded-full overflow-hidden mt-2 max-w-[120px] mx-auto">
-                      <div className={`h-full transition-all ${
-                        plateCalculation.score > 70 ? 'bg-emerald-500' : plateCalculation.score < 40 ? 'bg-red-500' : 'bg-amber-400'
-                      }`} style={{ width: `${plateCalculation.score}%` }} />
-                    </div>
-                  </div>
-
-                  {/* 纖維評估 */}
-                  <div className="text-center p-3 rounded-xl bg-surface-50 flex flex-col justify-center items-center">
-                    <span className="text-[10px] font-semibold text-surface-500 block mb-1">膳食纖維飽足度</span>
-                    {plateCalculation.isFiberTargetMet ? (
-                      <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold border border-emerald-200 animate-pulse">
-                        🥗 高纖飽足達標
-                      </span>
-                    ) : (
-                      <span className="px-2.5 py-1 rounded-full bg-surface-200 text-surface-600 text-[10px] font-medium">
-                        纖維尚未足夠
-                      </span>
-                    )}
-                    <span className="text-[9px] text-surface-400 mt-1.5">包含綠葉菜/全穀/豆類</span>
                   </div>
                 </div>
 
                 {/* 動態反饋文案區域 */}
                 <div className="space-y-3">
+                  {/* 指數卡 */}
+                  <div className="grid grid-cols-2 gap-3 mb-1">
+                    {/* 發炎評分 */}
+                    <div className="text-center p-2 rounded-xl bg-surface-50 border border-surface-100">
+                      <span className="text-[9px] font-semibold text-surface-500 block mb-0.5">抗發炎健康分數</span>
+                      <span className={`text-base font-black ${
+                        plateCalculation.score > 70 ? 'text-emerald-600' : plateCalculation.score < 40 ? 'text-red-600' : 'text-amber-500'
+                      }`}>{plateCalculation.score} <span className="text-[9px] font-normal text-surface-400">/ 100</span></span>
+                      {/* 進度條 */}
+                      <div className="h-1 w-full bg-surface-200 rounded-full overflow-hidden mt-1 max-w-[80px] mx-auto">
+                        <div className={`h-full transition-all ${
+                          plateCalculation.score > 70 ? 'bg-emerald-500' : plateCalculation.score < 40 ? 'bg-red-500' : 'bg-amber-400'
+                        }`} style={{ width: `${plateCalculation.score}%` }} />
+                      </div>
+                    </div>
+
+                    {/* 纖維評估 */}
+                    <div className="text-center p-2 rounded-xl bg-surface-50 border border-surface-100 flex flex-col justify-center items-center">
+                      <span className="text-[9px] font-semibold text-surface-500 block mb-1">膳食纖維飽足度</span>
+                      {plateCalculation.isFiberTargetMet ? (
+                        <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold border border-emerald-200">
+                          🥗 高纖達標
+                        </span>
+                      ) : (
+                        <span className="px-2 py-0.5 rounded-full bg-surface-200 text-surface-600 text-[9px] font-medium border border-surface-300">
+                          纖維未達標
+                        </span>
+                      )}
+                    </div>
+                  </div>
                   {/* 紅色警告 */}
                   {plateCalculation.hasProInflammatory && (
                     <div className="p-4 rounded-xl bg-red-50/70 border border-red-100 text-xs text-red-800 leading-relaxed animate-fade-in">
@@ -1751,7 +1763,7 @@ export default function NutritionToolPage() {
 
                       {res.category === 'calculator' ? (
                         <button
-                          onClick={() => setActiveToolId(res.interactive_id)}
+                          onClick={() => handleStartTool(res)}
                           className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-sm transition-all duration-200 active:scale-[0.98] cursor-pointer"
                         >
                           開始使用

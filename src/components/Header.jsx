@@ -24,8 +24,8 @@ export default function Header() {
           <div className="flex items-center justify-between h-16">
             {/* Brand */}
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-                <span className="text-white font-bold text-lg">🧬</span>
+              <div className="w-9 h-9 rounded-full overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
+                <img src="/logo.png" alt="營養深潛" className="w-full h-full object-cover" />
               </div>
               <span className="font-display text-xl font-bold bg-gradient-to-r from-primary-700 to-primary-500 bg-clip-text text-transparent">
                 營養深潛
@@ -47,6 +47,18 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+              {user && (
+                <Link
+                  to="/admin/import"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    isActive('/admin/import')
+                      ? 'bg-primary-100 text-primary-700'
+                      : 'text-surface-700 hover:bg-primary-50 hover:text-primary-600'
+                  }`}
+                >
+                  匯入工具
+                </Link>
+              )}
             </nav>
 
             {/* Auth / User Section */}
@@ -140,6 +152,19 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+              {user && (
+                <Link
+                  to="/admin/import"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    isActive('/admin/import')
+                      ? 'bg-primary-100 text-primary-700'
+                      : 'text-surface-700 hover:bg-primary-50'
+                  }`}
+                >
+                  匯入工具
+                </Link>
+              )}
             </nav>
           )}
         </div>

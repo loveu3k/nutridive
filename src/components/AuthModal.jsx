@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function AuthModal({ isOpen, onClose, returnTo = '/' }) {
@@ -11,6 +12,17 @@ export default function AuthModal({ isOpen, onClose, returnTo = '/' }) {
   const [submitting, setSubmitting] = useState(false);
 
   const { signInWithEmail, signUpWithEmail, signInWithGoogle } = useAuth();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -75,7 +87,7 @@ export default function AuthModal({ isOpen, onClose, returnTo = '/' }) {
     if (e.key === 'Escape') onClose();
   };
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in"
       onClick={handleOverlayClick}
@@ -95,7 +107,9 @@ export default function AuthModal({ isOpen, onClose, returnTo = '/' }) {
             </svg>
           </button>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-2xl">🧬</span>
+            <div className="w-8 h-8 rounded-full overflow-hidden shadow-sm bg-white">
+              <img src="/logo.png" alt="營養深潛" className="w-full h-full object-cover" />
+            </div>
             <span className="font-display text-lg font-bold">營養深潛</span>
           </div>
           <h2 className="text-xl font-bold">
@@ -225,7 +239,8 @@ export default function AuthModal({ isOpen, onClose, returnTo = '/' }) {
           </p>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

@@ -6,8 +6,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-                <span className="text-white text-base">🧬</span>
+              <div className="w-8 h-8 rounded-full overflow-hidden shadow-sm">
+                <img src="/logo.png" alt="營養深潛" className="w-full h-full object-cover" />
               </div>
               <span className="font-display text-lg font-bold text-primary-700">營養深潛</span>
             </div>

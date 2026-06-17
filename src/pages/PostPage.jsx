@@ -46,6 +46,30 @@ export default function PostPage() {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | 營養深潛`;
+      
+      // Update meta description
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        // Strip markdown-like syntax for description
+        const descText = post.content 
+          ? post.content.replace(/[#*`\n\-\[\]\(\)]/g, ' ').replace(/\s+/g, ' ').slice(0, 150).trim() + '...'
+          : post.title;
+        metaDesc.setAttribute('content', descText);
+      }
+    }
+    return () => {
+      // Restore default title and description on unmount
+      document.title = '營養深潛 — 用科學探索營養的深度 | 維生素·礦物質·營養補充品科學解析';
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', '以最新科學文獻為基礎的健康營養學影音部落格。深入了解維生素、礦物質、營養補充品的科學真相，幫助你做出更明智的健康決策。');
+      }
+    };
+  }, [post]);
+
   if (loading) {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-pulse">

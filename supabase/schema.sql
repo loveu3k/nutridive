@@ -196,13 +196,13 @@ $$ language plpgsql security definer;
 
 insert into public.nutrition_resources (id, title, description, category, file_path, file_size, is_interactive, interactive_id, requires_auth, download_count)
 values
-  ('a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d', '每日建議營養卡 (DRIs)', '依據你的年齡、性別與參考標準，精準計算每日建議營養素攝取量，並生成專屬的個人營養卡片。', 'calculator', null, null, true, 'daily-nutrition-card', false, 128),
-  ('a2b3c4d5-e6f7-8a9b-0c1d-2e3f4a5b6c7d', '隱形代謝潛能計算器 (NEAT)', '量化你在日常微小動作（如站立、做家務、走路）中的熱量消耗，發現不運動也能燃脂的隱形潛能。', 'calculator', null, null, true, 'neat-calculator', false, 142),
-  ('a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d', '久坐抗發炎高飽足餐盤生成器', '點擊或拖拽食材組合餐盤，免去繁瑣算卡，即時獲得飲食的膳食發炎指數 (DII) 與膳食纖維飽足評估。', 'calculator', null, null, true, 'plate-builder', false, 198),
-  ('b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e', '台灣膳食營養素參考攝取量 (DRIs) 手冊', '衛生福利部國民健康署官方最新版成人與兒童 DRIs 參考手冊，包含各營養素之建議與上限攝取標準。', 'pdf', 'tw_dris_handbook.pdf', '4.8 MB', false, null, false, 85),
-  ('c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f', '臨床實證維生素 D3/K2 協同補給指引', '深入探討維生素 D3 與 K2 的協同吸收效應，以及對於人體骨骼與免疫系統健康之實證影響。', 'pdf', 'vitamin_d_k2_guide.pdf', '1.5 MB', false, null, true, 42),
-  ('d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a', '高蛋白減脂飲食分配與換算圖表', '幫助你在熱量赤字期間，依據體重與每日活動量精準分配與換算碳水、脂肪與蛋白質攝取比例之圖表。', 'chart', 'protein_fat_ratio_chart.pdf', '850 KB', false, null, false, 156),
-  ('e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b', '常見微量元素缺乏自我評估清單', '整理缺鐵、缺鈣、缺鎂、缺鋅等常見微量營養素缺乏時，身體發出的早期警訊與飲食盲點自我檢視表。', 'pdf', 'micronutrient_checklist.pdf', '1.1 MB', false, null, true, 61)
+  ('a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d', '每日建議營養卡 (DRIs)', '依據你的年齡、性別與參考標準，精準計算每日建議營養素攝取量，並生成專屬的個人營養卡片。', 'calculator', null, null, true, 'daily-nutrition-card', false, 0),
+  ('a2b3c4d5-e6f7-8a9b-0c1d-2e3f4a5b6c7d', '隱形代謝潛能計算器 (NEAT)', '量化你在日常微小動作（如站立、做家務、走路）中的熱量消耗，發現不運動也能燃脂的隱形潛能。', 'calculator', null, null, true, 'neat-calculator', false, 0),
+  ('a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d', '久坐抗發炎高飽足餐盤生成器', '點擊或拖拽食材組合餐盤，免去繁瑣算卡，即時獲得飲食的膳食發炎指數 (DII) 與膳食纖維飽足評估。', 'calculator', null, null, true, 'plate-builder', false, 0),
+  ('b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e', '台灣膳食營養素參考攝取量 (DRIs) 手冊', '衛生福利部國民健康署官方最新版成人與兒童 DRIs 參考手冊，包含各營養素之建議與上限攝取標準。', 'pdf', 'tw_dris_handbook.pdf', '4.8 MB', false, null, false, 0),
+  ('c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f', '臨床實證維生素 D3/K2 協同補給指引', '深入探討維生素 D3 與 K2 的協同吸收效應，以及對於人體骨骼與免疫系統健康之實證影響。', 'pdf', 'vitamin_d_k2_guide.pdf', '1.5 MB', false, null, true, 0),
+  ('d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a', '高蛋白減脂飲食分配與換算圖表', '幫助你在熱量赤字期間，依據體重與每日活動量精準分配與換算碳水、脂肪與蛋白質攝取比例之圖表。', 'chart', 'protein_fat_ratio_chart.pdf', '850 KB', false, null, false, 0),
+  ('e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b', '常見微量元素缺乏自我評估清單', '整理缺鐵、缺鈣、缺鎂、缺鋅等常見微量營養素缺乏時，身體發出的早期警訊與飲食盲點自我檢視表。', 'pdf', 'micronutrient_checklist.pdf', '1.1 MB', false, null, true, 0)
 on conflict (id) do update set
   title = excluded.title,
   description = excluded.description,
@@ -212,4 +212,5 @@ on conflict (id) do update set
   is_interactive = excluded.is_interactive,
   interactive_id = excluded.interactive_id,
   requires_auth = excluded.requires_auth;
+
 
