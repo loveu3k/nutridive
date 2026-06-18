@@ -20,6 +20,7 @@ create table if not exists public.profiles (
   id uuid references auth.users(id) on delete cascade primary key,
   display_name text,
   avatar_url text,
+  is_admin boolean default false not null,
   created_at timestamptz default now() not null
 );
 
@@ -27,11 +28,12 @@ create table if not exists public.profiles (
 create or replace function public.handle_new_user()
 returns trigger as $$
 begin
-  insert into public.profiles (id, display_name, avatar_url)
+  insert into public.profiles (id, display_name, avatar_url, is_admin)
   values (
     new.id,
     coalesce(new.raw_user_meta_data->>'full_name', new.email),
-    new.raw_user_meta_data->>'avatar_url'
+    new.raw_user_meta_data->>'avatar_url',
+    (new.email = 'nutridive2026@gmail.com')
   );
   return new;
 end;
@@ -42,6 +44,17 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- 3.1 檢查目前使用者是否為管理員的輔助函數
+create or replace function public.is_admin()
+returns boolean as $$
+begin
+  return exists (
+    select 1 from public.profiles
+    where id = auth.uid() and is_admin = true
+  );
+end;
+$$ language plpgsql security definer;
 
 -- 4. Comments 留言資料表
 create table if not exists public.comments (
@@ -64,11 +77,11 @@ create policy "Posts are viewable by everyone"
   on posts for select
   using (true);
 
-drop policy if exists "Only authenticated users can modify posts" on posts;
-create policy "Only authenticated users can modify posts"
+drop policy if exists "Only admin can modify posts" on posts;
+create policy "Only admin can modify posts"
   on posts for all
-  using (auth.role() = 'authenticated')
-  with check (auth.role() = 'authenticated');
+  using (public.is_admin())
+  with check (public.is_admin());
 
 -- Profiles: 所有人可讀, 使用者可更新自己的 profile
 alter table profiles enable row level security;
@@ -81,12 +94,13 @@ create policy "Profiles are viewable by everyone"
 drop policy if exists "Users can update their own profile" on profiles;
 create policy "Users can update their own profile"
   on profiles for update
-  using (auth.uid() = id);
+  using (auth.uid() = id)
+  with check (auth.uid() = id and (is_admin = false or (select is_admin from public.profiles where id = auth.uid()) = true));
 
 drop policy if exists "Users can insert their own profile" on profiles;
 create policy "Users can insert their own profile"
   on profiles for insert
-  with check (auth.uid() = id);
+  with check (auth.uid() = id and is_admin = false);
 
 -- Comments: 所有人可讀, 登入使用者可新增, 使用者可刪除自己的留言
 alter table comments enable row level security;
@@ -145,12 +159,12 @@ create policy "Nutrition resources are viewable by everyone"
   on public.nutrition_resources for select
   using (true);
 
--- 僅限管理員/已登入帳戶可以編輯
-drop policy if exists "Only authenticated users can modify nutrition resources" on public.nutrition_resources;
-create policy "Only authenticated users can modify nutrition resources"
+-- 僅限管理員可以編輯
+drop policy if exists "Only admin can modify nutrition resources" on public.nutrition_resources;
+create policy "Only admin can modify nutrition resources"
   on public.nutrition_resources for all
-  using (auth.role() = 'authenticated')
-  with check (auth.role() = 'authenticated');
+  using (public.is_admin())
+  with check (public.is_admin());
 
 -- ============================================================
 -- 6. Supabase Storage 儲存槽初始化與權限設定
@@ -167,20 +181,20 @@ create policy "Public Access to Read Files"
   on storage.objects for select
   using ( bucket_id = 'nutrition-files' );
 
-drop policy if exists "Authenticated Users Can Upload Files" on storage.objects;
-create policy "Authenticated Users Can Upload Files"
+drop policy if exists "Admin Can Upload Files" on storage.objects;
+create policy "Admin Can Upload Files"
   on storage.objects for insert
-  with check ( bucket_id = 'nutrition-files' and auth.role() = 'authenticated' );
+  with check ( bucket_id = 'nutrition-files' and public.is_admin() );
 
-drop policy if exists "Authenticated Users Can Update Files" on storage.objects;
-create policy "Authenticated Users Can Update Files"
+drop policy if exists "Admin Can Update Files" on storage.objects;
+create policy "Admin Can Update Files"
   on storage.objects for update
-  using ( bucket_id = 'nutrition-files' and auth.role() = 'authenticated' );
+  using ( bucket_id = 'nutrition-files' and public.is_admin() );
 
-drop policy if exists "Authenticated Users Can Delete Files" on storage.objects;
-create policy "Authenticated Users Can Delete Files"
+drop policy if exists "Admin Can Delete Files" on storage.objects;
+create policy "Admin Can Delete Files"
   on storage.objects for delete
-  using ( bucket_id = 'nutrition-files' and auth.role() = 'authenticated' );
+  using ( bucket_id = 'nutrition-files' and public.is_admin() );
 
 -- ============================================================
 -- 7. 輔助函數 (RPC Functions)

@@ -47,7 +47,7 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
-              {user && (
+              {profile?.is_admin && (
                 <Link
                   to="/admin/import"
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
@@ -152,7 +152,7 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
-              {user && (
+              {profile?.is_admin && (
                 <Link
                   to="/admin/import"
                   onClick={() => setMobileMenuOpen(false)}
