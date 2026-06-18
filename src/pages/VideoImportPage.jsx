@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase, isConfigured } from '../lib/supabase';
 import AuthModal from '../components/AuthModal';
+import { DEMO_POSTS } from '../data/posts';
 
 const TEMPLATE = `標題: 
 影片ID: 
@@ -84,6 +85,21 @@ export default function VideoImportPage() {
   const [fileUploadStatus, setFileUploadStatus] = useState(null); // null | 'success' | 'error'
   const [fileUploadMsg, setFileUploadMsg] = useState('');
   const [fileSubmitting, setFileSubmitting] = useState(false);
+
+  // Video edit/delete states
+  const [postsList, setPostsList] = useState([]);
+  const [loadingPosts, setLoadingPosts] = useState(false);
+  const [editingPost, setEditingPost] = useState(null);
+
+  // Edit form states
+  const [editTitle, setEditTitle] = useState('');
+  const [editYoutubeId, setEditYoutubeId] = useState('');
+  const [editNutrients, setEditNutrients] = useState('');
+  const [editCreatedAt, setEditCreatedAt] = useState('');
+  const [editContent, setEditContent] = useState('');
+  const [updateStatus, setUpdateStatus] = useState(null); // null | 'success' | 'error'
+  const [updateMsg, setUpdateMsg] = useState('');
+  const [updateSubmitting, setUpdateSubmitting] = useState(false);
 
   if (!user) {
     return (
@@ -201,6 +217,114 @@ export default function VideoImportPage() {
     }
   };
 
+  const fetchPostsList = async () => {
+    setLoadingPosts(true);
+    if (!isConfigured) {
+      setPostsList(DEMO_POSTS);
+      setLoadingPosts(false);
+      return;
+    }
+    try {
+      const { data, error } = await supabase
+        .from('posts')
+        .select('id, title, slug, youtube_video_id, nutrients, created_at, content')
+        .order('created_at', { ascending: false });
+
+      if (!error && data) {
+        setPostsList(data);
+      } else {
+        setPostsList(DEMO_POSTS);
+      }
+    } catch {
+      setPostsList(DEMO_POSTS);
+    } finally {
+      setLoadingPosts(false);
+    }
+  };
+
+  useEffect(() => {
+    if (activeTab === 'edit') {
+      fetchPostsList();
+      setEditingPost(null);
+    }
+  }, [activeTab]);
+
+  const startEditing = (post) => {
+    setEditingPost(post);
+    setEditTitle(post.title || '');
+    setEditYoutubeId(post.youtube_video_id || '');
+    setEditNutrients(post.nutrients ? post.nutrients.join(', ') : '');
+    setEditCreatedAt(post.created_at ? post.created_at.split('T')[0] : new Date().toISOString().split('T')[0]);
+    setEditContent(post.content || '');
+    setUpdateStatus(null);
+    setUpdateMsg('');
+  };
+
+  const handleUpdatePost = async (e) => {
+    e.preventDefault();
+    if (!editingPost) return;
+
+    setUpdateSubmitting(true);
+    setUpdateStatus(null);
+    setUpdateMsg('');
+
+    try {
+      const nutrientsArray = editNutrients
+        ? editNutrients.split(/[,，]/).map(s => s.trim()).filter(Boolean)
+        : [];
+
+      const { error } = await supabase
+        .from('posts')
+        .update({
+          title: editTitle.trim(),
+          youtube_video_id: editYoutubeId.trim(),
+          slug: `yt-post-${editYoutubeId.trim()}`,
+          nutrients: nutrientsArray,
+          created_at: new Date(editCreatedAt).toISOString(),
+          content: editContent
+        })
+        .eq('id', editingPost.id);
+
+      if (error) throw error;
+
+      setUpdateStatus('success');
+      setUpdateMsg('✅ 影片資訊已成功更新！');
+      
+      // Refresh list
+      fetchPostsList();
+      
+      // Return to list view
+      setTimeout(() => {
+        setEditingPost(null);
+        setUpdateStatus(null);
+        setUpdateMsg('');
+      }, 1200);
+    } catch (err) {
+      setUpdateStatus('error');
+      setUpdateMsg(`更新失敗：${err.message}`);
+    } finally {
+      setUpdateSubmitting(false);
+    }
+  };
+
+  const handleDeletePost = async (postId, postTitle) => {
+    if (!window.confirm(`確定要刪除影片「${postTitle}」嗎？此動作無法復原！`)) return;
+
+    try {
+      const { error } = await supabase
+        .from('posts')
+        .delete()
+        .eq('id', postId);
+
+      if (error) throw error;
+
+      fetchPostsList();
+      alert('影片已成功刪除！');
+    } catch (err) {
+      alert(`刪除失敗：${err.message}`);
+    }
+  };
+
   const handlePreview = () => {
     const entry = parseVideoEntry(text);
     const errors = validateEntry(entry);
@@ -260,12 +384,14 @@ export default function VideoImportPage() {
           管理工具主控台
         </div>
         <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-surface-900 mb-3">
-          {activeTab === 'video' ? 'YouTube 影片匯入' : 'PDF 與圖表資源上傳'}
+          {activeTab === 'video' ? 'YouTube 影片匯入' : activeTab === 'file' ? 'PDF 與圖表資源上傳' : '編輯已發佈影片'}
         </h1>
         <p className="text-surface-500 max-w-xl mx-auto leading-relaxed text-sm">
           {activeTab === 'video'
             ? '將新影片資訊貼入下方文字框，系統會自動解析並匯入到資料庫中。'
-            : '上傳新的 PDF 指引手冊或換算圖表，供前台使用者下載閱讀與追蹤下載量。'}
+            : activeTab === 'file'
+            ? '上傳新的 PDF 指引手冊或換算圖表，供前台使用者下載閱讀與追蹤下載量。'
+            : '修改或刪除先前已發佈在網站上的影片文章資訊。'}
         </p>
       </div>
 
@@ -279,7 +405,7 @@ export default function VideoImportPage() {
               : 'border-transparent text-surface-400 hover:text-surface-600'
           }`}
         >
-          🎥 匯入 YouTube 影片
+          🎥 匯入影片
         </button>
         <button
           onClick={() => setActiveTab('file')}
@@ -289,11 +415,21 @@ export default function VideoImportPage() {
               : 'border-transparent text-surface-400 hover:text-surface-600'
           }`}
         >
-          📂 上傳 PDF / 圖表資源
+          📂 上傳資源
+        </button>
+        <button
+          onClick={() => setActiveTab('edit')}
+          className={`flex-1 py-3 text-center text-sm font-bold border-b-2 transition-all cursor-pointer ${
+            activeTab === 'edit'
+              ? 'border-primary-500 text-primary-600'
+              : 'border-transparent text-surface-400 hover:text-surface-600'
+          }`}
+        >
+          ✏️ 管理已發佈影片
         </button>
       </div>
 
-      {activeTab === 'video' ? (
+      {activeTab === 'video' && (
         <>
           {/* Help Hint */}
           <div className="mb-6 p-4 rounded-2xl bg-primary-50/60 border border-primary-100 text-primary-800 text-xs leading-relaxed whitespace-pre-line animate-fade-in">
@@ -382,7 +518,9 @@ export default function VideoImportPage() {
             </div>
           )}
         </>
-      ) : (
+      )}
+
+      {activeTab === 'file' && (
         <>
           {/* File Upload Form */}
           <form onSubmit={handleFileUpload} className="space-y-5 rounded-2xl border border-surface-200 bg-white p-6 shadow-sm mb-6 animate-slide-up">
@@ -485,6 +623,167 @@ export default function VideoImportPage() {
                 : 'bg-red-50 border border-red-200 text-red-700'
             }`}>
               {fileUploadMsg}
+            </div>
+          )}
+        </>
+      )}
+
+      {activeTab === 'edit' && (
+        <>
+          {editingPost ? (
+            <div className="rounded-2xl border border-surface-200 bg-white p-6 shadow-sm mb-6 animate-slide-up">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="font-bold text-surface-800 text-lg flex items-center gap-2">
+                  <span>✏️</span> 編輯影片資訊
+                </h3>
+                <button
+                  type="button"
+                  onClick={() => setEditingPost(null)}
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold text-surface-500 hover:text-surface-700 bg-surface-50 border border-surface-200 transition-all cursor-pointer"
+                >
+                  ← 返回影片清單
+                </button>
+              </div>
+
+              <form onSubmit={handleUpdatePost} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-surface-700 mb-1.5">影片標題</label>
+                  <input
+                    type="text"
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm"
+                    required
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-surface-700 mb-1.5">YouTube 影片 ID</label>
+                    <input
+                      type="text"
+                      value={editYoutubeId}
+                      onChange={(e) => setEditYoutubeId(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-surface-700 mb-1.5">發佈日期</label>
+                    <input
+                      type="date"
+                      value={editCreatedAt}
+                      onChange={(e) => setEditCreatedAt(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-surface-700 mb-1.5">核心營養素標籤 (以逗號分隔)</label>
+                  <input
+                    type="text"
+                    value={editNutrients}
+                    onChange={(e) => setEditNutrients(e.target.value)}
+                    placeholder="例如：鈣, 鐵, 維生素D"
+                    className="w-full px-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-surface-700 mb-1.5">影片簡介 / 時間軸描述</label>
+                  <textarea
+                    value={editContent}
+                    onChange={(e) => setEditContent(e.target.value)}
+                    rows={8}
+                    className="w-full px-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-sm font-mono resize-y"
+                    placeholder="輸入說明描述..."
+                  />
+                </div>
+
+                {updateStatus && (
+                  <div className={`p-3 rounded-xl text-sm font-medium ${
+                    updateStatus === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'
+                  }`}>
+                    {updateMsg}
+                  </div>
+                )}
+
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setEditingPost(null)}
+                    className="flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold text-surface-500 bg-surface-50 border border-surface-200 hover:bg-surface-100 transition-all active:scale-[0.98] cursor-pointer"
+                  >
+                    取消
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={updateSubmitting || !isConfigured}
+                    className="flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-sm transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  >
+                    {updateSubmitting ? '儲存中...' : '💾 儲存並更新'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div className="space-y-4 animate-slide-up">
+              {loadingPosts ? (
+                <div className="py-20 text-center text-sm text-surface-400 flex flex-col items-center justify-center gap-3">
+                  <div className="w-8 h-8 rounded-full border-3 border-primary-500 border-t-transparent animate-spin" />
+                  <span>載入影片清單中...</span>
+                </div>
+              ) : postsList.length === 0 ? (
+                <div className="py-20 text-center text-surface-400 text-sm border border-dashed border-surface-200 rounded-2xl bg-white">
+                  目前資料庫中沒有任何影片。
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 gap-4">
+                  {postsList.map((post) => (
+                    <div
+                      key={post.id}
+                      className="flex gap-4 p-4 rounded-2xl border border-surface-200 bg-white shadow-sm hover:shadow-md transition-all duration-200"
+                    >
+                      <img
+                        src={`https://img.youtube.com/vi/${post.youtube_video_id}/hqdefault.jpg`}
+                        alt=""
+                        className="w-32 sm:w-40 aspect-video rounded-lg object-cover bg-surface-100 flex-shrink-0"
+                      />
+                      <div className="flex-1 min-w-0 flex flex-col justify-between py-1">
+                        <div>
+                          <h4 className="font-bold text-surface-800 text-sm sm:text-base line-clamp-2 mb-1">{post.title}</h4>
+                          <div className="flex flex-wrap gap-1 mb-2">
+                            {post.nutrients && post.nutrients.map((n, i) => (
+                              <span key={i} className="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-primary-50 text-primary-700 ring-1 ring-primary-100">{n}</span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-xs text-surface-400 font-medium">
+                            📅 {post.created_at ? new Date(post.created_at).toLocaleDateString('zh-TW') : '—'}
+                          </span>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => startEditing(post)}
+                              className="px-3 py-1.5 rounded-lg text-xs font-semibold text-primary-700 bg-primary-50 hover:bg-primary-100 transition-all cursor-pointer"
+                            >
+                              ✏️ 編輯
+                            </button>
+                            <button
+                              onClick={() => handleDeletePost(post.id, post.title)}
+                              className="px-3 py-1.5 rounded-lg text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 transition-all cursor-pointer"
+                            >
+                              🗑️ 刪除
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </>
