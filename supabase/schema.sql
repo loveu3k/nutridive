@@ -64,6 +64,12 @@ create policy "Posts are viewable by everyone"
   on posts for select
   using (true);
 
+drop policy if exists "Only authenticated users can modify posts" on posts;
+create policy "Only authenticated users can modify posts"
+  on posts for all
+  using (auth.role() = 'authenticated')
+  with check (auth.role() = 'authenticated');
+
 -- Profiles: 所有人可讀, 使用者可更新自己的 profile
 alter table profiles enable row level security;
 

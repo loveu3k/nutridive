@@ -4,9 +4,9 @@ import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import PostPage from './pages/PostPage';
-import NutritionToolPage from './pages/NutritionToolPage';
 import AuthCallbackPage from './pages/AuthCallbackPage';
 
+const NutritionToolPage = lazy(() => import('./pages/NutritionToolPage'));
 const VideoImportPage = lazy(() => import('./pages/VideoImportPage'));
 
 function LazyFallback() {
@@ -25,7 +25,14 @@ export default function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/post/:slug" element={<PostPage />} />
-            <Route path="/nutrition-tool" element={<NutritionToolPage />} />
+            <Route
+              path="/nutrition-tool"
+              element={
+                <Suspense fallback={<LazyFallback />}>
+                  <NutritionToolPage />
+                </Suspense>
+              }
+            />
             <Route path="/auth/callback" element={<AuthCallbackPage />} />
             <Route
               path="/admin/import"

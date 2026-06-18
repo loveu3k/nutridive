@@ -372,6 +372,9 @@ export default function NutritionToolPage() {
     } catch (err) {
       console.error('Download error, falling back to dynamic PDF generation:', err);
       await generateDemoPDF(resource);
+      setResources(prev =>
+        prev.map(r => r.id === resource.id ? { ...r, download_count: r.download_count + 1 } : r)
+      );
     } finally {
       setDownloadingResourceIds(prev => ({ ...prev, [resource.id]: false }));
     }
