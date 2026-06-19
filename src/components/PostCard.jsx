@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { cleanTitle } from '../lib/utils';
 
 export default function PostCard({ post, index = 0 }) {
   const thumbnailUrl = `https://img.youtube.com/vi/${post.youtube_video_id}/hqdefault.jpg`;
@@ -8,6 +9,7 @@ export default function PostCard({ post, index = 0 }) {
     month: 'long',
     day: 'numeric',
   });
+  const displayTitle = cleanTitle(post.title);
 
   return (
     <Link
@@ -19,7 +21,7 @@ export default function PostCard({ post, index = 0 }) {
       <div className="relative overflow-hidden aspect-video">
         <img
           src={thumbnailUrl}
-          alt={post.title}
+          alt={displayTitle}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
@@ -56,7 +58,7 @@ export default function PostCard({ post, index = 0 }) {
 
         {/* Title */}
         <h3 className="font-display text-lg font-bold text-surface-900 group-hover:text-primary-600 transition-colors line-clamp-2 mb-2">
-          {post.title}
+          {displayTitle}
         </h3>
 
         {/* Date */}

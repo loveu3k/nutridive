@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase, isConfigured } from '../lib/supabase';
 import AuthModal from '../components/AuthModal';
+import { cleanTitle } from '../lib/utils';
 import { DEMO_POSTS } from '../data/posts';
 
 const TEMPLATE = `標題: 
@@ -308,7 +309,8 @@ export default function VideoImportPage() {
   };
 
   const handleDeletePost = async (postId, postTitle) => {
-    if (!window.confirm(`確定要刪除影片「${postTitle}」嗎？此動作無法復原！`)) return;
+    const displayTitle = cleanTitle(postTitle);
+    if (!window.confirm(`確定要刪除影片「${displayTitle}」嗎？此動作無法復原！`)) return;
 
     try {
       const { error } = await supabase
@@ -753,7 +755,7 @@ export default function VideoImportPage() {
                       />
                       <div className="flex-1 min-w-0 flex flex-col justify-between py-1">
                         <div>
-                          <h4 className="font-bold text-surface-800 text-sm sm:text-base line-clamp-2 mb-1">{post.title}</h4>
+                          <h4 className="font-bold text-surface-800 text-sm sm:text-base line-clamp-2 mb-1">{cleanTitle(post.title)}</h4>
                           <div className="flex flex-wrap gap-1 mb-2">
                             {post.nutrients && post.nutrients.map((n, i) => (
                               <span key={i} className="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-primary-50 text-primary-700 ring-1 ring-primary-100">{n}</span>

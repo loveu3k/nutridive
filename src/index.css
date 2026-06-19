@@ -262,3 +262,12 @@ input[type="range"]::-moz-range-thumb {
 .nutrition-card-preview {
   font-family: var(--font-sans);
 }
+
+/* --- Hide Scrollbars Utility --- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

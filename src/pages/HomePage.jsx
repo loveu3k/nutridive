@@ -76,7 +76,7 @@ export default function HomePage() {
 
       {/* Category Tabs */}
       {(loading || posts.length > 0) && (
-        <div className="flex flex-wrap justify-center gap-2 mb-8 min-h-[38px] items-center animate-fade-in">
+        <div className="flex overflow-x-auto no-scrollbar gap-2 mb-8 min-h-[46px] items-center md:flex-wrap md:justify-center pb-2 md:pb-0 px-2 sm:px-0 animate-fade-in">
           {loading ? (
             <>
               <div className="h-9 w-16 rounded-full bg-surface-200 animate-pulse" />

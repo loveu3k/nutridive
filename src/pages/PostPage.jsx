@@ -5,6 +5,7 @@ import YouTubeEmbed from '../components/YouTubeEmbed';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import ReferenceList from '../components/ReferenceList';
 import CommentSection from '../components/CommentSection';
+import { cleanTitle } from '../lib/utils';
 
 import { DEMO_POSTS } from '../data/posts';
 
@@ -48,7 +49,8 @@ export default function PostPage() {
 
   useEffect(() => {
     if (post) {
-      document.title = `${post.title} | 營養深潛`;
+      const displayTitle = cleanTitle(post.title);
+      document.title = `${displayTitle} | 營養深潛`;
       
       // Update meta description
       const metaDesc = document.querySelector('meta[name="description"]');
@@ -56,7 +58,7 @@ export default function PostPage() {
         // Strip markdown-like syntax for description
         const descText = post.content 
           ? post.content.replace(/[#*`\n\-\[\]\(\)]/g, ' ').replace(/\s+/g, ' ').slice(0, 150).trim() + '...'
-          : post.title;
+          : displayTitle;
         metaDesc.setAttribute('content', descText);
       }
     }
@@ -126,7 +128,7 @@ export default function PostPage() {
       {/* Title & Meta */}
       <header className="mb-8 animate-slide-up">
         <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-surface-900 leading-tight mb-4">
-          {post.title}
+          {cleanTitle(post.title)}
         </h1>
         <div className="flex flex-wrap items-center gap-3">
           <time className="text-sm text-surface-400 flex items-center gap-1.5">
