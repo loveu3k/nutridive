@@ -114,25 +114,24 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Posts Grid */}
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="rounded-2xl bg-white shadow-sm overflow-hidden border border-transparent">
+            <div key={i} className="rounded-2xl bg-white shadow-sm overflow-hidden">
               <div className="aspect-video bg-surface-200 animate-pulse" />
               <div className="p-5">
                 {/* Tag skeleton */}
-                <div className="flex gap-1.5 mb-3">
-                  <div className="h-5 w-16 rounded-full bg-surface-200 animate-pulse" />
-                  <div className="h-5 w-12 rounded-full bg-surface-200 animate-pulse" />
+                <div className="flex gap-1.5 mb-3 animate-pulse">
+                  <div className="h-5 w-16 rounded-full bg-surface-200" />
+                  <div className="h-5 w-12 rounded-full bg-surface-200" />
                 </div>
                 {/* Title skeleton - 2 lines */}
-                <div className="space-y-2 mb-4">
-                  <div className="h-5 w-full rounded bg-surface-200 animate-pulse" />
-                  <div className="h-5 w-2/3 rounded bg-surface-200 animate-pulse" />
+                <div className="space-y-2 mb-2 animate-pulse">
+                  <div className="h-[26px] w-full rounded bg-surface-200" />
+                  <div className="h-[26px] w-2/3 rounded bg-surface-200" />
                 </div>
                 {/* Date skeleton */}
-                <div className="h-4 w-28 rounded bg-surface-200 animate-pulse" />
+                <div className="h-5 w-28 rounded bg-surface-200 animate-pulse" />
               </div>
             </div>
           ))}

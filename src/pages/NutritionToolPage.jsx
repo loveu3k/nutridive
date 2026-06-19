@@ -1701,15 +1701,36 @@ export default function NutritionToolPage() {
 
           {/* 工具與檔案卡片網格 */}
           {loadingResources ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-56 rounded-2xl bg-white border border-surface-200 p-6 space-y-4">
-                  <div className="flex justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-surface-100" />
-                    <div className="w-20 h-6 rounded bg-surface-100" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-surface-200 shadow-sm animate-pulse min-h-[290px]"
+                >
+                  <div>
+                    {/* 卡片頂部 (Emoji 圖標 + 類型標籤) */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-surface-100" />
+                      <div className="w-24 h-6 rounded-full bg-surface-100" />
+                    </div>
+
+                    {/* 標題與簡介 */}
+                    <div className="h-5 w-2/3 rounded bg-surface-100 mb-2" />
+                    <div className="space-y-2 mb-6">
+                      <div className="h-3 w-full rounded bg-surface-100" />
+                      <div className="h-3 w-full rounded bg-surface-100" />
+                      <div className="h-3 w-4/5 rounded bg-surface-100" />
+                    </div>
                   </div>
-                  <div className="h-5 w-2/3 rounded bg-surface-100" />
-                  <div className="h-10 w-full rounded bg-surface-100" />
+
+                  {/* 卡片底部資訊與操作按鈕 */}
+                  <div>
+                    <div className="flex items-center justify-between mb-4 border-t border-surface-100 pt-4">
+                      <div className="w-28 h-3 rounded bg-surface-100" />
+                      <div className="w-16 h-3 rounded bg-surface-100" />
+                    </div>
+                    <div className="w-full h-[38px] rounded-xl bg-surface-100" />
+                  </div>
                 </div>
               ))}
             </div>
@@ -1725,7 +1746,7 @@ export default function NutritionToolPage() {
                 return (
                   <div 
                     key={res.id} 
-                    className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white border border-surface-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                    className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white border border-surface-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 min-h-[290px]"
                   >
                     <div>
                       {/* 卡片頂部 (Emoji 圖標 + 類型標籤) */}
