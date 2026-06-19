@@ -75,31 +75,42 @@ export default function HomePage() {
       </section>
 
       {/* Category Tabs */}
-      {!loading && posts.length > 0 && (
-        <div className="flex flex-wrap justify-center gap-2 mb-8 animate-fade-in">
-          <button
-            onClick={() => setSelectedCategory('全部')}
-            className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${
-              selectedCategory === '全部'
-                ? 'bg-primary-500 text-white shadow-md'
-                : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
-            }`}
-          >
-            全部
-          </button>
-          {sortedNutrients.map((nutrient) => (
-            <button
-              key={nutrient}
-              onClick={() => setSelectedCategory(nutrient)}
-              className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${
-                selectedCategory === nutrient
-                  ? 'bg-primary-500 text-white shadow-md'
-                  : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
-              }`}
-            >
-              {nutrient}
-            </button>
-          ))}
+      {(loading || posts.length > 0) && (
+        <div className="flex flex-wrap justify-center gap-2 mb-8 min-h-[38px] items-center animate-fade-in">
+          {loading ? (
+            <>
+              <div className="h-9 w-16 rounded-full bg-surface-200 animate-pulse" />
+              <div className="h-9 w-12 rounded-full bg-surface-200 animate-pulse" />
+              <div className="h-9 w-12 rounded-full bg-surface-200 animate-pulse" />
+              <div className="h-9 w-16 rounded-full bg-surface-200 animate-pulse" />
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => setSelectedCategory('全部')}
+                className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+                  selectedCategory === '全部'
+                    ? 'bg-primary-500 text-white shadow-md'
+                    : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
+                }`}
+              >
+                全部
+              </button>
+              {sortedNutrients.map((nutrient) => (
+                <button
+                  key={nutrient}
+                  onClick={() => setSelectedCategory(nutrient)}
+                  className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+                    selectedCategory === nutrient
+                      ? 'bg-primary-500 text-white shadow-md'
+                      : 'bg-surface-100 text-surface-600 hover:bg-surface-200'
+                  }`}
+                >
+                  {nutrient}
+                </button>
+              ))}
+            </>
+          )}
         </div>
       )}
 
@@ -107,15 +118,21 @@ export default function HomePage() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="rounded-2xl bg-white shadow-sm overflow-hidden animate-pulse">
-              <div className="aspect-video bg-surface-200" />
-              <div className="p-5 space-y-3">
-                <div className="flex gap-2">
-                  <div className="h-5 w-16 rounded-full bg-surface-200" />
-                  <div className="h-5 w-12 rounded-full bg-surface-200" />
+            <div key={i} className="rounded-2xl bg-white shadow-sm overflow-hidden border border-transparent">
+              <div className="aspect-video bg-surface-200 animate-pulse" />
+              <div className="p-5">
+                {/* Tag skeleton */}
+                <div className="flex gap-1.5 mb-3">
+                  <div className="h-5 w-16 rounded-full bg-surface-200 animate-pulse" />
+                  <div className="h-5 w-12 rounded-full bg-surface-200 animate-pulse" />
                 </div>
-                <div className="h-6 w-full rounded bg-surface-200" />
-                <div className="h-4 w-32 rounded bg-surface-200" />
+                {/* Title skeleton - 2 lines */}
+                <div className="space-y-2 mb-4">
+                  <div className="h-5 w-full rounded bg-surface-200 animate-pulse" />
+                  <div className="h-5 w-2/3 rounded bg-surface-200 animate-pulse" />
+                </div>
+                {/* Date skeleton */}
+                <div className="h-4 w-28 rounded bg-surface-200 animate-pulse" />
               </div>
             </div>
           ))}

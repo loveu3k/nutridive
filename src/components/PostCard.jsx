@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 export default function PostCard({ post, index = 0 }) {
-  const thumbnailUrl = `https://img.youtube.com/vi/${post.youtube_video_id}/maxresdefault.jpg`;
+  const thumbnailUrl = `https://img.youtube.com/vi/${post.youtube_video_id}/hqdefault.jpg`;
   const nutrients = post.nutrients || [];
   const date = new Date(post.created_at).toLocaleDateString('zh-TW', {
     year: 'numeric',
