@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { supabase, isConfigured } from '../lib/supabase';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext(null);
 
@@ -15,6 +16,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   // 載入使用者 profile
   const fetchProfile = async (userId) => {
@@ -50,7 +52,7 @@ export function AuthProvider({ children }) {
 
     // 監聽狀態變化
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
+      async (event, session) => {
         setUser(session?.user ?? null);
         if (session?.user) {
           await fetchProfile(session.user.id);
@@ -58,6 +60,11 @@ export function AuthProvider({ children }) {
           setProfile(null);
         }
         setLoading(false);
+
+        // 💡 當偵測到密碼重設 (PASSWORD_RECOVERY) 事件時，自動導向重設密碼頁面
+        if (event === 'PASSWORD_RECOVERY') {
+          navigate('/reset-password', { replace: true });
+        }
       }
     );
 
