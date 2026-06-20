@@ -40,17 +40,13 @@ export default function HomePage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
       <section className="text-center mb-10 animate-fade-in">
-        <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-surface-900 mb-4">
+        <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-surface-900">
           用
           <span className="bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
             科學
           </span>
           探索營養的深度
         </h1>
-        <p className="text-lg text-surface-500 max-w-2xl mx-auto leading-relaxed">
-          每一期影片都以最新的科學文獻為基礎，帶你深入了解營養學的關鍵知識，
-          讓健康決策不再靠感覺。
-        </p>
       </section>
 
       {loading ? (
