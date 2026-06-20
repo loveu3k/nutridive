@@ -8,6 +8,7 @@ import AuthCallbackPage from './pages/AuthCallbackPage';
 
 const NutritionToolPage = lazy(() => import('./pages/NutritionToolPage'));
 const VideoImportPage = lazy(() => import('./pages/VideoImportPage'));
+const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage'));
 
 function LazyFallback() {
   return (
@@ -34,6 +35,14 @@ export default function App() {
               }
             />
             <Route path="/auth/callback" element={<AuthCallbackPage />} />
+            <Route
+              path="/reset-password"
+              element={
+                <Suspense fallback={<LazyFallback />}>
+                  <ResetPasswordPage />
+                </Suspense>
+              }
+            />
             <Route
               path="/admin/import"
               element={

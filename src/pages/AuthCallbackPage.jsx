@@ -16,15 +16,24 @@ export default function AuthCallbackPage() {
         console.error('Auth callback error:', error);
       }
 
-      // 從 sessionStorage 讀取原始頁面路徑
+      // 偵測是否為密碼重設 (type=recovery)
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const queryParams = new URLSearchParams(window.location.search);
+      const isRecovery = hashParams.get('type') === 'recovery' || queryParams.get('type') === 'recovery';
+
       let redirectTo = '/';
-      try {
-        const saved = sessionStorage.getItem('auth_redirect_to');
-        if (saved) {
-          redirectTo = saved;
-          sessionStorage.removeItem('auth_redirect_to');
-        }
-      } catch { /* sessionStorage 不可用時 fallback 到首頁 */ }
+      if (isRecovery) {
+        redirectTo = '/reset-password';
+      } else {
+        // 從 sessionStorage 讀取原始頁面路徑
+        try {
+          const saved = sessionStorage.getItem('auth_redirect_to');
+          if (saved) {
+            redirectTo = saved;
+            sessionStorage.removeItem('auth_redirect_to');
+          }
+        } catch { /* sessionStorage 不可用時 fallback 到首頁 */ }
+      }
 
       navigate(redirectTo, { replace: true });
     };
