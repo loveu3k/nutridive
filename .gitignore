@@ -1,28 +1,40 @@
+# Node modules
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+
+# Production
+build/
+dist/
+
+# Environment variables
+.env*.local
+.env
+
 # Logs
-logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+.pnpm-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+# Editor directories
+.vscode/
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# Wrangler
-.wrangler
+# OS files
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
 
+# Ingestion / Raw downloads (keep processed data tracked or generated)
+scripts/__pycache__/
+*.parquet

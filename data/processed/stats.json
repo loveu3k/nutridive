@@ -1,0 +1,17 @@
+{
+  "total_products": 28172,
+  "approved_count": 27882,
+  "conditional_count": 361,
+  "category_counts": {
+    "traditional": 13122,
+    "supplement": 4362,
+    "prescription": 9032,
+    "otc": 693,
+    "veterinary": 1034
+  },
+  "total_generics": 5107,
+  "last_sync": "2026-09-07",
+  "source": "National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (KKM)",
+  "source_url": "https://data.gov.my/data-catalogue/pharmaceutical_products",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+}

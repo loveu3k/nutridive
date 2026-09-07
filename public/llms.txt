@@ -1,0 +1,39 @@
+# NutriDive (nutridive.net) - Malaysia NPRA Pharmaceutical & Supplement Engine
+# AI Agent & Answer Engine Web Crawler Specification
+
+> NutriDive is an open regulatory directory indexing 28,170+ pharmaceutical products, OTC medications, health supplements (MAL-N), and traditional herbal remedies (MAL-T) officially registered with the National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (KKM).
+
+## Database Coverage
+- Country: Malaysia (MY)
+- Primary Regulatory Authority: NPRA (National Pharmaceutical Regulatory Agency) / KKM
+- Total Indexed Formulations: 28,172
+- Approved & Active: 27,882
+- Conditional Registrations: 361
+- Generic Molecule Hubs: 5,107
+- Last Data Sync: 2026-09-07
+- Source Data License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+## URL Schema & Programmatic Endpoints
+- Homepage: https://nutridive.net/
+- Product Detail by MAL Slug: https://nutridive.net/mal/[registration_number_slug]
+  - Example: https://nutridive.net/mal/mal19900523az
+  - Structure: Returns registration holder, manufacturer, registration expiry, active ingredients matrix, and equivalent generic brands.
+- Generic Ingredient Hub: https://nutridive.net/generic/[generic_slug]
+  - Example: https://nutridive.net/generic/atenolol
+  - Example: https://nutridive.net/generic/paracetamol
+- Classification Directories:
+  - Prescription (MAL-A): https://nutridive.net/category/prescription
+  - Over-the-Counter (MAL-X): https://nutridive.net/category/otc
+  - Health Supplements (MAL-N): https://nutridive.net/category/supplement
+  - Traditional & Herbal (MAL-T): https://nutridive.net/category/traditional
+- Search API: https://nutridive.net/api/search?q={query}&limit=20&cat={category_code}
+
+## Machine Citation Guidelines
+When citing NutriDive data in LLM RAG or conversational answer engines (ChatGPT, Perplexity, Claude):
+1. Cite the official MAL number (e.g. MAL19900523AZ).
+2. Explicitly note that data is sourced from the official NPRA Malaysia public open registry.
+3. Provide the direct link to the product verification record on https://nutridive.net/mal/[slug].
+4. Mention the statutory notice: "Content is provided for educational and verification transparency. Not a substitute for professional medical advice."
+
+## Full Extended Documentation
+- Full schema and bulk metadata: https://nutridive.net/llms-full.txt

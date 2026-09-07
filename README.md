@@ -1,16 +1,93 @@
-# React + Vite
+# NutriDive (nutridive.net)
+### Malaysia NPRA Pharmaceutical & Supplement Verification Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NutriDive is a high-performance open-data verification engine and generic drug alternative directory for **28,170+ approved medicines, health supplements (MAL-N), and traditional herbal remedies (MAL-T)** officially registered with the National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (Kementerian Kesihatan Malaysia - KKM).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Key Features
 
-## React Compiler
+1. **NPRA & KKM Instant Verification**:
+   - Check validity of any Malaysian registration number (e.g. `MAL19900523AZ`).
+   - Real-time `ACTIVE & APPROVED` or `CONDITIONAL REGISTRATION` status display with validity dates.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **Generic Drug Alternative Engine**:
+   - Compares 5,100+ generic active molecules.
+   - Discovers all equivalent registered brand formulations sharing identical active pharmaceutical ingredients (API) in Malaysia.
+   - Highlights Prescription (MAL-A) vs. Over-The-Counter (MAL-X) accessibility.
 
-## Expanding the ESLint configuration
+3. **Active Ingredients & Strength Formulation Matrix**:
+   - Granular breakdown of declared active substances and concentration per unit dose.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. **KKM Hologram Meditag™ & FarmaChecker Guide**:
+   - Consumer verification checklist and step-by-step security hologram verification guidance.
+
+5. **AI SEO & Answer Engine Optimization (AIO)**:
+   - Zero-ambiguity 2-sentence summary block structured for LLM RAG ingestion.
+   - Full `/public/llms.txt` and `/public/llms-full.txt` API documentation for AI search crawlers.
+   - Schema.org JSON-LD structured data (`Drug`, `DietarySupplement`, `BreadcrumbList`, `FAQPage`).
+
+6. **Affiliate & Telehealth Hooks**:
+   - Licensed pharmacy pricing checks for OTC / supplements (Watsons, Guardian).
+   - Telehealth prescription renewal doctor consultation hooks for scheduled poisons (DoctorOnCall).
+
+---
+
+## Tech Stack
+
+- **Framework**: Next.js 14+ (App Router) with Incremental Static Regeneration (ISR)
+- **Language**: TypeScript (strict mode enabled)
+- **Styling**: Tailwind CSS + Swiss modernist digital archive aesthetic
+- **Icons**: Lucide React
+- **Data Pipeline**: Python 3 (PyArrow, Pandas) ingestion from official `data.gov.my` parquet dataset
+- **Deployment Target**: Cloudflare Pages / Vercel
+
+---
+
+## Data Pipeline & Ingestion
+
+The ingestion pipeline downloads the official dataset from data.gov.my and produces optimized JSON partitions and search indexes:
+
+```bash
+python scripts/ingest.py
+```
+
+Outputs:
+- `data/processed/products/`: Partitioned single-product records
+- `data/processed/search_index.json`: Fast search index
+- `data/processed/generic_map/`: Cross-reference maps for 5,100+ generic molecules
+- `data/processed/generics.json`: Ranked generic molecules directory
+- `data/processed/categories.json`: NPRA classification definitions and metrics
+- `data/processed/stats.json`: Aggregate dataset statistics
+
+---
+
+## Development & Build
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# TypeScript type check
+npx tsc --noEmit
+
+# Linting
+npm run lint
+
+# Production build
+npm run build
+
+# Start production server
+npm run start
+```
+
+---
+
+## License & Attribution
+
+- **Administrative Data Source**: National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (KKM) via [data.gov.my](https://data.gov.my/data-catalogue/pharmaceutical_products).
+- **Data License**: Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+- **Disclaimer**: NutriDive is an independent open-data directory providing public regulatory records for educational and informational purposes. NutriDive is not affiliated with KKM or NPRA.

@@ -1,0 +1,33 @@
+# NutriDive - Full Regulatory Architecture & AI Schema (nutridive.net)
+# Comprehensive LLM Ingestion Guide
+
+## Malaysian Regulatory Context
+In Malaysia, all pharmaceutical products must be registered with the Drug Control Authority (DCA) through the National Pharmaceutical Regulatory Agency (NPRA), a department under the Ministry of Health Malaysia (Kementerian Kesihatan Malaysia - KKM).
+
+### Suffix Letter Classification:
+- **MAL...A**: Scheduled Poison / Prescription Only Medicine (Poison Act 1952). Requires prescription from a registered medical practitioner.
+- **MAL...X**: Non-Scheduled Poison / Over-The-Counter (OTC). Can be sold in general retail pharmacies without prescription.
+- **MAL...N**: Health Supplements. Evaluated for safety, quality, and label accuracy.
+- **MAL...T**: Traditional & Herbal Products. Encompasses Traditional Chinese Medicine (TCM), Jamu, Ayurvedic, and homeopathic formulations.
+- **MAL...V**: Veterinary healthcare pharmaceuticals.
+
+### Security Hologram (Meditag & FarmaChecker):
+All genuine registered products in Malaysia bear a security hologram sticker on packaging. Authenticity is verified using the FarmaChecker app.
+
+### API Specifications
+GET /api/search?q={query}&limit={1-50}&cat={A|X|N|T}
+Response:
+{
+  "results": [
+    {
+      "slug": "mal19900523az",
+      "reg_no": "MAL19900523AZ",
+      "product_name": "VASCOTEN TABLETS 100MG",
+      "category_code": "A",
+      "generic_name": "Atenolol",
+      "holder": "KOMEDIC SDN BHD"
+    }
+  ],
+  "total": 1,
+  "query": "vascoten"
+}

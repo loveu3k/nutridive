@@ -1,0 +1,51 @@
+{
+  "prescription": {
+    "code": "A",
+    "slug": "prescription",
+    "name": "Prescription Medicine",
+    "short": "Prescription",
+    "badge_color": "blue",
+    "count": 9032,
+    "definition": "Scheduled medicines requiring a valid doctor's prescription in Malaysia under the Poison Act 1952.",
+    "mal_prefix": "MAL...A"
+  },
+  "otc": {
+    "code": "X",
+    "slug": "otc",
+    "name": "Over-the-Counter (OTC)",
+    "short": "OTC",
+    "badge_color": "emerald",
+    "count": 693,
+    "definition": "Non-prescription medications available directly from community pharmacies for self-limiting symptoms.",
+    "mal_prefix": "MAL...X"
+  },
+  "supplement": {
+    "code": "N",
+    "slug": "supplement",
+    "name": "Health Supplement",
+    "short": "Supplement",
+    "badge_color": "purple",
+    "count": 4362,
+    "definition": "Vitamins, minerals, amino acids, and dietary supplements evaluated and registered by NPRA for safety.",
+    "mal_prefix": "MAL...N"
+  },
+  "traditional": {
+    "code": "T",
+    "slug": "traditional",
+    "name": "Traditional & Natural Product",
+    "short": "Traditional",
+    "badge_color": "amber",
+    "count": 13122,
+    "definition": "Herbal remedies, Traditional Chinese Medicine (TCM), Ayurvedic, and Jamu preparations registered with NPRA.",
+    "mal_prefix": "MAL...T"
+  },
+  "veterinary": {
+    "code": "V",
+    "slug": "veterinary",
+    "name": "Veterinary Medicine",
+    "short": "Veterinary",
+    "count": 1034,
+    "definition": "Pharmaceutical products formulated exclusively for veterinary healthcare.",
+    "mal_prefix": "MAL...V"
+  }
+}
