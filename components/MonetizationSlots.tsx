@@ -97,7 +97,11 @@ interface AdUnitSlotProps {
 }
 
 export function AdUnitSlot({ slot, className = '' }: AdUnitSlotProps) {
-  // Clean responsive ad placeholder ready for Google AdSense / Mediavine code injection
+  // Ads disabled by user request - zero visual clutter and zero disturbance
+  if (process.env.NEXT_PUBLIC_ENABLE_ADS !== 'true') {
+    return null;
+  }
+
   if (slot === 'leaderboard') {
     return (
       <div

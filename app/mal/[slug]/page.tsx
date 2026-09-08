@@ -15,7 +15,7 @@ import {
   ChevronRight,
   Info,
 } from 'lucide-react';
-import { getProduct, getGenericHub } from '@/lib/data';
+import { getProduct, getGenericHub, getTopGenerics } from '@/lib/data';
 import { formatDate, isDateExpired, getCategoryBadgeClass } from '@/lib/utils';
 import VerificationBadge from '@/components/VerificationBadge';
 import ActiveIngredientsMatrix from '@/components/ActiveIngredientsMatrix';
@@ -28,6 +28,21 @@ interface PageProps {
 }
 
 export const revalidate = 86400; // ISR
+
+// Pre-render top 200 popular/essential products at build time for instant speed & zero Vercel compute
+export async function generateStaticParams() {
+  const topGenerics = await getTopGenerics(20);
+  const slugs: { slug: string }[] = [];
+  for (const g of topGenerics) {
+    const hub = await getGenericHub(g.slug);
+    if (hub) {
+      for (const p of hub.products.slice(0, 10)) {
+        slugs.push({ slug: p.slug });
+      }
+    }
+  }
+  return slugs.slice(0, 200);
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const product = await getProduct(params.slug);
@@ -192,8 +207,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
           </span>
         </nav>
 
-        {/* Top Header Card */}
-        <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 md:p-8 shadow-sm">
+        {/* Unified Clinical Product Card */}
+        <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 md:p-8 shadow-xs">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
             <div className="space-y-2">
               <div className="flex flex-wrap items-center gap-2">
@@ -233,7 +248,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* AI SEO & LLM RAG Zero-Ambiguity Summary Block */}
+          {/* AI SEO & LLM RAG Summary */}
           <div className="mt-6 rounded-xl border border-teal-200/80 dark:border-teal-900/60 bg-teal-50/40 dark:bg-teal-950/20 p-4 text-xs sm:text-sm text-zinc-800 dark:text-zinc-200 leading-relaxed">
             <div className="flex items-center gap-1.5 font-semibold text-teal-800 dark:text-teal-300 text-[11px] uppercase tracking-wider mb-1">
               <Sparkles className="w-3.5 h-3.5" />
@@ -242,62 +257,55 @@ export default async function ProductDetailPage({ params }: PageProps) {
             <p>{ragSummary}</p>
           </div>
 
-          {/* Monetization / Action Hook */}
+          {/* Key Registration Specs (Merged directly into header for clean reading) */}
+          <div className="mt-6 pt-6 border-t border-zinc-100 dark:border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div>
+              <div className="flex items-center gap-1.5 text-zinc-400 mb-1">
+                <Building2 className="w-3.5 h-3.5 text-teal-600" />
+                <span>Holder (PRH)</span>
+              </div>
+              <div className="font-semibold text-zinc-900 dark:text-zinc-100 line-clamp-2" title={product.holder}>
+                {product.holder || 'Not Disclosed'}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-1.5 text-zinc-400 mb-1">
+                <Factory className="w-3.5 h-3.5 text-teal-600" />
+                <span>Manufacturer</span>
+              </div>
+              <div className="font-semibold text-zinc-900 dark:text-zinc-100 line-clamp-2" title={product.manufacturer}>
+                {product.manufacturer || 'Not Disclosed'}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-1.5 text-zinc-400 mb-1">
+                <Calendar className="w-3.5 h-3.5 text-teal-600" />
+                <span>First Registered</span>
+              </div>
+              <div className="font-mono font-semibold text-zinc-900 dark:text-zinc-100">
+                {formatDate(product.date_reg)}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-1.5 text-zinc-400 mb-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+                <span>Validity</span>
+              </div>
+              <div className="font-mono font-semibold text-zinc-900 dark:text-zinc-100">
+                {formatDate(product.date_end)}
+              </div>
+            </div>
+          </div>
+
+          {/* Pharmacy Action Link */}
           <div className="mt-6">
             <PharmacyAffiliateButton
               productName={product.product_name}
               categoryCode={product.category.code}
             />
-          </div>
-        </div>
-
-        {/* Ad Unit: Leaderboard Slot */}
-        <AdUnitSlot slot="leaderboard" />
-
-        {/* Metadata Grid */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Holder */}
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4">
-            <div className="flex items-center gap-2 text-zinc-400 text-xs mb-1.5">
-              <Building2 className="w-4 h-4 text-teal-600" />
-              <span>Registration Holder (PRH)</span>
-            </div>
-            <div className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 leading-snug">
-              {product.holder || 'Not Disclosed'}
-            </div>
-          </div>
-
-          {/* Manufacturer */}
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4">
-            <div className="flex items-center gap-2 text-zinc-400 text-xs mb-1.5">
-              <Factory className="w-4 h-4 text-teal-600" />
-              <span>Manufacturer</span>
-            </div>
-            <div className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 leading-snug">
-              {product.manufacturer || 'Not Disclosed'}
-            </div>
-          </div>
-
-          {/* Registration Date */}
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4">
-            <div className="flex items-center gap-2 text-zinc-400 text-xs mb-1.5">
-              <Calendar className="w-4 h-4 text-teal-600" />
-              <span>First Registered</span>
-            </div>
-            <div className="font-mono text-sm font-semibold text-zinc-900 dark:text-zinc-100 tabular-nums">
-              {formatDate(product.date_reg)}
-            </div>
-          </div>
-
-          {/* Expiry Date */}
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4">
-            <div className="flex items-center gap-2 text-zinc-400 text-xs mb-1.5">
-              <ShieldCheck className="w-4 h-4 text-teal-600" />
-              <span>Registration Validity</span>
-            </div>
-            <div className="font-mono text-sm font-semibold text-zinc-900 dark:text-zinc-100 tabular-nums">
-              {formatDate(product.date_end)}
-            </div>
           </div>
         </div>
 

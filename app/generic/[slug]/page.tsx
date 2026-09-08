@@ -14,14 +14,22 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { getGenericHub, getTopGenerics } from '@/lib/data';
-import { getCategoryBadgeClass } from '@/lib/utils';
-import { AdUnitSlot } from '@/components/MonetizationSlots';
+import { GenericHubProductView } from '@/components/GenericHubProductView';
 
 interface PageProps {
   params: { slug: string };
 }
 
 export const revalidate = 86400; // ISR 24h
+
+// Pre-render the top 100 most popular generic molecules at build time
+// to ensure zero cold-start latency and zero Vercel serverless executions!
+export async function generateStaticParams() {
+  const topGenerics = await getTopGenerics(100);
+  return topGenerics.map((g) => ({
+    slug: g.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const hub = await getGenericHub(params.slug);
@@ -156,75 +164,13 @@ export default async function GenericHubPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Ad Unit: Leaderboard Slot */}
-        <AdUnitSlot slot="leaderboard" />
-
-        {/* Brand Products Table / Grid */}
-        <div className="mt-8 space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="font-bold text-lg text-zinc-900 dark:text-zinc-100">
-              All Approved {hub.name} Products in Malaysia
-            </h2>
-            <span className="text-xs text-zinc-500 dark:text-zinc-400">
-              Showing {hub.products.length} registered formulations
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {hub.products.map((p) => {
-              const badge = getCategoryBadgeClass(p.category.code);
-              const isApproved = p.status.toUpperCase().includes('APPROVED');
-
-              return (
-                <Link
-                  key={p.slug}
-                  href={`/mal/${p.slug}`}
-                  className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 transition-all hover:border-teal-500 hover:shadow-md flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-2.5">
-                      <span
-                        className={`text-[10px] font-semibold px-2 py-0.5 rounded border ${badge.bg} ${badge.text} ${badge.border}`}
-                      >
-                        {badge.label}
-                      </span>
-                      <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-                        {p.reg_no}
-                      </span>
-                    </div>
-
-                    <h3 className="font-bold text-base text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2">
-                      {p.product_name}
-                    </h3>
-
-                    {p.dosage && (
-                      <div className="mt-2 text-xs font-mono text-zinc-600 dark:text-zinc-300">
-                        <span className="text-zinc-400 text-[10px] uppercase font-sans">Strength: </span>
-                        <span className="font-semibold bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">
-                          {p.dosage}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="mt-4 pt-3.5 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">
-                    <div className="flex items-center gap-1 truncate max-w-[190px]" title={p.holder}>
-                      <Building2 className="w-3.5 h-3.5 shrink-0 text-zinc-400" />
-                      <span className="truncate">{p.holder}</span>
-                    </div>
-
-                    <span className="text-teal-600 dark:text-teal-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5">
-                      Semak →
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+        {/* Interactive Pharmacist Generic Products Directory (Table/Cards & Dosage Filter) */}
+        <div className="mt-8">
+          <GenericHubProductView
+            products={hub.products}
+            moleculeName={hub.name}
+          />
         </div>
-
-        {/* Ad Unit: In-Content Slot */}
-        <AdUnitSlot slot="in_content" />
 
         {/* Bioequivalence & Generic Substitution Advice */}
         <div className="mt-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 p-6">

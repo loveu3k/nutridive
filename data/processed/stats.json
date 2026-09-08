@@ -1,17 +1,17 @@
 {
-  "total_products": 28172,
-  "approved_count": 27882,
-  "conditional_count": 361,
+  "total_products": 28245,
+  "approved_count": 27958,
+  "conditional_count": 358,
   "category_counts": {
-    "traditional": 13122,
-    "supplement": 4362,
+    "traditional": 13139,
+    "supplement": 4415,
     "prescription": 9032,
     "otc": 693,
-    "veterinary": 1034
+    "veterinary": 1037
   },
-  "total_generics": 5107,
-  "last_sync": "2026-09-07",
+  "total_generics": 4974,
+  "last_sync": "2026-09-08",
   "source": "National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (KKM)",
-  "source_url": "https://data.gov.my/data-catalogue/pharmaceutical_products",
+  "source_url": "https://storage.data.gov.my/healthcare/pharmaceutical_products.parquet",
   "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
 }

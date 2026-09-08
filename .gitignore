@@ -35,6 +35,8 @@ yarn-error.log*
 Thumbs.db
 *.tsbuildinfo
 
-# Ingestion / Raw downloads (keep processed data tracked or generated)
+# Ingestion / Raw downloads / Local Data Pipeline (keep local, not on GitHub)
 scripts/__pycache__/
 *.parquet
+data/official_downloads/
+data/sync_logs/
