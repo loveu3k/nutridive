@@ -140,16 +140,21 @@ export default function ProductVisualCard({
       {/* Central Dosage Form Visualizer or Real Product Image */}
       <div className="relative z-10 my-6 sm:my-8 flex flex-col items-center justify-center">
         {hasRealImage ? (
-          <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-2.5 shadow-sm flex items-center justify-center overflow-hidden group">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={imageUrl!}
-              alt={productName}
-              referrerPolicy="no-referrer"
-              loading="lazy"
-              onError={() => setImageError(true)}
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-            />
+          <div className="flex flex-col items-center gap-2">
+            <div className="relative w-40 h-40 sm:w-44 sm:h-44 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-3 shadow-sm flex items-center justify-center overflow-hidden group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={imageUrl!}
+                alt={productName}
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                onError={() => setImageError(true)}
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <span className="text-[10px] text-zinc-400 dark:text-zinc-500 text-center tracking-tight">
+              Identification reference &bull; Copyright belongs to owner
+            </span>
           </div>
         ) : (
           /* Outer Halo ring */
