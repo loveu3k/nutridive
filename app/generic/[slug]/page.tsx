@@ -172,10 +172,63 @@ export default async function GenericHubPage({ params }: PageProps) {
           />
         </div>
 
+        {/* Related Generic Molecules in Malaysia (Internal Linking Matrix for SEO & Discovery) */}
+        <section className="mt-12">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+            <div>
+              <h3 className="font-bold text-base sm:text-lg text-zinc-900 dark:text-zinc-100">
+                Explore Other Active Molecules in Malaysia
+              </h3>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                Frequently prescribed therapeutic active substances registered under NPRA / KKM.
+              </p>
+            </div>
+            <Link
+              href="/search"
+              className="text-xs font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400"
+            >
+              Search All Molecules →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
+            {[
+              { name: 'Paracetamol', slug: 'paracetamol', desc: 'Analgesic / Antipyretic' },
+              { name: 'Atenolol', slug: 'atenolol', desc: 'Antihypertensive' },
+              { name: 'Metformin', slug: 'metformin', desc: 'Antidiabetic' },
+              { name: 'Atorvastatin', slug: 'atorvastatin', desc: 'Lipid Lowering' },
+              { name: 'Amoxicillin', slug: 'amoxicillin', desc: 'Antibacterial' },
+              { name: 'Omeprazole', slug: 'omeprazole', desc: 'Proton Pump Inhibitor' },
+              { name: 'Cetirizine', slug: 'cetirizine', desc: 'Antihistamine' },
+              { name: 'Amlodipine', slug: 'amlodipine', desc: 'Calcium Channel Blocker' },
+              { name: 'Ibuprofen', slug: 'ibuprofen', desc: 'NSAID / Anti-inflammatory' },
+              { name: 'Loratadine', slug: 'loratadine', desc: 'Allergy / Antihistamine' },
+              { name: 'Losartan', slug: 'losartan', desc: 'ARB Antihypertensive' },
+              { name: 'Pantoprazole', slug: 'pantoprazole', desc: 'Gastric Acid Reducer' },
+            ]
+              .filter((m) => m.slug !== hub.slug)
+              .slice(0, 6)
+              .map((molecule) => (
+                <Link
+                  key={molecule.slug}
+                  href={`/generic/${molecule.slug}`}
+                  className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-3 text-center transition-all hover:border-teal-500 hover:shadow-xs group"
+                >
+                  <div className="font-semibold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 truncate">
+                    {molecule.name}
+                  </div>
+                  <div className="text-[10px] text-zinc-400 mt-1 truncate">
+                    {molecule.desc}
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </section>
+
         {/* Bioequivalence & Generic Substitution Advice */}
-        <div className="mt-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 p-6">
+        <div className="mt-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 p-6">
           <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 mb-2">
-            Generic Bioequivalence &amp; Drug Substitution in Malaysia
+            Generic Bioequivalence &amp; Drug Substitution in Malaysia (Panduan Penggantian Generik)
           </h3>
           <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
             Generic medications registered under NPRA contain the identical active pharmaceutical ingredient (API) in identical dosage strength and route of administration as the originator brand. NPRA requires rigorous bioequivalence (BE) studies demonstrating that generic drugs deliver the exact therapeutic effect. Always confirm with your doctor or community pharmacist before switching between prescription brands.

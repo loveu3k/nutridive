@@ -12,9 +12,11 @@ import {
   Pill,
   ChevronLeft,
   ChevronRight,
+  ArrowRight,
 } from 'lucide-react';
 import { getCategoryBadgeClass } from '@/lib/utils';
 import type { SearchIndexItem } from '@/lib/types';
+import CompareButton from '@/components/CompareButton';
 
 interface CategoryDirectoryViewProps {
   initialItems: SearchIndexItem[];
@@ -76,10 +78,25 @@ export function CategoryDirectoryView({
     setCurrentPage(1);
   };
 
+  const getBorderAccent = (code: string) => {
+    switch (code) {
+      case 'A':
+        return 'border-l-blue-500';
+      case 'X':
+        return 'border-l-emerald-500';
+      case 'N':
+        return 'border-l-purple-500';
+      case 'T':
+        return 'border-l-amber-500';
+      default:
+        return 'border-l-teal-500';
+    }
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {/* Controls Bar: Filter, Sort, View Toggle */}
-      <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4 shadow-xs">
+      <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-3.5 sm:p-4 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           {/* Search within Category */}
           <div className="relative flex-1 max-w-md">
@@ -178,11 +195,12 @@ export function CategoryDirectoryView({
           </button>
         </div>
       ) : viewMode === 'table' ? (
-        /* Pharmacist Clinical Table View */
-        <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xs">
+        /* Pharmacist Clinical Table View with Zebra Striping */
+        <div className="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xs">
           <table className="w-full text-left text-xs">
-            <thead className="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-semibold">
+            <thead className="bg-zinc-50/80 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-semibold">
               <tr>
+                <th className="py-3 px-4 w-12 text-center">Compare</th>
                 <th className="py-3 px-4 font-mono">MAL Registration</th>
                 <th className="py-3 px-4">Product Brand Name</th>
                 <th className="py-3 px-4">Active Molecule / Generic</th>
@@ -190,12 +208,25 @@ export function CategoryDirectoryView({
                 <th className="py-3 px-4 text-right">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-100 dark:divide-zinc-900">
+            <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/60">
               {paginatedItems.map(([slug, reg_no, name, catCode, genericName, holder]) => (
                 <tr
                   key={slug}
-                  className="hover:bg-teal-50/40 dark:hover:bg-zinc-900/60 transition-colors group"
+                  className="even:bg-zinc-50/40 dark:even:bg-zinc-900/20 hover:bg-teal-50/30 dark:hover:bg-zinc-900/60 transition-colors group"
                 >
+                  <td className="py-3 px-4 text-center">
+                    <CompareButton
+                      item={{
+                        slug,
+                        reg_no,
+                        product_name: name,
+                        category_code: catCode,
+                        generic_name: genericName,
+                        holder,
+                      }}
+                      variant="checkbox"
+                    />
+                  </td>
                   <td className="py-3 px-4 whitespace-nowrap">
                     <span className="font-mono font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded text-[11px]">
                       {reg_no}
@@ -218,9 +249,10 @@ export function CategoryDirectoryView({
                   <td className="py-3 px-4 text-right whitespace-nowrap">
                     <Link
                       href={`/mal/${slug}`}
-                      className="inline-flex items-center text-teal-600 dark:text-teal-400 font-semibold hover:underline"
+                      className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400 font-semibold hover:underline"
                     >
-                      Verify →
+                      <span>Verify</span>
+                      <ArrowRight className="w-3 h-3" />
                     </Link>
                   </td>
                 </tr>
@@ -229,44 +261,61 @@ export function CategoryDirectoryView({
           </table>
         </div>
       ) : (
-        /* Card Grid View */
+        /* Card Grid View with Category Border Accent */
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {paginatedItems.map(([slug, reg_no, name, catCode, genericName, holder]) => (
-            <Link
-              key={slug}
-              href={`/mal/${slug}`}
-              className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4 transition-all hover:border-teal-500 hover:shadow-md flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-                    {reg_no}
-                  </span>
-                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
-                    NPRA Verified
-                  </span>
+          {paginatedItems.map(([slug, reg_no, name, catCode, genericName, holder]) => {
+            const borderAccent = getBorderAccent(catCode);
+            return (
+              <div
+                key={slug}
+                className={`group rounded-2xl border border-zinc-200 dark:border-zinc-800 border-l-4 ${borderAccent} bg-white dark:bg-zinc-950 p-4 sm:p-5 transition-all hover:shadow-md flex flex-col justify-between`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                      {reg_no}
+                    </span>
+                    <CompareButton
+                      item={{
+                        slug,
+                        reg_no,
+                        product_name: name,
+                        category_code: catCode,
+                        generic_name: genericName,
+                        holder,
+                      }}
+                      variant="checkbox"
+                    />
+                  </div>
+
+                  <Link
+                    href={`/mal/${slug}`}
+                    className="font-bold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 line-clamp-2 transition-colors"
+                  >
+                    {name}
+                  </Link>
+
+                  <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 line-clamp-1">
+                    <span className="text-teal-700 dark:text-teal-400 font-medium">{genericName}</span>
+                  </p>
                 </div>
 
-                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 line-clamp-2 transition-colors">
-                  {name}
-                </h3>
-
-                <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400 line-clamp-1">
-                  <span className="text-teal-700 dark:text-teal-400 font-medium">{genericName}</span>
-                </p>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">
-                <div className="flex items-center gap-1 truncate max-w-[190px]" title={holder}>
-                  <Building2 className="w-3.5 h-3.5 shrink-0 text-zinc-400" />
-                  <span className="truncate">{holder}</span>
+                <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">
+                  <div className="flex items-center gap-1 truncate max-w-[170px]" title={holder}>
+                    <Building2 className="w-3.5 h-3.5 shrink-0 text-zinc-400" />
+                    <span className="truncate">{holder}</span>
+                  </div>
+                  <Link
+                    href={`/mal/${slug}`}
+                    className="text-teal-600 dark:text-teal-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5"
+                  >
+                    <span>Detail</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
                 </div>
-                <span className="text-teal-600 dark:text-teal-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center">
-                  Detail →
-                </span>
               </div>
-            </Link>
-          ))}
+            );
+          })}
         </div>
       )}
 

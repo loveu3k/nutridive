@@ -77,36 +77,36 @@ export default async function HomePage() {
           </div>
 
           {/* Stats Bar */}
-          <div className="mt-12 pt-8 border-t border-zinc-200/60 dark:border-zinc-800/60 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            <div className="p-3">
+          <div className="mt-12 pt-8 border-t border-zinc-200/60 dark:border-zinc-800/60 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center">
+            <div className="p-4 rounded-2xl bg-white/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 shadow-xs">
               <div className="text-2xl sm:text-3xl font-bold font-mono text-zinc-900 dark:text-zinc-100 tabular-nums">
                 {stats.total_products.toLocaleString()}+
               </div>
-              <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              <div className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mt-1">
                 KKM Registered Products
               </div>
             </div>
-            <div className="p-3">
+            <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40 shadow-xs">
               <div className="text-2xl sm:text-3xl font-bold font-mono text-emerald-600 dark:text-emerald-400 tabular-nums">
                 {stats.approved_count.toLocaleString()}
               </div>
-              <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              <div className="text-xs font-medium text-emerald-700 dark:text-emerald-400 mt-1">
                 Approved &amp; Active
               </div>
             </div>
-            <div className="p-3">
+            <div className="p-4 rounded-2xl bg-teal-50/50 dark:bg-teal-950/20 border border-teal-200/60 dark:border-teal-900/40 shadow-xs">
               <div className="text-2xl sm:text-3xl font-bold font-mono text-teal-600 dark:text-teal-400 tabular-nums">
                 {stats.total_generics.toLocaleString()}+
               </div>
-              <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              <div className="text-xs font-medium text-teal-700 dark:text-teal-400 mt-1">
                 Generic Molecule Maps
               </div>
             </div>
-            <div className="p-3">
+            <div className="p-4 rounded-2xl bg-white/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800/80 shadow-xs">
               <div className="text-2xl sm:text-3xl font-bold font-mono text-zinc-900 dark:text-zinc-100 tabular-nums">
                 100%
               </div>
-              <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              <div className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mt-1">
                 NPRA Official Records
               </div>
             </div>
@@ -141,7 +141,7 @@ export default async function HomePage() {
           {/* Prescription Card */}
           <Link
             href="/category/prescription"
-            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-blue-500 hover:shadow-lg flex flex-col justify-between"
+            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 border-t-4 border-t-blue-500 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-blue-500 hover:shadow-lg flex flex-col justify-between"
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 border border-blue-200 dark:border-blue-900">
@@ -170,7 +170,7 @@ export default async function HomePage() {
           {/* OTC Card */}
           <Link
             href="/category/otc"
-            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-emerald-500 hover:shadow-lg flex flex-col justify-between"
+            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 border-t-4 border-t-emerald-500 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-emerald-500 hover:shadow-lg flex flex-col justify-between"
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4 border border-emerald-200 dark:border-emerald-900">
@@ -199,7 +199,7 @@ export default async function HomePage() {
           {/* Health Supplement Card */}
           <Link
             href="/category/supplement"
-            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-purple-500 hover:shadow-lg flex flex-col justify-between"
+            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 border-t-4 border-t-purple-500 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-purple-500 hover:shadow-lg flex flex-col justify-between"
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 border border-purple-200 dark:border-purple-900">
@@ -228,7 +228,7 @@ export default async function HomePage() {
           {/* Traditional Medicine Card */}
           <Link
             href="/category/traditional"
-            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-amber-500 hover:shadow-lg flex flex-col justify-between"
+            className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 border-t-4 border-t-amber-500 bg-white dark:bg-zinc-950 p-6 transition-all hover:border-amber-500 hover:shadow-lg flex flex-col justify-between"
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4 border border-amber-200 dark:border-amber-900">
@@ -281,9 +281,13 @@ export default async function HomePage() {
               <Link
                 key={gen.slug}
                 href={`/generic/${gen.slug}`}
-                className="group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-3.5 transition-all hover:border-teal-500 hover:shadow-xs flex flex-col justify-between"
+                className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-3.5 transition-all hover:border-teal-500 hover:shadow-xs flex flex-col justify-between"
               >
                 <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="w-2 h-2 rounded-full bg-teal-500 shrink-0" />
+                    <span className="text-[10px] font-mono text-zinc-400">NPRA</span>
+                  </div>
                   <h4 className="font-semibold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 line-clamp-1 transition-colors">
                     {gen.name}
                   </h4>
@@ -294,8 +298,9 @@ export default async function HomePage() {
                     Registered Brands
                   </div>
                 </div>
-                <div className="mt-3 text-[10px] text-teal-600 dark:text-teal-400 font-medium">
-                  Compare Brands →
+                <div className="mt-3 text-[10px] text-teal-600 dark:text-teal-400 font-semibold group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
+                  <span>Compare Brands</span>
+                  <span>→</span>
                 </div>
               </Link>
             ))}

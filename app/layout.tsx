@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { CompareProvider } from '@/lib/compare-context';
+import CompareTray from '@/components/CompareTray';
+import CompareModal from '@/components/CompareModal';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -98,9 +101,13 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="ms-MY" href="https://nutridive.net" />
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased selection:bg-teal-100 dark:selection:bg-teal-900/60 selection:text-teal-900 dark:selection:text-teal-100">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CompareProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <CompareTray />
+          <CompareModal />
+        </CompareProvider>
       </body>
     </html>
   );

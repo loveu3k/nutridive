@@ -77,7 +77,7 @@ export async function getGenericHub(slug: string): Promise<GenericHub | null> {
 }
 
 export async function getTopGenerics(limit: number = 50): Promise<GenericSummary[]> {
-  if (genericsCache) {
+  if (genericsCache && genericsCache.length >= limit) {
     return genericsCache.slice(0, limit);
   }
 
@@ -92,6 +92,22 @@ export async function getTopGenerics(limit: number = 50): Promise<GenericSummary
     return data.slice(0, limit);
   } catch (err) {
     console.error(`Error reading ${filename}:`, err);
+    return [];
+  }
+}
+
+export async function getAllGenerics(): Promise<GenericSummary[]> {
+  if (genericsCache && genericsCache.length > 50) {
+    return genericsCache;
+  }
+  const filePath = path.join(DATA_DIR, 'generics.json');
+  try {
+    const content = await fs.promises.readFile(filePath, 'utf-8');
+    const data = JSON.parse(content) as GenericSummary[];
+    genericsCache = data;
+    return data;
+  } catch (err) {
+    console.error('Error reading generics.json:', err);
     return [];
   }
 }
