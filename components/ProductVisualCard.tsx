@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Pill, Sparkles, ShieldCheck, Leaf, Syringe, Droplets, HeartPulse } from 'lucide-react';
 
 interface ProductVisualCardProps {
@@ -8,6 +8,7 @@ interface ProductVisualCardProps {
   productName: string;
   regNo: string;
   primaryMolecule: string;
+  imageUrl?: string | null;
   className?: string;
 }
 
@@ -53,9 +54,12 @@ export default function ProductVisualCard({
   productName,
   regNo,
   primaryMolecule,
+  imageUrl,
   className = '',
 }: ProductVisualCardProps) {
+  const [imageError, setImageError] = useState(false);
   const { type: formType, label: formLabel } = detectDosageForm(productName);
+  const hasRealImage = Boolean(imageUrl && !imageError);
 
   // Category Theme Palette
   const getTheme = () => {
@@ -133,63 +137,77 @@ export default function ProductVisualCard({
         </div>
       </div>
 
-      {/* Central Dosage Form Visualizer (Dynamic SVG Formulation Art) */}
+      {/* Central Dosage Form Visualizer or Real Product Image */}
       <div className="relative z-10 my-6 sm:my-8 flex flex-col items-center justify-center">
-        {/* Outer Halo ring */}
-        <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-gradient-to-tr from-zinc-100 to-zinc-50 dark:from-zinc-900 dark:to-zinc-800 border border-zinc-200/80 dark:border-zinc-700/60 shadow-inner flex items-center justify-center group">
-          {/* Subtle dosage pattern decoration */}
-          <div className="absolute inset-2 rounded-2xl border border-dashed border-zinc-300/60 dark:border-zinc-700/60" />
+        {hasRealImage ? (
+          <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-2.5 shadow-sm flex items-center justify-center overflow-hidden group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={imageUrl!}
+              alt={productName}
+              referrerPolicy="no-referrer"
+              loading="lazy"
+              onError={() => setImageError(true)}
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        ) : (
+          /* Outer Halo ring */
+          <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-gradient-to-tr from-zinc-100 to-zinc-50 dark:from-zinc-900 dark:to-zinc-800 border border-zinc-200/80 dark:border-zinc-700/60 shadow-inner flex items-center justify-center group">
+            {/* Subtle dosage pattern decoration */}
+            <div className="absolute inset-2 rounded-2xl border border-dashed border-zinc-300/60 dark:border-zinc-700/60" />
 
-          {/* Form-specific 3D vector illustration */}
-          {formType === 'tablet' && (
-            <div className="relative flex flex-col items-center justify-center">
-              {/* Embossed tablet geometry */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-white via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-900 shadow-md border border-zinc-200 dark:border-zinc-600 flex items-center justify-center relative">
-                {/* Score line across tablet */}
-                <div className="w-10 h-0.5 bg-zinc-300 dark:bg-zinc-500 rounded-full" />
-                <div className="absolute w-2 h-2 rounded-full bg-teal-500/70" />
-              </div>
-            </div>
-          )}
-
-          {formType === 'capsule' && (
-            <div className="relative flex items-center justify-center rotate-45">
-              <div className="w-7 h-14 rounded-full bg-gradient-to-b from-teal-500 to-teal-700 shadow-md border border-teal-400 flex flex-col overflow-hidden">
-                <div className="w-full h-1/2 bg-white/90 dark:bg-zinc-800 border-b border-teal-300" />
-                <div className="w-full h-1/2 bg-gradient-to-b from-teal-500 to-teal-600" />
-              </div>
-            </div>
-          )}
-
-          {formType === 'syrup' && (
-            <div className="relative flex flex-col items-center justify-center">
-              <div className="w-10 h-16 rounded-xl bg-gradient-to-br from-amber-100 via-amber-50 to-white dark:from-amber-950 dark:via-amber-900 dark:to-zinc-900 border border-amber-300 dark:border-amber-700 shadow-md relative overflow-hidden flex flex-col items-center">
-                <div className="w-6 h-3 rounded-t-md bg-zinc-400 dark:bg-zinc-600" />
-                <div className="w-full flex-1 flex items-center justify-center">
-                  <Droplets className="w-4 h-4 text-amber-500 animate-pulse" />
+            {/* Form-specific 3D vector illustration */}
+            {formType === 'tablet' && (
+              <div className="relative flex flex-col items-center justify-center">
+                {/* Embossed tablet geometry */}
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-white via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-900 shadow-md border border-zinc-200 dark:border-zinc-600 flex items-center justify-center relative">
+                  {/* Score line across tablet */}
+                  <div className="w-10 h-0.5 bg-zinc-300 dark:bg-zinc-500 rounded-full" />
+                  <div className="absolute w-2 h-2 rounded-full bg-teal-500/70" />
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {formType === 'injection' && (
-            <div className="relative flex items-center justify-center">
-              <Syringe className="w-12 h-12 text-blue-500 dark:text-blue-400 drop-shadow-md" />
-            </div>
-          )}
+            {formType === 'capsule' && (
+              <div className="relative flex items-center justify-center rotate-45">
+                <div className="w-7 h-14 rounded-full bg-gradient-to-b from-teal-500 to-teal-700 shadow-md border border-teal-400 flex flex-col overflow-hidden">
+                  <div className="w-full h-1/2 bg-white/90 dark:bg-zinc-800 border-b border-teal-300" />
+                  <div className="w-full h-1/2 bg-gradient-to-b from-teal-500 to-teal-600" />
+                </div>
+              </div>
+            )}
 
-          {formType === 'herbal' && (
-            <div className="relative flex items-center justify-center">
-              <Leaf className="w-12 h-12 text-amber-500 dark:text-amber-400 drop-shadow-md" />
-            </div>
-          )}
+            {formType === 'syrup' && (
+              <div className="relative flex flex-col items-center justify-center">
+                <div className="w-10 h-16 rounded-xl bg-gradient-to-br from-amber-100 via-amber-50 to-white dark:from-amber-950 dark:via-amber-900 dark:to-zinc-900 border border-amber-300 dark:border-amber-700 shadow-md relative overflow-hidden flex flex-col items-center">
+                  <div className="w-6 h-3 rounded-t-md bg-zinc-400 dark:bg-zinc-600" />
+                  <div className="w-full flex-1 flex items-center justify-center">
+                    <Droplets className="w-4 h-4 text-amber-500 animate-pulse" />
+                  </div>
+                </div>
+              </div>
+            )}
 
-          {(formType === 'cream' || formType === 'powder' || formType === 'general') && (
-            <div className="relative flex items-center justify-center">
-              <Pill className={`w-12 h-12 ${theme.accent} drop-shadow-md`} />
-            </div>
-          )}
-        </div>
+            {formType === 'injection' && (
+              <div className="relative flex items-center justify-center">
+                <Syringe className="w-12 h-12 text-blue-500 dark:text-blue-400 drop-shadow-md" />
+              </div>
+            )}
+
+            {formType === 'herbal' && (
+              <div className="relative flex items-center justify-center">
+                <Leaf className="w-12 h-12 text-amber-500 dark:text-amber-400 drop-shadow-md" />
+              </div>
+            )}
+
+            {(formType === 'cream' || formType === 'powder' || formType === 'general') && (
+              <div className="relative flex items-center justify-center">
+                <Pill className={`w-12 h-12 ${theme.accent} drop-shadow-md`} />
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Dosage Form Badge */}
         <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-semibold text-zinc-800 dark:text-zinc-200 shadow-2xs">

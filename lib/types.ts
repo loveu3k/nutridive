@@ -31,6 +31,7 @@ export interface Product {
   generic_slug: string;
   primary_molecule: string;
   has_hologram_requirement: boolean;
+  image_url?: string | null;
 }
 
 export interface ProductSummary {

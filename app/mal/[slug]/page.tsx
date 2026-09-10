@@ -259,6 +259,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               productName={product.product_name}
               regNo={product.reg_no}
               primaryMolecule={product.primary_molecule}
+              imageUrl={product.image_url}
             />
 
             {/* Quick Actions & Pharmacy Access Card */}
