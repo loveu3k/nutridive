@@ -9,13 +9,14 @@ import {
   Factory,
   Pill,
   ExternalLink,
-  Sparkles,
   ChevronRight,
   Truck,
   ArrowRight,
-  FileCheck2,
+  FileText,
+  Clock,
+  Shield,
   CheckCircle2,
-  Share2,
+  Atom,
 } from 'lucide-react';
 import { getProduct, getGenericHub, getTopGenerics } from '@/lib/data';
 import { formatDate, isDateExpired, getCategoryBadgeClass } from '@/lib/utils';
@@ -26,8 +27,6 @@ import HologramGuidance from '@/components/HologramGuidance';
 import { PharmacyAffiliateButton, AdUnitSlot } from '@/components/MonetizationSlots';
 import CompareButton from '@/components/CompareButton';
 import FaqAccordion, { type FaqItem } from '@/components/FaqAccordion';
-import ProductVisualCard from '@/components/ProductVisualCard';
-import ProductBentoGrid from '@/components/ProductBentoGrid';
 
 interface PageProps {
   params: { slug: string };
@@ -35,7 +34,7 @@ interface PageProps {
 
 export const revalidate = 86400; // ISR 24h
 
-// Pre-render top 200 popular/essential products at build time for instant speed & zero Vercel compute
+// Pre-render top 200 popular/essential products at build time for instant speed & zero compute
 export async function generateStaticParams() {
   const topGenerics = await getTopGenerics(20);
   const slugs: { slug: string }[] = [];
@@ -116,16 +115,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
       .map((i) => (i.dosage ? `${i.name} ${i.dosage}` : i.name))
       .join(', ') || product.primary_molecule;
 
-  // AI SEO / RAG 2-sentence summary block:
-  const ragSummary = `${product.product_name} is an approved ${product.category.name} in Malaysia under registration number ${product.reg_no} by ${product.holder}. Declared active therapeutic formulation: ${primaryIngredientText || 'specialized composition'}.`;
-
-  // FAQ Items for interactive Accordion + Rich Snippet schema
+  // FAQ generator
   const faqItems: FaqItem[] = [
     {
-      question: `Is ${product.product_name} approved in Malaysia?`,
+      question: `Is ${product.product_name} officially registered with KKM / NPRA?`,
       answer: (
         <span>
-          Yes. <strong>{product.product_name}</strong> is registered under registration number <strong>{product.reg_no}</strong> with current status <em>&ldquo;{product.status}&rdquo;</em>. Product Registration Holder (PRH) is {product.holder}.
+          Yes, <strong>{product.product_name}</strong> is registered under National Pharmaceutical Regulatory Agency (NPRA) registration number <strong>{product.reg_no}</strong>. Its current public status is <strong>{product.status}</strong>, with registration validity until <strong>{formatDate(product.date_end)}</strong>.
         </span>
       ),
     },
@@ -133,15 +129,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
       question: `What are the active therapeutic ingredients of ${product.product_name}?`,
       answer: (
         <span>
-          The declared active therapeutic components in public records are: <strong>{primaryIngredientText}</strong>. Please consult a licensed healthcare professional for medical dosage and indications.
+          The declared active therapeutic ingredients in official records are: <strong>{primaryIngredientText}</strong>. Please consult a licensed medical doctor or pharmacist for clinical dosage and indication advice.
         </span>
       ),
     },
     {
-      question: `What are the generic alternatives for ${product.product_name}?`,
+      question: `What are the approved generic alternatives for ${product.product_name}?`,
       answer: (
         <span>
-          In Malaysia, there are <strong>{alternatives.length}</strong> approved brand formulations sharing the identical active substance ({product.primary_molecule}). You can review them in the alternative brands section above or compare them side-by-side using the Compare tool.
+          In Malaysia, there are <strong>{alternatives.length}</strong> registered pharmaceutical brands sharing the identical primary active substance ({product.primary_molecule}). You can review them in the alternative brands section or use the Compare tool to compare holders and registrations.
         </span>
       ),
     },
@@ -187,7 +183,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           {
             '@type': 'ListItem',
             position: 3,
-            name: product.product_name,
+            name: product.reg_no,
             item: `https://nutridive.net/mal/${product.slug}`,
           },
         ],
@@ -231,7 +227,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 mb-6 overflow-x-auto">
           <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
@@ -250,143 +246,175 @@ export default async function ProductDetailPage({ params }: PageProps) {
           </span>
         </nav>
 
-        {/* Modern Split-Hero Architecture: Left Visual Card + Right Bento Canvas */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          {/* Left Column (4 cols on lg): Visual Anchor Card & Quick Verification Actions */}
-          <div className="lg:col-span-4 space-y-4">
-            <ProductVisualCard
-              categoryCode={product.category.code}
-              productName={product.product_name}
-              regNo={product.reg_no}
-              primaryMolecule={product.primary_molecule}
-              imageUrl={product.image_url}
-            />
-
-            {/* Quick Actions & Pharmacy Access Card */}
-            <div className="rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/50 p-4 text-xs space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-zinc-500 dark:text-zinc-400">Official Database:</span>
-                <a
-                  href={`https://quest3plus.bpfk.gov.my/pmo2/index.php`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-teal-600 dark:text-teal-400 hover:underline inline-flex items-center gap-1"
-                >
-                  <span>QUEST3+ Portal</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-zinc-500 dark:text-zinc-400">Open Data Source:</span>
-                <span className="font-mono text-zinc-700 dark:text-zinc-300">data.gov.my</span>
-              </div>
-              <div className="pt-2 border-t border-zinc-200/60 dark:border-zinc-800">
-                <PharmacyAffiliateButton
-                  productName={product.product_name}
-                  categoryCode={product.category.code}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column (8 cols on lg): Header Identity + Bento Attributes Grid */}
-          <div className="lg:col-span-8 space-y-5">
-            {/* Header Identity Card */}
-            <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-7 shadow-xs">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-mono font-bold text-xs sm:text-sm bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 px-2.5 py-1 rounded-md tracking-wider">
-                    {product.reg_no}
-                  </span>
-                  <span
-                    className={`text-xs font-semibold px-2.5 py-1 rounded-md border ${badge.bg} ${badge.text} ${badge.border}`}
-                  >
-                    {badge.label}
-                  </span>
-                  <span className="text-[11px] font-medium text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-md">
-                    {product.category.name}
-                  </span>
-                </div>
-
-                <VerificationBadge
-                  status={product.status}
-                  regNo={product.reg_no}
-                  dateEnd={product.date_end}
-                  size="sm"
-                />
-              </div>
-
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mt-3 leading-tight">
-                {product.product_name}
-              </h1>
-
-              <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-2">
-                Active Generic Molecule:{' '}
-                <Link
-                  href={`/generic/${product.generic_slug}`}
-                  className="font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 underline underline-offset-4"
-                >
-                  {product.generic_name}
-                </Link>
-              </p>
-
-              {/* Action Bar */}
-              <div className="mt-5 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex flex-wrap items-center gap-3">
-                <CompareButton
-                  item={{
-                    slug: product.slug,
-                    reg_no: product.reg_no,
-                    product_name: product.product_name,
-                    category_code: product.category.code,
-                    generic_name: product.generic_name,
-                    holder: product.holder,
-                    dosage: primaryIngredientText,
-                  }}
-                  variant="button"
-                  className="w-full sm:w-auto"
-                />
-
-                <Link
-                  href={`/generic/${product.generic_slug}`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 transition-colors"
-                >
-                  <span>Compare with Equivalents</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                </Link>
-              </div>
+        {/* Minimalist Monograph Header */}
+        <header className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-8 shadow-xs">
+          {/* Top Status & Category Badges */}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-mono font-bold text-xs sm:text-sm bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 px-2.5 py-1 rounded-md tracking-wider">
+                {product.reg_no}
+              </span>
+              <span
+                className={`text-xs font-semibold px-2.5 py-1 rounded-md border ${badge.bg} ${badge.text} ${badge.border}`}
+              >
+                {badge.label}
+              </span>
+              <span className="text-[11px] font-medium text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-md">
+                {product.category.name}
+              </span>
             </div>
 
-            {/* Bento Grid: 4 Scan-Friendly Attribute Tiles */}
-            <ProductBentoGrid
-              primaryMolecule={product.primary_molecule}
-              genericSlug={product.generic_slug}
-              primaryDosage={product.active_ingredients[0]?.dosage}
-              regNo={product.reg_no}
+            <VerificationBadge
               status={product.status}
-              categoryName={product.category.name}
-              dateReg={product.date_reg}
+              regNo={product.reg_no}
               dateEnd={product.date_end}
-              holder={product.holder}
-              manufacturer={product.manufacturer}
-              importer={product.importer}
+              size="sm"
             />
           </div>
-        </div>
 
-        {/* Section 1: Active Ingredients Formulation Matrix */}
-        <div className="mt-10">
+          {/* Product Main Title */}
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mt-4 leading-tight">
+            {product.product_name}
+          </h1>
+
+          {/* Primary Molecule Highlight Bar */}
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+            <span className="font-medium">Active Therapeutic Substance:</span>
+            <Link
+              href={`/generic/${product.generic_slug}`}
+              className="inline-flex items-center gap-1 font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 underline underline-offset-4"
+            >
+              <span>{product.generic_name}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Clean Action Toolbar */}
+          <div className="mt-6 pt-5 border-t border-zinc-100 dark:border-zinc-800 flex flex-wrap items-center gap-3">
+            <CompareButton
+              item={{
+                slug: product.slug,
+                reg_no: product.reg_no,
+                product_name: product.product_name,
+                category_code: product.category.code,
+                generic_name: product.generic_name,
+                holder: product.holder,
+                dosage: primaryIngredientText,
+              }}
+              variant="button"
+            />
+
+            <a
+              href="https://quest3plus.bpfk.gov.my/pmo2/index.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 transition-colors"
+            >
+              <span>Verify on QUEST 3+</span>
+              <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
+            </a>
+
+            <PharmacyAffiliateButton
+              productName={product.product_name}
+              categoryCode={product.category.code}
+            />
+          </div>
+        </header>
+
+        {/* Section 1: Official Regulatory & Registration Specifications Table */}
+        <section className="mt-8 rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-8 shadow-xs">
+          <div className="flex items-center justify-between pb-4 mb-6 border-b border-zinc-100 dark:border-zinc-800">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                Official Filing
+              </span>
+              <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mt-0.5">
+                Maklumat Pendaftaran &amp; Kawal Selia Rasmi
+              </h2>
+            </div>
+            <span className="text-[11px] font-mono text-zinc-400">NPRA / KKM</span>
+          </div>
+
+          <dl className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-xs sm:text-sm">
+            <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4">
+              <dt className="text-zinc-500 dark:text-zinc-400">Nombor Pendaftaran MAL:</dt>
+              <dd className="font-mono font-bold text-zinc-900 dark:text-zinc-100 text-right">
+                {product.reg_no}
+              </dd>
+            </div>
+
+            <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4">
+              <dt className="text-zinc-500 dark:text-zinc-400">Status Pendaftaran:</dt>
+              <dd className="font-semibold text-emerald-600 dark:text-emerald-400 text-right flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                {product.status}
+              </dd>
+            </div>
+
+            <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4">
+              <dt className="text-zinc-500 dark:text-zinc-400">Kategori / Jadual Racun:</dt>
+              <dd className="font-semibold text-zinc-900 dark:text-zinc-100 text-right">
+                {product.category.name} ({product.category.code})
+              </dd>
+            </div>
+
+            <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4">
+              <dt className="text-zinc-500 dark:text-zinc-400">Tempoh Sah Pendaftaran:</dt>
+              <dd className="font-mono text-zinc-900 dark:text-zinc-100 text-right">
+                {formatDate(product.date_reg)} &rarr;{' '}
+                <strong className="text-zinc-900 dark:text-zinc-50 font-bold">
+                  {formatDate(product.date_end)}
+                </strong>
+              </dd>
+            </div>
+
+            <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4 md:col-span-2">
+              <dt className="text-zinc-500 dark:text-zinc-400 shrink-0">Pemegang Pendaftaran (PRH):</dt>
+              <dd className="font-semibold text-zinc-900 dark:text-zinc-100 text-right">
+                {product.holder || 'Not Disclosed'}
+              </dd>
+            </div>
+
+            <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4 md:col-span-2">
+              <dt className="text-zinc-500 dark:text-zinc-400 shrink-0">Pengilang Utama (Manufacturer):</dt>
+              <dd className="font-semibold text-zinc-900 dark:text-zinc-100 text-right">
+                {product.manufacturer || 'Disclosed in Filing'}
+              </dd>
+            </div>
+
+            {product.importer && (
+              <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4 md:col-span-2">
+                <dt className="text-zinc-500 dark:text-zinc-400 shrink-0">Pengimport Berlesen (Importer):</dt>
+                <dd className="font-semibold text-zinc-900 dark:text-zinc-100 text-right">
+                  {product.importer}
+                </dd>
+              </div>
+            )}
+
+            <div className="py-2.5 border-b border-zinc-100 dark:border-zinc-900 flex justify-between gap-4 md:col-span-2">
+              <dt className="text-zinc-500 dark:text-zinc-400">Pelekat Keselamatan Fizikal:</dt>
+              <dd className="font-semibold text-emerald-700 dark:text-emerald-400 text-right flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                Pelekat Meditag Hologram KKM Diwajibkan
+              </dd>
+            </div>
+          </dl>
+        </section>
+
+        {/* Section 2: Active Ingredients Composition Matrix */}
+        <section className="mt-8">
           <ActiveIngredientsMatrix
             ingredients={product.active_ingredients}
             productName={product.product_name}
             categoryCode={product.category.code}
           />
-        </div>
+        </section>
 
         {/* Ad Unit: In-Content Slot */}
         <AdUnitSlot slot="in_content" />
 
-        {/* Section 2: Approved Generic Alternatives */}
-        <div className="mt-10">
+        {/* Section 3: Approved Generic Alternative Brands */}
+        <section className="mt-8">
           <GenericAlternativeGrid
             currentSlug={product.slug}
             genericName={product.primary_molecule}
@@ -400,83 +428,28 @@ export default async function ProductDetailPage({ params }: PageProps) {
               dosage: primaryIngredientText,
             }}
           />
-        </div>
+        </section>
 
-        {/* Section 3: Technical Specifications & Supply Chain Directory Table */}
-        <div className="mt-10 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-8 shadow-xs">
-          <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-1">
-            Regulatory &amp; Manufacturing Specifications
-          </h3>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-6">
-            Detailed registration filings recorded in the Malaysian open pharmaceutical catalogue.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-xs">
-            <div className="flex items-start justify-between py-2 border-b border-zinc-100 dark:border-zinc-900">
-              <span className="text-zinc-500 dark:text-zinc-400">Product Registration Holder:</span>
-              <span className="font-semibold text-right text-zinc-900 dark:text-zinc-100 max-w-[60%]">
-                {product.holder || 'Not Disclosed'}
-              </span>
-            </div>
-
-            <div className="flex items-start justify-between py-2 border-b border-zinc-100 dark:border-zinc-900">
-              <span className="text-zinc-500 dark:text-zinc-400">Authorized Manufacturer:</span>
-              <span className="font-semibold text-right text-zinc-900 dark:text-zinc-100 max-w-[60%]">
-                {product.manufacturer || 'Disclosed in Filing'}
-              </span>
-            </div>
-
-            <div className="flex items-start justify-between py-2 border-b border-zinc-100 dark:border-zinc-900">
-              <span className="text-zinc-500 dark:text-zinc-400">Licensed Importer:</span>
-              <span className="font-semibold text-right text-zinc-900 dark:text-zinc-100 max-w-[60%]">
-                {product.importer || 'Local Manufacture / Direct PRH'}
-              </span>
-            </div>
-
-            <div className="flex items-start justify-between py-2 border-b border-zinc-100 dark:border-zinc-900">
-              <span className="text-zinc-500 dark:text-zinc-400">Registration Validity:</span>
-              <span className="font-mono font-semibold text-right text-zinc-900 dark:text-zinc-100">
-                {formatDate(product.date_reg)} &rarr; {formatDate(product.date_end)}
-              </span>
-            </div>
-
-            <div className="flex items-start justify-between py-2 border-b border-zinc-100 dark:border-zinc-900">
-              <span className="text-zinc-500 dark:text-zinc-400">Poison Act Schedule:</span>
-              <span className="font-semibold text-right text-zinc-900 dark:text-zinc-100">
-                {product.category.name} ({product.category.code})
-              </span>
-            </div>
-
-            <div className="flex items-start justify-between py-2 border-b border-zinc-100 dark:border-zinc-900">
-              <span className="text-zinc-500 dark:text-zinc-400">Physical Security Seal:</span>
-              <span className="font-semibold text-right text-emerald-700 dark:text-emerald-400">
-                KKM Meditag Hologram Required
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Section 4: Hologram Guidance */}
-        <div className="mt-10">
+        {/* Section 4: Meditag Hologram Security Verification Guidance */}
+        <section className="mt-8">
           <HologramGuidance regNo={product.reg_no} />
-        </div>
+        </section>
 
         {/* Section 5: Automated Collapsible FAQ Section */}
-        <div className="mt-10">
+        <section className="mt-8">
           <FaqAccordion
-            title="Frequently Asked Questions & Product Details"
+            title="Soalan Lazim Mengenai Produk Ini"
             items={faqItems}
           />
-        </div>
+        </section>
 
-        {/* Subtle Non-Government Footnote Notice */}
-        <div className="mt-12 text-center text-xs text-zinc-400 dark:text-zinc-500 max-w-xl mx-auto border-t border-zinc-200/60 dark:border-zinc-800/60 pt-6">
+        {/* Independent Third-Party Footnote Disclaimer */}
+        <footer className="mt-12 text-center text-xs text-zinc-400 dark:text-zinc-500 max-w-xl mx-auto border-t border-zinc-200/70 dark:border-zinc-800/70 pt-6">
           <p>
-            Penafian: NutriDive adalah platform direktori bebas dan tidak mewakili Bahagian Regulatori Farmasi Negara (NPRA) atau Kementerian Kesihatan Malaysia (KKM). Maklumat diperoleh daripada rekod data terbuka awam (data.gov.my).
+            Penafian: NutriDive adalah platform carian direktori ubat bebas dan tidak mewakili Bahagian Regulatori Farmasi Negara (NPRA) mahupun Kementerian Kesihatan Malaysia (KKM). Maklumat diperoleh daripada katalog data terbuka rasmi kerajaan (data.gov.my).
           </p>
-        </div>
+        </footer>
       </div>
     </>
   );
 }
-

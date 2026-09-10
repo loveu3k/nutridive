@@ -19,61 +19,32 @@ let statsCache: DatabaseStats | null = null;
 let categoriesCache: Record<string, CategoryDetail> | null = null;
 let genericsCache: GenericSummary[] | null = null;
 
-let productImagesCache: Record<string, string> | null = null;
-
-async function getProductImagesMap(): Promise<Record<string, string>> {
-  if (productImagesCache) return productImagesCache;
-  const filePath = path.join(DATA_DIR, 'product_images.json');
-  try {
-    const content = await fs.promises.readFile(filePath, 'utf-8');
-    productImagesCache = JSON.parse(content);
-    return productImagesCache || {};
-  } catch {
-    productImagesCache = {};
-    return productImagesCache;
-  }
-}
-
 export async function getProduct(slug: string): Promise<Product | null> {
   const normalizedSlug = slug.toLowerCase().trim();
   const prefix = normalizedSlug.slice(0, 5);
 
-  let product: Product | null = null;
-
   // 1. Check in-memory chunk cache
   if (productChunkCache[prefix]) {
-    product = productChunkCache[prefix][normalizedSlug] || null;
-  } else {
-    // 2. Read from compact chunk file
-    const chunkPath = path.join(DATA_DIR, 'product_chunks', `${prefix}.json`);
+    return productChunkCache[prefix][normalizedSlug] || null;
+  }
+
+  // 2. Read from compact chunk file
+  const chunkPath = path.join(DATA_DIR, 'product_chunks', `${prefix}.json`);
+  try {
+    const content = await fs.promises.readFile(chunkPath, 'utf-8');
+    const chunk = JSON.parse(content) as Record<string, Product>;
+    productChunkCache[prefix] = chunk;
+    return chunk[normalizedSlug] || null;
+  } catch {
+    // Fallback to legacy individual file if chunk is missing
     try {
-      const content = await fs.promises.readFile(chunkPath, 'utf-8');
-      const chunk = JSON.parse(content) as Record<string, Product>;
-      productChunkCache[prefix] = chunk;
-      product = chunk[normalizedSlug] || null;
+      const filePath = path.join(DATA_DIR, 'products', prefix, `${normalizedSlug}.json`);
+      const content = await fs.promises.readFile(filePath, 'utf-8');
+      return JSON.parse(content) as Product;
     } catch {
-      // Fallback to legacy individual file if chunk is missing
-      try {
-        const filePath = path.join(DATA_DIR, 'products', prefix, `${normalizedSlug}.json`);
-        const content = await fs.promises.readFile(filePath, 'utf-8');
-        product = JSON.parse(content) as Product;
-      } catch {
-        product = null;
-      }
+      return null;
     }
   }
-
-  if (product && !product.image_url) {
-    const imagesMap = await getProductImagesMap();
-    const mappedUrl =
-      imagesMap[normalizedSlug] ||
-      (product.reg_no ? imagesMap[product.reg_no.toLowerCase()] : null);
-    if (mappedUrl) {
-      product.image_url = mappedUrl;
-    }
-  }
-
-  return product;
 }
 
 export async function getGenericHub(slug: string): Promise<GenericHub | null> {
