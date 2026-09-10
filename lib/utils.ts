@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(dateString: string | null): string {
+export function formatDate(dateString: string | null | undefined): string {
   if (!dateString) return 'Not Available';
   try {
     const d = new Date(dateString);
@@ -20,7 +20,7 @@ export function formatDate(dateString: string | null): string {
   }
 }
 
-export function isDateExpired(dateString: string | null): boolean {
+export function isDateExpired(dateString: string | null | undefined): boolean {
   if (!dateString) return false;
   try {
     const d = new Date(dateString);
