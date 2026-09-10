@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, ExternalLink, Activity, FileText } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export default function Footer() {
   return (
@@ -23,12 +24,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Col 1: Brand & Purpose */}
         <div className="space-y-3 md:col-span-1">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-teal-600 flex items-center justify-center text-white text-xs">
-              <Activity className="w-4 h-4" />
-            </div>
+          <Link href="/" className="inline-flex items-center gap-2.5 group">
+            <BrandLogo size="sm" />
             <span className="font-bold text-base text-zinc-900 dark:text-zinc-100">NutriDive</span>
-          </div>
+          </Link>
           <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
             Malaysia NPRA Pharmaceutical & Supplement Verification Engine. Enabling Malaysians to verify MAL numbers, active substances, and registered generic brand alternatives.
           </p>
