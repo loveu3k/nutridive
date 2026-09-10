@@ -13,6 +13,10 @@ import {
   Leaf,
   Layers,
   Info,
+  ExternalLink,
+  ShieldAlert,
+  HelpCircle,
+  Building2,
 } from 'lucide-react';
 import { getStats, getCategories, getTopGenerics } from '@/lib/data';
 import HomeSearchHero from '@/components/HomeSearchHero';
@@ -48,19 +52,43 @@ export default async function HomePage() {
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 max-w-4xl mx-auto leading-tight sm:leading-tight">
             Nutri<span className="text-teal-600 dark:text-teal-400">Dive</span>:{' '}
-            <span>Malaysian Medicine &amp; Generic Verification Directory</span>
+            <span>Malaysian Medicine &amp; Generic Alternative Directory</span>
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Semakan status pendaftaran ubat &amp; produk kesihatan. Independent public lookup for MAL registration numbers, active ingredients, and generic brand alternatives based on public records.
+            Panduan bebas maklumat ubat, bahan aktif, dan alternatif generik berpatutan untuk pengguna di Malaysia berdasarkan arkib data terbuka awam (data.gov.my).
           </p>
 
-          {/* Explicit Non-Government Disclaimer Notice */}
-          <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/70 text-[11px] text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">
-            <Info className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0" />
-            <span>
-              <strong>Bukan Laman Rasmi Kerajaan:</strong> NutriDive is an independent directory and is <u>not</u> affiliated with or representing KKM or NPRA.
-            </span>
+          {/* Explicit Non-Government & Independent Directory Notice Banner */}
+          <div className="mt-5 max-w-2xl mx-auto p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-left flex items-start gap-3.5 shadow-xs">
+            <div className="p-2 rounded-xl bg-amber-500/20 text-amber-700 dark:text-amber-400 shrink-0 mt-0.5">
+              <ShieldAlert className="w-5 h-5" />
+            </div>
+            <div className="text-xs text-zinc-700 dark:text-zinc-300 space-y-1.5 flex-1">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="font-bold text-amber-900 dark:text-amber-200 text-sm">
+                  Penafian: Direktori Bebas (Bukan Laman Rasmi Kerajaan)
+                </span>
+                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-amber-200/60 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200">
+                  Independent Platform
+                </span>
+              </div>
+              <p className="text-[11.5px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <strong>NutriDive</strong> adalah inisiatif komuniti bebas dan <strong>TIDAK</strong> mewakili, bersekutu, atau bertindak bagi pihak Bahagian Regulatori Farmasi Negara (NPRA) mahupun Kementerian Kesihatan Malaysia (KKM). Laman ini hanya menyediakan rujukan maklumat bahan aktif dan perbandingan alternatif generik untuk kemudahan awam berasaskan data terbuka (data.gov.my).
+              </p>
+              <div className="pt-1.5 flex flex-wrap items-center gap-x-2 text-[11px] text-zinc-500 dark:text-zinc-400 border-t border-amber-500/20 mt-1">
+                <span>Untuk semakan rasmi atau urusan pendaftaran dengan kerajaan Malaysia, sila ke:</span>
+                <a
+                  href="https://www.npra.gov.my"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-teal-700 dark:text-teal-400 underline hover:text-teal-800 dark:hover:text-teal-300 inline-flex items-center gap-1"
+                >
+                  Portal Rasmi NPRA (QUEST3+)
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Interactive Search Bar Component */}
@@ -71,7 +99,7 @@ export default async function HomePage() {
           {/* Quick Navigation Pills */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
             <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider mr-1">
-              Quick Semakan:
+              Carian Pantas / Quick Links:
             </span>
             {quickPills.map((pill) => (
               <Link
@@ -100,7 +128,7 @@ export default async function HomePage() {
                 {stats.approved_count.toLocaleString()}
               </div>
               <div className="text-xs font-medium text-emerald-700 dark:text-emerald-400 mt-1">
-                Approved &amp; Active
+                Active in Public Records
               </div>
             </div>
             <div className="p-4 rounded-2xl bg-teal-50/50 dark:bg-teal-950/20 border border-teal-200/60 dark:border-teal-900/40 shadow-xs">
@@ -116,7 +144,7 @@ export default async function HomePage() {
                 100%
               </div>
               <div className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mt-1">
-                Public Open Data
+                Independent Open Data
               </div>
             </div>
           </div>
@@ -128,13 +156,13 @@ export default async function HomePage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <div className="text-xs font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider mb-1">
-              Regulatory Framework
+              Panduan Pengguna (Consumer Guide)
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-              Malaysian Medicine &amp; Health Product Schedules
+              Understanding Malaysian Medicine Categories
             </h2>
             <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 max-w-2xl">
-              Understand the legal classification of medications and supplements according to Ministry of Health (KKM) poison schedules.
+              An educational overview of how medicines and health supplements are categorized in Malaysia, from doctor prescriptions to daily wellness vitamins.
             </p>
           </div>
           <Link
@@ -163,7 +191,7 @@ export default async function HomePage() {
                 Prescription Medicine
               </h3>
               <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
-                Ethical medicines requiring a registered doctor&apos;s prescription under Poison Act 1952.
+                Ethical medicines requiring a registered doctor&apos;s prescription under the Poison Act 1952. Indexed for reference.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs">
@@ -274,7 +302,7 @@ export default async function HomePage() {
                 Most Searched Generic Molecules in Malaysia
               </h2>
               <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-                Find lower-cost approved generic alternatives with identical active substances and therapeutic efficacy.
+                Discover affordable generic alternatives sharing identical active therapeutic ingredients to help reduce healthcare spending.
               </p>
             </div>
             <Link
@@ -295,7 +323,9 @@ export default async function HomePage() {
                 <div>
                   <div className="flex items-center justify-between gap-1 mb-1">
                     <span className="w-2 h-2 rounded-full bg-teal-500 shrink-0" />
-                    <span className="text-[10px] font-mono text-zinc-400">NPRA</span>
+                    <span className="text-[10px] font-medium text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-1.5 py-0.5 rounded">
+                      Molecule
+                    </span>
                   </div>
                   <h4 className="font-semibold text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 line-clamp-1 transition-colors">
                     {gen.name}
@@ -317,29 +347,137 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Transparency & Role Clarification Section: NutriDive vs Official Government Agency */}
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-semibold mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+            <span>Ketelusan &amp; Peranan Laman / Transparency Notice</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+            Fahami Perbezaan: NutriDive vs. NPRA / KKM
+          </h2>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
+            Penting untuk pengguna mengetahui bahawa NutriDive ialah projek direktori bebas, manakala NPRA adalah agensi berkuasa rasmi kerajaan Malaysia.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* NutriDive Card */}
+          <div className="rounded-3xl border border-teal-200 dark:border-teal-900/60 bg-teal-50/40 dark:bg-teal-950/20 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300">
+                  Laman Ini (NutriDive)
+                </span>
+                <span className="text-xs font-medium text-teal-700 dark:text-teal-400">Direktori Komuniti Bebas</span>
+              </div>
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+                NutriDive: Panduan Pengguna &amp; Ubat Generik
+              </h3>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+                Platform rujukan pendidikan awam yang memudahkan orang ramai mencari maklumat ubat dan alternatif berpatutan.
+              </p>
+
+              <ul className="mt-6 space-y-3 text-xs text-zinc-700 dark:text-zinc-300">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
+                  <span><strong>Perbandingan Bahan Aktif:</strong> Membantu pengguna membandingkan jenama asal dengan jenama generik berkos rendah yang berkongsi formulasi aktif sama.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
+                  <span><strong>Antara Muka Carian Moden:</strong> Enjin carian interaktif untuk memudahkan semakan maklumat ubat tanpa sistem portal yang rumit.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
+                  <span><strong>Berasaskan Data Terbuka (data.gov.my):</strong> Memaparkan arkib awam rasmi yang telah dideklasifikasikan kerajaan untuk kegunaan umum.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-4 h-4 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">✕</span>
+                  <span className="text-zinc-500 dark:text-zinc-400"><strong>Bukan Penguatkuasa Rasmi:</strong> Kami TIDAK meluluskan produk, mengeluarkan lesen, atau bertindak bagi pihak kerajaan.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 pt-4 border-t border-teal-200/60 dark:border-teal-900/40 text-xs text-teal-700 dark:text-teal-400 font-medium">
+              Tujuan: Pendidikan Pengguna &amp; Ketelusan Pilihan Kesihatan
+            </div>
+          </div>
+
+          {/* Official NPRA / KKM Card */}
+          <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-8 flex flex-col justify-between shadow-xs">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300">
+                  Agensi Kerajaan Rasmi
+                </span>
+                <span className="text-xs font-medium text-zinc-400">Badan Berkuasa Malaysia</span>
+              </div>
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+                NPRA / Kementerian Kesihatan Malaysia (KKM)
+              </h3>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+                Bahagian Regulatori Farmasi Negara (NPRA) ialah agensi kerajaan rasmi yang mengawal selia pendaftaran dan keselamatan ubat di Malaysia.
+              </p>
+
+              <ul className="mt-6 space-y-3 text-xs text-zinc-700 dark:text-zinc-300">
+                <li className="flex items-start gap-2.5">
+                  <Building2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                  <span><strong>Penilaian Klinikal &amp; Kelulusan:</strong> Menguji keselamatan, kualiti, dan keberkesanan ubat sebelum dibenarkan dijual di pasaran Malaysia.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Building2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                  <span><strong>Pengeluaran Nombor MAL Rasmi:</strong> Satu-satunya badan yang berkuasa mendaftarkan, memperbaharui, dan membatalkan pendaftaran ubat.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Building2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                  <span><strong>Sistem QUEST3+ &amp; Pelesenan:</strong> Portal rasmi bagi syarikat pengimport, pengilang, dan pemegang pendaftaran (PRH).</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Building2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                  <span><strong>Pelekat Hologram FarmaChecker:</strong> Menguruskan sistem hologram keselamatan bagi menjamin ketulenan fizikal ubat.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+              <a
+                href="https://www.npra.gov.my"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <span>Layari Portal Rasmi NPRA (npra.gov.my)</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FarmaChecker / Meditag Security Hologram Featurette */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-r from-teal-900 via-teal-800 to-zinc-950 text-white p-8 sm:p-12 shadow-xl relative overflow-hidden">
           <div className="relative z-10 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-800/80 border border-teal-700 text-teal-200 text-xs font-semibold mb-4">
               <CheckCircle2 className="w-4 h-4 text-teal-400" />
-              <span>Consumer Safety Alert</span>
+              <span>Panduan Kesedaran Pengguna Awam</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-              Always Verify Physical KKM Hologram Stickers
+              Sahkan Ketulenan Kotak Fizikal Ubat Menggunakan Aplikasi Rasmi KKM FarmaChecker
             </h3>
             <p className="mt-3 text-sm text-teal-100/90 leading-relaxed">
-              Every genuine medicine registered with NPRA in Malaysia features a security hologram sticker on the box. Use the official FarmaChecker mobile application to scan the security code before consumption.
+              NutriDive menyediakan semakan direktori maklumat digital. Untuk memastikan kotak fizikal ubat yang anda terima adalah tulen dan tidak tiruan, pastikan anda memeriksa pelekat keselamatan hologram Meditag dan mengimbas kodnya menggunakan aplikasi rasmi kerajaan Malaysia, <strong>FarmaChecker</strong>.
             </p>
-            <div className="mt-6 flex flex-wrap gap-4 text-xs font-mono">
+            <div className="mt-6 flex flex-wrap gap-3 text-xs font-mono">
               <div className="bg-white/10 backdrop-blur-xs border border-white/20 rounded-lg px-3 py-2">
-                ✓ Meditag Security Hologram
+                ✓ Pelekat Hologram Meditag Fizikal
               </div>
               <div className="bg-white/10 backdrop-blur-xs border border-white/20 rounded-lg px-3 py-2">
-                ✓ Official FarmaChecker App Scan
+                ✓ Imbas Aplikasi Rasmi KKM FarmaChecker
               </div>
               <div className="bg-white/10 backdrop-blur-xs border border-white/20 rounded-lg px-3 py-2">
-                ✓ Valid MAL Registration Number
+                ✓ Padankan Nombor MAL dengan Data Terbuka
               </div>
             </div>
           </div>
@@ -348,3 +486,4 @@ export default async function HomePage() {
     </div>
   );
 }
+

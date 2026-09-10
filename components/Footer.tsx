@@ -29,7 +29,7 @@ export default function Footer() {
             <span className="font-bold text-base text-zinc-900 dark:text-zinc-100">NutriDive</span>
           </Link>
           <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-            Malaysia NPRA Pharmaceutical & Supplement Verification Engine. Enabling Malaysians to verify MAL numbers, active substances, and registered generic brand alternatives.
+            Independent Malaysian Medicine &amp; Generic Brand Directory. An educational open-data project helping consumers explore registered active ingredients and find affordable generic alternatives.
           </p>
           <div className="text-[11px] text-zinc-500 dark:text-zinc-400">
             <span>Target Region: </span>
@@ -40,7 +40,7 @@ export default function Footer() {
         {/* Col 2: Drug Classifications */}
         <div className="space-y-2">
           <h4 className="font-semibold text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
-            NPRA Classifications
+            Product Categories
           </h4>
           <ul className="space-y-1.5">
             <li>
@@ -89,7 +89,7 @@ export default function Footer() {
         {/* Col 3: Verification & Regulatory Resources */}
         <div className="space-y-2">
           <h4 className="font-semibold text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
-            Official Verification
+            Official Government Portals
           </h4>
           <ul className="space-y-1.5">
             <li>

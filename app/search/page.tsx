@@ -81,10 +81,10 @@ function SearchContent() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
       <div className="max-w-3xl mx-auto text-center space-y-3 mb-8">
         <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-          NPRA Pharmaceutical &amp; MAL Search
+          Malaysian Medicine &amp; MAL Directory Search
         </h1>
         <p className="text-sm text-zinc-500 dark:text-zinc-400">
-          Search over 28,170+ approved medicines, health supplements (MAL-N), and traditional herbal products (MAL-T) in Malaysia.
+          Independent open-data search over 28,170+ registered medicines, health supplements (MAL-N), and traditional products (MAL-T) in Malaysia.
         </p>
 
         {/* Input */}
@@ -142,7 +142,7 @@ function SearchContent() {
             {isLoading ? (
               <span className="flex items-center gap-1.5">
                 <Loader2 className="w-3.5 h-3.5 animate-spin text-teal-600" />
-                Searching NPRA database...
+                Searching product directory...
               </span>
             ) : query.trim() ? (
               <span>

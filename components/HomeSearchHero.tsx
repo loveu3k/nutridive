@@ -107,7 +107,7 @@ export default function HomeSearchHero() {
               type="submit"
               className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1"
             >
-              <span>Semak</span>
+              <span>Search</span>
               <ArrowRight className="w-3.5 h-3.5 hidden sm:inline" />
             </button>
           </div>
@@ -159,7 +159,7 @@ export default function HomeSearchHero() {
           <div className="px-4 py-2.5 bg-zinc-50 dark:bg-zinc-900/60 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-              Public Malaysian Regulatory Records (data.gov.my)
+              Direktori Bebas • Rekod Data Terbuka (data.gov.my)
             </span>
             <button
               onClick={() => {
