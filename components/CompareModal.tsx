@@ -86,7 +86,7 @@ export default function CompareModal() {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-teal-600 dark:text-teal-400">
-                NPRA Head-to-Head Analysis
+                Side-by-Side Product Comparison
               </span>
               {isCrossMolecule && (
                 <span className="text-[10px] font-medium bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800 px-2 py-0.5 rounded-full">
@@ -361,7 +361,7 @@ export default function CompareModal() {
         {/* Modal Footer */}
         <div className="px-6 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/70 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-500">
           <div>
-            Data sourced from official KKM &amp; NPRA Malaysia open pharmaceutical registry.
+            Independent comparison tool based on public Malaysian pharmaceutical data (data.gov.my). Not affiliated with KKM/NPRA.
           </div>
           <button
             onClick={closeCompare}

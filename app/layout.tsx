@@ -24,20 +24,20 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'NutriDive - Malaysia NPRA Pharmaceutical & Supplement Verification Engine',
-    template: '%s | NutriDive NPRA Verification',
+    default: 'NutriDive - Independent Malaysian Medicine & Generic Directory',
+    template: '%s | NutriDive Malaysia',
   },
   description:
-    'Official Malaysian Ministry of Health (KKM) & NPRA pharmaceutical verification directory. Check 28,000+ approved MAL registration numbers, active ingredients, and generic drug alternatives in Malaysia.',
+    'Independent public directory for checking 28,000+ approved Malaysian MAL registration numbers, active ingredients, and generic drug alternatives based on open regulatory data. Not affiliated with KKM or NPRA.',
   keywords: [
     'Semakan status pendaftaran KKM',
-    'Semakan NPRA',
+    'Semakan MAL ubat',
     'Bahan aktif ubat',
     'Generic brand alternative Malaysia',
     'Pengganti ubat darah tinggi',
     'Pengganti ubat kencing manis',
     'Nombor MAL berdaftar',
-    'NPRA Malaysia medicine directory',
+    'Malaysia medicine directory',
     'KKM drug search',
     'Meditag FarmaChecker hologram',
   ],
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'NutriDive - Malaysia NPRA Pharmaceutical & Supplement Verification Engine',
+    title: 'NutriDive - Independent Malaysian Medicine & Generic Directory',
     description:
-      'Verify 28,000+ Malaysian approved drugs, supplements (MAL-N), and traditional health products (MAL-T) with instant generic alternatives.',
+      'Check 28,000+ approved Malaysian drugs, supplements (MAL-N), and traditional health products (MAL-T) with instant generic alternatives based on open public data.',
     url: 'https://nutridive.net',
     siteName: 'NutriDive Malaysia',
     locale: 'en_MY',
@@ -62,8 +62,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NutriDive - Malaysia NPRA Pharmaceutical Engine',
-    description: 'Instant MAL number status, active ingredients, and generic brand alternatives.',
+    title: 'NutriDive - Independent Malaysian Medicine Directory',
+    description: 'MAL number status, active ingredients, and generic brand alternatives based on public records.',
   },
   robots: {
     index: true,

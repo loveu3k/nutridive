@@ -81,7 +81,7 @@ export default async function GenericHubPage({ params }: PageProps) {
       '@type': 'Substance',
       name: hub.name,
     },
-    description: `Official NPRA directory of ${hub.total_products} registered brand products containing ${hub.name} in Malaysia.`,
+    description: `Directory of ${hub.total_products} registered brand products containing ${hub.name} in Malaysia based on public open regulatory records.`,
     publisher: {
       '@type': 'Organization',
       name: 'NutriDive Malaysia',

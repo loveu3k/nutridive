@@ -12,6 +12,7 @@ import {
   FileCheck2,
   Leaf,
   Layers,
+  Info,
 } from 'lucide-react';
 import { getStats, getCategories, getTopGenerics } from '@/lib/data';
 import HomeSearchHero from '@/components/HomeSearchHero';
@@ -39,20 +40,28 @@ export default async function HomePage() {
       {/* Hero Section with Search */}
       <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-gradient-to-b from-teal-50/50 via-white to-white dark:from-teal-950/20 dark:via-zinc-950 dark:to-zinc-950 swiss-grid">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200/80 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs font-semibold mb-6 shadow-xs">
-            <ShieldCheck className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-            <span>Official KKM & NPRA Malaysia Open Regulatory Data</span>
+          {/* Trust Badge - Clearly Stating Independent Status */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-semibold mb-6 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-teal-500 shrink-0" />
+            <span>Independent Community Directory • Based on Malaysia Open Data (data.gov.my)</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 max-w-4xl mx-auto leading-tight sm:leading-tight">
-            Malaysia NPRA Pharmaceutical &amp; Supplement{' '}
-            <span className="text-teal-600 dark:text-teal-400">Verification Engine</span>
+            Nutri<span className="text-teal-600 dark:text-teal-400">Dive</span>:{' '}
+            <span>Malaysian Medicine &amp; Generic Verification Directory</span>
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Semakan status pendaftaran ubat KKM. Instant verification of MAL registration numbers, active ingredients, and registered generic alternatives across Malaysia.
+            Semakan status pendaftaran ubat &amp; produk kesihatan. Independent public lookup for MAL registration numbers, active ingredients, and generic brand alternatives based on public records.
           </p>
+
+          {/* Explicit Non-Government Disclaimer Notice */}
+          <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/70 text-[11px] text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">
+            <Info className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0" />
+            <span>
+              <strong>Bukan Laman Rasmi Kerajaan:</strong> NutriDive is an independent directory and is <u>not</u> affiliated with or representing KKM or NPRA.
+            </span>
+          </div>
 
           {/* Interactive Search Bar Component */}
           <div className="mt-8 max-w-2xl mx-auto">
@@ -83,7 +92,7 @@ export default async function HomePage() {
                 {stats.total_products.toLocaleString()}+
               </div>
               <div className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mt-1">
-                KKM Registered Products
+                Indexed Malaysian Products
               </div>
             </div>
             <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40 shadow-xs">
@@ -107,14 +116,14 @@ export default async function HomePage() {
                 100%
               </div>
               <div className="text-xs font-medium text-zinc-500 dark:text-zinc-400 mt-1">
-                NPRA Official Records
+                Public Open Data
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* NPRA Product Classification Categories */}
+      {/* Product Classification Categories */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
@@ -122,10 +131,10 @@ export default async function HomePage() {
               Regulatory Framework
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-              NPRA Drug Classifications in Malaysia
+              Malaysian Medicine &amp; Health Product Schedules
             </h2>
             <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 max-w-2xl">
-              Understand the legal classification of your medication or health supplement according to Ministry of Health (KKM) poison schedules.
+              Understand the legal classification of medications and supplements according to Ministry of Health (KKM) poison schedules.
             </p>
           </div>
           <Link

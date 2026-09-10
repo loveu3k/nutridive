@@ -161,10 +161,10 @@ export default function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModal
             <div className="p-8 text-center">
               <Pill className="w-8 h-8 text-zinc-300 dark:text-zinc-700 mx-auto mb-2" />
               <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                Instant NPRA Pharmaceutical Database Search
+                Malaysian Pharmaceutical &amp; Health Product Search
               </p>
               <p className="text-xs text-zinc-400 mt-1 max-w-sm mx-auto">
-                Search 28,170+ official Malaysian registered medicines by MAL number, generic molecule, brand, or manufacturer.
+                Search 28,170+ approved Malaysian medicines by MAL number, generic molecule, brand, or holder.
               </p>
               <div className="mt-4 flex flex-wrap justify-center gap-1.5 text-xs text-zinc-500">
                 <span className="text-zinc-400">Popular:</span>
@@ -243,7 +243,7 @@ export default function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModal
         <div className="px-4 py-2.5 bg-zinc-50 dark:bg-zinc-900/60 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">
           <div className="flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-            <span>NPRA Official Regulatory Data (28,170+ Products)</span>
+            <span>Open Regulatory Records (data.gov.my) • 28,170+ Products</span>
           </div>
           <div className="hidden sm:flex items-center gap-2 font-mono text-[10px]">
             <span>↑↓ Navigate</span>

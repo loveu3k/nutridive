@@ -319,7 +319,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           <div className="mt-5 rounded-xl border border-teal-200/70 dark:border-teal-900/60 bg-teal-50/30 dark:bg-teal-950/20 p-3.5 sm:p-4 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
             <div className="flex items-center gap-1.5 font-semibold text-teal-800 dark:text-teal-300 text-[11px] uppercase tracking-wider mb-1">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>NPRA Official Regulatory Summary</span>
+              <span>Public Regulatory Record Summary</span>
             </div>
             <p>{ragSummary}</p>
           </div>
@@ -467,10 +467,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
           />
         </div>
 
-        {/* Bicultural Malaysian Search Terms Footer */}
-        <div className="mt-8 text-center text-[11px] text-zinc-400 dark:text-zinc-500 space-y-1">
+        {/* Bicultural Malaysian Search Terms & Non-Government Notice */}
+        <div className="mt-8 text-center text-[11px] text-zinc-400 dark:text-zinc-500 space-y-1.5 max-w-2xl mx-auto">
           <p>
-            Semakan status pendaftaran KKM / NPRA: {product.product_name} ({product.reg_no}) | Pengganti ubat berdaftar di Malaysia | Bahan aktif &amp; maklumat farmasi Kementerian Kesihatan Malaysia.
+            Semakan pendaftaran produk kesihatan: {product.product_name} ({product.reg_no}) | Pengganti ubat di Malaysia | Bahan aktif ubat.
+          </p>
+          <p className="text-[10px] text-zinc-400 dark:text-zinc-500">
+            Penafian: NutriDive adalah platform direktori bebas dan tidak mewakili Bahagian Regulatori Farmasi Negara (NPRA) atau Kementerian Kesihatan Malaysia (KKM). Maklumat diperoleh daripada rekod data terbuka awam (data.gov.my).
           </p>
         </div>
       </div>

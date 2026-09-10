@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const title = `${cat.name} (${cat.mal_prefix}) Registered Products in Malaysia`;
-  const description = `Browse all ${cat.count.toLocaleString()} official NPRA-approved ${cat.name} products in Malaysia. Complete regulatory index, active ingredients, and MAL registration records.`;
+  const description = `Browse ${cat.count.toLocaleString()} approved ${cat.name} products registered in Malaysia. Independent directory with active ingredients and MAL registration records based on open public data.`;
 
   return {
     title,
@@ -90,7 +90,7 @@ export default async function CategoryPage({ params }: PageProps) {
               <span
                 className={`text-xs font-semibold px-2.5 py-0.5 rounded border ${badge.bg} ${badge.text} ${badge.border}`}
               >
-                Official NPRA Schedule
+                Malaysian Regulatory Schedule
               </span>
             </div>
 
