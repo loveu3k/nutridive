@@ -114,13 +114,9 @@ export default function ActiveIngredientsMatrix({
                     </Link>
                   </td>
                   <td className="py-3.5 px-5 text-right font-mono tabular-nums text-zinc-700 dark:text-zinc-300">
-                    {ing.dosage ? (
-                      <span className="bg-zinc-100 dark:bg-zinc-800/90 border border-zinc-200/70 dark:border-zinc-700/60 px-2.5 py-1 rounded-md text-xs font-semibold text-zinc-900 dark:text-zinc-100">
-                        {formatStrength(ing.dosage)}
-                      </span>
-                    ) : (
-                      <span className="text-xs text-zinc-400 italic">Formulation Proprietary</span>
-                    )}
+                    <span className="bg-zinc-100 dark:bg-zinc-800/90 border border-zinc-200/70 dark:border-zinc-700/60 px-2.5 py-1 rounded-md text-xs font-semibold text-zinc-900 dark:text-zinc-100">
+                      {formatStrength(ing.dosage, productName, ing.name, categoryCode)}
+                    </span>
                   </td>
                   <td className="py-3.5 px-5 text-right">
                     <Link

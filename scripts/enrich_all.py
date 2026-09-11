@@ -79,21 +79,131 @@ def normalize_company_name(s):
     s = re.sub(r'\b(SDN|BHD|BERHAD|SENDIRIAN|MALAYSIA|M|THE|CO|LTD|LIMITED|CORP|CORPORATION|INC)\b', '', s)
     return re.sub(r'\s+', ' ', s).strip()
 
-def parse_active_ingredients(raw):
-    if pd.isna(raw) or not raw:
+def extract_strength_from_name(name, generic_name=None):
+    texts = [name or '', generic_name or '']
+    for text in texts:
+        if not text:
+            continue
+        # Pattern 1: X/Y mcg/dose or mg/dose
+        m = re.search(r'(\d+(?:\.\d+)?\s*/\s*\d+(?:\.\d+)?\s*(?:mcg|ug|mg|iu)\s*/\s*dose)', text, re.I)
+        if m:
+            return re.sub(r'\s+', ' ', m.group(1).strip())
+            
+        # Pattern 2: X mg/Y ml or X% w/v or X% w/w
+        m = re.search(r'(\d+(?:\.\d+)?\s*(?:mg|g|mcg|ug|iu)\s*/\s*\d+(?:\.\d+)?\s*ml)', text, re.I)
+        if m:
+            return re.sub(r'\s+', ' ', m.group(1).strip())
+
+        # Pattern 3: percentage like 0.05% or 2% or 10%
+        m = re.search(r'(\d+(?:\.\d+)?\s*%)', text)
+        if m:
+            return m.group(1).strip()
+            
+        # Pattern 4: standard dose like 500mg, 500 mg, 100 mcg, 200 IU, 1 g
+        m = re.search(r'(\b\d+(?:\.\d+)?\s*(?:mg|mcg|ug|iu|gm|g)\b)', text, re.I)
+        if m:
+            return m.group(1).strip()
+            
+    return ''
+
+def clean_dosage_value(dose_str):
+    if not dose_str:
+        return ''
+    dose = dose_str.strip()
+    if not dose or dose == '-' or dose == '- -' or dose == '0' or dose.upper() == 'REFER FILE':
+        return ''
+        
+    parts = [p.strip() for p in re.split(r'[,;:]', dose) if p.strip()]
+    if not parts:
+        return ''
+        
+    # If parts like ['1.095', 'mg']
+    if len(parts) == 2 and re.match(r'^[\d.]+$', parts[0]) and re.match(r'^(?:mg|g|gm|mcg|ug|ml|%|iu|dose)$', parts[1], re.I):
+        return f'{parts[0]} {parts[1]}'
+        
+    # If parts like ['949', 'mg', '1165.32', 'mg']
+    if len(parts) >= 4 and re.match(r'^[\d.]+$', parts[0]) and re.match(r'^(?:mg|g|gm|mcg|ug|iu)$', parts[1], re.I):
+        return f'{parts[0]} {parts[1]}'
+        
+    # If parts like ['0.5', 'mg', '1', 'g']
+    if len(parts) >= 4 and re.match(r'^(?:mg|g|gm|mcg|ug|iu)$', parts[1], re.I) and re.match(r'^(?:g|ml)$', parts[3], re.I):
+        return f'{parts[0]} {parts[1]} / {parts[2]} {parts[3]}'
+
+    first = parts[0]
+    # Check volume concentration '5 mg 1 ml'
+    vol = re.match(r'^([\d.]+\s*(?:mg|g|gm|mcg|ug|iu|%))\s+([\d.]+\s*ml)$', first, re.I)
+    if vol:
+        return f'{vol.group(1)} / {vol.group(2)}'
+
+    # Strip trailing zero weight '100mg 0'
+    m_zero = re.match(r'^([\d.]+\s*(?:mg|g|gm|mcg|ug|iu|%))\s+0$', first, re.I)
+    if m_zero:
+        return m_zero.group(1)
+
+    # Strip gross tablet weight '500 mg 1500 mg'
+    m_dual = re.match(r'^([\d.]+\s*(?:mg|g|gm|mcg|ug|iu|%))\s+[\d.]+\s*(?:mg|g|gm)$', first, re.I)
+    if m_dual:
+        return m_dual.group(1)
+
+    if len(parts) > 1:
+        second = parts[1]
+        if re.match(r'^[\d.]+\s*ml$', second, re.I):
+            return f'{first} / {second}'
+        m_sec_dual = re.match(r'^[\d.]+\s*(?:mg|g|gm)$', second, re.I)
+        if m_sec_dual:
+            return first
+            
+    return first
+
+def parse_active_ingredients(raw, prod_name=None, generic_name=None, category_code=None):
+    if not raw or pd.isna(raw):
+        if prod_name:
+            st = extract_strength_from_name(prod_name, generic_name)
+            if st:
+                mol = generic_name or prod_name
+                return [{'name': mol, 'dosage': st}]
         return []
+        
     raw_str = str(raw).strip()
     if not raw_str:
         return []
+        
+    # Split by brackets
+    items = []
+    pos = 0
+    while True:
+        b_open = raw_str.find('[', pos)
+        if b_open == -1:
+            break
+        b_close = raw_str.find(']', b_open)
+        if b_close == -1:
+            break
+        name_part = raw_str[pos:b_open].strip().lstrip(',').strip()
+        dose_part = raw_str[b_open+1:b_close].strip()
+        items.append((name_part, dose_part))
+        pos = b_close + 1
+        
     results = []
-    matches = re.findall(r'([^,\[]+)(?:\[(.*?)\])?', raw_str)
-    for name, dose in matches:
-        clean_n = clean_text(name)
-        clean_d = ""
-        if dose:
-            clean_d = clean_text(dose.replace(';', ' ').replace(',', ' '))
-        if clean_n:
-            results.append({"name": clean_n, "dosage": clean_d})
+    for name, dose in items:
+        name = clean_text(name)
+        clean_dose = clean_dosage_value(dose)
+        if not clean_dose:
+            st = extract_strength_from_name(name)
+            if st:
+                clean_dose = st
+        if name or clean_dose:
+            results.append({'name': name, 'dosage': clean_dose})
+        
+    all_empty = all(not r['dosage'] for r in results)
+    if all_empty:
+        fallback_st = extract_strength_from_name(prod_name, generic_name)
+        if fallback_st and results:
+            results[0]['dosage'] = fallback_st
+        elif category_code == 'T':
+            for r in results:
+                if not r['dosage']:
+                    r['dosage'] = 'Herbal Formulation'
+                    
     return results
 
 def extract_primary_molecule(generic_name, ingredients):
@@ -255,10 +365,11 @@ def run():
         imp = clean_text(row.get("importer"))
         desc = clean_text(row.get("description"))
         status = clean_text(row.get("status")) or "APPROVED"
-        ingredients = parse_active_ingredients(row.get("active_ingredients"))
-        generic_name = clean_text(row.get("generic_name"))
-        primary_molecule = extract_primary_molecule(generic_name, ingredients)
         category = classify_category(reg_no, desc)
+        raw_ing = row.get("active_ingredient") if pd.notna(row.get("active_ingredient")) else row.get("active_ingredients")
+        generic_name = clean_text(row.get("generic_name"))
+        ingredients = parse_active_ingredients(raw_ing, name, generic_name, category["code"])
+        primary_molecule = extract_primary_molecule(generic_name, ingredients)
         
         prod_obj = {
             "slug": slug,

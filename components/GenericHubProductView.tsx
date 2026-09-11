@@ -288,13 +288,9 @@ export function GenericHubProductView({
                       </Link>
                     </td>
                     <td className="py-3 px-4 whitespace-nowrap font-mono text-zinc-700 dark:text-zinc-300">
-                      {p.dosage ? (
-                        <span className="bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded text-[11px] font-semibold text-zinc-900 dark:text-zinc-100">
-                          {formatStrength(p.dosage)}
-                        </span>
-                      ) : (
-                        <span className="text-zinc-400">—</span>
-                      )}
+                      <span className="bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded text-[11px] font-semibold text-zinc-900 dark:text-zinc-100">
+                        {formatStrength(p.dosage, p.product_name, undefined, p.category.code)}
+                      </span>
                     </td>
                     <td className="py-3 px-4 whitespace-nowrap">
                       <span
@@ -367,14 +363,12 @@ export function GenericHubProductView({
                     {p.product_name}
                   </Link>
 
-                  {p.dosage && (
-                    <div className="mt-2 text-xs font-mono text-zinc-600 dark:text-zinc-300">
-                      <span className="text-zinc-400 text-[10px] uppercase font-sans">Strength: </span>
-                      <span className="font-semibold bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">
-                        {formatStrength(p.dosage)}
-                      </span>
-                    </div>
-                  )}
+                  <div className="mt-2 text-xs font-mono text-zinc-600 dark:text-zinc-300">
+                    <span className="text-zinc-400 text-[10px] uppercase font-sans">Strength: </span>
+                    <span className="font-semibold bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">
+                      {formatStrength(p.dosage, p.product_name, undefined, p.category.code)}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="mt-4 pt-3.5 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">

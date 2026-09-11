@@ -187,14 +187,12 @@ export default function GenericAlternativeGrid({
                   {alt.product_name}
                 </Link>
 
-                {alt.dosage && (
-                  <div className="mt-2 text-xs font-mono text-zinc-600 dark:text-zinc-300">
-                    <span className="text-zinc-400 text-[10px] uppercase font-sans">Strength: </span>
-                    <span className="font-semibold bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">
-                      {formatStrength(alt.dosage)}
-                    </span>
-                  </div>
-                )}
+                <div className="mt-2 text-xs font-mono text-zinc-600 dark:text-zinc-300">
+                  <span className="text-zinc-400 text-[10px] uppercase font-sans">Strength: </span>
+                  <span className="font-semibold bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">
+                    {formatStrength(alt.dosage, alt.product_name, undefined, alt.category?.code)}
+                  </span>
+                </div>
               </div>
 
               <div className="mt-3.5 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">

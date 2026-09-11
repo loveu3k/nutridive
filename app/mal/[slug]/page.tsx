@@ -294,7 +294,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                           </Link>
                         </td>
                         <td className="px-4 py-3 text-right font-mono text-zinc-700 dark:text-zinc-300">
-                          {formatStrength(ing.dosage)}
+                          {formatStrength(ing.dosage, product.product_name, ing.name, product.category.code)}
                         </td>
                       </tr>
                     );
@@ -362,7 +362,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                           )}
                         </td>
                         <td className="px-4 py-3 text-right font-mono text-xs text-zinc-600 dark:text-zinc-400">
-                          {formatStrength(alt.dosage)}
+                          {formatStrength(alt.dosage, alt.product_name, undefined, alt.category?.code)}
                         </td>
                       </tr>
                     );
