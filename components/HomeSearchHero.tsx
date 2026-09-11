@@ -73,7 +73,7 @@ export default function HomeSearchHero() {
   return (
     <div ref={containerRef} className="relative w-full text-left">
       <form onSubmit={handleSubmit} className="relative">
-        <div className="relative flex items-center shadow-lg rounded-2xl bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800 focus-within:border-teal-500 dark:focus-within:border-teal-500 transition-all overflow-hidden">
+        <div className="relative flex items-center shadow-md shadow-zinc-200/50 dark:shadow-none rounded-2xl bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800 focus-within:border-teal-500 dark:focus-within:border-teal-500 focus-within:ring-4 focus-within:ring-teal-500/10 transition-all overflow-hidden">
           <div className="pl-4 sm:pl-5 text-zinc-400">
             <Search className="w-5 h-5 text-teal-600 dark:text-teal-400" />
           </div>
@@ -88,8 +88,8 @@ export default function HomeSearchHero() {
             onFocus={() => {
               if (results.length > 0) setIsOpen(true);
             }}
-            placeholder="Search MAL number (e.g. MAL19900523AZ), medicine, or ingredient..."
-            className="w-full py-4 pl-3 pr-24 sm:pr-32 text-sm sm:text-base bg-transparent text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 outline-none"
+            placeholder="Search medicine name, MAL number (e.g. MAL19900523AZ), or ingredient..."
+            className="w-full py-4 pl-3 pr-24 sm:pr-32 text-sm sm:text-base bg-transparent text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 outline-none font-normal"
           />
 
           <div className="absolute right-2.5 flex items-center gap-1.5">
@@ -105,7 +105,7 @@ export default function HomeSearchHero() {
             )}
             <button
               type="submit"
-              className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1"
+              className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 shadow-xs hover:shadow active:scale-[0.98]"
             >
               <span>Search</span>
               <ArrowRight className="w-3.5 h-3.5 hidden sm:inline" />
@@ -159,7 +159,7 @@ export default function HomeSearchHero() {
           <div className="px-4 py-2.5 bg-zinc-50 dark:bg-zinc-900/60 flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-              Direktori Bebas • Rekod Data Terbuka (data.gov.my)
+              NPRA Official Registry Database • data.gov.my
             </span>
             <button
               onClick={() => {
