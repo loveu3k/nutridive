@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Search,
   Pill,
   ArrowRight,
+  ShieldCheck,
+  Building2,
   Sparkles,
   Leaf,
-  ShieldCheck,
+  FlaskConical,
 } from 'lucide-react';
 import { getStats, getCategories, getTopGenerics } from '@/lib/data';
 import HomeSearchHero from '@/components/HomeSearchHero';
-import FaqAccordion, { type FaqItem } from '@/components/FaqAccordion';
 
 export const dynamic = 'force-static';
 
@@ -30,89 +30,44 @@ export default async function HomePage() {
     { label: 'Traditional (MAL-T)', href: '/category/traditional' },
   ];
 
+  // Clean, unified schedule categories without visual clutter
   const scheduleCategories = [
     {
-      code: 'MAL...A',
+      code: 'MAL-A',
       title: 'Prescription Medicines',
-      description: 'Controlled ethical medications requiring a doctor\'s prescription.',
       count: categories.prescription?.count || 9032,
       href: '/category/prescription',
-      icon: Pill,
-      badgeClass: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-900',
-      accentColor: 'text-blue-600 dark:text-blue-400',
     },
     {
-      code: 'MAL...X',
+      code: 'MAL-X',
       title: 'Over-the-Counter (OTC)',
-      description: 'Non-scheduled medications authorized for self-care purchase.',
       count: categories.otc?.count || 693,
       href: '/category/otc',
-      icon: ShieldCheck,
-      badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-900',
-      accentColor: 'text-emerald-600 dark:text-emerald-400',
     },
     {
-      code: 'MAL...N',
+      code: 'MAL-N',
       title: 'Health Supplements',
-      description: 'Vitamins, essential minerals, nutraceuticals, and probiotics.',
       count: categories.supplement?.count || 4362,
       href: '/category/supplement',
-      icon: Sparkles,
-      badgeClass: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-950/60 dark:text-purple-300 dark:border-purple-900',
-      accentColor: 'text-purple-600 dark:text-purple-400',
     },
     {
-      code: 'MAL...T',
+      code: 'MAL-T',
       title: 'Traditional & Herbal',
-      description: 'Herbal remedies, TCM formulas, Jamu, and Ayurvedic preparations.',
       count: categories.traditional?.count || 13122,
       href: '/category/traditional',
-      icon: Leaf,
-      badgeClass: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-900',
-      accentColor: 'text-amber-600 dark:text-amber-400',
     },
   ];
 
-  const homeFaqs: FaqItem[] = [
-    {
-      question: 'How do I check if a medicine is registered in Malaysia?',
-      answer: (
-        <span>
-          Every authentic medicine, health supplement, or traditional remedy approved for sale in Malaysia is assigned a unique registration number by the National Pharmaceutical Regulatory Agency (NPRA). It starts with &quot;MAL&quot; followed by 8 digits and ends with an alphabetical category code (e.g., <code>MAL19900523AZ</code>). You can search any MAL code directly in the search bar above to verify its registration record.
-        </span>
-      ),
-    },
-    {
-      question: 'What do the MAL letter codes mean (A, X, N, T)?',
-      answer: (
-        <span>
-          The letter at the end of the registration number signifies the regulatory classification:
-          <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li><strong>A:</strong> Controlled / Prescription Medicine (Poisons List)</li>
-            <li><strong>X:</strong> Over-the-Counter (OTC) Non-Poison Medicine</li>
-            <li><strong>N:</strong> Health Supplement (Vitamins, Minerals, Probiotics)</li>
-            <li><strong>T:</strong> Traditional Medicine &amp; Herbal Remedies</li>
-            <li><strong>V:</strong> Veterinary Medicine</li>
-          </ul>
-        </span>
-      ),
-    },
-    {
-      question: 'What is a generic alternative medicine?',
-      answer: (
-        <span>
-          A generic medicine contains the identical active pharmaceutical ingredient (API), strength, and therapeutic intent as the original brand-name drug. In Malaysia, generic medications undergo rigorous bioequivalence testing to ensure they deliver equivalent efficacy and safety, often at a significantly lower cost.
-        </span>
-      ),
-    },
-    {
-      question: 'Where does NutriDive get its data?',
-      answer: (
-        <span>
-          NutriDive indexes the official open pharmaceutical dataset published under the Malaysia Open Data Initiative (<code>data.gov.my</code>) from the National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (KKM). NutriDive is an independent consumer directory and is not affiliated with any government agency.
-        </span>
-      ),
-    },
+  // Common household brand names that Malaysian consumers search for
+  const popularBrands = [
+    { name: 'Panadol', generic: 'Paracetamol', use: 'Pain & Fever Relief', href: '/search?q=panadol' },
+    { name: 'Augmentin', generic: 'Amoxicillin + Clavulanate', use: 'Antibiotic', href: '/search?q=augmentin' },
+    { name: 'Lipitor', generic: 'Atorvastatin', use: 'Cholesterol Lowering', href: '/search?q=lipitor' },
+    { name: 'Glucophage', generic: 'Metformin', use: 'Type 2 Diabetes', href: '/search?q=glucophage' },
+    { name: 'Norvasc', generic: 'Amlodipine', use: 'Blood Pressure', href: '/search?q=norvasc' },
+    { name: 'Ventolin', generic: 'Salbutamol', use: 'Asthma Inhaler', href: '/search?q=ventolin' },
+    { name: 'Zyrtec', generic: 'Cetirizine', use: 'Allergy & Rhinitis', href: '/search?q=zyrtec' },
+    { name: 'Nexium', generic: 'Esomeprazole', use: 'GERD & Acid Reflux', href: '/search?q=nexium' },
   ];
 
   return (
@@ -146,15 +101,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Product Categories Section: Clean, Scannable GoodRx-Style Cards */}
-      <section className="py-12 md:py-14 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+      {/* Browse by Schedule: Clean Minimal Uniform Tiles */}
+      <section className="py-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               Browse by Schedule
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-              Explore medicines and health products categorized by official Malaysian registration class.
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              Official NPRA regulatory classification classes.
             </p>
           </div>
           <Link
@@ -166,51 +121,85 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {scheduleCategories.map((cat) => {
-            const Icon = cat.icon;
-            return (
-              <Link
-                key={cat.href}
-                href={cat.href}
-                className="group relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900/90 p-5 hover:border-teal-500/80 dark:hover:border-teal-500/80 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3.5">
-                    <div className={`inline-flex items-center gap-1.5 font-mono text-xs font-semibold px-2 py-0.5 rounded-md border ${cat.badgeClass}`}>
-                      <Icon className="w-3.5 h-3.5" />
-                      <span>{cat.code}</span>
-                    </div>
-                    <span className="text-xs font-mono font-medium text-zinc-400 dark:text-zinc-500">
-                      {cat.count.toLocaleString()} products
-                    </span>
-                  </div>
-                  <h3 className="font-semibold text-base text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                    {cat.title}
-                  </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
-                    {cat.description}
-                  </p>
-                </div>
-                <div className="mt-5 flex items-center gap-1 text-xs font-semibold text-teal-600 dark:text-teal-400 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
-                  <span>Browse category</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            );
-          })}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {scheduleCategories.map((cat) => (
+            <Link
+              key={cat.href}
+              href={cat.href}
+              className="group p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-teal-500/80 dark:hover:border-teal-500/80 hover:shadow-xs transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                  {cat.code}
+                </span>
+                <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 mt-2.5 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors truncate">
+                  {cat.title}
+                </h3>
+              </div>
+              <div className="mt-3 flex items-center justify-between text-xs text-zinc-400 dark:text-zinc-500 font-mono">
+                <span>{cat.count.toLocaleString()} products</span>
+                <ArrowRight className="w-3.5 h-3.5 text-zinc-300 dark:text-zinc-600 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:translate-x-0.5 transition-all" />
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* Top Generic Molecules Directory: Clean, Concise GoodRx-Style Grid */}
-      <section className="py-10 md:py-12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full border-t border-zinc-100 dark:border-zinc-900">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+      {/* Popular Brand-Name Medicines (Familiar consumer medicines) */}
+      <section className="py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full border-t border-zinc-100 dark:border-zinc-900">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 gap-1">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+              Popular Brand Medicines
+            </h2>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              Widely recognized brand names and their active generic substances.
+            </p>
+          </div>
+          <Link
+            href="/search"
+            className="text-xs sm:text-sm font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 inline-flex items-center gap-1 shrink-0"
+          >
+            <span>Search all brands</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {popularBrands.map((brand) => (
+            <Link
+              key={brand.name}
+              href={brand.href}
+              className="group flex items-center justify-between p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-teal-500/80 dark:hover:border-teal-500/80 hover:shadow-xs transition-all"
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <h4 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 truncate transition-colors">
+                    {brand.name}
+                  </h4>
+                  <span className="text-[10px] font-medium text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 px-1.5 py-0.5 rounded">
+                    {brand.use}
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-400 dark:text-zinc-500 font-mono mt-1 truncate">
+                  Generic: {brand.generic}
+                </p>
+              </div>
+              <ArrowRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Most Searched Active Molecules */}
+      <section className="py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full border-t border-zinc-100 dark:border-zinc-900">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 gap-1">
+          <div>
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               Most Searched Active Molecules
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-              Compare registered brand names sharing identical active ingredients and generic equivalents.
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              Compare registered brand names sharing identical active substances and generic alternatives.
             </p>
           </div>
           <Link
@@ -227,7 +216,7 @@ export default async function HomePage() {
             <Link
               key={gen.slug}
               href={`/generic/${gen.slug}`}
-              className="group flex items-center justify-between p-3.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-teal-500/80 dark:hover:border-teal-500/80 hover:shadow-xs transition-all duration-150"
+              className="group flex items-center justify-between p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-teal-500/80 dark:hover:border-teal-500/80 hover:shadow-xs transition-all"
             >
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/60 transition-colors">
@@ -246,19 +235,6 @@ export default async function HomePage() {
             </Link>
           ))}
         </div>
-      </section>
-
-      {/* Frequently Asked Questions Section */}
-      <section className="py-12 md:py-14 max-w-3xl mx-auto px-4 sm:px-6 w-full border-t border-zinc-100 dark:border-zinc-900">
-        <div className="mb-6">
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
-            Key guidance on Malaysian medicine registration, NPRA codes, and generic equivalents.
-          </p>
-        </div>
-        <FaqAccordion items={homeFaqs} />
       </section>
     </div>
   );

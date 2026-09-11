@@ -91,22 +91,22 @@ export default function Navbar() {
             >
               Traditional (MAL-T)
             </Link>
+            <Link
+              href="/faq"
+              className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+            >
+              FAQ
+            </Link>
           </nav>
 
-          {/* Actions & Search Trigger */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={() => setIsSearchOpen(true)}
-              className="flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-lg transition-colors cursor-pointer group"
-              title="Search database (Ctrl+K / Cmd+K)"
+          {/* Actions: FAQ & Theme Toggle */}
+          <div className="flex items-center gap-2">
+            <Link
+              href="/faq"
+              className="hidden sm:inline-flex items-center px-3 py-1.5 text-xs font-semibold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200 dark:border-teal-800/80 rounded-lg transition-colors"
             >
-              <Search className="w-4 h-4 text-zinc-400 group-hover:text-teal-600 dark:group-hover:text-teal-400" />
-              <span className="hidden sm:inline font-normal">Search MAL, brand, molecule...</span>
-              <span className="sm:hidden font-normal">Search</span>
-              <kbd className="hidden lg:inline-flex items-center gap-0.5 text-[10px] font-mono text-zinc-400 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-1.5 py-0.5 rounded shadow-2xs">
-                ⌘K
-              </kbd>
-            </button>
+              FAQ
+            </Link>
 
             {/* Dark Mode Toggle */}
             <button
@@ -158,6 +158,13 @@ export default function Navbar() {
               className="block py-1.5 font-medium text-zinc-700 dark:text-zinc-200"
             >
               Traditional & Herbal (MAL-T)
+            </Link>
+            <Link
+              href="/faq"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block py-1.5 font-medium text-teal-600 dark:text-teal-400"
+            >
+              Frequently Asked Questions (FAQ)
             </Link>
           </div>
         )}
