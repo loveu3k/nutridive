@@ -171,14 +171,14 @@ def parse_active_ingredients(raw, prod_name=None, generic_name=None, category_co
 def extract_primary_molecule(generic_name, ingredients):
     if generic_name and pd.notna(generic_name):
         txt = str(generic_name).strip()
-        m = re.split(r'\d+\s*(?:mg|g|mcg|ug|ml|%|iu|dose)', txt, flags=re.IGNORECASE)
-        candidate = clean_text(m[0])
+        m = re.split(r'\d+(?:\.\d+)?\s*(?:mg|g|mcg|ug|ml|%|iu|dose)', txt, flags=re.IGNORECASE)
+        candidate = re.sub(r'[\d.,\s]+$', '', clean_text(m[0]))
         if len(candidate) > 2 and not candidate.isdigit():
             return candidate.title()
     if ingredients:
         primary = ingredients[0]["name"]
         primary = re.sub(r'\s*\([^)]*\)', '', primary)
-        primary = clean_text(primary)
+        primary = re.sub(r'[\d.,\s]+$', '', clean_text(primary))
         if len(primary) > 2:
             return primary.title()
     return "General Formulation"
