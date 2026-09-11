@@ -7,6 +7,8 @@ import type {
   CategoryDetail,
   DatabaseStats,
   SearchIndexItem,
+  HolderProfile,
+  HolderSummary,
 } from './types';
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'processed');
@@ -227,4 +229,53 @@ export async function searchProducts(
   }
 
   return matches;
+}
+
+// In-memory cache for loaded holder chunks
+const holderChunkCache: Record<string, Record<string, HolderProfile>> = {};
+let holdersIndexCache: HolderSummary[] | null = null;
+
+export async function getHolder(slug: string): Promise<HolderProfile | null> {
+  const normalizedSlug = slug.toLowerCase().trim();
+  const prefix = normalizedSlug.slice(0, 2);
+
+  if (holderChunkCache[prefix]) {
+    return holderChunkCache[prefix][normalizedSlug] || null;
+  }
+
+  const chunkPath = path.join(DATA_DIR, 'holder_chunks', `${prefix}.json`);
+  try {
+    const content = await fs.promises.readFile(chunkPath, 'utf-8');
+    const chunk = JSON.parse(content) as Record<string, HolderProfile>;
+    holderChunkCache[prefix] = chunk;
+    return chunk[normalizedSlug] || null;
+  } catch {
+    return null;
+  }
+}
+
+export async function getHoldersIndex(): Promise<HolderSummary[]> {
+  if (holdersIndexCache) return holdersIndexCache;
+
+  const filePath = path.join(DATA_DIR, 'holders_index.json');
+  try {
+    const content = await fs.promises.readFile(filePath, 'utf-8');
+    // Format in JSON: [ [slug, name, total, approved, state], ... ]
+    const rawList = JSON.parse(content) as [string, string, number, number, string][];
+    holdersIndexCache = rawList.map(([hSlug, name, total, approved, state]) => ({
+      slug: hSlug,
+      name,
+      total_products: total,
+      approved_count: approved,
+      state: state || null,
+    }));
+    return holdersIndexCache;
+  } catch {
+    return [];
+  }
+}
+
+export async function getTopHolders(limit: number = 30): Promise<HolderSummary[]> {
+  const list = await getHoldersIndex();
+  return list.slice(0, limit);
 }

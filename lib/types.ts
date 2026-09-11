@@ -89,5 +89,42 @@ export interface DatabaseStats {
   license: string;
 }
 
-// [slug, reg_no, product_name, category_code, generic_name, holder]
-export type SearchIndexItem = [string, string, string, string, string, string];
+export interface HolderProductSummary {
+  slug: string;
+  reg_no: string;
+  product_name: string;
+  category: CategoryInfo;
+  generic_name: string;
+  generic_slug: string;
+  status: string;
+}
+
+export interface HolderProfile {
+  slug: string;
+  name: string;
+  address?: string | null;
+  state?: string | null;
+  postcode?: string | null;
+  phone?: string | null;
+  mfg_license?: string | null;
+  imp_license?: string | null;
+  is_approved_manufacturer?: boolean;
+  is_approved_importer?: boolean;
+  is_approved_wholesaler?: boolean;
+  total_products: number;
+  approved_count: number;
+  cancelled_count: number;
+  category_counts: Record<string, number>;
+  products: HolderProductSummary[];
+}
+
+export interface HolderSummary {
+  slug: string;
+  name: string;
+  total_products: number;
+  approved_count: number;
+  state?: string | null;
+}
+
+// [slug, reg_no, product_name, category_code, generic_name, holder, is_cancelled?]
+export type SearchIndexItem = [string, string, string, string, string, string, number?];

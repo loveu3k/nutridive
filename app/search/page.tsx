@@ -14,7 +14,7 @@ import {
   X,
   ArrowRight,
 } from 'lucide-react';
-import { getCategoryBadgeClass } from '@/lib/utils';
+import { getCategoryBadgeClass, slugify } from '@/lib/utils';
 import CompareButton from '@/components/CompareButton';
 
 interface SearchItem {
@@ -209,40 +209,30 @@ function SearchContent() {
               <table className="w-full text-left text-xs">
                 <thead className="bg-zinc-50/80 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-semibold">
                   <tr>
-                    <th className="py-3 px-4 w-12 text-center">Compare</th>
                     <th className="py-3 px-4 font-mono">MAL Registration</th>
                     <th className="py-3 px-4">Product Brand Name</th>
                     <th className="py-3 px-4">Active Molecule / Generic</th>
                     <th className="py-3 px-4">Classification</th>
                     <th className="py-3 px-4">Registration Holder</th>
-                    <th className="py-3 px-4 text-right">Action</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/60">
                   {sortedResults.map((item) => {
                     const badge = getCategoryBadgeClass(item.category_code);
+                    const genSlug = slugify(item.generic_name);
+                    const hSlug = slugify(item.holder);
                     return (
                       <tr
                         key={item.slug}
                         className="even:bg-zinc-50/40 dark:even:bg-zinc-900/20 hover:bg-teal-50/30 dark:hover:bg-zinc-900/60 transition-colors group"
                       >
-                        <td className="py-3 px-4 text-center">
-                          <CompareButton
-                            item={{
-                              slug: item.slug,
-                              reg_no: item.reg_no,
-                              product_name: item.product_name,
-                              category_code: item.category_code,
-                              generic_name: item.generic_name,
-                              holder: item.holder,
-                            }}
-                            variant="checkbox"
-                          />
-                        </td>
                         <td className="py-3 px-4 whitespace-nowrap">
-                          <span className="font-mono font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded text-[11px]">
+                          <Link
+                            href={`/mal/${item.slug}`}
+                            className="font-mono font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 px-2 py-0.5 rounded text-[11px] transition-colors inline-block"
+                          >
                             {item.reg_no}
-                          </span>
+                          </Link>
                         </td>
                         <td className="py-3 px-4">
                           <Link
@@ -252,8 +242,13 @@ function SearchContent() {
                             {item.product_name}
                           </Link>
                         </td>
-                        <td className="py-3 px-4 text-teal-700 dark:text-teal-400 font-medium">
-                          {item.generic_name}
+                        <td className="py-3 px-4 font-medium">
+                          <Link
+                            href={`/generic/${genSlug}`}
+                            className="text-teal-600 dark:text-teal-400 hover:underline inline-block"
+                          >
+                            {item.generic_name}
+                          </Link>
                         </td>
                         <td className="py-3 px-4 whitespace-nowrap">
                           <span
@@ -262,17 +257,17 @@ function SearchContent() {
                             {badge.label}
                           </span>
                         </td>
-                        <td className="py-3 px-4 text-zinc-500 dark:text-zinc-400 max-w-[200px] truncate" title={item.holder}>
-                          {item.holder}
-                        </td>
-                        <td className="py-3 px-4 text-right whitespace-nowrap">
-                          <Link
-                            href={`/mal/${item.slug}`}
-                            className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400 font-semibold hover:underline"
-                          >
-                            <span>Verify</span>
-                            <ArrowRight className="w-3 h-3" />
-                          </Link>
+                        <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400 max-w-[200px] truncate" title={item.holder}>
+                          {item.holder ? (
+                            <Link
+                              href={`/holder/${hSlug}`}
+                              className="hover:underline hover:text-teal-600 dark:hover:text-teal-400"
+                            >
+                              {item.holder}
+                            </Link>
+                          ) : (
+                            '—'
+                          )}
                         </td>
                       </tr>
                     );

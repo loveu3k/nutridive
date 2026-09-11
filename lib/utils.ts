@@ -81,3 +81,14 @@ export function getCategoryBadgeClass(code: string): {
       };
   }
 }
+
+export function slugify(text: string | null | undefined): string {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+

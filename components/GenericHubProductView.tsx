@@ -16,7 +16,7 @@ import {
   ExternalLink,
   ArrowRight,
 } from 'lucide-react';
-import { getCategoryBadgeClass } from '@/lib/utils';
+import { getCategoryBadgeClass, slugify } from '@/lib/utils';
 import type { ProductSummary } from '@/lib/types';
 import CompareButton from '@/components/CompareButton';
 
@@ -255,46 +255,34 @@ export function GenericHubProductView({
           <table className="w-full text-left text-xs">
             <thead className="bg-zinc-50/80 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-semibold">
               <tr>
-                <th className="py-3 px-4 w-12 text-center">Compare</th>
                 <th className="py-3 px-4 font-mono">MAL Reg No</th>
                 <th className="py-3 px-4">Brand Formulation Name</th>
                 <th className="py-3 px-4">Strength / Dosage</th>
                 <th className="py-3 px-4">Classification</th>
                 <th className="py-3 px-4">Registration Holder</th>
-                <th className="py-3 px-4 text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/60">
               {filteredProducts.map((p) => {
                 const badge = getCategoryBadgeClass(p.category.code);
+                const hSlug = slugify(p.holder);
                 return (
                   <tr
                     key={p.slug}
                     className="even:bg-zinc-50/40 dark:even:bg-zinc-900/20 hover:bg-teal-50/30 dark:hover:bg-zinc-900/60 transition-colors group"
                   >
-                    <td className="py-3 px-4 text-center">
-                      <CompareButton
-                        item={{
-                          slug: p.slug,
-                          reg_no: p.reg_no,
-                          product_name: p.product_name,
-                          category_code: p.category.code,
-                          generic_name: moleculeName,
-                          holder: p.holder,
-                          dosage: p.dosage,
-                        }}
-                        variant="checkbox"
-                      />
-                    </td>
                     <td className="py-3 px-4 whitespace-nowrap">
-                      <span className="font-mono font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded text-[11px]">
+                      <Link
+                        href={`/mal/${p.slug}`}
+                        className="font-mono font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 px-2 py-0.5 rounded text-[11px] transition-colors inline-block"
+                      >
                         {p.reg_no}
-                      </span>
+                      </Link>
                     </td>
                     <td className="py-3 px-4 font-semibold">
                       <Link
                         href={`/mal/${p.slug}`}
-                        className="text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors"
+                        className="text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-1"
                       >
                         {p.product_name}
                       </Link>
@@ -315,17 +303,17 @@ export function GenericHubProductView({
                         {badge.label}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-zinc-500 dark:text-zinc-400 max-w-[200px] truncate" title={p.holder}>
-                      {p.holder}
-                    </td>
-                    <td className="py-3 px-4 text-right whitespace-nowrap">
-                      <Link
-                        href={`/mal/${p.slug}`}
-                        className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400 font-semibold hover:underline"
-                      >
-                        <span>Verify</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </Link>
+                    <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400 max-w-[220px] truncate" title={p.holder}>
+                      {p.holder ? (
+                        <Link
+                          href={`/holder/${hSlug}`}
+                          className="hover:underline hover:text-teal-600 dark:hover:text-teal-400"
+                        >
+                          {p.holder}
+                        </Link>
+                      ) : (
+                        '—'
+                      )}
                     </td>
                   </tr>
                 );

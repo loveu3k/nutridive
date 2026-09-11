@@ -14,7 +14,7 @@ import {
   ChevronRight,
   ArrowRight,
 } from 'lucide-react';
-import { getCategoryBadgeClass } from '@/lib/utils';
+import { getCategoryBadgeClass, slugify } from '@/lib/utils';
 import type { SearchIndexItem } from '@/lib/types';
 import CompareButton from '@/components/CompareButton';
 
@@ -200,63 +200,60 @@ export function CategoryDirectoryView({
           <table className="w-full text-left text-xs">
             <thead className="bg-zinc-50/80 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-semibold">
               <tr>
-                <th className="py-3 px-4 w-12 text-center">Compare</th>
                 <th className="py-3 px-4 font-mono">MAL Registration</th>
                 <th className="py-3 px-4">Product Brand Name</th>
                 <th className="py-3 px-4">Active Molecule / Generic</th>
                 <th className="py-3 px-4">Product Registration Holder</th>
-                <th className="py-3 px-4 text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/60">
-              {paginatedItems.map(([slug, reg_no, name, catCode, genericName, holder]) => (
-                <tr
-                  key={slug}
-                  className="even:bg-zinc-50/40 dark:even:bg-zinc-900/20 hover:bg-teal-50/30 dark:hover:bg-zinc-900/60 transition-colors group"
-                >
-                  <td className="py-3 px-4 text-center">
-                    <CompareButton
-                      item={{
-                        slug,
-                        reg_no,
-                        product_name: name,
-                        category_code: catCode,
-                        generic_name: genericName,
-                        holder,
-                      }}
-                      variant="checkbox"
-                    />
-                  </td>
-                  <td className="py-3 px-4 whitespace-nowrap">
-                    <span className="font-mono font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded text-[11px]">
-                      {reg_no}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4">
-                    <Link
-                      href={`/mal/${slug}`}
-                      className="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-1"
-                    >
-                      {name}
-                    </Link>
-                  </td>
-                  <td className="py-3 px-4 text-teal-700 dark:text-teal-400 font-medium">
-                    {genericName}
-                  </td>
-                  <td className="py-3 px-4 text-zinc-500 dark:text-zinc-400 max-w-[220px] truncate" title={holder}>
-                    {holder}
-                  </td>
-                  <td className="py-3 px-4 text-right whitespace-nowrap">
-                    <Link
-                      href={`/mal/${slug}`}
-                      className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400 font-semibold hover:underline"
-                    >
-                      <span>Verify</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </td>
-                </tr>
-              ))}
+              {paginatedItems.map(([slug, reg_no, name, catCode, genericName, holder]) => {
+                const genSlug = slugify(genericName);
+                const hSlug = slugify(holder);
+                return (
+                  <tr
+                    key={slug}
+                    className="even:bg-zinc-50/40 dark:even:bg-zinc-900/20 hover:bg-teal-50/30 dark:hover:bg-zinc-900/60 transition-colors group"
+                  >
+                    <td className="py-3 px-4 whitespace-nowrap">
+                      <Link
+                        href={`/mal/${slug}`}
+                        className="font-mono font-semibold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 px-2 py-0.5 rounded text-[11px] transition-colors inline-block"
+                      >
+                        {reg_no}
+                      </Link>
+                    </td>
+                    <td className="py-3 px-4">
+                      <Link
+                        href={`/mal/${slug}`}
+                        className="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-1"
+                      >
+                        {name}
+                      </Link>
+                    </td>
+                    <td className="py-3 px-4 font-medium">
+                      <Link
+                        href={`/generic/${genSlug}`}
+                        className="text-teal-600 dark:text-teal-400 hover:underline inline-block"
+                      >
+                        {genericName}
+                      </Link>
+                    </td>
+                    <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400 max-w-[240px] truncate" title={holder}>
+                      {holder ? (
+                        <Link
+                          href={`/holder/${hSlug}`}
+                          className="hover:underline hover:text-teal-600 dark:hover:text-teal-400"
+                        >
+                          {holder}
+                        </Link>
+                      ) : (
+                        '—'
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
