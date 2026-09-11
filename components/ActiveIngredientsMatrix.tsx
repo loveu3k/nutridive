@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Pill, ExternalLink, Info, ArrowUpRight } from 'lucide-react';
 import type { ActiveIngredient } from '@/lib/types';
+import { formatStrength } from '@/lib/utils';
 
 interface ActiveIngredientsMatrixProps {
   ingredients: ActiveIngredient[];
@@ -115,7 +116,7 @@ export default function ActiveIngredientsMatrix({
                   <td className="py-3.5 px-5 text-right font-mono tabular-nums text-zinc-700 dark:text-zinc-300">
                     {ing.dosage ? (
                       <span className="bg-zinc-100 dark:bg-zinc-800/90 border border-zinc-200/70 dark:border-zinc-700/60 px-2.5 py-1 rounded-md text-xs font-semibold text-zinc-900 dark:text-zinc-100">
-                        {ing.dosage}
+                        {formatStrength(ing.dosage)}
                       </span>
                     ) : (
                       <span className="text-xs text-zinc-400 italic">Formulation Proprietary</span>

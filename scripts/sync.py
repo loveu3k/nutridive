@@ -103,7 +103,17 @@ def parse_active_ingredients(raw):
         clean_name = clean_text(name)
         clean_dose = ""
         if dose:
-            clean_dose = clean_text(dose.replace(';', ' ').replace(',', ' '))
+            parts = [p.strip() for p in re.split(r'[,;]', dose) if p.strip()]
+            if parts:
+                if len(parts) == 1:
+                    m = re.match(r'^([\d.]+\s*(?:mg|g|mcg|ug|iu|%))\s+0$', parts[0], re.I)
+                    clean_dose = m.group(1) if m else parts[0]
+                else:
+                    first, second = parts[0], parts[1]
+                    if re.match(r'^[\d.]+\s*ml$', second, re.I):
+                        clean_dose = f"{first} / {second}"
+                    else:
+                        clean_dose = first
         if clean_name:
             results.append({
                 "name": clean_name,

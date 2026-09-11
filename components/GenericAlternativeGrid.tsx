@@ -13,7 +13,7 @@ import {
   ChevronUp,
 } from 'lucide-react';
 import type { ProductSummary } from '@/lib/types';
-import { getCategoryBadgeClass } from '@/lib/utils';
+import { getCategoryBadgeClass, formatStrength } from '@/lib/utils';
 import { useCompare } from '@/lib/compare-context';
 import CompareButton from '@/components/CompareButton';
 
@@ -191,7 +191,7 @@ export default function GenericAlternativeGrid({
                   <div className="mt-2 text-xs font-mono text-zinc-600 dark:text-zinc-300">
                     <span className="text-zinc-400 text-[10px] uppercase font-sans">Strength: </span>
                     <span className="font-semibold bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">
-                      {alt.dosage}
+                      {formatStrength(alt.dosage)}
                     </span>
                   </div>
                 )}

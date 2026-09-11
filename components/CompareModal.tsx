@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCompare } from '@/lib/compare-context';
 import type { Product } from '@/lib/types';
-import { formatDate, getCategoryBadgeClass } from '@/lib/utils';
+import { formatDate, getCategoryBadgeClass, formatStrength } from '@/lib/utils';
 import {
   X,
   Loader2,
@@ -228,7 +228,7 @@ export default function CompareModal() {
                                 </div>
                                 {ing.dosage && (
                                   <div className="mt-1 font-mono font-bold text-teal-700 dark:text-teal-300">
-                                    {ing.dosage}
+                                    {formatStrength(ing.dosage)}
                                   </div>
                                 )}
                               </div>

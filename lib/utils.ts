@@ -92,3 +92,35 @@ export function slugify(text: string | null | undefined): string {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Formats raw NPRA dosage strings into standard clinical pharmaceutical format.
+ * In NPRA official data, brackets often contain [Active Ingredient Strength, Gross Tablet/Base Weight]
+ * e.g., "1000mg 4500mg" -> "1000mg", "100mg 0" -> "100mg", "5 mg 1 ml" -> "5 mg / 1 ml"
+ */
+export function formatStrength(dosage: string | null | undefined): string {
+  if (!dosage || !dosage.trim()) return '—';
+  const clean = dosage.trim();
+
+  // Pattern 1: Liquid/Volume concentration "5 mg 1 ml" -> "5 mg / 1 ml"
+  const volumeMatch = clean.match(/^([\d.]+\s*(?:mg|g|mcg|ug|iu|%))\s+([\d.]+\s*ml)$/i);
+  if (volumeMatch) {
+    return `${volumeMatch[1]} / ${volumeMatch[2]}`;
+  }
+
+  // Pattern 2: NPRA default 0 base weight artifact "100mg 0" -> "100mg"
+  const zeroBaseMatch = clean.match(/^([\d.]+\s*(?:mg|g|mcg|ug|iu|%))\s+0$/i);
+  if (zeroBaseMatch) {
+    return zeroBaseMatch[1];
+  }
+
+  // Pattern 3: Active ingredient dose followed by gross tablet/capsule/sachet weight
+  // e.g. "500 mg 1500 mg" -> "500 mg", "1000mg 4498.46mg" -> "1000mg", "360 mg 4 g" -> "360 mg"
+  const dualWeightMatch = clean.match(/^([\d.]+\s*(?:mg|g|mcg|ug|iu|%))\s+[\d.]+\s*(?:mg|g|gm)$/i);
+  if (dualWeightMatch) {
+    return dualWeightMatch[1];
+  }
+
+  return clean;
+}
+
+
