@@ -50,6 +50,20 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // Directory & product pages: long-lived edge cacheable by Cloudflare
+        source: '/:path(mal|generic|holder|category)/:rest*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=31536000, stale-while-revalidate=86400',
+          },
+          {
+            key: 'Cloudflare-CDN-Cache-Control',
+            value: 'max-age=31536000',
+          },
+        ],
+      },
     ];
   },
 };

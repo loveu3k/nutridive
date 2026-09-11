@@ -11,7 +11,8 @@ interface PageProps {
   params: { category: string };
 }
 
-export const revalidate = 86400; // ISR 24h
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const categories = await getCategories();

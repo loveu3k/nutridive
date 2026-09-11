@@ -20,7 +20,8 @@ interface PageProps {
   params: { slug: string };
 }
 
-export const revalidate = 86400; // ISR 24h
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const topHolders = await getTopHolders(50);

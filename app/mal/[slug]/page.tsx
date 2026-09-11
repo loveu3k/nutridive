@@ -12,7 +12,8 @@ interface PageProps {
   params: { slug: string };
 }
 
-export const revalidate = 86400;
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const topGenerics = await getTopGenerics(20);

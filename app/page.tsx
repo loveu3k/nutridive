@@ -14,7 +14,7 @@ import { getStats, getCategories, getTopGenerics } from '@/lib/data';
 import HomeSearchHero from '@/components/HomeSearchHero';
 import FaqAccordion, { type FaqItem } from '@/components/FaqAccordion';
 
-export const revalidate = 86400; // ISR 24h
+export const dynamic = 'force-static';
 
 export default async function HomePage() {
   const stats = await getStats();

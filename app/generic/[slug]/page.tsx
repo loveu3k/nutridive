@@ -20,7 +20,8 @@ interface PageProps {
   params: { slug: string };
 }
 
-export const revalidate = 86400; // ISR 24h
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 // Pre-render the top 100 most popular generic molecules at build time
 // to ensure zero cold-start latency and zero Vercel serverless executions!
