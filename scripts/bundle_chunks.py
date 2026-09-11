@@ -82,17 +82,11 @@ def clean_dosage_value(dose_str):
     if not parts:
         return ''
         
-    # If parts like ['1.095', 'mg']
-    if len(parts) == 2 and re.match(r'^[\d.]+$', parts[0]) and re.match(r'^(?:mg|g|gm|mcg|ug|ml|%|iu|dose)$', parts[1], re.I):
+    # If parts like ['440', 'mg', '0'] or ['1.095', 'mg'] or ['949', 'mg', '1165.32', 'mg']
+    if len(parts) >= 2 and re.match(r'^[\d.]+$', parts[0]) and re.match(r'^(?:mg|g|gm|mcg|ug|ml|%|iu|dose|units?)$', parts[1], re.I):
+        if len(parts) >= 4 and re.match(r'^[\d.]+$', parts[2]) and re.match(r'^(?:ml|l|g|gm|dose)$', parts[3], re.I):
+            return f'{parts[0]} {parts[1]} / {parts[2]} {parts[3]}'
         return f'{parts[0]} {parts[1]}'
-        
-    # If parts like ['949', 'mg', '1165.32', 'mg']
-    if len(parts) >= 4 and re.match(r'^[\d.]+$', parts[0]) and re.match(r'^(?:mg|g|gm|mcg|ug|iu)$', parts[1], re.I):
-        return f'{parts[0]} {parts[1]}'
-        
-    # If parts like ['0.5', 'mg', '1', 'g']
-    if len(parts) >= 4 and re.match(r'^(?:mg|g|gm|mcg|ug|iu)$', parts[1], re.I) and re.match(r'^(?:g|ml)$', parts[3], re.I):
-        return f'{parts[0]} {parts[1]} / {parts[2]} {parts[3]}'
 
     first = parts[0]
     # Check volume concentration '5 mg 1 ml'
@@ -118,6 +112,9 @@ def clean_dosage_value(dose_str):
         if m_sec_dual:
             return first
             
+    if re.match(r'^[\d.]+$', first):
+        return f'{first} mg'
+
     return first
 
 def parse_active_ingredients(raw, prod_name=None, generic_name=None, category_code=None):
@@ -269,9 +266,13 @@ def run_bundle():
         products_by_prefix[prefix][slug] = product_data
 
         hub_dose = ""
-        if ingredients:
+        if raw_generic:
+            hub_dose = extract_strength_from_name(raw_generic)
+        if not hub_dose and ingredients:
+            p_words = [w.lower() for w in re.findall(r'[a-zA-Z0-9]+', primary_molecule) if len(w) > 2]
             for ing in ingredients:
-                if primary_molecule.lower() in ing["name"].lower() and ing["dosage"]:
+                ing_name_lower = ing["name"].lower()
+                if any(w in ing_name_lower for w in p_words) and ing["dosage"]:
                     hub_dose = ing["dosage"]
                     break
             if not hub_dose:
@@ -280,7 +281,7 @@ def run_bundle():
                         hub_dose = ing["dosage"]
                         break
         if not hub_dose:
-            hub_dose = extract_strength_from_name(product_name, raw_generic)
+            hub_dose = extract_strength_from_name(product_name)
         if not hub_dose and cat["code"] == "T":
             hub_dose = "Herbal Formulation"
 

@@ -126,6 +126,20 @@ export function formatStrength(
       return dualWeightMatch[1];
     }
 
+    // Pattern 4: Bare number without unit (e.g. "440", "30", "122.449")
+    if (/^[\d.]+$/.test(clean)) {
+      const texts = [productName || '', genericName || ''];
+      let foundUnit = '';
+      for (const text of texts) {
+        const m = text.match(new RegExp(`\\b${clean}\\s*(mg|mcg|ug|g|iu|%)\\b`, 'i'));
+        if (m) {
+          foundUnit = m[1];
+          break;
+        }
+      }
+      return `${clean} ${foundUnit || 'mg'}`;
+    }
+
     return clean;
   }
 
