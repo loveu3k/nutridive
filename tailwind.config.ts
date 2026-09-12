@@ -54,35 +54,6 @@ const config: Config = {
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
-        // Category colors
-        prescription: {
-          bg: '#EFF6FF',
-          border: '#BFDBFE',
-          text: '#1D4ED8',
-          darkBg: '#172554',
-          darkText: '#93C5FD',
-        },
-        otc: {
-          bg: '#F0FDF4',
-          border: '#BBF7D0',
-          text: '#15803D',
-          darkBg: '#052E16',
-          darkText: '#86EFAC',
-        },
-        supplement: {
-          bg: '#F5F3FF',
-          border: '#DDD6FE',
-          text: '#6D28D9',
-          darkBg: '#2E1065',
-          darkText: '#C4B5FD',
-        },
-        traditional: {
-          bg: '#FFFBEB',
-          border: '#FDE68A',
-          text: '#B45309',
-          darkBg: '#451A03',
-          darkText: '#FCD34D',
-        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

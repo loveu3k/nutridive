@@ -64,17 +64,6 @@
   }
 }
 
-/* Swiss Modernist Archive Utilities */
-.swiss-grid {
-  background-image: radial-gradient(rgba(13, 148, 136, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.dark .swiss-grid {
-  background-image: radial-gradient(rgba(45, 212, 191, 0.06) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
