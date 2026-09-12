@@ -1,33 +1,49 @@
-# NutriDive - Full Regulatory Architecture & AI Schema (nutridive.net)
+# NutriDive SafeStack - Full Engine Architecture & Schema (nutridive.net)
 # Comprehensive LLM Ingestion Guide
 
-## Malaysian Regulatory Context
-In Malaysia, all pharmaceutical products must be registered with the Drug Control Authority (DCA) through the National Pharmaceutical Regulatory Agency (NPRA), a department under the Ministry of Health Malaysia (Kementerian Kesihatan Malaysia - KKM).
+## Interaction Framework
+NutriDive SafeStack cross-references user medications, supplements, and vitamins against deterministic rule collections:
 
-### Suffix Letter Classification:
-- **MAL...A**: Scheduled Poison / Prescription Only Medicine (Poison Act 1952). Requires prescription from a registered medical practitioner.
-- **MAL...X**: Non-Scheduled Poison / Over-The-Counter (OTC). Can be sold in general retail pharmacies without prescription.
-- **MAL...N**: Health Supplements. Evaluated for safety, quality, and label accuracy.
-- **MAL...T**: Traditional & Herbal Products. Encompasses Traditional Chinese Medicine (TCM), Jamu, Ayurvedic, and homeopathic formulations.
-- **MAL...V**: Veterinary healthcare pharmaceuticals.
+### 1. Alias Dictionary (`data/aliases/drugs.json`)
+Maps commercial brand names and generic aliases to canonical pharmacology classes:
+- Example: "Lipitor" and "Atorvastatin" -> "statin_cyp3a4"
+- Example: "Glucophage" and "Metformin" -> "metformin"
+- Example: "Synthroid" and "Levothyroxine" -> "levothyroxine"
 
-### Security Hologram (Meditag & FarmaChecker):
-All genuine registered products in Malaysia bear a security hologram sticker on packaging. Authenticity is verified using the FarmaChecker app.
+### 2. Interaction Rule Sets (`data/rules/interactions.json`)
+Structured rule records providing:
+- `redFlags`: Critical dietary and botanical contraindications with severity grading (`CRITICAL`, `HIGH`, `MEDIUM`).
+- `timingRules`: Minimum hour separations to prevent gut absorption binding and competitive chelation.
+- `depletions`: Specific drug-induced micronutrient depletions with actionable replenishment guidance.
+- `recommendedSlot`: Circadian dosing optimization (`morning`, `afternoon`, `evening`).
 
-### API Specifications
-GET /api/search?q={query}&limit={1-50}&cat={A|X|N|T}
-Response:
+### 3. Engine Output Schema (`lib/checker.ts`)
+```json
 {
-  "results": [
+  "identifiedItems": ["Lipitor (Atorvastatin)", "Fish Oil / Omega-3"],
+  "redFlags": [
     {
-      "slug": "mal19900523az",
-      "reg_no": "MAL19900523AZ",
-      "product_name": "VASCOTEN TABLETS 100MG",
-      "category_code": "A",
-      "generic_name": "Atenolol",
-      "holder": "KOMEDIC SDN BHD"
+      "item": "Grapefruit / Pomelo",
+      "reason": "Inhibits intestinal CYP3A4 enzyme...",
+      "severity": "CRITICAL",
+      "sourceDrug": "Statin (CYP3A4 Substrate)"
     }
   ],
-  "total": 1,
-  "query": "vascoten"
+  "timingRules": [],
+  "depletions": [
+    {
+      "drug": "Statin (CYP3A4 Substrate)",
+      "nutrient": "Coenzyme Q10 (CoQ10)",
+      "advice": "Statins block the mevalonate pathway..."
+    }
+  ],
+  "schedule": {
+    "morning": [],
+    "afternoon": ["Omega-3 Fish Oil"],
+    "evening": ["Statin (CYP3A4 Substrate)"]
+  }
 }
+```
+
+### Statutory Medical Notice
+NutriDive SafeStack is an evidence-based risk screening tool for kitchen, lifestyle, and dietary supplement safety. It does not replace clinical consultation, prescription writing, or individualized medical diagnosis by a licensed physician or clinical pharmacist.

@@ -3,9 +3,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { CompareProvider } from '@/lib/compare-context';
-import CompareTray from '@/components/CompareTray';
-import CompareModal from '@/components/CompareModal';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,46 +21,40 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'NutriDive - Independent Malaysian Medicine & Generic Directory',
-    template: '%s | NutriDive Malaysia',
+    default: 'NutriDive SafeStack - Medication, Supplement & Food Interaction Checker',
+    template: '%s | NutriDive SafeStack',
   },
   description:
-    'Independent public directory for checking 28,000+ approved Malaysian MAL registration numbers, active ingredients, and generic drug alternatives based on open regulatory data. Not affiliated with KKM or NPRA.',
+    'Evidence-based interaction screening engine for medications, dietary supplements, and foods. Check drug-supplement conflicts and nutrient depletions backed by clinical literature.',
   keywords: [
-    'Semakan status pendaftaran KKM',
-    'Semakan MAL ubat',
-    'Bahan aktif ubat',
-    'Generic brand alternative Malaysia',
-    'Pengganti ubat darah tinggi',
-    'Pengganti ubat kencing manis',
-    'Nombor MAL berdaftar',
-    'Malaysia medicine directory',
-    'KKM drug search',
-    'Meditag FarmaChecker hologram',
+    'Drug supplement interactions',
+    'Medication food interactions',
+    'Nutrient depletion checker',
+    'Supplement conflict checker',
+    'Drug interaction checker',
+    'SafeStack',
+    'NutriDive',
+    'Clinical interaction rules',
   ],
-  authors: [{ name: 'NutriDive Open Data Project', url: 'https://nutridive.net' }],
+  authors: [{ name: 'NutriDive SafeStack', url: 'https://nutridive.net' }],
   creator: 'NutriDive',
   metadataBase: new URL('https://nutridive.net'),
   alternates: {
     canonical: '/',
-    languages: {
-      'en-MY': '/',
-      'ms-MY': '/',
-    },
   },
   openGraph: {
-    title: 'NutriDive - Independent Malaysian Medicine & Generic Directory',
+    title: 'NutriDive SafeStack - Medication, Supplement & Food Interaction Checker',
     description:
-      'Check 28,000+ approved Malaysian drugs, supplements (MAL-N), and traditional health products (MAL-T) with instant generic alternatives based on open public data.',
+      'Evidence-based interaction screening engine for medications, dietary supplements, and foods backed by clinical literature.',
     url: 'https://nutridive.net',
-    siteName: 'NutriDive Malaysia',
-    locale: 'en_MY',
+    siteName: 'NutriDive SafeStack',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NutriDive - Independent Malaysian Medicine Directory',
-    description: 'MAL number status, active ingredients, and generic brand alternatives based on public records.',
+    title: 'NutriDive SafeStack - Interaction Checker',
+    description: 'Evidence-based medication, supplement, and food interaction screening engine.',
   },
   robots: {
     index: true,
@@ -76,12 +67,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  other: {
-    'geo.region': 'MY',
-    'geo.placename': 'Malaysia',
-    'geo.position': '4.2105;101.9758',
-    'ICBM': '4.2105, 101.9758',
-  },
 };
 
 export default function RootLayout({
@@ -91,23 +76,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <head>
-        {/* Geographic target tags for Malaysia */}
-        <meta name="geo.region" content="MY" />
-        <meta name="geo.placename" content="Malaysia" />
-        <meta name="geo.position" content="4.2105;101.9758" />
-        <meta name="ICBM" content="4.2105, 101.9758" />
-        <link rel="alternate" hrefLang="en-MY" href="https://nutridive.net" />
-        <link rel="alternate" hrefLang="ms-MY" href="https://nutridive.net" />
-      </head>
       <body className="min-h-screen flex flex-col font-sans bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased selection:bg-teal-100 dark:selection:bg-teal-900/60 selection:text-teal-900 dark:selection:text-teal-100">
-        <CompareProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CompareTray />
-          <CompareModal />
-        </CompareProvider>
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

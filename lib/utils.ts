@@ -10,7 +10,7 @@ export function formatDate(dateString: string | null | undefined): string {
   try {
     const d = new Date(dateString);
     if (isNaN(d.getTime())) return dateString;
-    return d.toLocaleDateString('en-MY', {
+    return d.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -30,58 +30,6 @@ export function isDateExpired(dateString: string | null | undefined): boolean {
   }
 }
 
-export function getCategoryBadgeClass(code: string): {
-  bg: string;
-  text: string;
-  border: string;
-  label: string;
-} {
-  switch (code.toUpperCase()) {
-    case 'A':
-      return {
-        bg: 'bg-blue-50 dark:bg-blue-950/50',
-        text: 'text-blue-700 dark:text-blue-300',
-        border: 'border-blue-200 dark:border-blue-800',
-        label: 'Prescription (MAL-A)',
-      };
-    case 'X':
-      return {
-        bg: 'bg-emerald-50 dark:bg-emerald-950/50',
-        text: 'text-emerald-700 dark:text-emerald-300',
-        border: 'border-emerald-200 dark:border-emerald-800',
-        label: 'OTC (MAL-X)',
-      };
-    case 'N':
-      return {
-        bg: 'bg-purple-50 dark:bg-purple-950/50',
-        text: 'text-purple-700 dark:text-purple-300',
-        border: 'border-purple-200 dark:border-purple-800',
-        label: 'Health Supplement (MAL-N)',
-      };
-    case 'T':
-      return {
-        bg: 'bg-amber-50 dark:bg-amber-950/50',
-        text: 'text-amber-700 dark:text-amber-300',
-        border: 'border-amber-200 dark:border-amber-800',
-        label: 'Traditional Herbal (MAL-T)',
-      };
-    case 'V':
-      return {
-        bg: 'bg-slate-50 dark:bg-slate-900',
-        text: 'text-slate-700 dark:text-slate-300',
-        border: 'border-slate-200 dark:border-slate-800',
-        label: 'Veterinary (MAL-V)',
-      };
-    default:
-      return {
-        bg: 'bg-zinc-50 dark:bg-zinc-900',
-        text: 'text-zinc-700 dark:text-zinc-300',
-        border: 'border-zinc-200 dark:border-zinc-800',
-        label: 'Registered Product',
-      };
-  }
-}
-
 export function slugify(text: string | null | undefined): string {
   if (!text) return '';
   return text
@@ -91,85 +39,3 @@ export function slugify(text: string | null | undefined): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
-
-/**
- * Formats raw NPRA dosage strings into standard clinical pharmaceutical format.
- * In NPRA official data, brackets often contain [Active Ingredient Strength, Gross Tablet/Base Weight]
- * e.g., "1000mg 4500mg" -> "1000mg", "100mg 0" -> "100mg", "5 mg 1 ml" -> "5 mg / 1 ml"
- * Also provides multi-level fallbacks from product name and generic name if dosage is missing.
- */
-export function formatStrength(
-  dosage?: string | null,
-  productName?: string | null,
-  genericName?: string | null,
-  categoryCode?: string | null
-): string {
-  if (dosage && dosage.trim() && dosage.trim() !== '—' && dosage.trim() !== '-' && dosage.trim() !== '0') {
-    const clean = dosage.trim();
-
-    // Pattern 1: Liquid/Volume concentration "5 mg 1 ml" -> "5 mg / 1 ml"
-    const volumeMatch = clean.match(/^([\d.]+\s*(?:mg|g|mcg|ug|iu|%))\s+([\d.]+\s*ml)$/i);
-    if (volumeMatch) {
-      return `${volumeMatch[1]} / ${volumeMatch[2]}`;
-    }
-
-    // Pattern 2: NPRA default 0 base weight artifact "100mg 0" -> "100mg"
-    const zeroBaseMatch = clean.match(/^([\d.]+\s*(?:mg|g|mcg|ug|iu|%))\s+0$/i);
-    if (zeroBaseMatch) {
-      return zeroBaseMatch[1];
-    }
-
-    // Pattern 3: Active ingredient dose followed by gross tablet/capsule/sachet weight
-    // e.g. "500 mg 1500 mg" -> "500 mg", "1000mg 4498.46mg" -> "1000mg", "360 mg 4 g" -> "360 mg"
-    const dualWeightMatch = clean.match(/^([\d.]+\s*(?:mg|g|mcg|ug|iu|%))\s+[\d.]+\s*(?:mg|g|gm)$/i);
-    if (dualWeightMatch) {
-      return dualWeightMatch[1];
-    }
-
-    // Pattern 4: Bare number without unit (e.g. "440", "30", "122.449")
-    if (/^[\d.]+$/.test(clean)) {
-      const texts = [productName || '', genericName || ''];
-      let foundUnit = '';
-      for (const text of texts) {
-        const m = text.match(new RegExp(`\\b${clean}\\s*(mg|mcg|ug|g|iu|%)\\b`, 'i'));
-        if (m) {
-          foundUnit = m[1];
-          break;
-        }
-      }
-      return `${clean} ${foundUnit || 'mg'}`;
-    }
-
-    return clean;
-  }
-
-  // Fallback 1: Extract strength from product name or generic name if available
-  const texts = [productName || '', genericName || ''];
-  for (const text of texts) {
-    if (!text) continue;
-    // e.g. 100/6 mcg/dose
-    const mDose = text.match(/(\d+(?:\.\d+)?\s*\/\s*\d+(?:\.\d+)?\s*(?:mcg|ug|mg|iu)\s*\/\s*dose)/i);
-    if (mDose) return mDose[1].trim();
-
-    // e.g. 450 iu / 0.75 ml or 5 mg / 1 ml
-    const mVol = text.match(/(\d+(?:\.\d+)?\s*(?:mg|g|mcg|ug|iu)\s*\/\s*\d+(?:\.\d+)?\s*ml)/i);
-    if (mVol) return mVol[1].trim();
-
-    // e.g. 0.05% or 2%
-    const mPct = text.match(/(\d+(?:\.\d+)?\s*%)/);
-    if (mPct) return mPct[1].trim();
-
-    // e.g. 500mg, 100 mcg, 200 IU, 1 g
-    const mStd = text.match(/(\b\d+(?:\.\d+)?\s*(?:mg|mcg|ug|iu|gm|g)\b)/i);
-    if (mStd) return mStd[1].trim();
-  }
-
-  // Fallback 2: Category-specific professional context
-  if (categoryCode === 'T') return 'Herbal Formulation';
-  if (categoryCode === 'H') return 'Homeopathic';
-  if (categoryCode === 'V') return 'Veterinary Formulation';
-
-  return 'Standard Formulation';
-}
-
-

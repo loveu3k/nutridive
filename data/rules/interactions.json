@@ -1,0 +1,129 @@
+[
+  {
+    "classId": "statin_cyp3a4",
+    "displayName": "Statin (CYP3A4 Substrate)",
+    "recommendedSlot": "evening",
+    "redFlags": [
+      {
+        "item": "Grapefruit / Pomelo",
+        "reason": "Inhibits intestinal CYP3A4 enzyme, significantly raising blood drug concentration and elevating risk of muscle damage (rhabdomyolysis).",
+        "severity": "CRITICAL"
+      },
+      {
+        "item": "Red Yeast Rice",
+        "reason": "Contains naturally occurring lovastatin; co-ingestion multiplies dosage and toxic strain on the liver.",
+        "severity": "CRITICAL"
+      }
+    ],
+    "timingRules": [],
+    "depletions": [
+      {
+        "nutrient": "Coenzyme Q10 (CoQ10)",
+        "advice": "Statins block the mevalonate pathway, reducing endogenous CoQ10. Consider 100-200mg CoQ10 daily with meals if experiencing muscle fatigue."
+      }
+    ]
+  },
+  {
+    "classId": "metformin",
+    "displayName": "Biguanide (Metformin)",
+    "recommendedSlot": "afternoon",
+    "redFlags": [
+      {
+        "item": "Binge Drinking / Empty-Stomach Alcohol",
+        "reason": "Alcohol potentiates metformin's effect on lactate metabolism, markedly increasing the danger of lactic acidosis.",
+        "severity": "CRITICAL"
+      }
+    ],
+    "timingRules": [],
+    "depletions": [
+      {
+        "nutrient": "Vitamin B12",
+        "advice": "Long-term metformin usage impairs ileal B12 absorption. Annual serum B12 testing or methylcobalamin supplementation is advised."
+      }
+    ]
+  },
+  {
+    "classId": "levothyroxine",
+    "displayName": "Thyroid Hormone (Levothyroxine)",
+    "recommendedSlot": "morning",
+    "redFlags": [
+      {
+        "item": "Soy Milk / High-Fiber Meals",
+        "reason": "Significantly binds free thyroxine in the gut, compromising therapeutic absorption.",
+        "severity": "HIGH"
+      }
+    ],
+    "timingRules": [
+      {
+        "conflictingWith": "Calcium / Iron / Antacids",
+        "rule": "Take Levothyroxine first thing in the morning on an empty stomach; separate from Calcium, Iron, and Multivitamins by at least 4 hours."
+      }
+    ],
+    "depletions": []
+  },
+  {
+    "classId": "warfarin",
+    "displayName": "Anticoagulant (Warfarin)",
+    "recommendedSlot": "evening",
+    "redFlags": [
+      {
+        "item": "High-dose Vitamin K / Natto",
+        "reason": "Vitamin K directly reverses warfarin's anticoagulant mechanism, elevating blood clot risks.",
+        "severity": "CRITICAL"
+      },
+      {
+        "item": "High-Dose Fish Oil / Ginkgo / Garlic Extract",
+        "reason": "Additively inhibits platelet aggregation, considerably elevating spontaneous bleeding risks.",
+        "severity": "CRITICAL"
+      }
+    ],
+    "timingRules": [],
+    "depletions": []
+  },
+  {
+    "classId": "ace_inhibitor",
+    "displayName": "ACE Inhibitor / ARB",
+    "recommendedSlot": "morning",
+    "redFlags": [
+      {
+        "item": "Potassium-Enriched Salt Substitutes",
+        "reason": "ACE inhibitors reduce aldosterone secretion, causing potassium retention. Salt substitutes containing potassium chloride can trigger dangerous hyperkalemia.",
+        "severity": "CRITICAL"
+      }
+    ],
+    "timingRules": [],
+    "depletions": [
+      {
+        "nutrient": "Zinc",
+        "advice": "ACE inhibitors can increase urinary zinc excretion; monitor dietary intake of pumpkin seeds, oysters, or modest zinc supplementation."
+      }
+    ]
+  },
+  {
+    "classId": "mineral_calcium",
+    "displayName": "Calcium Supplement",
+    "recommendedSlot": "afternoon",
+    "redFlags": [
+      {
+        "item": "High-Oxalate Greens (Raw Spinach, Chard)",
+        "reason": "Oxalic acid binds free calcium into insoluble calcium oxalate, rendering it unabsorbable and increasing kidney stone burden.",
+        "severity": "MEDIUM"
+      }
+    ],
+    "timingRules": [
+      {
+        "conflictingWith": "Iron / Zinc / Magnesium",
+        "rule": "Competes directly for divalent metal transporters (DMT-1). Separate calcium from iron supplements by at least 2 to 3 hours."
+      }
+    ],
+    "depletions": []
+  },
+  {
+    "classId": "supp_omega3",
+    "displayName": "Omega-3 Fish Oil",
+    "recommendedSlot": "afternoon",
+    "redFlags": [],
+    "timingRules": [],
+    "depletions": []
+  }
+]
