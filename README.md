@@ -1,60 +1,68 @@
-# NutriDive SafeStack (nutridive.net)
-### Evidence-Based Medication, Supplement & Food Interaction Engine
+# NutriDive (nutridive.net)
+### Malaysia NPRA Pharmaceutical & Supplement Verification Engine
 
-NutriDive SafeStack is a fast, deterministic, zero-cost Drug-Supplement-Food Interaction Checker and daily regimen optimizer formulated from clinical pharmacology and nutritional biochemistry rules.
-
----
-
-## Key Capabilities
-
-1. **🔴 Critical Red Flag Contraindications**:
-   - Instant identification of severe food-drug hazards (e.g., Grapefruit/Pomelo inhibiting intestinal CYP3A4 for statins, High-dose Vitamin K reversing Warfarin, Red Yeast Rice compounding statin liver toxicity).
-
-2. **🟡 Bioavailability & Timing Separation Protocol**:
-   - Detection of divalent cation binding and competitive absorption bottlenecks (e.g., Calcium/Iron binding Levothyroxine; spacing requirements for mineral supplements).
-
-3. **🟢 Drug-Induced Nutrient Depletion (DIND) Radar**:
-   - Automatic flagging of micronutrient depletions caused by chronic drug regimens (e.g., Statin-induced CoQ10 reduction, Metformin-induced Vitamin B12 depletion) with actionable replenishment guidance.
-
-4. **📅 Circadian Daily Administration Schedule**:
-   - Intelligent multi-slot allocation (Morning on empty stomach, Midday/With meals, Evening/Bedtime) optimizing therapeutic efficacy and gut tolerance.
-
-5. **📥 Printable Kitchen Fridge Protocol**:
-   - Single-click export of a high-resolution safety report (`html-to-image`) formatted to print and stick on the kitchen refrigerator.
+NutriDive is a high-performance open-data verification engine and generic drug alternative directory for **28,170+ approved medicines, health supplements (MAL-N), and traditional herbal remedies (MAL-T)** officially registered with the National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (Kementerian Kesihatan Malaysia - KKM).
 
 ---
 
-## Knowledge Base Architecture
+## Key Features
 
-The interaction engine operates purely offline with static, version-controlled clinical rules:
+1. **NPRA & KKM Instant Verification**:
+   - Check validity of any Malaysian registration number (e.g. `MAL19900523AZ`).
+   - Real-time `ACTIVE & APPROVED` or `CONDITIONAL REGISTRATION` status display with validity dates.
 
-- **`data/aliases/drugs.json`**: Keyword-to-canonical class mappings across generic drug names, proprietary brand formulations, and dietary nutraceuticals.
-- **`data/rules/interactions.json`**: Clinical interaction rules defining contraindications, timing separations, nutrient depletions, and circadian slots.
-- **`lib/checker.ts`**: Pure deterministic in-memory evaluation engine without external API dependencies or runtime latency.
+2. **Generic Drug Alternative Engine**:
+   - Compares 5,100+ generic active molecules.
+   - Discovers all equivalent registered brand formulations sharing identical active pharmaceutical ingredients (API) in Malaysia.
+   - Highlights Prescription (MAL-A) vs. Over-The-Counter (MAL-X) accessibility.
 
----
+3. **Active Ingredients & Strength Formulation Matrix**:
+   - Granular breakdown of declared active substances and concentration per unit dose.
 
-## Scientific Reference Standards
+4. **KKM Hologram Meditag™ & FarmaChecker Guide**:
+   - Consumer verification checklist and step-by-step security hologram verification guidance.
 
-Rules are distilled from established clinical references:
-- *Krause and Mahan’s Food & the Nutrition Care Process*
-- NIH Clinical Pharmacokinetics monographs & Open Drug Standards
-- Clinical pharmacology pharmacopoeial interaction compendia
+5. **AI SEO & Answer Engine Optimization (AIO)**:
+   - Zero-ambiguity 2-sentence summary block structured for LLM RAG ingestion.
+   - Full `/public/llms.txt` and `/public/llms-full.txt` API documentation for AI search crawlers.
+   - Schema.org JSON-LD structured data (`Drug`, `DietarySupplement`, `BreadcrumbList`, `FAQPage`).
+
+6. **Affiliate & Telehealth Hooks**:
+   - Licensed pharmacy pricing checks for OTC / supplements (Watsons, Guardian).
+   - Telehealth prescription renewal doctor consultation hooks for scheduled poisons (DoctorOnCall).
 
 ---
 
 ## Tech Stack
 
-- **Framework**: Next.js 14+ (App Router)
-- **Language**: TypeScript (Strict Mode)
-- **Styling**: Tailwind CSS
-- **Visual Export**: `html-to-image`
+- **Framework**: Next.js 14+ (App Router) with Incremental Static Regeneration (ISR)
+- **Language**: TypeScript (strict mode enabled)
+- **Styling**: Tailwind CSS + Swiss modernist digital archive aesthetic
 - **Icons**: Lucide React
-- **Deployment**: Static / Edge compatible (Cloudflare Pages, Vercel)
+- **Data Pipeline**: Python 3 (PyArrow, Pandas) ingestion from official `data.gov.my` parquet dataset
+- **Deployment Target**: Cloudflare Pages / Vercel
 
 ---
 
-## Development & Verification
+## Data Pipeline & Ingestion
+
+The ingestion pipeline downloads the official dataset from data.gov.my and produces optimized JSON partitions and search indexes:
+
+```bash
+python scripts/ingest.py
+```
+
+Outputs:
+- `data/processed/products/`: Partitioned single-product records
+- `data/processed/search_index.json`: Fast search index
+- `data/processed/generic_map/`: Cross-reference maps for 5,100+ generic molecules
+- `data/processed/generics.json`: Ranked generic molecules directory
+- `data/processed/categories.json`: NPRA classification definitions and metrics
+- `data/processed/stats.json`: Aggregate dataset statistics
+
+---
+
+## Development & Build
 
 ```bash
 # Install dependencies
@@ -63,15 +71,23 @@ npm install
 # Run development server
 npm run dev
 
-# Code linting
+# TypeScript type check
+npx tsc --noEmit
+
+# Linting
 npm run lint
 
 # Production build
 npm run build
+
+# Start production server
+npm run start
 ```
 
 ---
 
-## Disclaimer
+## License & Attribution
 
-NutriDive SafeStack is an educational risk screening tool. It does not provide medical advice, diagnosis, or prescriptions. Always consult a licensed doctor or clinical pharmacist before altering any medication or dietary supplement regimen.
+- **Administrative Data Source**: National Pharmaceutical Regulatory Agency (NPRA), Ministry of Health Malaysia (KKM) via [data.gov.my](https://data.gov.my/data-catalogue/pharmaceutical_products).
+- **Data License**: Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+- **Disclaimer**: NutriDive is an independent open-data directory providing public regulatory records for educational and informational purposes. NutriDive is not affiliated with KKM or NPRA.

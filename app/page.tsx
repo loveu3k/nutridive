@@ -7,7 +7,7 @@ import SafetyCard from '@/components/SafetyCard';
 const PRESET_COMBOS = [
   { label: 'Cardio & Lipid Protocol', items: ['Amlodipine', 'Lipitor', 'Fish Oil'] },
   { label: 'Diabetes & Metabolism', items: ['Metformin', 'Fish Oil'] },
-  { label: 'Thyroid & Bone Health', items: ['Levothyroxine', 'Calcium'] },
+  { label: 'Thyroid & Bone Health', items: ['Levothyroxine', 'Calcium'] }
 ];
 
 export default function HomePage() {
@@ -38,15 +38,21 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-gray-900 pb-20">
-      <main className="max-w-2xl mx-auto px-4 pt-10">
+      <header className="border-b border-gray-200 bg-white sticky top-0 z-10">
+        <div className="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
+          <span className="font-extrabold text-emerald-600 tracking-tight text-lg">
+            NutriDive <span className="text-gray-400 font-normal text-xs ml-1">SafeStack</span>
+          </span>
+          <span className="text-xs text-gray-500 font-medium">Drug · Supplement · Food Interaction Radar</span>
+        </div>
+      </header>
+
+      <main className="max-w-2xl mx-auto px-4 pt-8">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold mb-3">
-            <span>🛡️</span> Evidence-Based Interaction Radar
-          </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
             Family Kitchen &amp; Medication Safety Radar
           </h1>
-          <p className="text-xs sm:text-sm text-gray-500 mt-2 max-w-md mx-auto">
+          <p className="text-xs sm:text-sm text-gray-500 mt-2">
             Instant check for food-drug hazards, nutrient depletion, and optimal daily intake timing.
           </p>
         </div>
@@ -57,9 +63,8 @@ export default function HomePage() {
           {PRESET_COMBOS.map((p, idx) => (
             <button
               key={idx}
-              type="button"
               onClick={() => loadPreset(p.items)}
-              className="text-xs bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-full hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50/50 transition cursor-pointer shadow-2xs"
+              className="text-xs bg-white border border-gray-200 text-gray-600 px-3 py-1 rounded-full hover:border-emerald-400 hover:text-emerald-700 transition cursor-pointer"
             >
               {p.label}
             </button>
@@ -76,19 +81,14 @@ export default function HomePage() {
               type="text"
               value={inputVal}
               onChange={e => setInputVal(e.target.value)}
-              onKeyDown={e => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  addItem();
-                }
-              }}
+              onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), addItem())}
               placeholder="Type drug or supplement name..."
               className="flex-1 text-sm bg-gray-50 border border-gray-300 rounded-xl px-3.5 py-2.5 outline-none focus:bg-white focus:border-emerald-500 transition"
             />
             <button
               type="button"
               onClick={() => addItem()}
-              className="px-5 py-2.5 bg-gray-900 hover:bg-black text-white text-xs font-semibold rounded-xl transition cursor-pointer shadow-xs"
+              className="px-5 py-2.5 bg-gray-900 hover:bg-black text-white text-xs font-semibold rounded-xl transition cursor-pointer"
             >
               Add
             </button>
@@ -102,10 +102,8 @@ export default function HomePage() {
               >
                 {item}
                 <button
-                  type="button"
                   onClick={() => removeItem(item)}
-                  className="text-gray-400 hover:text-rose-500 cursor-pointer font-bold ml-1 text-sm leading-none"
-                  aria-label={`Remove ${item}`}
+                  className="text-gray-400 hover:text-rose-500 cursor-pointer font-bold ml-1"
                 >
                   ×
                 </button>
