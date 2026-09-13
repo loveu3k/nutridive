@@ -71,8 +71,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme');
+                const supportDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (theme === 'dark' || (!theme && supportDark)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body
-        className="min-h-screen font-sans bg-[#F8FAFC] text-gray-900 antialiased selection:bg-emerald-100 selection:text-emerald-900"
+        className="min-h-screen font-sans bg-[#F8FAFC] dark:bg-[#090D16] text-gray-900 dark:text-slate-100 antialiased selection:bg-emerald-100 selection:text-emerald-900 dark:selection:bg-emerald-900 dark:selection:text-emerald-100 transition-colors duration-150"
         suppressHydrationWarning
       >
         {children}

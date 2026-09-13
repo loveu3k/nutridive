@@ -1,0 +1,498 @@
+[
+  {
+    "nutrient": "Calcium",
+    "file": "Calcium-HealthProfessional.html",
+    "category": "Mineral",
+    "tolerableUpperIntakeLevel": "2,000–2,500 mg/day",
+    "interactions": [
+      {
+        "conflictingMedication": "Levothyroxine (Synthroid, Levoxyl)",
+        "clinicalExplanation": "Calcium carbonate and calcium citrate bind to levothyroxine in the stomach and small intestine, forming an unabsorbable chelate complex that significantly reduces thyroid hormone absorption and leads to clinical hypothyroidism.",
+        "timingRule": "Separate administration of calcium supplements from levothyroxine by at least 4 hours.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Quinolone & Tetracycline Antibiotics (Ciprofloxacin, Levofloxacin, Doxycycline, Minocycline)",
+        "clinicalExplanation": "Divalent calcium ions chelate fluoroquinolones and tetracyclines in the gut lumen, reducing antibiotic absorption and systemic bioavailability by up to 50% to 90%, risking clinical antimicrobial failure.",
+        "timingRule": "Take antibiotics at least 2 hours before or 4 to 6 hours after taking calcium supplements.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Dolutegravir (Tivicay, Triumeq)",
+        "clinicalExplanation": "Cationic binding between polyvalent calcium and dolutegravir substantially decreases plasma concentrations of this HIV integrase strand transfer inhibitor.",
+        "timingRule": "Take dolutegravir at least 2 hours before or 6 hours after taking calcium supplements.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Lithium",
+        "clinicalExplanation": "Long-term lithium therapy can induce hyperparathyroidism and hypercalcemia. Concomitant high-dose calcium supplementation can accelerate systemic calcium overload.",
+        "timingRule": "Consult physician and monitor serum calcium and PTH levels closely.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Thiazide Diuretics (Hydrochlorothiazide, Chlorthalidone)",
+        "clinicalExplanation": "Thiazide diuretics reduce urinary calcium excretion by increasing distal tubular reabsorption. Concomitant calcium supplements markedly increase the risk of hypercalcemia and metabolic alkalosis (milk-alkali syndrome).",
+        "timingRule": "Monitor serum calcium levels regularly if taking both agents.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Bisphosphonates (Alendronate, Risedronate, Ibandronate)",
+        "clinicalExplanation": "Calcium binds bisphosphonates in the gastrointestinal tract, virtually abolishing their already low (0.6%) oral bioavailability.",
+        "timingRule": "Take oral bisphosphonates on an empty stomach with plain water at least 30 to 60 minutes before any calcium supplement.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Iron",
+    "file": "Iron-HealthProfessional.html",
+    "category": "Mineral",
+    "tolerableUpperIntakeLevel": "45 mg/day (elemental iron)",
+    "interactions": [
+      {
+        "conflictingMedication": "Levodopa (Sinemet)",
+        "clinicalExplanation": "Ferrous iron chelates levodopa in the gastrointestinal tract, significantly reducing peak plasma levodopa levels by 50% and causing worsening of motor symptoms in Parkinson's disease.",
+        "timingRule": "Separate iron supplements from levodopa by at least 2 hours.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Levothyroxine (Synthroid)",
+        "clinicalExplanation": "Ferrous iron forms an insoluble chelate complex with levothyroxine in the stomach, dramatically reducing thyroid hormone bioavailability.",
+        "timingRule": "Separate iron supplements from levothyroxine by at least 4 hours.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Proton Pump Inhibitors (Omeprazole, Pantoprazole) & H2 Blockers",
+        "clinicalExplanation": "Gastric acid is required to reduce ferric iron (Fe3+) to absorbable ferrous iron (Fe2+). Hypochlorhydria induced by chronic acid suppression significantly impairs dietary non-heme iron absorption.",
+        "timingRule": "Take iron with vitamin C (ascorbic acid) to enhance acidic chelation, or consult doctor regarding intravenous iron if refractory deficiency develops.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Quinolone & Tetracycline Antibiotics",
+        "clinicalExplanation": "Iron ions bind directly to fluoroquinolones and tetracyclines in the gut, rendering both the antibiotic and the mineral unabsorbable.",
+        "timingRule": "Take antibiotics at least 2 hours before or 2 hours after iron supplements.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Magnesium",
+    "file": "Magnesium-HealthProfessional.html",
+    "category": "Mineral",
+    "tolerableUpperIntakeLevel": "350 mg/day (supplemental magnesium)",
+    "interactions": [
+      {
+        "conflictingMedication": "Bisphosphonates (Alendronate, Fosamax)",
+        "clinicalExplanation": "Oral magnesium supplements bind bisphosphonates in the stomach, blocking bone absorption.",
+        "timingRule": "Separate magnesium from bisphosphonates by at least 2 hours.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Tetracyclines & Quinolones",
+        "clinicalExplanation": "Divalent magnesium binds antimicrobial molecules, preventing gastrointestinal uptake.",
+        "timingRule": "Take antibiotics at least 2 hours before or 4 to 6 hours after magnesium.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Loop & Thiazide Diuretics (Furosemide, Bumetanide, HCTZ)",
+        "clinicalExplanation": "Chronic use of loop and thiazide diuretics increases urinary magnesium excretion, potentially causing secondary hypomagnesemia, muscle cramps, and arrhythmias.",
+        "timingRule": "Monitor serum magnesium levels and consider physician-directed magnesium replenishment.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Proton Pump Inhibitors (PPIs)",
+        "clinicalExplanation": "FDA safety communication: Long-term prescription PPI therapy (typically >1 year) impairs intestinal TRPM6 magnesium transport, leading to refractory hypomagnesemia, tetany, and secondary hypocalcemia.",
+        "timingRule": "Check baseline and periodic serum magnesium levels in patients taking long-term PPIs.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Zinc",
+    "file": "Zinc-HealthProfessional.html",
+    "category": "Mineral",
+    "tolerableUpperIntakeLevel": "40 mg/day",
+    "interactions": [
+      {
+        "conflictingMedication": "Quinolone & Tetracycline Antibiotics",
+        "clinicalExplanation": "Zinc chelates both fluoroquinolones and tetracyclines in the gut, drastically reducing antimicrobial absorption.",
+        "timingRule": "Take antibiotics at least 2 hours before or 4 to 6 hours after zinc supplements.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Penicillamine (Cuprimine)",
+        "clinicalExplanation": "Zinc binds penicillamine, significantly decreasing the absorption and clinical efficacy of both agents in rheumatoid arthritis or Wilson's disease.",
+        "timingRule": "Take zinc supplements and penicillamine at least 2 hours apart.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Thiazide Diuretics",
+        "clinicalExplanation": "Thiazide diuretics increase urinary zinc excretion by up to 60%, gradually depleting systemic zinc reserves.",
+        "timingRule": "Monitor zinc status during prolonged diuretic therapy.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Copper (Nutrient-Nutrient Conflict)",
+        "clinicalExplanation": "Supplemental zinc doses >40-50 mg/day induce intestinal metallothionein synthesis, which binds copper with higher affinity and blocks its transport, causing severe secondary copper-deficiency anemia and irreversible myeloneuropathy.",
+        "timingRule": "When taking high-dose zinc, supplement 1 to 2 mg copper daily at a different time of day.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Potassium",
+    "file": "Potassium-HealthProfessional.html",
+    "category": "Mineral",
+    "tolerableUpperIntakeLevel": "Not established for food; supplemental KCl requires extreme medical supervision",
+    "interactions": [
+      {
+        "conflictingMedication": "ACE Inhibitors (Lisinopril, Enalapril) & ARBs (Losartan, Valsartan)",
+        "clinicalExplanation": "ACE inhibitors and ARBs suppress aldosterone secretion, markedly reducing renal potassium excretion. Concomitant potassium supplements or potassium-containing salt substitutes can precipitate rapid, fatal hyperkalemia and cardiac arrest.",
+        "timingRule": "Avoid potassium chloride salt substitutes and potassium supplements unless under strict clinical electrolyte monitoring.",
+        "severity": "CRITICAL"
+      },
+      {
+        "conflictingMedication": "Potassium-Sparing Diuretics (Spironolactone, Eplerenone, Amiloride, Triamterene)",
+        "clinicalExplanation": "Potassium-sparing diuretics block mineralocorticoid receptors or renal epithelial sodium channels, retaining potassium in the blood.",
+        "timingRule": "Strictly avoid potassium supplements or salt substitutes; requires routine serum potassium checks.",
+        "severity": "CRITICAL"
+      }
+    ]
+  },
+  {
+    "nutrient": "Vitamin D",
+    "file": "VitaminD-HealthProfessional.html",
+    "category": "Vitamin",
+    "tolerableUpperIntakeLevel": "4,000 IU (100 mcg)/day",
+    "interactions": [
+      {
+        "conflictingMedication": "Orlistat (Xenical, Alli)",
+        "clinicalExplanation": "Orlistat inhibits gastric and pancreatic lipases, reducing dietary fat absorption by 30% and significantly impairing intestinal absorption of fat-soluble vitamin D.",
+        "timingRule": "Take vitamin D supplements at least 2 hours before or after taking orlistat.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Statins (Atorvastatin, Lovastatin, Simvastatin)",
+        "clinicalExplanation": "High doses of vitamin D may competitively alter CYP3A4-mediated statin metabolism or reduce statin efficacy by modulating cholesterol synthesis pathways.",
+        "timingRule": "Maintain standard therapeutic vitamin D dosing and monitor lipid panels regularly.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Corticosteroids (Prednisone)",
+        "clinicalExplanation": "Corticosteroids accelerate vitamin D catabolism and reduce intestinal calcium absorption, promoting rapid corticosteroid-induced osteoporosis.",
+        "timingRule": "Physicians frequently recommend co-supplementing vitamin D and calcium during prolonged steroid therapy.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Thiazide Diuretics",
+        "clinicalExplanation": "Combined use of thiazides and high-dose vitamin D can lead to hypercalcemia, particularly in elderly individuals or those with hyperparathyroidism.",
+        "timingRule": "Monitor serum calcium concentrations regularly.",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "nutrient": "Vitamin K",
+    "file": "VitaminK-HealthProfessional.html",
+    "category": "Vitamin",
+    "tolerableUpperIntakeLevel": "Not established due to low toxicity; extreme clinical risk with anticoagulants",
+    "interactions": [
+      {
+        "conflictingMedication": "Warfarin (Coumadin, Jantoven)",
+        "clinicalExplanation": "Warfarin antagonizes vitamin K epoxide reductase (VKORC1) to prevent synthesis of clotting factors II, VII, IX, and X. Sudden increases in dietary or supplemental vitamin K directly bypass this blockade, dropping INR, causing warfarin resistance, and triggering fatal thromboembolism.",
+        "timingRule": "Warfarin patients must maintain strictly stable, consistent day-to-day intake of vitamin K. Strictly avoid high-dose vitamin K supplements.",
+        "severity": "CRITICAL"
+      },
+      {
+        "conflictingMedication": "Bile Acid Sequestrants (Cholestyramine, Colestipol) & Orlistat",
+        "clinicalExplanation": "Bile acid sequestrants and orlistat impair fat-soluble vitamin absorption, potentially causing secondary vitamin K deficiency and coagulopathy.",
+        "timingRule": "Take vitamin K at least 2 to 4 hours apart from bile acid binders.",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "nutrient": "Folate (Folic Acid)",
+    "file": "Folate-HealthProfessional.html",
+    "category": "Vitamin",
+    "tolerableUpperIntakeLevel": "1,000 mcg/day (synthetic folic acid)",
+    "interactions": [
+      {
+        "conflictingMedication": "Methotrexate (Oncology Regimens)",
+        "clinicalExplanation": "Methotrexate is a competitive dihydrofolate reductase (DHFR) inhibitor. In oncology regimens, high-dose folic acid supplements counteract methotrexate's antineoplastic efficacy.",
+        "timingRule": "Do not take folic acid during high-dose methotrexate chemotherapy without explicit oncologist instruction.",
+        "severity": "CRITICAL"
+      },
+      {
+        "conflictingMedication": "Antiepileptics (Phenytoin, Carbamazepine, Valproate)",
+        "clinicalExplanation": "Antiepileptics lower serum folate levels. Conversely, high supplemental doses of folic acid (>1 mg/day) increase hepatic antiepileptic metabolism, reducing serum anticonvulsant levels and precipitating breakthrough seizures.",
+        "timingRule": "Consult neurologist before taking >1 mg folic acid daily.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Sulfasalazine (Azulfidine)",
+        "clinicalExplanation": "Sulfasalazine inhibits intestinal mucosal uptake of dietary and supplemental folate, often requiring defensive folic acid supplementation in ulcerative colitis.",
+        "timingRule": "Consider supplementing 1 mg/day folic acid during sulfasalazine therapy under physician care.",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "nutrient": "Vitamin B6 (Pyridoxine)",
+    "file": "VitaminB6-HealthProfessional.html",
+    "category": "Vitamin",
+    "tolerableUpperIntakeLevel": "100 mg/day",
+    "interactions": [
+      {
+        "conflictingMedication": "Cycloserine (Seromycin)",
+        "clinicalExplanation": "Cycloserine forms a dead-end adduct with pyridoxal phosphate, accelerating renal B6 excretion and inducing severe neurotoxicity, peripheral neuropathy, and convulsions.",
+        "timingRule": "Pyridoxine supplementation (50–100 mg/day) is medically mandatory during cycloserine therapy.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Theophylline",
+        "clinicalExplanation": "Theophylline interferes with vitamin B6 metabolism, causing low serum B6 levels that lower the seizure threshold.",
+        "timingRule": "Monitor B6 status during theophylline treatment.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Antiepileptic Drugs (Phenytoin, Phenobarbital)",
+        "clinicalExplanation": "High doses of vitamin B6 (>200 mg/day) accelerate hepatic degradation of phenytoin and phenobarbital, reducing anticonvulsant plasma concentrations.",
+        "timingRule": "Avoid high-dose vitamin B6 unless supervised by a neurologist.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Vitamin B12 (Cobalamin)",
+    "file": "VitaminB12-HealthProfessional.html",
+    "category": "Vitamin",
+    "tolerableUpperIntakeLevel": "Not established due to excellent safety profile",
+    "interactions": [
+      {
+        "conflictingMedication": "Proton Pump Inhibitors & H2 Blockers (Omeprazole, Famotidine)",
+        "clinicalExplanation": "Gastric hydrochloric acid and pepsin are essential to liberate dietary vitamin B12 from animal proteins. Chronic acid suppression blocks B12 release and leads to insidious deficiency over 2+ years.",
+        "timingRule": "Use crystalline or sublingual vitamin B12 supplements, which do not require gastric acid for cleavage.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Metformin (Glucophage)",
+        "clinicalExplanation": "Metformin alters calcium-dependent membrane potential in the terminal ileum, decreasing intrinsic factor-B12 complex uptake and causing clinical B12 deficiency and peripheral neuropathy in up to 30% of long-term diabetic patients.",
+        "timingRule": "Check serum B12 and methylmalonic acid annually during metformin therapy; supplement B12 proactively.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Vitamin C (Ascorbic Acid)",
+    "file": "VitaminC-HealthProfessional.html",
+    "category": "Vitamin",
+    "tolerableUpperIntakeLevel": "2,000 mg/day",
+    "interactions": [
+      {
+        "conflictingMedication": "Chemotherapy (Alkylating Agents, Anthracyclines) & Radiation Therapy",
+        "clinicalExplanation": "Many antineoplastic therapies generate cytotoxic reactive oxygen species (ROS) to kill tumor cells. High-dose antioxidant supplementation (such as intravenous or high oral vitamin C) may quench free radicals and attenuate tumor cell kill.",
+        "timingRule": "Cancer patients must consult their oncologist before taking supplemental vitamin C during active treatment.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Statins + Niacin (Simvastatin + Niacin)",
+        "clinicalExplanation": "Concomitant high-dose antioxidant cocktails (vitamin C, vitamin E, beta-carotene) blunt the cardioprotective rise in high-density lipoprotein (HDL-2) produced by statin plus niacin combination therapy.",
+        "timingRule": "Avoid high-dose antioxidant megadoses during combination statin-niacin therapy.",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "nutrient": "St. John's Wort (Hypericum perforatum)",
+    "file": "StJohnsWort-HealthProfessional.html",
+    "category": "Botanical / Herb",
+    "tolerableUpperIntakeLevel": "Not established; high clinical hazard profile",
+    "interactions": [
+      {
+        "conflictingMedication": "Immunosuppressants (Cyclosporine, Tacrolimus)",
+        "clinicalExplanation": "St. John's Wort potently induces hepatic and intestinal CYP3A4 and P-glycoprotein (P-gp), collapsing blood cyclosporine and tacrolimus concentrations and causing acute allograft organ transplant rejection.",
+        "timingRule": "Strictly contraindicated. Concomitant use is prohibited.",
+        "severity": "CRITICAL"
+      },
+      {
+        "conflictingMedication": "Oral Contraceptives (Ethinyl Estradiol / Progestins)",
+        "clinicalExplanation": "CYP3A4 induction by hyperforin accelerates hepatic steroid breakdown, resulting in breakthrough bleeding, ovulation, and unintended pregnancy.",
+        "timingRule": "Avoid St. John's Wort while taking oral birth control pills.",
+        "severity": "CRITICAL"
+      },
+      {
+        "conflictingMedication": "Antidepressants (SSRIs, SNRIs, MAOIs, Triptans)",
+        "clinicalExplanation": "St. John's Wort inhibits reuptake of serotonin, norepinephrine, and dopamine. When combined with prescription serotonergic agents (fluoxetine, sertraline, duloxetine, tramadol), it triggers potentially lethal Serotonin Syndrome.",
+        "timingRule": "Strictly avoid concomitant use. Requires a multi-week washout period.",
+        "severity": "CRITICAL"
+      },
+      {
+        "conflictingMedication": "Warfarin, Digoxin, DOACs, HIV Protease Inhibitors",
+        "clinicalExplanation": "P-glycoprotein and CYP3A4 induction sharply reduces plasma concentrations of digoxin, warfarin, apixaban, and protease inhibitors.",
+        "timingRule": "Strictly contraindicated with narrow therapeutic index medications.",
+        "severity": "CRITICAL"
+      }
+    ]
+  },
+  {
+    "nutrient": "Ginkgo Biloba (EGb 761)",
+    "file": "Ginkgo-HealthProfessional.html",
+    "category": "Botanical / Herb",
+    "tolerableUpperIntakeLevel": "Not established",
+    "interactions": [
+      {
+        "conflictingMedication": "Anticoagulants & Antiplatelets (Warfarin, Aspirin, Clopidogrel, DOACs, NSAIDs)",
+        "clinicalExplanation": "Ginkgolides strongly antagonize Platelet-Activating Factor (PAF). Co-administration with pharmaceutical blood thinners produces additive inhibition of primary and secondary hemostasis, causing severe spontaneous hyphema, gastrointestinal hemorrhage, and subdural hematomas.",
+        "timingRule": "Avoid ginkgo with blood thinners. Discontinue ginkgo at least 2 weeks prior to surgical or dental procedures.",
+        "severity": "CRITICAL"
+      },
+      {
+        "conflictingMedication": "Anticonvulsants & Seizure Threshold Lowering Drugs",
+        "clinicalExplanation": "Ginkgo seeds and poorly standardized extracts contain 4'-O-methylpyridoxine (ginkgotoxin), an antivitamin B6 neurotoxin that lowers seizure threshold and can precipitate refractory status epilepticus.",
+        "timingRule": "Avoid in patients with epilepsy or taking anticonvulsants.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Turmeric / Curcumin (with Piperine)",
+    "file": "Turmeric-HealthProfessional.html",
+    "category": "Botanical / Herb",
+    "tolerableUpperIntakeLevel": "Up to 8,000 mg/day studied; high risk with drug co-administration",
+    "interactions": [
+      {
+        "conflictingMedication": "Prescription Anticoagulants (Warfarin, Eliquis, Xarelto, Plavix)",
+        "clinicalExplanation": "Curcumin inhibits thrombin and suppresses platelet aggregation via COX inhibition. Combined use with prescription anticoagulants increases systemic bleeding time.",
+        "timingRule": "Exercise extreme caution; monitor PT/INR and watch for unprovoked bruising or bleeding.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Prescription Drugs Dependent on CYP3A4 & P-gp (via Piperine)",
+        "clinicalExplanation": "Most commercial high-absorption curcumin products contain piperine (black pepper extract), which potently inhibits intestinal P-glycoprotein and CYP3A4, causing massive (up to 2,000%) spikes in prescription drug bioavailability.",
+        "timingRule": "Avoid curcumin products containing piperine when taking narrow therapeutic index medications.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Omega-3 Fatty Acids (Fish Oil, EPA, DHA)",
+    "file": "Omega3FattyAcids-HealthProfessional.html",
+    "category": "Dietary Supplement",
+    "tolerableUpperIntakeLevel": "FDA advises not exceeding 3 g/day total EPA and DHA from supplements",
+    "interactions": [
+      {
+        "conflictingMedication": "Anticoagulants & Antiplatelets (Warfarin, Clopidogrel, Aspirin, DOACs)",
+        "clinicalExplanation": "High supplemental doses of EPA/DHA (>3 g/day) displace arachidonic acid in platelet membranes, decreasing thromboxane A2 synthesis and prolonging bleeding time, creating additive bleeding hazards with anticoagulants.",
+        "timingRule": "Limit supplemental fish oil to under 2 to 3 g/day and monitor INR closely if taking warfarin.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Antihypertensive Medications",
+        "clinicalExplanation": "Omega-3 fatty acids exert mild systemic vasodilatory effects, which can cause additive blood pressure reduction when combined with prescription antihypertensives.",
+        "timingRule": "Monitor blood pressure when introducing high-dose fish oil.",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "nutrient": "Melatonin",
+    "file": "Melatonin-HealthProfessional.html",
+    "category": "Dietary Supplement",
+    "tolerableUpperIntakeLevel": "Not established",
+    "interactions": [
+      {
+        "conflictingMedication": "CNS Depressants (Benzodiazepines, Opioids, Sedatives, Alcohol)",
+        "clinicalExplanation": "Melatonin synergistically amplifies GABA-ergic and central sedative pathways, increasing daytime drowsiness, psychomotor impairment, and respiratory depression.",
+        "timingRule": "Avoid combining melatonin with prescription sedatives, hypnotics, or alcohol.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Calcium Channel Blockers & Antihypertensives",
+        "clinicalExplanation": "Exogenous melatonin may impair the hypotensive efficacy of calcium channel blockers (such as nifedipine) by altering vascular reactivity and circadian sympathetic tone.",
+        "timingRule": "Monitor blood pressure if taking melatonin with CCBs.",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "nutrient": "Garlic Extract (High-Allicin)",
+    "file": "Garlic-HealthProfessional.html",
+    "category": "Botanical / Herb",
+    "tolerableUpperIntakeLevel": "Not established",
+    "interactions": [
+      {
+        "conflictingMedication": "Anticoagulants & Antiplatelets (Warfarin, Aspirin, Plavix)",
+        "clinicalExplanation": "High doses of concentrated garlic extract inhibit platelet aggregation and thromboxane formation, significantly prolonging bleeding and clotting times.",
+        "timingRule": "Stop taking concentrated garlic supplements at least 7 to 10 days before elective surgery.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Protease Inhibitors (Saquinavir)",
+        "clinicalExplanation": "Garlic supplements significantly decrease plasma concentrations of saquinavir by approximately 50%, risking antiretroviral failure.",
+        "timingRule": "Avoid garlic supplements during saquinavir therapy.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Valerian Root (Valeriana officinalis)",
+    "file": "Valerian-HealthProfessional.html",
+    "category": "Botanical / Herb",
+    "tolerableUpperIntakeLevel": "Not established",
+    "interactions": [
+      {
+        "conflictingMedication": "Sedatives, Hypnotics, Benzodiazepines & Alcohol",
+        "clinicalExplanation": "Valerian binds and modulates GABA-A receptors, producing profound additive central nervous system depression when combined with sedatives, barbiturates, or alcohol.",
+        "timingRule": "Avoid concomitant use with prescription sedatives or alcohol.",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "nutrient": "Coenzyme Q10 (Ubiquinone)",
+    "file": "CoenzymeQ10-HealthProfessional.html",
+    "category": "Dietary Supplement",
+    "tolerableUpperIntakeLevel": "1,200 mg/day studied",
+    "interactions": [
+      {
+        "conflictingMedication": "Warfarin (Coumadin)",
+        "clinicalExplanation": "Coenzyme Q10 is structurally homologous to menaquinone (vitamin K2). It can competitively counteract warfarin, significantly reducing prothrombin time and lowering INR.",
+        "timingRule": "Check INR frequently when starting or stopping CoQ10 supplements during warfarin therapy.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Antihypertensives",
+        "clinicalExplanation": "CoQ10 has modest independent blood pressure lowering effects, creating additive hypotension with ACE inhibitors, ARBs, and beta-blockers.",
+        "timingRule": "Monitor blood pressure regularly.",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "nutrient": "Ashwagandha (Withania somnifera)",
+    "file": "Ashwagandha-HealthProfessional.html",
+    "category": "Botanical / Herb",
+    "tolerableUpperIntakeLevel": "Not established",
+    "interactions": [
+      {
+        "conflictingMedication": "Thyroid Hormone Medications (Levothyroxine)",
+        "clinicalExplanation": "Ashwagandha stimulates endogenous T3 and T4 production. Concomitant use with prescription thyroid hormones may induce additive hyperthyroidism, palpitations, and anxiety.",
+        "timingRule": "Monitor thyroid stimulating hormone (TSH) and free T4 when taking ashwagandha.",
+        "severity": "MEDIUM"
+      },
+      {
+        "conflictingMedication": "Immunosuppressants (Corticosteroids, Methotrexate, Tacrolimus)",
+        "clinicalExplanation": "Ashwagandha possesses immunostimulatory properties that can counteract the pharmacological effects of immunosuppressive medications in autoimmune disorders.",
+        "timingRule": "Avoid ashwagandha in autoimmune diseases treated with immunosuppressants.",
+        "severity": "HIGH"
+      },
+      {
+        "conflictingMedication": "Sedatives & Anxiolytics",
+        "clinicalExplanation": "Withanolides interact with GABAergic receptors, potentiating sedation and drowsiness when combined with benzodiazepines or sleep aids.",
+        "timingRule": "Avoid taking with prescription sedatives.",
+        "severity": "MEDIUM"
+      }
+    ]
+  }
+]

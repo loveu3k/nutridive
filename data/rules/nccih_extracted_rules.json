@@ -1,0 +1,519 @@
+[
+  {
+    "herbName": "Acai",
+    "slug": "acai",
+    "sourceUrl": "https://www.nccih.nih.gov/health/acai",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Diabetes medications (hypoglycemia risk)",
+        "targetClass": "hypoglycemic_agents",
+        "clinicalEvidence": "Reported to interact with Diabetes medications (hypoglycemia risk) in clinical studies."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Acai pulp has been used safely for up to 3 months in clinical research. Little research has been done on the safety of acai. Raw acai fruit and juice can be contaminated with parasites. In rare cases, drinking the raw juice has been linked to outbreaks of the illness American trypanosomiasis (also known as Chagas disea..."
+  },
+  {
+    "herbName": "Aloe Vera",
+    "slug": "aloe-vera",
+    "sourceUrl": "https://www.nccih.nih.gov/health/aloe-vera",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Digoxin / heart medications",
+        "targetClass": "cardiac_glycosides",
+        "clinicalEvidence": "Overuse of aloe latex may increase the risk of adverse effects from cardiac glycosides, such as digoxin, which are used for some heart problems."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Topical use of aloe gel is generally well tolerated; however, there have been occasional reports of burning, itching, rash, and eczema. Research studies suggest that short-term use of oral aloe gel up to 42 days is safe. Oral use of aloe latex can cause abdominal pain, cramps, and diarrhea. Oral consumption of aloe lea..."
+  },
+  {
+    "herbName": "Ashwagandha",
+    "slug": "ashwagandha",
+    "sourceUrl": "https://www.nccih.nih.gov/health/ashwagandha",
+    "interactionCount": 5,
+    "interactions": [
+      {
+        "conflictingTarget": "Anticonvulsants / seizure medications (Phenytoin, Carbamazepine)",
+        "targetClass": "anticonvulsants",
+        "clinicalEvidence": "There is evidence that ashwagandha might interact with some medications, including those for diabetes and high blood pressure, medicines that decrease the immune system response (immunosuppressants), sedatives, anti-seizure medications (anticonvulsants), and thyroid hormone medications."
+      },
+      {
+        "conflictingTarget": "Sedatives, hypnotics, or benzodiazepines",
+        "targetClass": "cns_depressants",
+        "clinicalEvidence": "Reported to interact with Sedatives, hypnotics, or benzodiazepines in clinical studies."
+      },
+      {
+        "conflictingTarget": "Diabetes medications (hypoglycemia risk)",
+        "targetClass": "hypoglycemic_agents",
+        "clinicalEvidence": "There is evidence that ashwagandha might interact with some medications, including those for diabetes and high blood pressure, medicines that decrease the immune system response (immunosuppressants), sedatives, anti-seizure medications (anticonvulsants), and thyroid hormone medications."
+      },
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "There is evidence that ashwagandha might interact with some medications, including those for diabetes and high blood pressure, medicines that decrease the immune system response (immunosuppressants), sedatives, anti-seizure medications (anticonvulsants), and thyroid hormone medications."
+      },
+      {
+        "conflictingTarget": "Thyroid hormone replacement (Levothyroxine)",
+        "targetClass": "thyroid_hormones",
+        "clinicalEvidence": "Ashwagandha is not recommended for people who are about to have surgery, or for those who have autoimmune or thyroid disorders."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Ashwagandha may be safe when taken in the short term (up to 3 months). There is not enough information to allow conclusions about its long-term safety to be reached. In some individuals, ashwagandha preparations may cause drowsiness, stomach upset, diarrhea, and vomiting. Although it is rare, there have been a number o..."
+  },
+  {
+    "herbName": "Asian Ginseng",
+    "slug": "asian-ginseng",
+    "sourceUrl": "https://www.nccih.nih.gov/health/asian-ginseng",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Diabetes medications (hypoglycemia risk)",
+        "targetClass": "hypoglycemic_agents",
+        "clinicalEvidence": "If you have diabetes, consult your health care provider before using Asian ginseng."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Short-term oral use (by mouth, up to 6 months) of Asian ginseng in recommended amounts appears to be safe for most people. However, questions have been raised about its long-term safety, and some experts recommend against its use for infants, children, and women who are pregnant or breastfeeding. There isn&#x27;t enoug..."
+  },
+  {
+    "herbName": "Bitter Orange",
+    "slug": "bitter-orange",
+    "sourceUrl": "https://www.nccih.nih.gov/health/bitter-orange",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "Some studies indicate that bitter orange raises blood pressure and heart rate, but others do not."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Bitter orange is likely safe when used orally in amounts commonly found in foods. Bitter orange oil is generally well tolerated when used topically or in aromatherapy. Serious concerns have been raised about possible risks of dietary supplements containing bitter orange. Cases of serious medical events, including abnor..."
+  },
+  {
+    "herbName": "Black Cohosh",
+    "slug": "black-cohosh",
+    "sourceUrl": "https://www.nccih.nih.gov/health/black-cohosh",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Anticonvulsants / seizure medications (Phenytoin, Carbamazepine)",
+        "targetClass": "anticonvulsants",
+        "clinicalEvidence": "Reported to interact with Anticonvulsants / seizure medications (Phenytoin, Carbamazepine) in clinical studies."
+      },
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "Blue cohosh may cause adverse effects such as high blood pressure, high blood sugar, and chest pain."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? While black cohosh has been used safely in research studies that lasted as long as a year and is generally well tolerated, concerns have been raised that it may cause liver damage in some people. Cases of liver damage—some very serious—have been reported in people taking products labeled as black cohosh. These problems..."
+  },
+  {
+    "herbName": "Cat’s Claw",
+    "slug": "cats-claw",
+    "sourceUrl": "https://www.nccih.nih.gov/health/cats-claw",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs)",
+        "targetClass": "blood_thinners",
+        "clinicalEvidence": "There are theoretical reasons to suspect that cat’s claw might interact with anticoagulant, antiplatelet, and blood pressure drugs, and other supplements as well."
+      },
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "There are theoretical reasons to suspect that cat’s claw might interact with anticoagulant, antiplatelet, and blood pressure drugs, and other supplements as well."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Cat’s claw appears to be safe when used orally for short periods of time, as much as 6 months. However, there is insufficient reliable information about its safety when applied to the skin. Cat’s claw might make the immune system more active, which could increase symptoms of autoimmune diseases. If you have an autoimmu..."
+  },
+  {
+    "herbName": "Chamomile",
+    "slug": "chamomile",
+    "sourceUrl": "https://www.nccih.nih.gov/health/chamomile",
+    "interactionCount": 3,
+    "interactions": [
+      {
+        "conflictingTarget": "Warfarin",
+        "targetClass": "warfarin",
+        "clinicalEvidence": "Interactions between chamomile and some drugs metabolized by the liver and warfarin (a blood thinner) have been reported, and there are theoretical reasons to suspect that chamomile might interact with other drugs as well, such as sedatives."
+      },
+      {
+        "conflictingTarget": "Oral contraceptives / birth control pills",
+        "targetClass": "oral_contraceptives",
+        "clinicalEvidence": "Preliminary studies suggest that taking chamomile along with birth control pills might decrease the effects of birth control pills."
+      },
+      {
+        "conflictingTarget": "Sedatives, hypnotics, or benzodiazepines",
+        "targetClass": "cns_depressants",
+        "clinicalEvidence": "Reported to interact with Sedatives, hypnotics, or benzodiazepines in clinical studies."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Chamomile is likely safe when used orally in amounts commonly found in teas and other foods. It is possibly safe when used by adults and children orally for medicinal purposes over the short term. Using chamomile on the skin in adults and children or as an oral rinse for medicinal purposes is possibly safe at certain d..."
+  },
+  {
+    "herbName": "Cranberry",
+    "slug": "cranberry",
+    "sourceUrl": "https://www.nccih.nih.gov/health/cranberry",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs)",
+        "targetClass": "blood_thinners",
+        "clinicalEvidence": "There is conflicting evidence about whether cranberry interacts with the anticoagulant (blood thinner) warfarin."
+      },
+      {
+        "conflictingTarget": "Warfarin",
+        "targetClass": "warfarin",
+        "clinicalEvidence": "There is conflicting evidence about whether cranberry interacts with the anticoagulant (blood thinner) warfarin."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Cranberry taken orally (by mouth) is generally thought to be safe. However, if consumed in very large amounts, cranberry can cause stomach upset and diarrhea, particularly in young children. People who think they have a UTI should see a health care provider for diagnosis and treatment. Don’t use cranberry products inst..."
+  },
+  {
+    "herbName": "Dandelion",
+    "slug": "dandelion",
+    "sourceUrl": "https://www.nccih.nih.gov/health/dandelion",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs)",
+        "targetClass": "blood_thinners",
+        "clinicalEvidence": "There are theoretical reasons to suspect that dandelion might interact with antidiabetes, anticoagulant, antiplatelet, and water pill drugs, among others."
+      },
+      {
+        "conflictingTarget": "Diabetes medications (hypoglycemia risk)",
+        "targetClass": "hypoglycemic_agents",
+        "clinicalEvidence": "Reported to interact with Diabetes medications (hypoglycemia risk) in clinical studies."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? The use of dandelion in the amounts commonly found in food is considered likely safe. Less is known about the safety of taking dandelion in larger amounts. Some evidence suggests that topical dandelion may cause an allergic reaction in people who have atopic dermatitis (eczema). There is conflicting evidence about whet..."
+  },
+  {
+    "herbName": "Ephedra",
+    "slug": "ephedra",
+    "sourceUrl": "https://www.nccih.nih.gov/health/ephedra",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Anticonvulsants / seizure medications (Phenytoin, Carbamazepine)",
+        "targetClass": "anticonvulsants",
+        "clinicalEvidence": "Even in relatively low doses and short-term use, ephedra has been linked to harmful effects like high blood pressure, heart attack, seizure, stroke, and psychosis."
+      },
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "Even in relatively low doses and short-term use, ephedra has been linked to harmful effects like high blood pressure, heart attack, seizure, stroke, and psychosis."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? The FDA has banned dietary supplements containing ephedrine alkaloids because they have serious safety risks. Even in relatively low doses and short-term use, ephedra has been linked to harmful effects like high blood pressure, heart attack, seizure, stroke, and psychosis. Ephedra can be life-threatening or disabling i..."
+  },
+  {
+    "herbName": "Flaxseed and Flaxseed Oil",
+    "slug": "flaxseed-and-flaxseed-oil",
+    "sourceUrl": "https://www.nccih.nih.gov/health/flaxseed-and-flaxseed-oil",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs)",
+        "targetClass": "blood_thinners",
+        "clinicalEvidence": "There are theoretical reasons to suspect that flaxseed or flaxseed oil might interact with other drugs, such as anticoagulant or antiplatelet drugs."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Don’t eat raw or unripe flaxseeds; they may contain potentially toxic compounds. Limited amounts of flaxseed (especially flaxseed lignan extract or mucilage) or oral flaxseed oil supplements may be safe for use in the short-term (up to 6 months). Higher doses of flaxseed or flaxseed oil supplements may cause uncomforta..."
+  },
+  {
+    "herbName": "Garcinia Cambogia",
+    "slug": "garcinia-cambogia",
+    "sourceUrl": "https://www.nccih.nih.gov/health/garcinia-cambogia",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Serotonergic medications (Serotonin Syndrome risk)",
+        "targetClass": "serotonergic_agents",
+        "clinicalEvidence": "Interactions between garcinia cambogia and some drugs affecting the liver and some drugs affecting serotonin (a chemical made by nerve cells) have been reported, and there are theoretical reasons to suspect that garcinia cambogia might interact with other drugs as well."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? It may be unsafe to consume garcinia cambogia products, including multi-ingredient products containing garcinia cambogia extract. Several cases of liver damage have been reported. Some of these cases were severe, but this appears to be uncommon. Other side effects associated with consuming garcinia cambogia include hea..."
+  },
+  {
+    "herbName": "Garlic",
+    "slug": "garlic",
+    "sourceUrl": "https://www.nccih.nih.gov/health/garlic",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs)",
+        "targetClass": "blood_thinners",
+        "clinicalEvidence": "Reported to interact with Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs) in clinical studies."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Garlic, taken orally, has been used safely in research studies that lasted as long as 7 years. Some forms of garlic used topically also seem to be safe. However, fresh raw garlic may not be safe when used topically. It can cause severe skin irritation and chemical burns. Side effects of garlic consumed orally include b..."
+  },
+  {
+    "herbName": "Ginkgo",
+    "slug": "ginkgo",
+    "sourceUrl": "https://www.nccih.nih.gov/health/ginkgo",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs)",
+        "targetClass": "blood_thinners",
+        "clinicalEvidence": "Ginkgo may increase the risk of bleeding in people who are taking anticoagulant drugs, such as warfarin."
+      },
+      {
+        "conflictingTarget": "Warfarin",
+        "targetClass": "warfarin",
+        "clinicalEvidence": "Ginkgo may increase the risk of bleeding in people who are taking anticoagulant drugs, such as warfarin."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? For most adults, ginkgo leaf extracts are likely to be safe when taken orally in moderate amounts. They have been used safely in research studies lasting as long as 6 years. Fresh ginkgo seeds are toxic when consumed orally, and serious side effects have also occurred in people who consumed roasted ginkgo seeds or the ..."
+  },
+  {
+    "herbName": "Goldenseal",
+    "slug": "goldenseal",
+    "sourceUrl": "https://www.nccih.nih.gov/health/goldenseal",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Diabetes medications (hypoglycemia risk)",
+        "targetClass": "hypoglycemic_agents",
+        "clinicalEvidence": "For example, a study funded by the National Center for Complementary and Integrative Health (NCCIH) found that levels of metformin—the most commonly prescribed diabetes medicine—decreased about 25 percent in healthy adults who were given goldenseal extract plus metformin."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? In small research studies, goldenseal has been administered at doses of about 3 g per day for short periods of time without serious harmful effects. The safety of taking goldenseal for longer periods is uncertain. Some commercial goldenseal products have been found to contain other herbs or ingredients not listed on th..."
+  },
+  {
+    "herbName": "Green Tea",
+    "slug": "green-tea",
+    "sourceUrl": "https://www.nccih.nih.gov/health/green-tea",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Statins (Simvastatin, Atorvastatin)",
+        "targetClass": "statins",
+        "clinicalEvidence": "Reported to interact with Statins (Simvastatin, Atorvastatin) in clinical studies."
+      },
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "Side effects of green tea extract supplements include nausea, constipation, abdominal discomfort, and increased blood pressure."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? No safety concerns have been reported for green tea consumed as a beverage by adults. However, green tea does contain caffeine. Side effects of green tea extract supplements include nausea, constipation, abdominal discomfort, and increased blood pressure. Although uncommon, liver injury has been reported in some people..."
+  },
+  {
+    "herbName": "Hoodia",
+    "slug": "hoodia",
+    "sourceUrl": "https://www.nccih.nih.gov/health/hoodia",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "The researchers saw clinical and safety concerns for hoodia related to blood pressure and heart measures."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Little is known about the safety of hoodia, but the one small study in people raised concerns. In that study, participants taking hoodia had more adverse effects, including nausea, vomiting, dizziness, and odd skin sensations, than those taking placebos. The researchers saw clinical and safety concerns for hoodia relat..."
+  },
+  {
+    "herbName": "Kava",
+    "slug": "kava",
+    "sourceUrl": "https://www.nccih.nih.gov/health/kava",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Sedatives, hypnotics, or benzodiazepines",
+        "targetClass": "cns_depressants",
+        "clinicalEvidence": "Kava should not be used together with other substances that have sedative effects, such as benzodiazepines or alcohol."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Various kava products have been linked to rare cases of liver injury, some of which have been serious or even fatal. The first reported cases involved medicinal or dietary supplement products that had been extracted with alcohol or acetone, but other cases have involved kava beverages prepared with water. It has been s..."
+  },
+  {
+    "herbName": "Lavender",
+    "slug": "lavender",
+    "sourceUrl": "https://www.nccih.nih.gov/health/lavender",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Sedatives, hypnotics, or benzodiazepines",
+        "targetClass": "cns_depressants",
+        "clinicalEvidence": "There are theoretical reasons to suspect that lavender might interact with some sedative drugs or herbs, which is especially important if you have an upcoming surgical procedure."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? It is likely safe to consume lavender in the amounts typically used in foods. Oral lavender products might be safe in the short-term and in the amounts tested in studies of anxiety or other conditions. However, some people may experience adverse effects such as diarrhea, headache, nausea, or burping. Aromatherapy with ..."
+  },
+  {
+    "herbName": "Noni",
+    "slug": "noni",
+    "sourceUrl": "https://www.nccih.nih.gov/health/noni",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "It may be unsafe to take noni along with certain medicines, including medicines that increase potassium, decrease blood pressure, or harm the liver."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Noni juice might be safe when used for up to 3 months. However, several cases of liver toxicity have been reported in people who had consumed noni juice or noni tea for several weeks. It is unclear whether noni caused the liver problems. There isn’t enough reliable information to know whether noni fruit extract is safe..."
+  },
+  {
+    "herbName": "Rhodiola",
+    "slug": "rhodiola",
+    "sourceUrl": "https://www.nccih.nih.gov/health/rhodiola",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "Interactions between rhodiola and losartan (a drug used for high blood pressure) have been reported."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Rhodiola is possibly safe for up to 12 weeks. Side effects may include dizziness, headache, insomnia, and either dry mouth or excessive saliva production. Interactions between rhodiola and losartan (a drug used for high blood pressure) have been reported. Little is known about whether it’s safe to use rhodiola during p..."
+  },
+  {
+    "herbName": "Soy",
+    "slug": "soy",
+    "sourceUrl": "https://www.nccih.nih.gov/health/soy",
+    "interactionCount": 2,
+    "interactions": [
+      {
+        "conflictingTarget": "Antidepressants (SSRIs, SNRIs, MAOIs)",
+        "targetClass": "antidepressants",
+        "clinicalEvidence": "Interactions between certain soy products containing high amounts of tyramine (such as tofu and soy sauce), and monoamine oxidase inhibitors (a group of antidepressant drugs) have been reported (i."
+      },
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": ", dangerously high blood pressure)."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Some people are allergic to soy. In the United States, the presence of soy in packaged foods and dietary supplements must be indicated on the product label. In research studies, soy protein supplements have been safely used for up to 16 weeks, and soy extracts containing concentrated isoflavones have been used safely f..."
+  },
+  {
+    "herbName": "St. John’s Wort",
+    "slug": "st-johns-wort",
+    "sourceUrl": "https://www.nccih.nih.gov/health/st-johns-wort",
+    "interactionCount": 10,
+    "interactions": [
+      {
+        "conflictingTarget": "Blood thinners / anticoagulants (e.g. Warfarin, Aspirin, DOACs)",
+        "targetClass": "blood_thinners",
+        "clinicalEvidence": "John’s wort can weaken the effects of many medicines, including crucially important medicines such as: Some antidepressants, including amitriptyline and bupropion Birth control pills Cyclosporine, which prevents the body from rejecting transplanted organs Some drugs used to prevent seizures, including phenytoin and carbamazepine Some heart medications, including digoxin and ivabradine Some HIV drugs, including indinavir and nevirapine Some cancer medications, including irinotecan, imatinib, and docetaxel Warfarin, an anticoagulant (blood thinner) Certain statins, including simvastatin In addition, taking St."
+      },
+      {
+        "conflictingTarget": "Warfarin",
+        "targetClass": "warfarin",
+        "clinicalEvidence": "John’s wort can weaken the effects of many medicines, including crucially important medicines such as: Some antidepressants, including amitriptyline and bupropion Birth control pills Cyclosporine, which prevents the body from rejecting transplanted organs Some drugs used to prevent seizures, including phenytoin and carbamazepine Some heart medications, including digoxin and ivabradine Some HIV drugs, including indinavir and nevirapine Some cancer medications, including irinotecan, imatinib, and docetaxel Warfarin, an anticoagulant (blood thinner) Certain statins, including simvastatin In addition, taking St."
+      },
+      {
+        "conflictingTarget": "Antidepressants (SSRIs, SNRIs, MAOIs)",
+        "targetClass": "antidepressants",
+        "clinicalEvidence": "Reported to interact with Antidepressants (SSRIs, SNRIs, MAOIs) in clinical studies."
+      },
+      {
+        "conflictingTarget": "Serotonergic medications (Serotonin Syndrome risk)",
+        "targetClass": "serotonergic_agents",
+        "clinicalEvidence": "John’s wort with certain antidepressants or other drugs that affect serotonin (a substance produced by some nerve cells) may lead to increased serotonin-related side effects, which can be serious."
+      },
+      {
+        "conflictingTarget": "Cyclosporine / organ transplant immunosuppressants",
+        "targetClass": "immunosuppressants",
+        "clinicalEvidence": "John’s wort can weaken the effects of many medicines, including crucially important medicines such as: Some antidepressants, including amitriptyline and bupropion Birth control pills Cyclosporine, which prevents the body from rejecting transplanted organs Some drugs used to prevent seizures, including phenytoin and carbamazepine Some heart medications, including digoxin and ivabradine Some HIV drugs, including indinavir and nevirapine Some cancer medications, including irinotecan, imatinib, and docetaxel Warfarin, an anticoagulant (blood thinner) Certain statins, including simvastatin In addition, taking St."
+      },
+      {
+        "conflictingTarget": "Oral contraceptives / birth control pills",
+        "targetClass": "oral_contraceptives",
+        "clinicalEvidence": "John’s wort can weaken the effects of many medicines, including crucially important medicines such as: Some antidepressants, including amitriptyline and bupropion Birth control pills Cyclosporine, which prevents the body from rejecting transplanted organs Some drugs used to prevent seizures, including phenytoin and carbamazepine Some heart medications, including digoxin and ivabradine Some HIV drugs, including indinavir and nevirapine Some cancer medications, including irinotecan, imatinib, and docetaxel Warfarin, an anticoagulant (blood thinner) Certain statins, including simvastatin In addition, taking St."
+      },
+      {
+        "conflictingTarget": "Anticonvulsants / seizure medications (Phenytoin, Carbamazepine)",
+        "targetClass": "anticonvulsants",
+        "clinicalEvidence": "Reported to interact with Anticonvulsants / seizure medications (Phenytoin, Carbamazepine) in clinical studies."
+      },
+      {
+        "conflictingTarget": "Statins (Simvastatin, Atorvastatin)",
+        "targetClass": "statins",
+        "clinicalEvidence": "Reported to interact with Statins (Simvastatin, Atorvastatin) in clinical studies."
+      },
+      {
+        "conflictingTarget": "Digoxin / heart medications",
+        "targetClass": "cardiac_glycosides",
+        "clinicalEvidence": "John’s wort can weaken the effects of many medicines, including crucially important medicines such as: Some antidepressants, including amitriptyline and bupropion Birth control pills Cyclosporine, which prevents the body from rejecting transplanted organs Some drugs used to prevent seizures, including phenytoin and carbamazepine Some heart medications, including digoxin and ivabradine Some HIV drugs, including indinavir and nevirapine Some cancer medications, including irinotecan, imatinib, and docetaxel Warfarin, an anticoagulant (blood thinner) Certain statins, including simvastatin In addition, taking St."
+      },
+      {
+        "conflictingTarget": "HIV antiretrovirals (Protease inhibitors, NNRTIs)",
+        "targetClass": "antiretrovirals",
+        "clinicalEvidence": "John’s wort can weaken the effects of many medicines, including crucially important medicines such as: Some antidepressants, including amitriptyline and bupropion Birth control pills Cyclosporine, which prevents the body from rejecting transplanted organs Some drugs used to prevent seizures, including phenytoin and carbamazepine Some heart medications, including digoxin and ivabradine Some HIV drugs, including indinavir and nevirapine Some cancer medications, including irinotecan, imatinib, and docetaxel Warfarin, an anticoagulant (blood thinner) Certain statins, including simvastatin In addition, taking St."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? For most adults who are not taking any kind of medicine, St. John’s wort appears to be safe when used for up to 12 weeks, and some studies indicate that it can be used safely for a year or more. If taken orally in large doses or applied to the skin, St. John’s wort might cause severe skin reactions after sun exposure. ..."
+  },
+  {
+    "herbName": "Turmeric",
+    "slug": "turmeric",
+    "sourceUrl": "https://www.nccih.nih.gov/health/turmeric",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "HIV antiretrovirals (Protease inhibitors, NNRTIs)",
+        "targetClass": "antiretrovirals",
+        "clinicalEvidence": "Reported to interact with HIV antiretrovirals (Protease inhibitors, NNRTIs) in clinical studies."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Conventionally formulated oral turmeric or curcumin (not modified to enhance bioavailability) is likely safe in the recommended amounts for up to 2 or 3 months. Oral turmeric can cause adverse effects such as nausea and vomiting, acid reflux, stomach upset, diarrhea, or constipation. Topical curcumin can cause hives or..."
+  },
+  {
+    "herbName": "Valerian",
+    "slug": "valerian",
+    "sourceUrl": "https://www.nccih.nih.gov/health/valerian",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Sedatives, hypnotics, or benzodiazepines",
+        "targetClass": "cns_depressants",
+        "clinicalEvidence": "Reported to interact with Sedatives, hypnotics, or benzodiazepines in clinical studies."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Research suggests that valerian is generally safe for short-term use by most adults. It has been used with apparent safety in doses of 300 to 600 milligrams daily for up to 6 weeks. The safety of long-term use of valerian is unknown. Side effects of valerian include headache, stomach upset, mental dullness, excitabilit..."
+  },
+  {
+    "herbName": "White Mulberry Leaf",
+    "slug": "white-mulberry-leaf",
+    "sourceUrl": "https://www.nccih.nih.gov/health/white-mulberry-leaf",
+    "interactionCount": 1,
+    "interactions": [
+      {
+        "conflictingTarget": "Diabetes medications (hypoglycemia risk)",
+        "targetClass": "hypoglycemic_agents",
+        "clinicalEvidence": "There is a potential risk for low blood sugar when taken with diabetes medications."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? White mulberry leaf has been used in studies lasting up to 12 weeks without serious harmful effects. The most common side effect is digestive upset, including bloating, constipation, gas, and loose stools. There is a potential risk for low blood sugar when taken with diabetes medications. There is insufficient reliable..."
+  },
+  {
+    "herbName": "Yohimbe",
+    "slug": "yohimbe",
+    "sourceUrl": "https://www.nccih.nih.gov/health/yohimbe",
+    "interactionCount": 3,
+    "interactions": [
+      {
+        "conflictingTarget": "Antidepressants (SSRIs, SNRIs, MAOIs)",
+        "targetClass": "antidepressants",
+        "clinicalEvidence": "Do not use yohimbe if you are taking types of antidepressant medications called monoamine oxidase inhibitors or tricyclic antidepressants."
+      },
+      {
+        "conflictingTarget": "Anticonvulsants / seizure medications (Phenytoin, Carbamazepine)",
+        "targetClass": "anticonvulsants",
+        "clinicalEvidence": "Reported to interact with Anticonvulsants / seizure medications (Phenytoin, Carbamazepine) in clinical studies."
+      },
+      {
+        "conflictingTarget": "Blood pressure medications",
+        "targetClass": "antihypertensives",
+        "clinicalEvidence": "Yohimbine, a component of yohimbe, has been associated with cardiac arrhythmia (irregular heartbeat), blood pressure problems, heart attacks, and seizures."
+      }
+    ],
+    "safetyOverview": "What Do We Know About Safety? Yohimbine, a component of yohimbe, has been associated with cardiac arrhythmia (irregular heartbeat), blood pressure problems, heart attacks, and seizures. Because of inaccurate labeling and potential for serious side effects, yohimbe supplements have been restricted or banned in many countries. Yohimbe caused stomach ..."
+  }
+]

@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "data:parse-ods": "node scripts/parse-ods-html.mjs",
+    "data:sync-nccih": "node scripts/extract-nccih-herbs.mjs",
+    "data:sync-medline": "node scripts/extract-medline-dietary.mjs",
+    "data:link-fda": "node scripts/link-fda-medline.mjs",
+    "data:inject": "node scripts/inject-food-and-nutrients.mjs",
+    "data:compact": "node scripts/build-compact-data.mjs",
+    "data:build": "node scripts/inject-food-and-nutrients.mjs && node scripts/link-fda-medline.mjs && node scripts/build-compact-data.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

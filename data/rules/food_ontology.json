@@ -1,0 +1,202 @@
+[
+  {
+    "foodId": "food_grapefruit",
+    "name": "Grapefruit / Pomelo (Citrus paradisi / Citrus maxima)",
+    "keywords": ["grapefruit", "pomelo", "grapefruit juice", "ruby red grapefruit", "seville orange", "citrus paradisi"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Furanocoumarins (Bergamottin, 6',7'-Dihydroxybergamottin)",
+        "target": "Intestinal Cytochrome P450 3A4 (CYP3A4) & P-glycoprotein",
+        "effect": "Mechanism-based irreversible enzyme inactivation",
+        "clinicalDescription": "Destroys enterocyte CYP3A4 enzymes, collapsing first-pass drug metabolism and causing up to 12-fold spikes in bioavailability for oral CYP3A4 substrates (statins, calcium channel blockers, immunosuppressants, PDE5 inhibitors)."
+      }
+    ],
+    "conflictingClasses": [
+      "statin_cyp3a4",
+      "ccb_antihypertensive",
+      "phosphodiesterase_5_inhibitor_epc",
+      "immunosuppressant",
+      "antiarrhythmic_agent"
+    ],
+    "guidance": "Completely avoid grapefruit, pomelos, and Seville oranges for the entire duration of therapy. Normal intestinal CYP3A4 enzyme turnover takes up to 72 hours to regenerate after ingestion."
+  },
+  {
+    "foodId": "food_spinach",
+    "name": "Spinach / Swiss Chard (High-Oxalate & High-Vitamin K Greens)",
+    "keywords": ["spinach", "swiss chard", "spinach salad", "cooked spinach", "beet greens", "rhubarb"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Phylloquinone (Vitamin K1)",
+        "target": "Vitamin K Epoxide Reductase Complex 1 (VKORC1)",
+        "effect": "Anticoagulation mechanism bypass",
+        "clinicalDescription": "Exogenous vitamin K directly reactivates hepatic clotting factor synthesis (Factors II, VII, IX, X), rapidly decreasing INR and precipitating thromboembolism or stroke in warfarin patients."
+      },
+      {
+        "compound": "Oxalic Acid (Oxalate)",
+        "target": "Divalent Metal Transporter 1 (DMT-1) / Chelation",
+        "effect": "Mineral bioavailability collapse",
+        "clinicalDescription": "Binds free ionic calcium, iron, and magnesium into insoluble oxalate crystals in the gastrointestinal lumen, rendering them biologically unabsorbable and increasing nephrolithiasis burden."
+      }
+    ],
+    "conflictingClasses": [
+      "warfarin",
+      "mineral_calcium",
+      "mineral_iron"
+    ],
+    "guidance": "Warfarin patients must keep leafy green intake strictly consistent day-to-day. When taking calcium or iron supplements, separate from high-oxalate greens by at least 2 to 3 hours."
+  },
+  {
+    "foodId": "food_aged_cheese_cured_meats",
+    "name": "Aged Cheese, Cured Meats & Fermented Foods (High-Tyramine)",
+    "keywords": ["aged cheese", "cheddar", "parmesan", "blue cheese", "salami", "pepperoni", "cured meat", "soy sauce", "miso", "kimchi", "tap beer"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Tyramine (Decarboxylated Tyrosine)",
+        "target": "Presynaptic Vesicular Monoamine Transporter (VMAT)",
+        "effect": "Massive peripheral norepinephrine surge",
+        "clinicalDescription": "Under monoamine oxidase (MAO) inhibition, ingested dietary tyramine escapes intestinal deamination, enters systemic circulation, and displaces massive catecholamine stores, triggering acute fatal hypertensive crises, intracranial hemorrhage, and cardiac arrest."
+      }
+    ],
+    "conflictingClasses": [
+      "maoi_antidepressant",
+      "linezolid"
+    ],
+    "guidance": "Strict dietary tyramine restriction is required starting on the first day of MAOI therapy and continuing for 14 days after discontinuation to allow MAO enzyme regeneration."
+  },
+  {
+    "foodId": "food_greentea_blacktea",
+    "name": "Green Tea, Black Tea & Matcha (Tannins & OATP Inhibitors)",
+    "keywords": ["green tea", "black tea", "matcha", "tea", "iced tea", "earl grey"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Polyphenolic Tannins & Catechins (EGCG)",
+        "target": "Ionic Iron Transporters & OATP1A2 / OATP2B1",
+        "effect": "Iron chelation & intestinal influx blockade",
+        "clinicalDescription": "Tannins form insoluble macromolecular iron-tannate precipitates, dropping non-heme iron absorption by up to 80%. Catechins additionally inhibit intestinal OATP uptake transporters, drastically reducing bioavailability of beta-blockers (atenolol) and allergy medications (fexofenadine)."
+      }
+    ],
+    "conflictingClasses": [
+      "mineral_iron",
+      "beta_blocker",
+      "fexofenadine"
+    ],
+    "guidance": "Do not take oral iron supplements with tea; drink tea between meals at least 2 hours apart. If taking fexofenadine or nadolol, avoid green tea within 4 hours."
+  },
+  {
+    "foodId": "food_coffee_caffeine",
+    "name": "Coffee & High-Caffeine Beverages (Espresso, Energy Drinks)",
+    "keywords": ["coffee", "espresso", "caffeine", "energy drink", "preworkout"],
+    "bioactiveCompounds": [
+      {
+        "compound": "1,3,7-Trimethylxanthine (Caffeine)",
+        "target": "Cytochrome P450 1A2 (CYP1A2) & Adenosine A1/A2A Receptors",
+        "effect": "Competitive substrate clearance inhibition & sympathomimetic synergy",
+        "clinicalDescription": "Ciprofloxacin, fluvoxamine, and oral contraceptives inhibit CYP1A2, reducing caffeine clearance by 30-80% and precipitating palpitations, panic, and severe tremors. Caffeine also accelerates gastric motility, impairing bisphosphonate and thyroid absorption."
+      }
+    ],
+    "conflictingClasses": [
+      "fluoroquinolones",
+      "bisphosphonates",
+      "levothyroxine"
+    ],
+    "guidance": "Take thyroid hormones and bisphosphonates with pure plain water only. Moderate or avoid concentrated caffeine during ciprofloxacin therapy."
+  },
+  {
+    "foodId": "food_salt_substitutes",
+    "name": "Potassium-Enriched Salt Substitutes (Low-Sodium Table Salt)",
+    "keywords": ["salt substitute", "potassium salt", "nosalt", "nu-salt", "low sodium salt", "lite salt", "potassium chloride salt"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Potassium Chloride (KCl)",
+        "target": "Renal Cortical Collecting Duct Electrophysiology",
+        "effect": "Exogenous hyperkalemic surge",
+        "clinicalDescription": "Provides 500-1400 mg potassium per 1/4 teaspoon. When renal potassium excretion is suppressed by ACE inhibitors, ARBs, or aldosterone antagonists (spironolactone), acute severe hyperkalemia (>6.5 mEq/L) can trigger sudden flaccid paralysis and fatal ventricular fibrillation."
+      }
+    ],
+    "conflictingClasses": [
+      "ace_inhibitor",
+      "angiotensin_receptor_blocker",
+      "potassium_sparing_diuretics"
+    ],
+    "guidance": "Strictly verify ingredients of low-sodium seasonings. Avoid potassium-chloride based salt alternatives completely if taking Lisinopril, Losartan, or Spironolactone."
+  },
+  {
+    "foodId": "food_milk_dairy",
+    "name": "Dairy Milk, Yogurt & Calcium-Enriched Foods",
+    "keywords": ["milk", "dairy", "yogurt", "cheese", "calcium fortified", "calcium fortified orange juice"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Ionic Calcium (Ca2+) & Casein Micelles",
+        "target": "Intestinal Chelation & Luminal Complexation",
+        "effect": "Irreversible chemical chelation",
+        "clinicalDescription": "Divalent calcium binds fluoroquinolone (ciprofloxacin) and tetracycline (doxycycline) antibiotics into unabsorbable ring complexes, reducing systemic antibacterial coverage by up to 90% and causing therapy failure."
+      }
+    ],
+    "conflictingClasses": [
+      "fluoroquinolones",
+      "tetracyclines",
+      "levothyroxine",
+      "bisphosphonates",
+      "mineral_iron"
+    ],
+    "guidance": "Separate all dairy ingestion from oral antibiotics, bisphosphonates, and thyroid medications by at least 2 to 4 hours."
+  },
+  {
+    "foodId": "food_natural_licorice",
+    "name": "Natural Black Licorice & Licorice Root Extracts",
+    "keywords": ["licorice", "black licorice", "licorice root", "glycyrrhiza glabra", "licorice tea"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Glycyrrhizin & Glycyrrhetinic Acid",
+        "target": "11-beta-Hydroxysteroid Dehydrogenase Type 2 (11-beta-HSD2)",
+        "effect": "Apparent mineralocorticoid excess (Pseudoaldosteronism)",
+        "clinicalDescription": "Inhibits cortisol breakdown into cortisone in the kidney. Cortisol saturates mineralocorticoid receptors, causing massive renal sodium retention, severe potassium wasting, edema, and dangerous spikes in blood pressure that neutralize antihypertensives."
+      }
+    ],
+    "conflictingClasses": [
+      "diuretics_loop_thiazide",
+      "antihypertensive",
+      "antiarrhythmic_agent"
+    ],
+    "guidance": "Do not consume natural black licorice (or non-deglycyrrhizinated licorice supplements) if managing hypertension, heart failure, or taking potassium-wasting diuretics."
+  },
+  {
+    "foodId": "food_orange_apple_juice",
+    "name": "Fresh Orange Juice & Apple Juice (OATP Influx Blockers)",
+    "keywords": ["orange juice", "apple juice", "oj", "grapefruit juice", "fresh orange juice"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Flavonoid Glycosides (Naringin, Hesperidin)",
+        "target": "Organic Anion Transporting Polypeptides (OATP1A2 & OATP2B1)",
+        "effect": "Intestinal active drug uptake transport inhibition",
+        "clinicalDescription": "Unlike CYP3A4 inhibitors that increase drug levels, fruit juice bioflavonoids block the enterocyte OATP influx pumps, plummeting absorption of oral fexofenadine (Allegra), ciprofloxacin, and atenolol by 30-70%."
+      }
+    ],
+    "conflictingClasses": [
+      "fexofenadine",
+      "beta_blocker"
+    ],
+    "guidance": "Take fexofenadine (Allegra) and atenolol with plain water only. Avoid drinking fruit juices within 4 hours before or after dosage."
+  },
+  {
+    "foodId": "food_alcohol_ethanol",
+    "name": "Alcoholic Beverages (Beer, Wine, Spirits)",
+    "keywords": ["alcohol", "beer", "wine", "spirits", "liquor", "vodka", "whiskey", "ethanol"],
+    "bioactiveCompounds": [
+      {
+        "compound": "Ethanol",
+        "target": "GABA-A Receptors, Hepatic CYP2E1 & Gluconeogenesis",
+        "effect": "Synergistic CNS depression, disulfiram reactions & hepatotoxicity",
+        "clinicalDescription": "Multiplies respiratory depression and profound sedation with opioids and sedatives; blocks hepatic lactate uptake with metformin (lactic acidosis); triggers acute disulfiram-like vomiting and tachycardia with metronidazole; and accelerates dose-dumping in extended-release capsules."
+      }
+    ],
+    "conflictingClasses": [
+      "metformin",
+      "sedative_hypnotic",
+      "opioid_analgesic",
+      "antidiabetic",
+      "metronidazole"
+    ],
+    "guidance": "Completely abstain from alcohol while taking metronidazole, cephalosporins, prescription sedatives, or empty-stomach metformin."
+  }
+]

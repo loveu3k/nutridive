@@ -1,0 +1,5654 @@
+[
+  {
+    "slug": "aspirin-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "aspirin",
+    "priority": 1
+  },
+  {
+    "slug": "spinach-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "spinach",
+    "priority": 1
+  },
+  {
+    "slug": "ginkgo-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "ginkgo",
+    "priority": 1
+  },
+  {
+    "slug": "garlic-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "garlic",
+    "priority": 1
+  },
+  {
+    "slug": "curcumin-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "curcumin",
+    "priority": 1
+  },
+  {
+    "slug": "omega-3-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "omega-3",
+    "priority": 1
+  },
+  {
+    "slug": "coq10-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "coq10",
+    "priority": 1
+  },
+  {
+    "slug": "st-johns-wort-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "st-johns-wort",
+    "priority": 1
+  },
+  {
+    "slug": "alcohol-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "alcohol",
+    "priority": 1
+  },
+  {
+    "slug": "atorvastatin-and-grapefruit",
+    "substanceA": "atorvastatin",
+    "substanceB": "grapefruit",
+    "priority": 1
+  },
+  {
+    "slug": "atorvastatin-and-grapefruit-juice",
+    "substanceA": "atorvastatin",
+    "substanceB": "grapefruit-juice",
+    "priority": 1
+  },
+  {
+    "slug": "grapefruit-and-simvastatin",
+    "substanceA": "simvastatin",
+    "substanceB": "grapefruit",
+    "priority": 1
+  },
+  {
+    "slug": "lisinopril-and-spironolactone",
+    "substanceA": "lisinopril",
+    "substanceB": "spironolactone",
+    "priority": 1
+  },
+  {
+    "slug": "lisinopril-and-potassium",
+    "substanceA": "lisinopril",
+    "substanceB": "potassium",
+    "priority": 1
+  },
+  {
+    "slug": "lisinopril-and-salt-substitute",
+    "substanceA": "lisinopril",
+    "substanceB": "salt-substitute",
+    "priority": 1
+  },
+  {
+    "slug": "losartan-and-potassium",
+    "substanceA": "losartan",
+    "substanceB": "potassium",
+    "priority": 1
+  },
+  {
+    "slug": "calcium-and-ciprofloxacin",
+    "substanceA": "ciprofloxacin",
+    "substanceB": "calcium",
+    "priority": 1
+  },
+  {
+    "slug": "ciprofloxacin-and-milk",
+    "substanceA": "ciprofloxacin",
+    "substanceB": "milk",
+    "priority": 1
+  },
+  {
+    "slug": "ciprofloxacin-and-iron",
+    "substanceA": "ciprofloxacin",
+    "substanceB": "iron",
+    "priority": 1
+  },
+  {
+    "slug": "ciprofloxacin-and-dairy",
+    "substanceA": "ciprofloxacin",
+    "substanceB": "dairy",
+    "priority": 1
+  },
+  {
+    "slug": "ciprofloxacin-and-probiotics",
+    "substanceA": "ciprofloxacin",
+    "substanceB": "probiotics",
+    "priority": 1
+  },
+  {
+    "slug": "caffeine-and-ciprofloxacin",
+    "substanceA": "ciprofloxacin",
+    "substanceB": "caffeine",
+    "priority": 1
+  },
+  {
+    "slug": "ciprofloxacin-and-coffee",
+    "substanceA": "ciprofloxacin",
+    "substanceB": "coffee",
+    "priority": 1
+  },
+  {
+    "slug": "calcium-and-levothyroxine",
+    "substanceA": "levothyroxine",
+    "substanceB": "calcium",
+    "priority": 1
+  },
+  {
+    "slug": "iron-and-levothyroxine",
+    "substanceA": "levothyroxine",
+    "substanceB": "iron",
+    "priority": 1
+  },
+  {
+    "slug": "coffee-and-levothyroxine",
+    "substanceA": "levothyroxine",
+    "substanceB": "coffee",
+    "priority": 1
+  },
+  {
+    "slug": "ashwagandha-and-levothyroxine",
+    "substanceA": "levothyroxine",
+    "substanceB": "ashwagandha",
+    "priority": 1
+  },
+  {
+    "slug": "nitroglycerin-and-sildenafil",
+    "substanceA": "sildenafil",
+    "substanceB": "nitroglycerin",
+    "priority": 1
+  },
+  {
+    "slug": "nitroglycerin-and-tadalafil",
+    "substanceA": "tadalafil",
+    "substanceB": "nitroglycerin",
+    "priority": 1
+  },
+  {
+    "slug": "alcohol-and-metformin",
+    "substanceA": "metformin",
+    "substanceB": "alcohol",
+    "priority": 1
+  },
+  {
+    "slug": "metformin-and-vitamin-b12",
+    "substanceA": "metformin",
+    "substanceB": "vitamin-b12",
+    "priority": 1
+  },
+  {
+    "slug": "aspirin-and-ibuprofen",
+    "substanceA": "ibuprofen",
+    "substanceB": "aspirin",
+    "priority": 1
+  },
+  {
+    "slug": "calcium-and-omeprazole",
+    "substanceA": "omeprazole",
+    "substanceB": "calcium",
+    "priority": 1
+  },
+  {
+    "slug": "magnesium-and-omeprazole",
+    "substanceA": "omeprazole",
+    "substanceB": "magnesium",
+    "priority": 1
+  },
+  {
+    "slug": "omeprazole-and-vitamin-b12",
+    "substanceA": "omeprazole",
+    "substanceB": "vitamin-b12",
+    "priority": 1
+  },
+  {
+    "slug": "aged-cheese-and-phenelzine",
+    "substanceA": "phenelzine",
+    "substanceB": "aged-cheese",
+    "priority": 1
+  },
+  {
+    "slug": "phenelzine-and-tyramine",
+    "substanceA": "phenelzine",
+    "substanceB": "tyramine",
+    "priority": 1
+  },
+  {
+    "slug": "salt-substitute-and-spironolactone",
+    "substanceA": "spironolactone",
+    "substanceB": "salt-substitute",
+    "priority": 1
+  },
+  {
+    "slug": "coffee-and-theophylline",
+    "substanceA": "theophylline",
+    "substanceB": "coffee",
+    "priority": 1
+  },
+  {
+    "slug": "caffeine-and-theophylline",
+    "substanceA": "theophylline",
+    "substanceB": "caffeine",
+    "priority": 1
+  },
+  {
+    "slug": "alcohol-and-alprazolam",
+    "substanceA": "alprazolam",
+    "substanceB": "alcohol",
+    "priority": 1
+  },
+  {
+    "slug": "alprazolam-and-kava",
+    "substanceA": "alprazolam",
+    "substanceB": "kava",
+    "priority": 1
+  },
+  {
+    "slug": "copper-and-zinc",
+    "substanceA": "zinc",
+    "substanceB": "copper",
+    "priority": 1
+  },
+  {
+    "slug": "calcium-and-iron",
+    "substanceA": "calcium",
+    "substanceB": "iron",
+    "priority": 1
+  },
+  {
+    "slug": "iron-and-vitamin-c",
+    "substanceA": "vitamin-c",
+    "substanceB": "iron",
+    "priority": 1
+  },
+  {
+    "slug": "calcium-and-vitamin-d",
+    "substanceA": "vitamin-d",
+    "substanceB": "calcium",
+    "priority": 1
+  },
+  {
+    "slug": "amlodipine-and-grapefruit",
+    "substanceA": "amlodipine",
+    "substanceB": "grapefruit",
+    "priority": 1
+  },
+  {
+    "slug": "folate-and-methotrexate",
+    "substanceA": "methotrexate",
+    "substanceB": "folate",
+    "priority": 1
+  },
+  {
+    "slug": "alcohol-and-methotrexate",
+    "substanceA": "methotrexate",
+    "substanceB": "alcohol",
+    "priority": 1
+  },
+  {
+    "slug": "lithium-and-nsaids",
+    "substanceA": "lithium",
+    "substanceB": "nsaids",
+    "priority": 1
+  },
+  {
+    "slug": "caffeine-and-lithium",
+    "substanceA": "lithium",
+    "substanceB": "caffeine",
+    "priority": 1
+  },
+  {
+    "slug": "digoxin-and-licorice",
+    "substanceA": "digoxin",
+    "substanceB": "licorice",
+    "priority": 1
+  },
+  {
+    "slug": "digoxin-and-potassium",
+    "substanceA": "digoxin",
+    "substanceB": "potassium",
+    "priority": 1
+  },
+  {
+    "slug": "carbidopa-levodopa-and-iron",
+    "substanceA": "carbidopa-levodopa",
+    "substanceB": "iron",
+    "priority": 1
+  },
+  {
+    "slug": "alendronate-and-calcium",
+    "substanceA": "alendronate",
+    "substanceB": "calcium",
+    "priority": 1
+  },
+  {
+    "slug": "alendronate-and-coffee",
+    "substanceA": "alendronate",
+    "substanceB": "coffee",
+    "priority": 1
+  },
+  {
+    "slug": "alcohol-and-metronidazole",
+    "substanceA": "metronidazole",
+    "substanceB": "alcohol",
+    "priority": 1
+  },
+  {
+    "slug": "hydrocortisone-injection-and-potassium",
+    "substanceA": "hydrocortisone-injection",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "hydrocortisone-injection-and-salt-substitute",
+    "substanceA": "hydrocortisone-injection",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "methylprednisolone-injection-and-potassium",
+    "substanceA": "methylprednisolone-injection",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "methylprednisolone-injection-and-salt-substitute",
+    "substanceA": "methylprednisolone-injection",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "abemaciclib-and-grapefruit",
+    "substanceA": "abemaciclib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "abemaciclib-and-grapefruit-juice",
+    "substanceA": "abemaciclib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "aripiprazole-and-grapefruit",
+    "substanceA": "aripiprazole",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "aripiprazole-and-grapefruit-juice",
+    "substanceA": "aripiprazole",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "aripiprazole-injection-and-grapefruit",
+    "substanceA": "aripiprazole-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "aripiprazole-injection-and-grapefruit-juice",
+    "substanceA": "aripiprazole-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "fentanyl-and-grapefruit",
+    "substanceA": "fentanyl",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "fentanyl-and-grapefruit-juice",
+    "substanceA": "fentanyl",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "acalabrutinib-and-grapefruit",
+    "substanceA": "acalabrutinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "acalabrutinib-and-grapefruit-juice",
+    "substanceA": "acalabrutinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "acarbose-and-alcohol",
+    "substanceA": "acarbose",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "potassium-and-quinapril",
+    "substanceA": "quinapril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "quinapril-and-salt-substitute",
+    "substanceA": "quinapril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "hydrochlorothiazide-and-potassium",
+    "substanceA": "hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "hydrochlorothiazide-and-salt-substitute",
+    "substanceA": "hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "perindopril-and-potassium",
+    "substanceA": "perindopril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "perindopril-and-salt-substitute",
+    "substanceA": "perindopril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "corticotropin-repository-injection-and-potassium",
+    "substanceA": "corticotropin-repository-injection",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "corticotropin-repository-injection-and-salt-substitute",
+    "substanceA": "corticotropin-repository-injection",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-and-progestin-hormone-replacement-therapy-and-grapefruit",
+    "substanceA": "estrogen-and-progestin-hormone-replacement-therapy",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-and-progestin-hormone-replacement-therapy-and-grapefruit-juice",
+    "substanceA": "estrogen-and-progestin-hormone-replacement-therapy",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-pioglitazone",
+    "substanceA": "pioglitazone",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-nifedipine",
+    "substanceA": "nifedipine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-nifedipine",
+    "substanceA": "nifedipine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tadalafil",
+    "substanceA": "tadalafil",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tadalafil",
+    "substanceA": "tadalafil",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "flibanserin-and-grapefruit",
+    "substanceA": "flibanserin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "flibanserin-and-grapefruit-juice",
+    "substanceA": "flibanserin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "ado-trastuzumab-emtansine-injection-and-grapefruit",
+    "substanceA": "ado-trastuzumab-emtansine-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "ado-trastuzumab-emtansine-injection-and-grapefruit-juice",
+    "substanceA": "ado-trastuzumab-emtansine-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "fluticasone-and-salmeterol-oral-inhalation-and-grapefruit",
+    "substanceA": "fluticasone-and-salmeterol-oral-inhalation",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "fluticasone-and-salmeterol-oral-inhalation-and-grapefruit-juice",
+    "substanceA": "fluticasone-and-salmeterol-oral-inhalation",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "everolimus-and-grapefruit",
+    "substanceA": "everolimus",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "everolimus-and-grapefruit-juice",
+    "substanceA": "everolimus",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-vamorolone",
+    "substanceA": "vamorolone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-vamorolone",
+    "substanceA": "vamorolone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "anagrelide-and-grapefruit",
+    "substanceA": "anagrelide",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "anagrelide-and-grapefruit-juice",
+    "substanceA": "anagrelide",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-spironolactone-and-hydrochlorothiazide",
+    "substanceA": "spironolactone-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-spironolactone-and-hydrochlorothiazide",
+    "substanceA": "spironolactone-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-spironolactone",
+    "substanceA": "spironolactone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "chlorothiazide-and-potassium",
+    "substanceA": "chlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "chlorothiazide-and-salt-substitute",
+    "substanceA": "chlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "alfuzosin-and-grapefruit",
+    "substanceA": "alfuzosin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "alfuzosin-and-grapefruit-juice",
+    "substanceA": "alfuzosin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "copanlisib-injection-and-grapefruit",
+    "substanceA": "copanlisib-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "copanlisib-injection-and-grapefruit-juice",
+    "substanceA": "copanlisib-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "aliskiren-and-potassium",
+    "substanceA": "aliskiren",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "aliskiren-and-salt-substitute",
+    "substanceA": "aliskiren",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-hydrocortisone",
+    "substanceA": "hydrocortisone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-hydrocortisone",
+    "substanceA": "hydrocortisone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "hydrocortisone-and-potassium",
+    "substanceA": "hydrocortisone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "hydrocortisone-and-salt-substitute",
+    "substanceA": "hydrocortisone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-hydrocodone-combination-products",
+    "substanceA": "hydrocodone-combination-products",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-hydrocodone-combination-products",
+    "substanceA": "hydrocodone-combination-products",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "almotriptan-and-grapefruit",
+    "substanceA": "almotriptan",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "almotriptan-and-grapefruit-juice",
+    "substanceA": "almotriptan",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "estradiol-transdermal-patch-and-grapefruit",
+    "substanceA": "estradiol-transdermal-patch",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estradiol-transdermal-patch-and-grapefruit-juice",
+    "substanceA": "estradiol-transdermal-patch",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alprazolam-and-grapefruit",
+    "substanceA": "alprazolam",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "alprazolam-and-grapefruit-juice",
+    "substanceA": "alprazolam",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-ramipril",
+    "substanceA": "ramipril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "ramipril-and-salt-substitute",
+    "substanceA": "ramipril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lovastatin",
+    "substanceA": "lovastatin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lovastatin",
+    "substanceA": "lovastatin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "brigatinib-and-grapefruit",
+    "substanceA": "brigatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "brigatinib-and-grapefruit-juice",
+    "substanceA": "brigatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-vanzacaftor-tezacaftor-and-deutivacaftor",
+    "substanceA": "vanzacaftor-tezacaftor-and-deutivacaftor",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-vanzacaftor-tezacaftor-and-deutivacaftor",
+    "substanceA": "vanzacaftor-tezacaftor-and-deutivacaftor",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "amiloride-and-potassium",
+    "substanceA": "amiloride",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "amiloride-and-salt-substitute",
+    "substanceA": "amiloride",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "amiloride-and-hydrochlorothiazide-and-potassium",
+    "substanceA": "amiloride-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "amiloride-and-hydrochlorothiazide-and-salt-substitute",
+    "substanceA": "amiloride-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "amiodarone-and-grapefruit",
+    "substanceA": "amiodarone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "amiodarone-and-grapefruit-juice",
+    "substanceA": "amiodarone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "amlodipine-and-benazepril-and-potassium",
+    "substanceA": "amlodipine-and-benazepril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "amlodipine-and-benazepril-and-salt-substitute",
+    "substanceA": "amlodipine-and-benazepril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-and-grapefruit",
+    "substanceA": "estrogen",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-and-grapefruit-juice",
+    "substanceA": "estrogen",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-and-progestin-vaginal-ring-contraceptives-and-grapefruit",
+    "substanceA": "estrogen-and-progestin-vaginal-ring-contraceptives",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-and-progestin-vaginal-ring-contraceptives-and-grapefruit-juice",
+    "substanceA": "estrogen-and-progestin-vaginal-ring-contraceptives",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-disulfiram",
+    "substanceA": "disulfiram",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "hydrocortisone-rectal-and-potassium",
+    "substanceA": "hydrocortisone-rectal",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "hydrocortisone-rectal-and-salt-substitute",
+    "substanceA": "hydrocortisone-rectal",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "methyclothiazide-and-potassium",
+    "substanceA": "methyclothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "methyclothiazide-and-salt-substitute",
+    "substanceA": "methyclothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-mitapivat-thalassemia",
+    "substanceA": "mitapivat-thalassemia",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-mitapivat-thalassemia",
+    "substanceA": "mitapivat-thalassemia",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-triamcinolone",
+    "substanceA": "triamcinolone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-triamcinolone",
+    "substanceA": "triamcinolone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "armodafinil-and-grapefruit",
+    "substanceA": "armodafinil",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "armodafinil-and-grapefruit-juice",
+    "substanceA": "armodafinil",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "artemether-and-lumefantrine-and-grapefruit",
+    "substanceA": "artemether-and-lumefantrine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "artemether-and-lumefantrine-and-grapefruit-juice",
+    "substanceA": "artemether-and-lumefantrine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-morphine",
+    "substanceA": "morphine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-morphine",
+    "substanceA": "morphine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tacrolimus",
+    "substanceA": "tacrolimus",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tacrolimus",
+    "substanceA": "tacrolimus",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-morphine-injection",
+    "substanceA": "morphine-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-morphine-injection",
+    "substanceA": "morphine-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "candesartan-and-potassium",
+    "substanceA": "candesartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "candesartan-and-salt-substitute",
+    "substanceA": "candesartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "atazanavir-and-grapefruit",
+    "substanceA": "atazanavir",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "atazanavir-and-grapefruit-juice",
+    "substanceA": "atazanavir",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "atazanavir-and-cobicistat-and-grapefruit",
+    "substanceA": "atazanavir-and-cobicistat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "atazanavir-and-cobicistat-and-grapefruit-juice",
+    "substanceA": "atazanavir-and-cobicistat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "atogepant-and-grapefruit",
+    "substanceA": "atogepant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "atogepant-and-grapefruit-juice",
+    "substanceA": "atogepant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "atrasentan-and-grapefruit",
+    "substanceA": "atrasentan",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "atrasentan-and-grapefruit-juice",
+    "substanceA": "atrasentan",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "efavirenz-emtricitabine-and-tenofovir-disoproxil-fumarate-and-grapefruit",
+    "substanceA": "efavirenz-emtricitabine-and-tenofovir-disoproxil-fumarate",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "efavirenz-emtricitabine-and-tenofovir-disoproxil-fumarate-and-grapefruit-juice",
+    "substanceA": "efavirenz-emtricitabine-and-tenofovir-disoproxil-fumarate",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dihydroergotamine-nasal-spray-and-grapefruit",
+    "substanceA": "dihydroergotamine-nasal-spray",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dihydroergotamine-nasal-spray-and-grapefruit-juice",
+    "substanceA": "dihydroergotamine-nasal-spray",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-repotrectinib",
+    "substanceA": "repotrectinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-repotrectinib",
+    "substanceA": "repotrectinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "avacopan-and-grapefruit",
+    "substanceA": "avacopan",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "avacopan-and-grapefruit-juice",
+    "substanceA": "avacopan",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "irbesartan-and-potassium",
+    "substanceA": "irbesartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "irbesartan-and-salt-substitute",
+    "substanceA": "irbesartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "avanafil-and-grapefruit",
+    "substanceA": "avanafil",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "avanafil-and-grapefruit-juice",
+    "substanceA": "avanafil",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "avapritinib-and-grapefruit",
+    "substanceA": "avapritinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "avapritinib-and-grapefruit-juice",
+    "substanceA": "avapritinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "avutometinib-and-defactinib-and-grapefruit",
+    "substanceA": "avutometinib-and-defactinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "avutometinib-and-defactinib-and-grapefruit-juice",
+    "substanceA": "avutometinib-and-defactinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dutasteride-and-grapefruit",
+    "substanceA": "dutasteride",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dutasteride-and-grapefruit-juice",
+    "substanceA": "dutasteride",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "axitinib-and-grapefruit",
+    "substanceA": "axitinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "axitinib-and-grapefruit-juice",
+    "substanceA": "axitinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-azelaic-acid-topical",
+    "substanceA": "azelaic-acid-topical",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "azilsartan-and-potassium",
+    "substanceA": "azilsartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "azilsartan-and-salt-substitute",
+    "substanceA": "azilsartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "olmesartan-and-potassium",
+    "substanceA": "olmesartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "olmesartan-and-salt-substitute",
+    "substanceA": "olmesartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "baxdrostat-and-grapefruit",
+    "substanceA": "baxdrostat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "baxdrostat-and-grapefruit-juice",
+    "substanceA": "baxdrostat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "baxdrostat-and-potassium",
+    "substanceA": "baxdrostat",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "baxdrostat-and-salt-substitute",
+    "substanceA": "baxdrostat",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "bedaquiline-and-grapefruit",
+    "substanceA": "bedaquiline",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "bedaquiline-and-grapefruit-juice",
+    "substanceA": "bedaquiline",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-suvorexant",
+    "substanceA": "suvorexant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-suvorexant",
+    "substanceA": "suvorexant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "benazepril-and-potassium",
+    "substanceA": "benazepril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "benazepril-and-salt-substitute",
+    "substanceA": "benazepril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "benazepril-and-hydrochlorothiazide-and-potassium",
+    "substanceA": "benazepril-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "benazepril-and-hydrochlorothiazide-and-salt-substitute",
+    "substanceA": "benazepril-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sonrotoclax",
+    "substanceA": "sonrotoclax",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sonrotoclax",
+    "substanceA": "sonrotoclax",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "bexarotene-and-grapefruit",
+    "substanceA": "bexarotene",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "bexarotene-and-grapefruit-juice",
+    "substanceA": "bexarotene",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "bexarotene-topical-and-grapefruit",
+    "substanceA": "bexarotene-topical",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "bexarotene-topical-and-grapefruit-juice",
+    "substanceA": "bexarotene-topical",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-praziquantel",
+    "substanceA": "praziquantel",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-praziquantel",
+    "substanceA": "praziquantel",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-and-progestin-transdermal-patch-contraceptives-and-grapefruit",
+    "substanceA": "estrogen-and-progestin-transdermal-patch-contraceptives",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-and-progestin-transdermal-patch-contraceptives-and-grapefruit-juice",
+    "substanceA": "estrogen-and-progestin-transdermal-patch-contraceptives",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "gepotidacin-and-grapefruit",
+    "substanceA": "gepotidacin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "gepotidacin-and-grapefruit-juice",
+    "substanceA": "gepotidacin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "bortezomib-injection-and-grapefruit",
+    "substanceA": "bortezomib-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "bortezomib-injection-and-grapefruit-juice",
+    "substanceA": "bortezomib-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "bosentan-and-grapefruit",
+    "substanceA": "bosentan",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "bosentan-and-grapefruit-juice",
+    "substanceA": "bosentan",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "bosutinib-and-grapefruit",
+    "substanceA": "bosutinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "bosutinib-and-grapefruit-juice",
+    "substanceA": "bosutinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "encorafenib-and-grapefruit",
+    "substanceA": "encorafenib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "encorafenib-and-grapefruit-juice",
+    "substanceA": "encorafenib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dihydroergotamine-injection-and-grapefruit",
+    "substanceA": "dihydroergotamine-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dihydroergotamine-injection-and-grapefruit-juice",
+    "substanceA": "dihydroergotamine-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ibrexafungerp",
+    "substanceA": "ibrexafungerp",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ibrexafungerp",
+    "substanceA": "ibrexafungerp",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ticagrelor",
+    "substanceA": "ticagrelor",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ticagrelor",
+    "substanceA": "ticagrelor",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "bromocriptine-and-grapefruit",
+    "substanceA": "bromocriptine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "bromocriptine-and-grapefruit-juice",
+    "substanceA": "bromocriptine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-zanubrutinib",
+    "substanceA": "zanubrutinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-zanubrutinib",
+    "substanceA": "zanubrutinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "budesonide-and-grapefruit",
+    "substanceA": "budesonide",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "budesonide-and-grapefruit-juice",
+    "substanceA": "budesonide",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "budesonide-oral-suspension-eosinophilic-esophagitis-and-grapefruit",
+    "substanceA": "budesonide-oral-suspension-eosinophilic-esophagitis",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "budesonide-oral-suspension-eosinophilic-esophagitis-and-grapefruit-juice",
+    "substanceA": "budesonide-oral-suspension-eosinophilic-esophagitis",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "bumetanide-and-potassium",
+    "substanceA": "bumetanide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "bumetanide-and-salt-substitute",
+    "substanceA": "bumetanide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "buprenorphine-injection-pain-relief-and-grapefruit",
+    "substanceA": "buprenorphine-injection-pain-relief",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "buprenorphine-injection-pain-relief-and-grapefruit-juice",
+    "substanceA": "buprenorphine-injection-pain-relief",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "buspirone-and-grapefruit",
+    "substanceA": "buspirone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "buspirone-and-grapefruit-juice",
+    "substanceA": "buspirone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-milsaperidone",
+    "substanceA": "milsaperidone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-milsaperidone",
+    "substanceA": "milsaperidone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "nebivolol-and-valsartan-and-potassium",
+    "substanceA": "nebivolol-and-valsartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "nebivolol-and-valsartan-and-salt-substitute",
+    "substanceA": "nebivolol-and-valsartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "cabazitaxel-injection-and-grapefruit",
+    "substanceA": "cabazitaxel-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cabazitaxel-injection-and-grapefruit-juice",
+    "substanceA": "cabazitaxel-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cabozantinib-and-grapefruit",
+    "substanceA": "cabozantinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cabozantinib-and-grapefruit-juice",
+    "substanceA": "cabozantinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cabozantinib-thyroid-cancer-and-grapefruit",
+    "substanceA": "cabozantinib-thyroid-cancer",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cabozantinib-thyroid-cancer-and-grapefruit-juice",
+    "substanceA": "cabozantinib-thyroid-cancer",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "ergotamine-and-caffeine-and-grapefruit",
+    "substanceA": "ergotamine-and-caffeine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "ergotamine-and-caffeine-and-grapefruit-juice",
+    "substanceA": "ergotamine-and-caffeine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-verapamil",
+    "substanceA": "verapamil",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-verapamil",
+    "substanceA": "verapamil",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-irinotecan-injection",
+    "substanceA": "irinotecan-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-irinotecan-injection",
+    "substanceA": "irinotecan-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cannabidiol-and-grapefruit",
+    "substanceA": "cannabidiol",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cannabidiol-and-grapefruit-juice",
+    "substanceA": "cannabidiol",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "capivasertib-and-grapefruit",
+    "substanceA": "capivasertib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "capivasertib-and-grapefruit-juice",
+    "substanceA": "capivasertib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lumateperone",
+    "substanceA": "lumateperone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lumateperone",
+    "substanceA": "lumateperone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "captopril-and-potassium",
+    "substanceA": "captopril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "captopril-and-salt-substitute",
+    "substanceA": "captopril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "captopril-and-hydrochlorothiazide-and-potassium",
+    "substanceA": "captopril-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "captopril-and-hydrochlorothiazide-and-salt-substitute",
+    "substanceA": "captopril-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "carbamazepine-and-grapefruit",
+    "substanceA": "carbamazepine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "carbamazepine-and-grapefruit-juice",
+    "substanceA": "carbamazepine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-nicardipine",
+    "substanceA": "nicardipine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-nicardipine",
+    "substanceA": "nicardipine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "nicardipine-and-potassium",
+    "substanceA": "nicardipine",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "nicardipine-and-salt-substitute",
+    "substanceA": "nicardipine",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-quinidine",
+    "substanceA": "quinidine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-quinidine",
+    "substanceA": "quinidine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "digoxin-and-salt-substitute",
+    "substanceA": "digoxin",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-nilotinib",
+    "substanceA": "nilotinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-nilotinib",
+    "substanceA": "nilotinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "eliglustat-and-grapefruit",
+    "substanceA": "eliglustat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "eliglustat-and-grapefruit-juice",
+    "substanceA": "eliglustat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "ceritinib-and-grapefruit",
+    "substanceA": "ceritinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "ceritinib-and-grapefruit-juice",
+    "substanceA": "ceritinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cevimeline-and-grapefruit",
+    "substanceA": "cevimeline",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cevimeline-and-grapefruit-juice",
+    "substanceA": "cevimeline",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "chlorthalidone-and-potassium",
+    "substanceA": "chlorthalidone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "chlorthalidone-and-salt-substitute",
+    "substanceA": "chlorthalidone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "cinacalcet-and-grapefruit",
+    "substanceA": "cinacalcet",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cinacalcet-and-grapefruit-juice",
+    "substanceA": "cinacalcet",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-and-progestin-transdermal-patch-hormone-replacement-therapy-and-grapefruit",
+    "substanceA": "estrogen-and-progestin-transdermal-patch-hormone-replacement-therapy",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-and-progestin-transdermal-patch-hormone-replacement-therapy-and-grapefruit-juice",
+    "substanceA": "estrogen-and-progestin-transdermal-patch-hormone-replacement-therapy",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "clonazepam-and-grapefruit",
+    "substanceA": "clonazepam",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "clonazepam-and-grapefruit-juice",
+    "substanceA": "clonazepam",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cobimetinib-and-grapefruit",
+    "substanceA": "cobimetinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cobimetinib-and-grapefruit-juice",
+    "substanceA": "cobimetinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-oxycodone-combination-products",
+    "substanceA": "oxycodone-combination-products",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-oxycodone-combination-products",
+    "substanceA": "oxycodone-combination-products",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "colchicine-and-grapefruit",
+    "substanceA": "colchicine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "colchicine-and-grapefruit-juice",
+    "substanceA": "colchicine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "magnesium-sulfate-potassium-sulfate-and-sodium-sulfate-and-potassium",
+    "substanceA": "magnesium-sulfate-potassium-sulfate-and-sodium-sulfate",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "magnesium-sulfate-potassium-sulfate-and-sodium-sulfate-and-salt-substitute",
+    "substanceA": "magnesium-sulfate-potassium-sulfate-and-sodium-sulfate",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-injection-and-grapefruit",
+    "substanceA": "estrogen-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-injection-and-grapefruit-juice",
+    "substanceA": "estrogen-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-vaginal-and-grapefruit",
+    "substanceA": "estrogen-vaginal",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-vaginal-and-grapefruit-juice",
+    "substanceA": "estrogen-vaginal",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ivabradine",
+    "substanceA": "ivabradine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ivabradine",
+    "substanceA": "ivabradine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-prednisone",
+    "substanceA": "prednisone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-prednisone",
+    "substanceA": "prednisone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-prednisone",
+    "substanceA": "prednisone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "prednisone-and-salt-substitute",
+    "substanceA": "prednisone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-warfarin",
+    "substanceA": "warfarin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "losartan-and-salt-substitute",
+    "substanceA": "losartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-isavuconazonium-injection",
+    "substanceA": "isavuconazonium-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-isavuconazonium-injection",
+    "substanceA": "isavuconazonium-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-isavuconazonium",
+    "substanceA": "isavuconazonium",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-isavuconazonium",
+    "substanceA": "isavuconazonium",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-indinavir",
+    "substanceA": "indinavir",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-indinavir",
+    "substanceA": "indinavir",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "crizotinib-and-grapefruit",
+    "substanceA": "crizotinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "crizotinib-and-grapefruit-juice",
+    "substanceA": "crizotinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cyclosporine-and-grapefruit",
+    "substanceA": "cyclosporine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cyclosporine-and-grapefruit-juice",
+    "substanceA": "cyclosporine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cyclosporine-and-potassium",
+    "substanceA": "cyclosporine",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "cyclosporine-and-salt-substitute",
+    "substanceA": "cyclosporine",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "cyclosporine-injection-and-grapefruit",
+    "substanceA": "cyclosporine-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "cyclosporine-injection-and-grapefruit-juice",
+    "substanceA": "cyclosporine-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "cyclosporine-injection-and-potassium",
+    "substanceA": "cyclosporine-injection",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "cyclosporine-injection-and-salt-substitute",
+    "substanceA": "cyclosporine-injection",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "daridorexant-and-grapefruit",
+    "substanceA": "daridorexant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "daridorexant-and-grapefruit-juice",
+    "substanceA": "daridorexant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "darifenacin-and-grapefruit",
+    "substanceA": "darifenacin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "darifenacin-and-grapefruit-juice",
+    "substanceA": "darifenacin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "darolutamide-and-grapefruit",
+    "substanceA": "darolutamide",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "darolutamide-and-grapefruit-juice",
+    "substanceA": "darolutamide",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "darunavir-and-grapefruit",
+    "substanceA": "darunavir",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "darunavir-and-grapefruit-juice",
+    "substanceA": "darunavir",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "darunavir-and-cobicistat-and-grapefruit",
+    "substanceA": "darunavir-and-cobicistat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "darunavir-and-cobicistat-and-grapefruit-juice",
+    "substanceA": "darunavir-and-cobicistat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dasatinib-and-grapefruit",
+    "substanceA": "dasatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dasatinib-and-grapefruit-juice",
+    "substanceA": "dasatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dexamethasone-injection-and-potassium",
+    "substanceA": "dexamethasone-injection",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "dexamethasone-injection-and-salt-substitute",
+    "substanceA": "dexamethasone-injection",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "dexamethasone-and-potassium",
+    "substanceA": "dexamethasone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "dexamethasone-and-salt-substitute",
+    "substanceA": "dexamethasone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "deflazacort-and-grapefruit",
+    "substanceA": "deflazacort",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "deflazacort-and-grapefruit-juice",
+    "substanceA": "deflazacort",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dronabinol-and-grapefruit",
+    "substanceA": "dronabinol",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dronabinol-and-grapefruit-juice",
+    "substanceA": "dronabinol",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-torsemide",
+    "substanceA": "torsemide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-torsemide",
+    "substanceA": "torsemide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-trazodone",
+    "substanceA": "trazodone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-trazodone",
+    "substanceA": "trazodone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dextromethorphan-and-quinidine-and-grapefruit",
+    "substanceA": "dextromethorphan-and-quinidine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dextromethorphan-and-quinidine-and-grapefruit-juice",
+    "substanceA": "dextromethorphan-and-quinidine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "diazepam-buccal-and-grapefruit",
+    "substanceA": "diazepam-buccal",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "diazepam-buccal-and-grapefruit-juice",
+    "substanceA": "diazepam-buccal",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "diazepam-nasal-spray-and-grapefruit",
+    "substanceA": "diazepam-nasal-spray",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "diazepam-nasal-spray-and-grapefruit-juice",
+    "substanceA": "diazepam-nasal-spray",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "diazoxide-choline-and-grapefruit",
+    "substanceA": "diazoxide-choline",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "diazoxide-choline-and-grapefruit-juice",
+    "substanceA": "diazoxide-choline",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-valsartan",
+    "substanceA": "valsartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-valsartan",
+    "substanceA": "valsartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-valsartan-and-hydrochlorothiazide",
+    "substanceA": "valsartan-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-valsartan-and-hydrochlorothiazide",
+    "substanceA": "valsartan-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-oxybutynin",
+    "substanceA": "oxybutynin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-oxybutynin",
+    "substanceA": "oxybutynin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "estradiol-topical-and-grapefruit",
+    "substanceA": "estradiol-topical",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estradiol-topical-and-grapefruit-juice",
+    "substanceA": "estradiol-topical",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dofetilide-and-grapefruit",
+    "substanceA": "dofetilide",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dofetilide-and-grapefruit-juice",
+    "substanceA": "dofetilide",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dolutegravir-and-rilpivirine-and-grapefruit",
+    "substanceA": "dolutegravir-and-rilpivirine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dolutegravir-and-rilpivirine-and-grapefruit-juice",
+    "substanceA": "dolutegravir-and-rilpivirine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "doravirine-and-islatravir-and-grapefruit",
+    "substanceA": "doravirine-and-islatravir",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "doravirine-and-islatravir-and-grapefruit-juice",
+    "substanceA": "doravirine-and-islatravir",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dordaviprone-and-grapefruit",
+    "substanceA": "dordaviprone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dordaviprone-and-grapefruit-juice",
+    "substanceA": "dordaviprone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "dronedarone-and-grapefruit",
+    "substanceA": "dronedarone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "dronedarone-and-grapefruit-juice",
+    "substanceA": "dronedarone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "estrogen-and-bazedoxifene-and-grapefruit",
+    "substanceA": "estrogen-and-bazedoxifene",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "estrogen-and-bazedoxifene-and-grapefruit-juice",
+    "substanceA": "estrogen-and-bazedoxifene",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-triamterene-and-hydrochlorothiazide",
+    "substanceA": "triamterene-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-triamterene-and-hydrochlorothiazide",
+    "substanceA": "triamterene-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-isradipine",
+    "substanceA": "isradipine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-isradipine",
+    "substanceA": "isradipine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "isradipine-and-potassium",
+    "substanceA": "isradipine",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "isradipine-and-salt-substitute",
+    "substanceA": "isradipine",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-triamterene",
+    "substanceA": "triamterene",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-triamterene",
+    "substanceA": "triamterene",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "ethacrynic-acid-and-potassium",
+    "substanceA": "ethacrynic-acid",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "ethacrynic-acid-and-salt-substitute",
+    "substanceA": "ethacrynic-acid",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "efavirenz-and-grapefruit",
+    "substanceA": "efavirenz",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "efavirenz-and-grapefruit-juice",
+    "substanceA": "efavirenz",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sebetralstat",
+    "substanceA": "sebetralstat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sebetralstat",
+    "substanceA": "sebetralstat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "elagolix-estradiol-and-norethindrone-and-grapefruit",
+    "substanceA": "elagolix-estradiol-and-norethindrone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "elagolix-estradiol-and-norethindrone-and-grapefruit-juice",
+    "substanceA": "elagolix-estradiol-and-norethindrone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "eletriptan-and-grapefruit",
+    "substanceA": "eletriptan",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "eletriptan-and-grapefruit-juice",
+    "substanceA": "eletriptan",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "elexacaftor-tezacaftor-and-ivacaftor-and-grapefruit",
+    "substanceA": "elexacaftor-tezacaftor-and-ivacaftor",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "elexacaftor-tezacaftor-and-ivacaftor-and-grapefruit-juice",
+    "substanceA": "elexacaftor-tezacaftor-and-ivacaftor",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-pimecrolimus-topical",
+    "substanceA": "pimecrolimus-topical",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-pimecrolimus-topical",
+    "substanceA": "pimecrolimus-topical",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "elinzanetant-and-grapefruit",
+    "substanceA": "elinzanetant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "elinzanetant-and-grapefruit-juice",
+    "substanceA": "elinzanetant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-telisotuzumab-vedotin-tllv-injection",
+    "substanceA": "telisotuzumab-vedotin-tllv-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-telisotuzumab-vedotin-tllv-injection",
+    "substanceA": "telisotuzumab-vedotin-tllv-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-selegiline-transdermal-patch",
+    "substanceA": "selegiline-transdermal-patch",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "enalapril-and-potassium",
+    "substanceA": "enalapril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "enalapril-and-salt-substitute",
+    "substanceA": "enalapril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "enalapril-and-hydrochlorothiazide-and-potassium",
+    "substanceA": "enalapril-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "enalapril-and-hydrochlorothiazide-and-salt-substitute",
+    "substanceA": "enalapril-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "ensartinib-and-grapefruit",
+    "substanceA": "ensartinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "ensartinib-and-grapefruit-juice",
+    "substanceA": "ensartinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "ensitrelvir-and-grapefruit",
+    "substanceA": "ensitrelvir",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "ensitrelvir-and-grapefruit-juice",
+    "substanceA": "ensitrelvir",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "entrectinib-and-grapefruit",
+    "substanceA": "entrectinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "entrectinib-and-grapefruit-juice",
+    "substanceA": "entrectinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-valsartan-and-sacubitril",
+    "substanceA": "valsartan-and-sacubitril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-valsartan-and-sacubitril",
+    "substanceA": "valsartan-and-sacubitril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "eplerenone-and-grapefruit",
+    "substanceA": "eplerenone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "eplerenone-and-grapefruit-juice",
+    "substanceA": "eplerenone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "eplerenone-and-potassium",
+    "substanceA": "eplerenone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "eplerenone-and-salt-substitute",
+    "substanceA": "eplerenone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "eprosartan-and-potassium",
+    "substanceA": "eprosartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "eprosartan-and-salt-substitute",
+    "substanceA": "eprosartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "erlotinib-and-grapefruit",
+    "substanceA": "erlotinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "erlotinib-and-grapefruit-juice",
+    "substanceA": "erlotinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "eszopiclone-and-grapefruit",
+    "substanceA": "eszopiclone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "eszopiclone-and-grapefruit-juice",
+    "substanceA": "eszopiclone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "etonogestrel-implant-and-grapefruit",
+    "substanceA": "etonogestrel-implant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "etonogestrel-implant-and-grapefruit-juice",
+    "substanceA": "etonogestrel-implant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "etravirine-and-grapefruit",
+    "substanceA": "etravirine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "etravirine-and-grapefruit-juice",
+    "substanceA": "etravirine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-mobocertinib",
+    "substanceA": "mobocertinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-mobocertinib",
+    "substanceA": "mobocertinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "gepirone-and-grapefruit",
+    "substanceA": "gepirone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "gepirone-and-grapefruit-juice",
+    "substanceA": "gepirone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-iloperidone",
+    "substanceA": "iloperidone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-iloperidone",
+    "substanceA": "iloperidone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-toremifene",
+    "substanceA": "toremifene",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-toremifene",
+    "substanceA": "toremifene",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-panobinostat",
+    "substanceA": "panobinostat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-panobinostat",
+    "substanceA": "panobinostat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "fedratinib-and-grapefruit",
+    "substanceA": "fedratinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "fedratinib-and-grapefruit-juice",
+    "substanceA": "fedratinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "felodipine-and-grapefruit",
+    "substanceA": "felodipine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "felodipine-and-grapefruit-juice",
+    "substanceA": "felodipine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "felodipine-and-potassium",
+    "substanceA": "felodipine",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "felodipine-and-salt-substitute",
+    "substanceA": "felodipine",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "fentanyl-nasal-spray-and-grapefruit",
+    "substanceA": "fentanyl-nasal-spray",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "fentanyl-nasal-spray-and-grapefruit-juice",
+    "substanceA": "fentanyl-nasal-spray",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "fentanyl-sublingual-spray-and-grapefruit",
+    "substanceA": "fentanyl-sublingual-spray",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "fentanyl-sublingual-spray-and-grapefruit-juice",
+    "substanceA": "fentanyl-sublingual-spray",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "fesoterodine-and-grapefruit",
+    "substanceA": "fesoterodine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "fesoterodine-and-grapefruit-juice",
+    "substanceA": "fesoterodine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sparsentan",
+    "substanceA": "sparsentan",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sparsentan",
+    "substanceA": "sparsentan",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-sparsentan",
+    "substanceA": "sparsentan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-sparsentan",
+    "substanceA": "sparsentan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "finerenone-and-grapefruit",
+    "substanceA": "finerenone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "finerenone-and-grapefruit-juice",
+    "substanceA": "finerenone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "finerenone-and-potassium",
+    "substanceA": "finerenone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "finerenone-and-salt-substitute",
+    "substanceA": "finerenone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tacrolimus-injection",
+    "substanceA": "tacrolimus-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tacrolimus-injection",
+    "substanceA": "tacrolimus-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-prednisolone",
+    "substanceA": "prednisolone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "prednisolone-and-salt-substitute",
+    "substanceA": "prednisolone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-juice-and-simvastatin",
+    "substanceA": "simvastatin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "fludrocortisone-acetate-and-potassium",
+    "substanceA": "fludrocortisone-acetate",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "fludrocortisone-acetate-and-salt-substitute",
+    "substanceA": "fludrocortisone-acetate",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "fosinopril-and-potassium",
+    "substanceA": "fosinopril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "fosinopril-and-salt-substitute",
+    "substanceA": "fosinopril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-orforglipron",
+    "substanceA": "orforglipron",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-orforglipron",
+    "substanceA": "orforglipron",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "furosemide-injection-and-potassium",
+    "substanceA": "furosemide-injection",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "furosemide-injection-and-salt-substitute",
+    "substanceA": "furosemide-injection",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "furosemide-and-potassium",
+    "substanceA": "furosemide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "furosemide-and-salt-substitute",
+    "substanceA": "furosemide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "futibatinib-and-grapefruit",
+    "substanceA": "futibatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "futibatinib-and-grapefruit-juice",
+    "substanceA": "futibatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sirolimus-with-albumin-injection",
+    "substanceA": "sirolimus-with-albumin-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sirolimus-with-albumin-injection",
+    "substanceA": "sirolimus-with-albumin-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tiagabine",
+    "substanceA": "tiagabine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tiagabine",
+    "substanceA": "tiagabine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ziprasidone",
+    "substanceA": "ziprasidone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ziprasidone",
+    "substanceA": "ziprasidone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-imatinib",
+    "substanceA": "imatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-imatinib",
+    "substanceA": "imatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-salt-substitute",
+    "substanceA": "potassium",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-miglitol",
+    "substanceA": "miglitol",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-guanfacine",
+    "substanceA": "guanfacine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-guanfacine",
+    "substanceA": "guanfacine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-triazolam",
+    "substanceA": "triazolam",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-triazolam",
+    "substanceA": "triazolam",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-haloperidol-injection",
+    "substanceA": "haloperidol-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-haloperidol-injection",
+    "substanceA": "haloperidol-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-zongertinib",
+    "substanceA": "zongertinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-zongertinib",
+    "substanceA": "zongertinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-hydrocodone",
+    "substanceA": "hydrocodone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-hydrocodone",
+    "substanceA": "hydrocodone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sevabertinib",
+    "substanceA": "sevabertinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sevabertinib",
+    "substanceA": "sevabertinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-palbociclib",
+    "substanceA": "palbociclib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-palbociclib",
+    "substanceA": "palbociclib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ibrutinib",
+    "substanceA": "ibrutinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ibrutinib",
+    "substanceA": "ibrutinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-taletrectinib",
+    "substanceA": "taletrectinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-taletrectinib",
+    "substanceA": "taletrectinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ponatinib",
+    "substanceA": "ponatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ponatinib",
+    "substanceA": "ponatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-idelalisib",
+    "substanceA": "idelalisib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-idelalisib",
+    "substanceA": "idelalisib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ifosfamide-injection",
+    "substanceA": "ifosfamide-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ifosfamide-injection",
+    "substanceA": "ifosfamide-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-imlunestrant",
+    "substanceA": "imlunestrant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-imlunestrant",
+    "substanceA": "imlunestrant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "indapamide-and-potassium",
+    "substanceA": "indapamide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "indapamide-and-salt-substitute",
+    "substanceA": "indapamide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-infigratinib",
+    "substanceA": "infigratinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-infigratinib",
+    "substanceA": "infigratinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-valbenazine",
+    "substanceA": "valbenazine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-valbenazine",
+    "substanceA": "valbenazine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-saquinavir",
+    "substanceA": "saquinavir",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-saquinavir",
+    "substanceA": "saquinavir",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-isocarboxazid",
+    "substanceA": "isocarboxazid",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-romidepsin-injection",
+    "substanceA": "romidepsin-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-romidepsin-injection",
+    "substanceA": "romidepsin-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-itraconazole",
+    "substanceA": "itraconazole",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-itraconazole",
+    "substanceA": "itraconazole",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ivacaftor",
+    "substanceA": "ivacaftor",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ivacaftor",
+    "substanceA": "ivacaftor",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ixabepilone-injection",
+    "substanceA": "ixabepilone-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ixabepilone-injection",
+    "substanceA": "ixabepilone-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-nerandomilast",
+    "substanceA": "nerandomilast",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-nerandomilast",
+    "substanceA": "nerandomilast",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-pirtobrutinib",
+    "substanceA": "pirtobrutinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-pirtobrutinib",
+    "substanceA": "pirtobrutinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-suzetrigine",
+    "substanceA": "suzetrigine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-suzetrigine",
+    "substanceA": "suzetrigine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lomitapide",
+    "substanceA": "lomitapide",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lomitapide",
+    "substanceA": "lomitapide",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tolvaptan-kidney-disease",
+    "substanceA": "tolvaptan-kidney-disease",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tolvaptan-kidney-disease",
+    "substanceA": "tolvaptan-kidney-disease",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-sodium-polystyrene-sulfonate",
+    "substanceA": "sodium-polystyrene-sulfonate",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-sodium-polystyrene-sulfonate",
+    "substanceA": "sodium-polystyrene-sulfonate",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ribociclib",
+    "substanceA": "ribociclib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ribociclib",
+    "substanceA": "ribociclib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ziftomenib",
+    "substanceA": "ziftomenib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ziftomenib",
+    "substanceA": "ziftomenib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-mifepristone-korlym",
+    "substanceA": "mifepristone-korlym",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-mifepristone-korlym",
+    "substanceA": "mifepristone-korlym",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-selumetinib",
+    "substanceA": "selumetinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-selumetinib",
+    "substanceA": "selumetinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lapatinib",
+    "substanceA": "lapatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lapatinib",
+    "substanceA": "lapatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-larotrectinib",
+    "substanceA": "larotrectinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-larotrectinib",
+    "substanceA": "larotrectinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lurasidone",
+    "substanceA": "lurasidone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lurasidone",
+    "substanceA": "lurasidone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lenacapavir",
+    "substanceA": "lenacapavir",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lenacapavir",
+    "substanceA": "lenacapavir",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lenacapavir-injection",
+    "substanceA": "lenacapavir-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lenacapavir-injection",
+    "substanceA": "lenacapavir-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-vardenafil",
+    "substanceA": "vardenafil",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-vardenafil",
+    "substanceA": "vardenafil",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-levothyroxine",
+    "substanceA": "levothyroxine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-levothyroxine",
+    "substanceA": "levothyroxine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-levoketoconazole",
+    "substanceA": "levoketoconazole",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-levoketoconazole",
+    "substanceA": "levoketoconazole",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-relacorilant",
+    "substanceA": "relacorilant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-relacorilant",
+    "substanceA": "relacorilant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-linezolid",
+    "substanceA": "linezolid",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "alcohol-and-linezolid-injection",
+    "substanceA": "linezolid-injection",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-sildenafil",
+    "substanceA": "sildenafil",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sildenafil",
+    "substanceA": "sildenafil",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "lisinopril-and-hydrochlorothiazide-and-potassium",
+    "substanceA": "lisinopril-and-hydrochlorothiazide",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "lisinopril-and-hydrochlorothiazide-and-salt-substitute",
+    "substanceA": "lisinopril-and-hydrochlorothiazide",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-seladelpar",
+    "substanceA": "seladelpar",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-seladelpar",
+    "substanceA": "seladelpar",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-sodium-zirconium-cyclosilicate",
+    "substanceA": "sodium-zirconium-cyclosilicate",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-sodium-zirconium-cyclosilicate",
+    "substanceA": "sodium-zirconium-cyclosilicate",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lonafarnib",
+    "substanceA": "lonafarnib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lonafarnib",
+    "substanceA": "lonafarnib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lorlatinib",
+    "substanceA": "lorlatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lorlatinib",
+    "substanceA": "lorlatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lumacaftor-and-ivacaftor",
+    "substanceA": "lumacaftor-and-ivacaftor",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lumacaftor-and-ivacaftor",
+    "substanceA": "lumacaftor-and-ivacaftor",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-voclosporin",
+    "substanceA": "voclosporin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-voclosporin",
+    "substanceA": "voclosporin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lurbinectedin-injection",
+    "substanceA": "lurbinectedin-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-lurbinectedin-injection",
+    "substanceA": "lurbinectedin-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-olanzapine-and-samidorphan",
+    "substanceA": "olanzapine-and-samidorphan",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-olanzapine-and-samidorphan",
+    "substanceA": "olanzapine-and-samidorphan",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-olaparib",
+    "substanceA": "olaparib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-olaparib",
+    "substanceA": "olaparib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-trandolapril",
+    "substanceA": "trandolapril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-trandolapril",
+    "substanceA": "trandolapril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-mavorixafor",
+    "substanceA": "mavorixafor",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-mavorixafor",
+    "substanceA": "mavorixafor",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "methylprednisolone-and-potassium",
+    "substanceA": "methylprednisolone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "methylprednisolone-and-salt-substitute",
+    "substanceA": "methylprednisolone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "metolazone-and-potassium",
+    "substanceA": "metolazone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "metolazone-and-salt-substitute",
+    "substanceA": "metolazone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-telmisartan",
+    "substanceA": "telmisartan",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-telmisartan",
+    "substanceA": "telmisartan",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-midazolam-nasal-spray",
+    "substanceA": "midazolam-nasal-spray",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-midazolam-nasal-spray",
+    "substanceA": "midazolam-nasal-spray",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-midostaurin",
+    "substanceA": "midostaurin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-midostaurin",
+    "substanceA": "midostaurin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-mifepristone-mifeprex",
+    "substanceA": "mifepristone-mifeprex",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-mifepristone-mifeprex",
+    "substanceA": "mifepristone-mifeprex",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-mitapivat-hemolytic-anemia",
+    "substanceA": "mitapivat-hemolytic-anemia",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-mitapivat-hemolytic-anemia",
+    "substanceA": "mitapivat-hemolytic-anemia",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-modafinil",
+    "substanceA": "modafinil",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-modafinil",
+    "substanceA": "modafinil",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "moexipril-and-potassium",
+    "substanceA": "moexipril",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "moexipril-and-salt-substitute",
+    "substanceA": "moexipril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-naloxegol",
+    "substanceA": "naloxegol",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-naloxegol",
+    "substanceA": "naloxegol",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-phenelzine",
+    "substanceA": "phenelzine",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "alcohol-and-nateglinide",
+    "substanceA": "nateglinide",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-neratinib",
+    "substanceA": "neratinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-neratinib",
+    "substanceA": "neratinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tradipitant",
+    "substanceA": "tradipitant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tradipitant",
+    "substanceA": "tradipitant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-nimodipine",
+    "substanceA": "nimodipine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-nimodipine",
+    "substanceA": "nimodipine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-nirogacestat",
+    "substanceA": "nirogacestat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-nirogacestat",
+    "substanceA": "nirogacestat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-nisoldipine",
+    "substanceA": "nisoldipine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-nisoldipine",
+    "substanceA": "nisoldipine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "nisoldipine-and-potassium",
+    "substanceA": "nisoldipine",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "nisoldipine-and-salt-substitute",
+    "substanceA": "nisoldipine",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-rimegepant",
+    "substanceA": "rimegepant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-rimegepant",
+    "substanceA": "rimegepant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sonidegib",
+    "substanceA": "sonidegib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sonidegib",
+    "substanceA": "sonidegib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-olanzapine",
+    "substanceA": "olanzapine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-olanzapine",
+    "substanceA": "olanzapine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-pimozide",
+    "substanceA": "pimozide",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-pimozide",
+    "substanceA": "pimozide",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ospemifene",
+    "substanceA": "ospemifene",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ospemifene",
+    "substanceA": "ospemifene",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-oxycodone",
+    "substanceA": "oxycodone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-oxycodone",
+    "substanceA": "oxycodone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-oxybutynin-transdermal-patch",
+    "substanceA": "oxybutynin-transdermal-patch",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-oxybutynin-transdermal-patch",
+    "substanceA": "oxybutynin-transdermal-patch",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-ozanimod",
+    "substanceA": "ozanimod",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-pacritinib",
+    "substanceA": "pacritinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-pacritinib",
+    "substanceA": "pacritinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-palovarotene",
+    "substanceA": "palovarotene",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-palovarotene",
+    "substanceA": "palovarotene",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-paltusotine",
+    "substanceA": "paltusotine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-paltusotine",
+    "substanceA": "paltusotine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-tranylcypromine",
+    "substanceA": "tranylcypromine",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-patiromer",
+    "substanceA": "patiromer",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-patiromer",
+    "substanceA": "patiromer",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "patiromer-and-potassium",
+    "substanceA": "patiromer",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "patiromer-and-salt-substitute",
+    "substanceA": "patiromer",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-pazopanib",
+    "substanceA": "pazopanib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-pazopanib",
+    "substanceA": "pazopanib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-peginterferon-alfa-2b-peg-intron",
+    "substanceA": "peginterferon-alfa-2b-peg-intron",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-pemigatinib",
+    "substanceA": "pemigatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-pemigatinib",
+    "substanceA": "pemigatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-pexidartinib",
+    "substanceA": "pexidartinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-pexidartinib",
+    "substanceA": "pexidartinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-repaglinide",
+    "substanceA": "repaglinide",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-progesterone",
+    "substanceA": "progesterone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-progesterone",
+    "substanceA": "progesterone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-propafenone",
+    "substanceA": "propafenone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-propafenone",
+    "substanceA": "propafenone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-propafenone",
+    "substanceA": "propafenone",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "propafenone-and-salt-substitute",
+    "substanceA": "propafenone",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tacrolimus-topical",
+    "substanceA": "tacrolimus-topical",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tacrolimus-topical",
+    "substanceA": "tacrolimus-topical",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-quetiapine",
+    "substanceA": "quetiapine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-quetiapine",
+    "substanceA": "quetiapine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ramelteon",
+    "substanceA": "ramelteon",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ramelteon",
+    "substanceA": "ramelteon",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ranolazine",
+    "substanceA": "ranolazine",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ranolazine",
+    "substanceA": "ranolazine",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-silodosin",
+    "substanceA": "silodosin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-silodosin",
+    "substanceA": "silodosin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sirolimus",
+    "substanceA": "sirolimus",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sirolimus",
+    "substanceA": "sirolimus",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-regorafenib",
+    "substanceA": "regorafenib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-regorafenib",
+    "substanceA": "regorafenib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-remibrutinib",
+    "substanceA": "remibrutinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-remibrutinib",
+    "substanceA": "remibrutinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-selpercatinib",
+    "substanceA": "selpercatinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-selpercatinib",
+    "substanceA": "selpercatinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-revumenib",
+    "substanceA": "revumenib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-revumenib",
+    "substanceA": "revumenib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-rilzabrutinib",
+    "substanceA": "rilzabrutinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-rilzabrutinib",
+    "substanceA": "rilzabrutinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-upadacitinib",
+    "substanceA": "upadacitinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-upadacitinib",
+    "substanceA": "upadacitinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-safinamide",
+    "substanceA": "safinamide",
+    "substanceB": "alcohol",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-and-tolvaptan-low-blood-sodium",
+    "substanceA": "tolvaptan-low-blood-sodium",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tolvaptan-low-blood-sodium",
+    "substanceA": "tolvaptan-low-blood-sodium",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-solifenacin",
+    "substanceA": "solifenacin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-solifenacin",
+    "substanceA": "solifenacin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sunitinib",
+    "substanceA": "sunitinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sunitinib",
+    "substanceA": "sunitinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-sunvozertinib",
+    "substanceA": "sunvozertinib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-sunvozertinib",
+    "substanceA": "sunvozertinib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tezacaftor-and-ivacaftor",
+    "substanceA": "tezacaftor-and-ivacaftor",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tezacaftor-and-ivacaftor",
+    "substanceA": "tezacaftor-and-ivacaftor",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "potassium-and-trandolapril-and-verapamil",
+    "substanceA": "trandolapril-and-verapamil",
+    "substanceB": "potassium",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-trandolapril-and-verapamil",
+    "substanceA": "trandolapril-and-verapamil",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tazemetostat",
+    "substanceA": "tazemetostat",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tazemetostat",
+    "substanceA": "tazemetostat",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-temsirolimus",
+    "substanceA": "temsirolimus",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-temsirolimus",
+    "substanceA": "temsirolimus",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-thiotepa-injection",
+    "substanceA": "thiotepa-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-thiotepa-injection",
+    "substanceA": "thiotepa-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tinidazole",
+    "substanceA": "tinidazole",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tinidazole",
+    "substanceA": "tinidazole",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-trabectedin-injection",
+    "substanceA": "trabectedin-injection",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-trabectedin-injection",
+    "substanceA": "trabectedin-injection",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-tretinoin",
+    "substanceA": "tretinoin",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-tretinoin",
+    "substanceA": "tretinoin",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-ubrogepant",
+    "substanceA": "ubrogepant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-ubrogepant",
+    "substanceA": "ubrogepant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-venetoclax",
+    "substanceA": "venetoclax",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-venetoclax",
+    "substanceA": "venetoclax",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-vepdegestrant",
+    "substanceA": "vepdegestrant",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-vepdegestrant",
+    "substanceA": "vepdegestrant",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-vorasidenib",
+    "substanceA": "vorasidenib",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-vorasidenib",
+    "substanceA": "vorasidenib",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-zonisamide",
+    "substanceA": "zonisamide",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-zonisamide",
+    "substanceA": "zonisamide",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-zuranolone",
+    "substanceA": "zuranolone",
+    "substanceB": "grapefruit",
+    "priority": 0.9
+  },
+  {
+    "slug": "grapefruit-juice-and-zuranolone",
+    "substanceA": "zuranolone",
+    "substanceB": "grapefruit-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-lipitor",
+    "substanceA": "lipitor",
+    "substanceB": "grapefruit",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-zocor",
+    "substanceA": "zocor",
+    "substanceB": "grapefruit",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-norvasc",
+    "substanceA": "norvasc",
+    "substanceB": "grapefruit",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-olmesartan-medoxomil--amlodipine-besylate--hydrochlorothiazide",
+    "substanceA": "olmesartan-medoxomil-/-amlodipine-besylate-/-hydrochlorothiazide",
+    "substanceB": "grapefruit",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-opsynvi",
+    "substanceA": "opsynvi",
+    "substanceB": "grapefruit",
+    "priority": 0.8
+  },
+  {
+    "slug": "grapefruit-and-macitentan-and-tadalafil",
+    "substanceA": "macitentan-and-tadalafil",
+    "substanceB": "grapefruit",
+    "priority": 0.8
+  },
+  {
+    "slug": "coumadin-and-spinach",
+    "substanceA": "coumadin",
+    "substanceB": "spinach",
+    "priority": 0.8
+  },
+  {
+    "slug": "spinach-and-warfarin-sodium",
+    "substanceA": "warfarin-sodium",
+    "substanceB": "spinach",
+    "priority": 0.8
+  },
+  {
+    "slug": "calcium-and-spinach",
+    "substanceA": "calcium",
+    "substanceB": "spinach",
+    "priority": 0.8
+  },
+  {
+    "slug": "calcium-gluconate-and-spinach",
+    "substanceA": "calcium-gluconate",
+    "substanceB": "spinach",
+    "priority": 0.8
+  },
+  {
+    "slug": "cvs-naturals-and-spinach",
+    "substanceA": "cvs-naturals",
+    "substanceB": "spinach",
+    "priority": 0.8
+  },
+  {
+    "slug": "iron-and-spinach",
+    "substanceA": "iron",
+    "substanceB": "spinach",
+    "priority": 0.8
+  },
+  {
+    "slug": "green-tea-and-iron",
+    "substanceA": "iron",
+    "substanceB": "green-tea",
+    "priority": 0.8
+  },
+  {
+    "slug": "fexofenadine-and-green-tea",
+    "substanceA": "fexofenadine",
+    "substanceB": "green-tea",
+    "priority": 0.8
+  },
+  {
+    "slug": "coffee-and-risedronate",
+    "substanceA": "risedronate",
+    "substanceB": "coffee",
+    "priority": 0.8
+  },
+  {
+    "slug": "coffee-and-ibandronate",
+    "substanceA": "ibandronate",
+    "substanceB": "coffee",
+    "priority": 0.8
+  },
+  {
+    "slug": "actonel-with-calcium-containing-calcium-risedronate-and-coffee",
+    "substanceA": "actonel-with-calcium-(containing-calcium,-risedronate)",
+    "substanceB": "coffee",
+    "priority": 0.8
+  },
+  {
+    "slug": "coffee-and-synthroid",
+    "substanceA": "synthroid",
+    "substanceB": "coffee",
+    "priority": 0.8
+  },
+  {
+    "slug": "coffee-and-levothyroxine-sodium",
+    "substanceA": "levothyroxine-sodium",
+    "substanceB": "coffee",
+    "priority": 0.8
+  },
+  {
+    "slug": "salt-substitute-and-zestril",
+    "substanceA": "zestril",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "amlodipine-and-benazepril-hydrochloride-and-salt-substitute",
+    "substanceA": "amlodipine-and-benazepril-hydrochloride",
+    "substanceB": "salt-substitute",
+    "priority": 0.8
+  },
+  {
+    "slug": "milk-and-tetracycline",
+    "substanceA": "tetracycline",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "achromycin-v-and-milk",
+    "substanceA": "achromycin-v",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "milk-and-sumycin",
+    "substanceA": "sumycin",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "milk-and-synthroid",
+    "substanceA": "synthroid",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "levothyroxine-and-milk",
+    "substanceA": "levothyroxine",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "levothyroxine-sodium-and-milk",
+    "substanceA": "levothyroxine-sodium",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "milk-and-risedronate",
+    "substanceA": "risedronate",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "ibandronate-and-milk",
+    "substanceA": "ibandronate",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "actonel-with-calcium-containing-calcium-risedronate-and-milk",
+    "substanceA": "actonel-with-calcium-(containing-calcium,-risedronate)",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "iron-and-milk",
+    "substanceA": "iron",
+    "substanceB": "milk",
+    "priority": 0.8
+  },
+  {
+    "slug": "fexofenadine-and-orange-juice",
+    "substanceA": "fexofenadine",
+    "substanceB": "orange-juice",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-glucophage",
+    "substanceA": "glucophage",
+    "substanceB": "alcohol",
+    "priority": 0.8
+  },
+  {
+    "slug": "alcohol-and-metformin-hydrochloride",
+    "substanceA": "metformin-hydrochloride",
+    "substanceB": "alcohol",
+    "priority": 0.8
+  },
+  {
+    "slug": "red-yeast-rice-monacolin-k-and-statin-cyp3a4-substrate---atorvastatin-simvastatin-lovastatin",
+    "substanceA": "statin-cyp3a4-substrate---atorvastatin-simvastatin-lovastatin",
+    "substanceB": "red-yeast-rice-monacolin-k",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-statin-cyp3a4-substrate---atorvastatin-simvastatin-lovastatin",
+    "substanceA": "statin-cyp3a4-substrate---atorvastatin-simvastatin-lovastatin",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "biguanide-metformin-and-medlineplus-dietary-guidance",
+    "substanceA": "biguanide-metformin",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-vitamin-k-antagonist-warfarin-coumadin",
+    "substanceA": "vitamin-k-antagonist-warfarin-coumadin",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "ace-inhibitor-angiotensin-receptor-blocker-arb-and-alcohol-ethanol",
+    "substanceA": "ace-inhibitor-angiotensin-receptor-blocker-arb",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "ace-inhibitor-angiotensin-receptor-blocker-arb-and-medlineplus-dietary-guidance",
+    "substanceA": "ace-inhibitor-angiotensin-receptor-blocker-arb",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-proton-pump-inhibitor-omeprazole-pantoprazole-esomeprazole",
+    "substanceA": "proton-pump-inhibitor-omeprazole-pantoprazole-esomeprazole",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "bisphosphonates-alendronate-risedronate-ibandronate-and-medlineplus-dietary-guidance",
+    "substanceA": "bisphosphonates-alendronate-risedronate-ibandronate",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "fluoroquinolones-ciprofloxacin-levofloxacin-moxifloxacin-and-medlineplus-dietary-guidance",
+    "substanceA": "fluoroquinolones-ciprofloxacin-levofloxacin-moxifloxacin",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-tetracyclines-doxycycline-minocycline",
+    "substanceA": "tetracyclines-doxycycline-minocycline",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-monoamine-oxidase-inhibitor-maoi---phenelzine-tranylcypromine-linezolid",
+    "substanceA": "monoamine-oxidase-inhibitor-maoi---phenelzine-tranylcypromine-linezolid",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-high-sodium-foods-and-systemic-corticosteroids-prednisone-methylprednisolone-dexamethasone",
+    "substanceA": "systemic-corticosteroids-prednisone-methylprednisolone-dexamethasone",
+    "substanceB": "alcohol-high-sodium-foods",
+    "priority": 0.7
+  },
+  {
+    "slug": "diuretics-furosemide-hydrochlorothiazide-torsemide-and-medlineplus-dietary-guidance",
+    "substanceA": "diuretics-furosemide-hydrochlorothiazide-torsemide",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-calcium-supplement-carbonate-citrate",
+    "substanceA": "calcium-supplement-carbonate-citrate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-methadone-hydrochloride",
+    "substanceA": "methadone-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-muscle-relaxant",
+    "substanceA": "muscle-relaxant",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "ccb-antihypertensive-and-medlineplus-dietary-guidance",
+    "substanceA": "ccb-antihypertensive",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-angiotensin-2-receptor-blocker",
+    "substanceA": "angiotensin-2-receptor-blocker",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "angiotensin-2-receptor-blocker-and-medlineplus-dietary-guidance",
+    "substanceA": "angiotensin-2-receptor-blocker",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "acetaminophen-and-codeine-phosphate-and-alcohol-ethanol",
+    "substanceA": "acetaminophen-and-codeine-phosphate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-potassium-phosphates",
+    "substanceA": "potassium-phosphates",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-thiazide-diuretic",
+    "substanceA": "thiazide-diuretic",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-thiazide-diuretic",
+    "substanceA": "thiazide-diuretic",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-tezacaftor-and-ivacaftor",
+    "substanceA": "tezacaftor-and-ivacaftor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-promethazine-hydrochloride",
+    "substanceA": "promethazine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "angiotensin-converting-enzyme-inhibitor-and-medlineplus-dietary-guidance",
+    "substanceA": "angiotensin-converting-enzyme-inhibitor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-desvenlafaxine-succinate",
+    "substanceA": "desvenlafaxine-succinate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-metoprolol-succinate",
+    "substanceA": "metoprolol-succinate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-paroxetine",
+    "substanceA": "paroxetine",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-rasagiline",
+    "substanceA": "rasagiline",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-pregabalin",
+    "substanceA": "pregabalin",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "amiodarone-hydrochloride-and-medlineplus-dietary-guidance",
+    "substanceA": "amiodarone-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-nonsteroidal-anti-inflammatory-drug",
+    "substanceA": "nonsteroidal-anti-inflammatory-drug",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-thiazide-like-diuretic",
+    "substanceA": "thiazide-like-diuretic",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-thiazide-like-diuretic",
+    "substanceA": "thiazide-like-diuretic",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-oxycodone-hydrochloride-and-acetaminophen",
+    "substanceA": "oxycodone-hydrochloride-and-acetaminophen",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-mirtazapine",
+    "substanceA": "mirtazapine",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-quetiapine-fumarate",
+    "substanceA": "quetiapine-fumarate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-sevelamer-carbonate",
+    "substanceA": "sevelamer-carbonate",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "anti-anginal-and-medlineplus-dietary-guidance",
+    "substanceA": "anti-anginal",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-potassium-sparing-diuretic",
+    "substanceA": "potassium-sparing-diuretic",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-hydrocodone-bitartrate-and-acetaminophen",
+    "substanceA": "hydrocodone-bitartrate-and-acetaminophen",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "hydrocodone-bitartrate-and-acetaminophen-and-medlineplus-dietary-guidance",
+    "substanceA": "hydrocodone-bitartrate-and-acetaminophen",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-prostaglandin-analog",
+    "substanceA": "prostaglandin-analog",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-verapamil-hydrochloride",
+    "substanceA": "verapamil-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-verapamil-hydrochloride",
+    "substanceA": "verapamil-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-vitamin-d3-analog",
+    "substanceA": "vitamin-d3-analog",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-pravastatin-sodium",
+    "substanceA": "pravastatin-sodium",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alkaloid-and-medlineplus-dietary-guidance",
+    "substanceA": "alkaloid",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-atypical-antipsychotic",
+    "substanceA": "atypical-antipsychotic",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "atypical-antipsychotic-and-medlineplus-dietary-guidance",
+    "substanceA": "atypical-antipsychotic",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-benzodiazepine",
+    "substanceA": "benzodiazepine",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "benzodiazepine-and-medlineplus-dietary-guidance",
+    "substanceA": "benzodiazepine",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alpha-adrenergic-blocker-and-medlineplus-dietary-guidance",
+    "substanceA": "alpha-adrenergic-blocker",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-hydrocodone-bitartrate",
+    "substanceA": "hydrocodone-bitartrate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "dasatinib-and-medlineplus-dietary-guidance",
+    "substanceA": "dasatinib",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "imatinib-and-medlineplus-dietary-guidance",
+    "substanceA": "imatinib",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-bupropion-hydrochloride",
+    "substanceA": "bupropion-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-doxepin-hydrochloride",
+    "substanceA": "doxepin-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-metoclopramide-hydrochloride",
+    "substanceA": "metoclopramide-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-diltiazem-hydrochloride",
+    "substanceA": "diltiazem-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "diltiazem-hydrochloride-and-medlineplus-dietary-guidance",
+    "substanceA": "diltiazem-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-probenecid",
+    "substanceA": "probenecid",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-metoclopramide",
+    "substanceA": "metoclopramide",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-metoclopramide",
+    "substanceA": "metoclopramide",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-clonidine-hydrochloride",
+    "substanceA": "clonidine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-meclizine-hydrochloride",
+    "substanceA": "meclizine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "cephalosporin-antibacterial-and-medlineplus-dietary-guidance",
+    "substanceA": "cephalosporin-antibacterial",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-venlafaxine-hydrochloride",
+    "substanceA": "venlafaxine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-anticholinergic",
+    "substanceA": "anticholinergic",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-peroxisome-proliferator-receptor-alpha-agonist",
+    "substanceA": "peroxisome-proliferator-receptor-alpha-agonist",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-peroxisome-proliferator-receptor-alpha-agonist",
+    "substanceA": "peroxisome-proliferator-receptor-alpha-agonist",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-naltrexone-hydrochloride",
+    "substanceA": "naltrexone-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "cardiac-glycoside-and-medlineplus-dietary-guidance",
+    "substanceA": "cardiac-glycoside",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-disopyramide-phosphate",
+    "substanceA": "disopyramide-phosphate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-phentermine-hydrochloride",
+    "substanceA": "phentermine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-phentermine-hydrochloride",
+    "substanceA": "phentermine-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-corticosteroid",
+    "substanceA": "corticosteroid",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "corticosteroid-and-medlineplus-dietary-guidance",
+    "substanceA": "corticosteroid",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-sildenafil",
+    "substanceA": "sildenafil",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-sildenafil",
+    "substanceA": "sildenafil",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-propranolol-hydrochloride",
+    "substanceA": "propranolol-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "estrogen-and-medlineplus-dietary-guidance",
+    "substanceA": "estrogen",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-sulfonylurea",
+    "substanceA": "sulfonylurea",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-sulfonylurea",
+    "substanceA": "sulfonylurea",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-citalopram",
+    "substanceA": "citalopram",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "cinacalcet-and-medlineplus-dietary-guidance",
+    "substanceA": "cinacalcet",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-vitamin-d2-analog",
+    "substanceA": "vitamin-d2-analog",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-moxifloxacin-hydrochloride",
+    "substanceA": "moxifloxacin-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-azole-antifungal",
+    "substanceA": "azole-antifungal",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "azole-antifungal-and-medlineplus-dietary-guidance",
+    "substanceA": "azole-antifungal",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-thyroid-hormone-synthesis-inhibitor",
+    "substanceA": "thyroid-hormone-synthesis-inhibitor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-aldosterone-antagonist",
+    "substanceA": "aldosterone-antagonist",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "aldosterone-antagonist-and-medlineplus-dietary-guidance",
+    "substanceA": "aldosterone-antagonist",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-insulin-analog",
+    "substanceA": "insulin-analog",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "insulin-analog-and-medlineplus-dietary-guidance",
+    "substanceA": "insulin-analog",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-quetiapine",
+    "substanceA": "quetiapine",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-quetiapine",
+    "substanceA": "quetiapine",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-oxycodone-hydrochloride",
+    "substanceA": "oxycodone-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-tizanidne-hydrochloride",
+    "substanceA": "tizanidne-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-depo-medrol-lidocaine-isopropyl-alcohol",
+    "substanceA": "depo-medrol-lidocaine-isopropyl-alcohol",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-xanthine-oxidase-inhibitor",
+    "substanceA": "xanthine-oxidase-inhibitor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-tramadol-hydrochloride",
+    "substanceA": "tramadol-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-fluvoxamine-maleate",
+    "substanceA": "fluvoxamine-maleate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "entrectinib-and-medlineplus-dietary-guidance",
+    "substanceA": "entrectinib",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-eszopiclone",
+    "substanceA": "eszopiclone",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "eszopiclone-and-medlineplus-dietary-guidance",
+    "substanceA": "eszopiclone",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-duloxetine-hydrochloride",
+    "substanceA": "duloxetine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-azelastine-hydrochloride",
+    "substanceA": "azelastine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "fluoroquinolone-antibacterial-and-medlineplus-dietary-guidance",
+    "substanceA": "fluoroquinolone-antibacterial",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-androgen",
+    "substanceA": "androgen",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-tizanidine",
+    "substanceA": "tizanidine",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-trazodone-hydrochloride",
+    "substanceA": "trazodone-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-trazodone-hydrochloride",
+    "substanceA": "trazodone-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-prednisolone-sodium-phosphate",
+    "substanceA": "prednisolone-sodium-phosphate",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-sulfone",
+    "substanceA": "sulfone",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "loop-diuretic-and-medlineplus-dietary-guidance",
+    "substanceA": "loop-diuretic",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-antimycobacterial",
+    "substanceA": "antimycobacterial",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "antimycobacterial-and-medlineplus-dietary-guidance",
+    "substanceA": "antimycobacterial",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-phosphodiesterase-5-inhibitor",
+    "substanceA": "phosphodiesterase-5-inhibitor",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-phosphodiesterase-5-inhibitor",
+    "substanceA": "phosphodiesterase-5-inhibitor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "lapatinib-and-medlineplus-dietary-guidance",
+    "substanceA": "lapatinib",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-folic-acid",
+    "substanceA": "folic-acid",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "folic-acid-and-medlineplus-dietary-guidance",
+    "substanceA": "folic-acid",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "lurasidone-hydrochloride-and-medlineplus-dietary-guidance",
+    "substanceA": "lurasidone-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "5-alpha-reductase-inhibitor-and-medlineplus-dietary-guidance",
+    "substanceA": "5-alpha-reductase-inhibitor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-melatonin-receptor-agonist",
+    "substanceA": "melatonin-receptor-agonist",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-melatonin-receptor-agonist",
+    "substanceA": "melatonin-receptor-agonist",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-tizanidine-hydrochloride",
+    "substanceA": "tizanidine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-lacosamide",
+    "substanceA": "lacosamide",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-quinolone-antimicrobial",
+    "substanceA": "quinolone-antimicrobial",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-brimonidine-tartrate",
+    "substanceA": "brimonidine-tartrate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-chlordiazepoxide-hydrochloride",
+    "substanceA": "chlordiazepoxide-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-leukotriene-receptor-antagonist",
+    "substanceA": "leukotriene-receptor-antagonist",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-methylprednisolone-acetate",
+    "substanceA": "methylprednisolone-acetate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-radiographic-contrast-agent",
+    "substanceA": "radiographic-contrast-agent",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-radiographic-contrast-agent",
+    "substanceA": "radiographic-contrast-agent",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-phenobarbital",
+    "substanceA": "phenobarbital",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-cyclobenzaprine-hydrochloride",
+    "substanceA": "cyclobenzaprine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-trimethobenzamide-hydrochloride",
+    "substanceA": "trimethobenzamide-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "losartan-potassium-and-medlineplus-dietary-guidance",
+    "substanceA": "losartan-potassium",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-paroxetine-hydrochloride-hemihydrate",
+    "substanceA": "paroxetine-hydrochloride-hemihydrate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-chlordiazepoxide-hcl-and-clidinium-bromide",
+    "substanceA": "chlordiazepoxide-hcl-and-clidinium-bromide",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "human-immunodeficiency-virus-1-non-nucleoside-analog-reverse-transcriptase-inhibitor-and-medlineplus-dietary-guidance",
+    "substanceA": "human-immunodeficiency-virus-1-non-nucleoside-analog-reverse-transcriptase-inhibitor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-vesicular-monoamine-transporter-2-inhibitor",
+    "substanceA": "vesicular-monoamine-transporter-2-inhibitor",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-glycopyrrolate",
+    "substanceA": "glycopyrrolate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-cefepime",
+    "substanceA": "cefepime",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-trihexyphenidyl-hydrochloride",
+    "substanceA": "trihexyphenidyl-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-terazosin-hydrochloride",
+    "substanceA": "terazosin-hydrochloride",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "catechol-o-methyltransferase-inhibitor-and-medlineplus-dietary-guidance",
+    "substanceA": "catechol-o-methyltransferase-inhibitor",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-tacrolimus",
+    "substanceA": "tacrolimus",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-amitriptyline-hydrochloride",
+    "substanceA": "amitriptyline-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-raloxifene",
+    "substanceA": "raloxifene",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-phenytoin-sodium",
+    "substanceA": "phenytoin-sodium",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-bupropion",
+    "substanceA": "bupropion",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-duloxetine",
+    "substanceA": "duloxetine",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alpha-adrenergic-agonist-and-medlineplus-dietary-guidance",
+    "substanceA": "alpha-adrenergic-agonist",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-meperidine-hydrochloride",
+    "substanceA": "meperidine-hydrochloride",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "fludrocortisone-acetate-and-medlineplus-dietary-guidance",
+    "substanceA": "fludrocortisone-acetate",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-topiramate",
+    "substanceA": "topiramate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-topiramate",
+    "substanceA": "topiramate",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-sodium-bicarbonate",
+    "substanceA": "sodium-bicarbonate",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-escitalopram-oxalate",
+    "substanceA": "escitalopram-oxalate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "medlineplus-dietary-guidance-and-potassium-binder",
+    "substanceA": "potassium-binder",
+    "substanceB": "medlineplus-dietary-guidance",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-caspofungin-acetate",
+    "substanceA": "caspofungin-acetate",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  },
+  {
+    "slug": "alcohol-ethanol-and-gamma-aminobutyric-acid-ergic-agonist",
+    "substanceA": "gamma-aminobutyric-acid-ergic-agonist",
+    "substanceB": "alcohol-ethanol",
+    "priority": 0.7
+  }
+]

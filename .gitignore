@@ -35,3 +35,6 @@ yarn-error.log*
 Thumbs.db
 *.tsbuildinfo
 
+# Raw openFDA datasets
+drug/
+
